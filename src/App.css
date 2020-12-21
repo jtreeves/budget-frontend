@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=PT+Sans:wght@700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  height: 100%;
+}
+html body {
+  height: 100%;
+  background-color: #cccccc;
+}
+html body #root {
+  height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+html body #root .nav-public a {
+  font: 30px "PT Sans", sans-serif;
+}
+html body #root .nav-public ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+html body #root .nav-public ul li a {
+  font: 20px "Nunito", sans-serif;
+}
+html body #root .div-welcome-header {
+  background-color: green;
+}
+html body #root .div-welcome-header h1 {
+  color: red;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=App.css.map */

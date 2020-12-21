@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=PT+Sans:wght@700&display=swap');
+
+// Variables ——————————————————————————————
+
+$app-max-width: 1920px;
+$color-white: #ffffff;
+$color-light-gray: #cccccc;
+$font-title: 30px 'PT Sans', sans-serif;
+$font-nav: 20px 'Nunito', sans-serif;
+
+// Global ——————————————————————————————
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Nested selectors ——————————————————————————————
+
+html {
+  height: 100%;
+
+  body {
+    height: 100%;
+    background-color: $color-light-gray;
+
+    #root {
+      height: 100%;
+      max-width: $app-max-width;
+      margin: 0 auto;
+      background-color: $color-white;
+
+      // Navigation ——————————————————————————————
+
+      .nav-public {
+        a {
+          font: $font-title;
+        }
+
+        ul {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+
+          li {
+            a {
+              font: $font-nav;
+            }
+          }
+        }
+      }
+
+      // Welcome ——————————————————————————————
+
+      .div-welcome-header {
+        background-color: green;
+
+        h1 {
+          color: red;
+          font-size: 30px;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
