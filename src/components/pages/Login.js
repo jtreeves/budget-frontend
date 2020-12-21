@@ -35,6 +35,7 @@ function Login(props) {
 
     // Submit form data
     const handleSubmit = async (e) => {
+        console.log('submitted login')
         try {
             e.preventDefault()
             const userData = {email, password}
@@ -79,6 +80,7 @@ function Login(props) {
                     onChange={handlePassword}
                 />
                 <button
+                    onClick={handleSubmit}
                     type="submit"
                 >
                     Submit
