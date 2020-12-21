@@ -7,6 +7,7 @@ function UserNavigation(props) {
         <div>
             <Logo />
             <h4>Budget</h4>
+            {/* May convert to NavLink later */}
             <Link className="" to ="/income">Income</Link>
             <Link className="" to ="/housing">Housing</Link>
             <Link className="" to ="/utilities">Utilities</Link>
@@ -15,6 +16,11 @@ function UserNavigation(props) {
             <Link className="" to ="/Miscellaneous">Miscellaneous</Link>
             <hr />
             <h4>Saved Budgets</h4>
+            {/* Create loop to do the following:
+            if no saved budgets display "No Saved Budgets"
+            else saved budgets > 0 display list of budgets as links
+            to specified budgets.
+            */}
         </div>
     )
 }
