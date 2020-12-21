@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
+import Logo from '../elements/Logo'
 
 // Import internal utility
 import setAuthToken from '../../utilities/setAuthToken'
@@ -60,6 +61,7 @@ function Login(props) {
 
     return (
         <div className="row mt-4 col-md-7 offset-md-3 card card-body">
+            <Logo />
             <h1 className="py-2">Log In</h1>
             <form onSubmit={handleSubmit}>
                 <FormGroup
