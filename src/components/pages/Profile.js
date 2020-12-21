@@ -1,12 +1,17 @@
+import { useEffect, useState } from 'react'
 
-import DefaultProfile from '../elements/DefaultProfile'
+
 import UserNavigation from '../elements/UserNavigation'
-
+import DynamicContent from './DynamicContent'
 
 function Profile(props) {
+  
+  const [extension, setExtension] = useState(props.match.params.ext)
+  
+
   return (
     <div>
-      <UserNavigation />
+      <UserNavigation setExtension={setExtension}/>
       <h1>Profile</h1>
       <div className="helper">
         <h2>User Info</h2>
@@ -20,9 +25,8 @@ function Profile(props) {
           <strong>ID:</strong> {props.user.id}
         </p>
       </div>
-      {/* Middle Section of Profile Page */}
       <div className="helper">
-        <DefaultProfile />
+        <DynamicContent extension={extension}/>
       </div>
     </div>
   );
