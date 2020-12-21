@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=PT+Sans:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=PT+Sans:wght@700&display=swap');
 * {
   box-sizing: border-box;
   padding: 0;
@@ -33,7 +33,7 @@ html body #root .nav-public {
 }
 html body #root .nav-public a {
   color: #fff;
-  font-family: "PT Sans", sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 30px;
 }
 html body #root .nav-public ul {
@@ -48,7 +48,7 @@ html body #root .nav-public ul li {
 }
 html body #root .nav-public ul li a {
   color: #fff;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
@@ -66,14 +66,14 @@ html body #root .div-welcome-page .div-welcome-header {
 }
 html body #root .div-welcome-page .div-welcome-header h1 {
   color: #fff;
-  font-family: "PT Sans", sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 50px;
   padding-bottom: 20px;
   text-align: center;
 }
 html body #root .div-welcome-page .div-welcome-header p {
   color: #fff;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 2em;

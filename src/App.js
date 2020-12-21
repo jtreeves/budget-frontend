@@ -88,7 +88,6 @@ function App() {
           <PrivateRoute path="/profile" component={Profile} user={currentUser} />
         </Switch>
       </div>
-      <Footer />
     </div>
   );
 }
