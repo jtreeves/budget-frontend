@@ -1,0 +1,15 @@
+.helper {
+  margin-bottom: 10px;
+  border: solid 2px red;
+}
+
+.compact-container {
+  padding: 5px;
+  margin: 10px auto;
+  width: 50%;
+  border-radius: 10px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
