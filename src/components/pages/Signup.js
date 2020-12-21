@@ -1,6 +1,7 @@
 // Import external dependencies
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import { useAlert } from 'react-alert'
 import axios from 'axios'
 
 // Import internal component
@@ -11,6 +12,7 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 // Create function
 function Signup() {
+    const alert = useAlert()
     // Set initial state values
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -52,15 +54,15 @@ function Signup() {
                     setRedirect(true)
                 } else {
                     // Alert user if password too short
-                    alert('Password must be at least 8 characters long')
+                    alert.show('Password must be at least 8 characters long')
                 }
             } else {
                 // Alert user if passwords do not match
-                alert('Passwords must match')
+                alert.show('Passwords must match')
             }
         } catch(error) {
             // Alert user if email already in use
-            alert(error.response.data.msg)
+            alert.show(error.response.data.msg)
             console.log(`SIGNUP ERROR: ${error}`)
         }
     }

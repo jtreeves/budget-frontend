@@ -1,8 +1,10 @@
 // Import external dependencies
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import { useAlert } from 'react-alert'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
+import Logo from '../elements/Logo'
 
 // Import internal utility
 import setAuthToken from '../../utilities/setAuthToken'
@@ -15,6 +17,8 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 // Create function
 function Login(props) {
+    const alert = useAlert()
+
     // Set initial state values
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -48,7 +52,7 @@ function Login(props) {
             props.nowCurrentUser(decoded)
         } catch(error) {
             // Alert user of any errors logging in
-            alert(error.response.data.msg)
+            alert.show(error.response.data.msg)
             console.log(`LOGIN ERROR: ${error}`)
         }
     }
@@ -57,8 +61,9 @@ function Login(props) {
     if (props.user) return <Redirect to="/profile" />
 
     return (
-        <div>
-            <h1>Log In</h1>
+        <div className="row mt-4 col-md-7 offset-md-3 card card-body">
+            <Logo />
+            <h1 className="py-2">Log In</h1>
             <form onSubmit={handleSubmit}>
                 <FormGroup
                     type="email"
