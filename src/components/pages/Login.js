@@ -1,6 +1,7 @@
 // Import external dependencies
 import { useState } from 'react'
 import { Redirect } from 'react-router-dom'
+import { useAlert } from 'react-alert'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 
@@ -15,6 +16,8 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 // Create function
 function Login(props) {
+    const alert = useAlert()
+
     // Set initial state values
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -47,7 +50,7 @@ function Login(props) {
             props.nowCurrentUser(decoded)
         } catch(error) {
             // Alert user of any errors logging in
-            alert(error.response.data.msg)
+            alert.show(error.response.data.msg)
             console.log(`LOGIN ERROR: ${error}`)
         }
     }
