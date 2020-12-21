@@ -56,8 +56,8 @@ function Login(props) {
     if (props.user) return <Redirect to="/profile" />
 
     return (
-        <div className="row mt-4 col-md-7 offset-md-3 card card-body">
-            <h1 className="py-2">Log In</h1>
+        <div>
+            <h1>Log In</h1>
             <form onSubmit={handleSubmit}>
                 <FormGroup
                     type="email"
@@ -75,7 +75,6 @@ function Login(props) {
                 />
                 <button
                     type="submit"
-                    className="btn btn-primary float-right"
                 >
                     Submit
                 </button>
