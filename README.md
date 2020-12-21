@@ -1,5 +1,7 @@
-# Template for the Frontend of a MERN App
-This repository features:
-- Components common to most apps
-- Routes linking them together
-- Connection to a backend MERN app
+# Kaleidoscope
+
+An app for seeing how simple life changes can result in dramatic budget opportunities
+
+Let us help you!
+
+More words!
