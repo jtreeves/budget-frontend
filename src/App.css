@@ -14,14 +14,14 @@ html {
 }
 html body {
   height: 100%;
-  background-color: #cccccc;
+  background-color: #ccc;
 }
 html body #root {
   position: relative;
   height: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 html body #root .nav-public {
   position: absolute;
@@ -32,8 +32,9 @@ html body #root .nav-public {
   justify-content: space-between;
 }
 html body #root .nav-public a {
-  color: #ffffff;
-  font: 30px "PT Sans", sans-serif;
+  color: #fff;
+  font-family: "PT Sans", sans-serif;
+  font-size: 30px;
 }
 html body #root .nav-public ul {
   display: grid;
@@ -46,7 +47,10 @@ html body #root .nav-public ul li {
   list-style-type: none;
 }
 html body #root .nav-public ul li a {
-  font: 600 20px "Nunito", sans-serif;
+  color: #fff;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
 }
 html body #root .div-welcome-page {
   top: 0;
@@ -61,14 +65,18 @@ html body #root .div-welcome-page .div-welcome-header {
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
 html body #root .div-welcome-page .div-welcome-header h1 {
+  color: #fff;
+  font-family: "PT Sans", sans-serif;
+  font-size: 50px;
   padding-bottom: 20px;
-  color: #ffffff;
-  font: 50px "PT Sans", sans-serif;
   text-align: center;
 }
 html body #root .div-welcome-page .div-welcome-header p {
-  color: #ffffff;
-  font: 400 20px/2em "Nunito", sans-serif;
+  color: #fff;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2em;
 }
 
 /*# sourceMappingURL=App.css.map */

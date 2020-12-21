@@ -4,13 +4,41 @@
 
 $app-max-width: 1920px;
 $public-padding: 0 4vw;
-$color-white: #ffffff;
-$color-light-gray: #cccccc;
+$color-black: #000;
+$color-white: #fff;
+$color-light-gray: #ccc;
 $gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-$font-title: 30px 'PT Sans', sans-serif;
-$font-nav: 600 20px 'Nunito', sans-serif;
-$font-h1: 50px 'PT Sans', sans-serif;
-$font-body: 400 20px/2em 'Nunito', sans-serif;
+$font-family-primary: 'Nunito', sans-serif;
+$font-family-secondary: 'PT Sans', sans-serif;
+
+// Mixins ——————————————————————————————
+
+@mixin text-title($color: $color-black) {
+  color: $color;
+  font-family: $font-family-secondary;
+  font-size: 30px;
+}
+
+@mixin text-nav($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@mixin text-h1($color: $color-black) {
+  color: $color;
+  font-family: $font-family-secondary;
+  font-size: 50px;
+}
+
+@mixin text-body($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2em;
+}
 
 // Global ——————————————————————————————
 
@@ -51,8 +79,7 @@ html {
         justify-content: space-between;
 
         a {
-          color: $color-white;
-          font: $font-title;
+          @include text-title($color-white);
         }
 
         ul {
@@ -66,7 +93,7 @@ html {
             list-style-type: none;
 
             a {
-              font: $font-nav;
+              @include text-nav($color-white);
             }
           }
         }
@@ -87,15 +114,13 @@ html {
           background-image: $gradient;
 
           h1 {
+            @include text-h1($color-white);
             padding-bottom: 20px;
-            color: $color-white;
-            font: $font-h1;
             text-align: center;
           }
 
           p {
-            color: $color-white;
-            font: $font-body;
+            @include text-body($color-white);
           }
         }
       }
