@@ -71,8 +71,8 @@ function Signup() {
     if (redirect) return <Redirect to="/login" />
 
     return (
-        <div className="row mt-4 col-md-7 offset-md-3 card card-body">
-            <h1 className="py-2">Sign Up</h1>
+        <div>
+            <h1>Sign Up</h1>
             <form onSubmit={handleSubmit}>
                 <FormGroup
                     type="text"
@@ -104,7 +104,6 @@ function Signup() {
                 />
                 <button
                     type="submit"
-                    className="btn btn-primary float-right"
                 >
                     Submit
                 </button>

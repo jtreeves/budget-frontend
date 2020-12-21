@@ -1,8 +1,8 @@
 // Create function
 function Footer() {
     return (
-        <footer className="bg-dark text-center text-muted">
-            © 2020 Jackson Reeves
+        <footer>
+            © 2020 Kaleidoscope 
         </footer>
     )
 }

@@ -80,7 +80,6 @@ function Login(props) {
                 />
                 <button
                     type="submit"
-                    className="btn btn-primary float-right"
                 >
                     Submit
                 </button>
