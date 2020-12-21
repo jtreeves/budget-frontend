@@ -60,9 +60,9 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div>
             <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />
-            <div className="container mt-5">
+            <div>
                 <Switch>
                     <Route exact path="/" component={Welcome} />
                     <Route path="/about" component={About} />
