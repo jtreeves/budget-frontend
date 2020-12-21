@@ -3,14 +3,19 @@
 // Variables ——————————————————————————————
 
 $app-max-width: 1920px;
+$public-padding: 0 4vw;
 $color-white: #ffffff;
 $color-light-gray: #cccccc;
+$gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 $font-title: 30px 'PT Sans', sans-serif;
-$font-nav: 20px 'Nunito', sans-serif;
+$font-nav: 600 20px 'Nunito', sans-serif;
+$font-h1: 50px 'PT Sans', sans-serif;
+$font-body: 400 20px/2em 'Nunito', sans-serif;
 
 // Global ——————————————————————————————
 
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -29,6 +34,7 @@ html {
     background-color: $color-light-gray;
 
     #root {
+      position: relative;
       height: 100%;
       max-width: $app-max-width;
       margin: 0 auto;
@@ -37,15 +43,28 @@ html {
       // Navigation ——————————————————————————————
 
       .nav-public {
+        position: absolute;
+        width: 100%;
+        padding: $public-padding;
+        padding-top: 40px;
+        display: flex;
+        justify-content: space-between;
+
         a {
+          color: $color-white;
           font: $font-title;
         }
 
         ul {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(4, auto);
+          gap: 3vw;
+          justify-items: end;
+          align-items: center;
 
           li {
+            list-style-type: none;
+
             a {
               font: $font-nav;
             }
@@ -55,13 +74,29 @@ html {
 
       // Welcome ——————————————————————————————
 
-      .div-welcome-header {
-        background-color: green;
+      .div-welcome-page {
+        top: 0;
+        width: 100%;
 
-        h1 {
-          color: red;
-          font-size: 30px;
-          text-decoration: underline;
+        .div-welcome-header {
+          height: 800px;
+          padding: 0 10vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background-image: $gradient;
+
+          h1 {
+            padding-bottom: 20px;
+            color: $color-white;
+            font: $font-h1;
+            text-align: center;
+          }
+
+          p {
+            color: $color-white;
+            font: $font-body;
+          }
         }
       }
     }

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=PT+Sans:wght@700&display=swap");
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -16,28 +17,58 @@ html body {
   background-color: #cccccc;
 }
 html body #root {
+  position: relative;
   height: 100%;
   max-width: 1920px;
   margin: 0 auto;
   background-color: #ffffff;
 }
+html body #root .nav-public {
+  position: absolute;
+  width: 100%;
+  padding: 0 4vw;
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
 html body #root .nav-public a {
+  color: #ffffff;
   font: 30px "PT Sans", sans-serif;
 }
 html body #root .nav-public ul {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, auto);
+  gap: 3vw;
+  justify-items: end;
+  align-items: center;
+}
+html body #root .nav-public ul li {
+  list-style-type: none;
 }
 html body #root .nav-public ul li a {
-  font: 20px "Nunito", sans-serif;
+  font: 600 20px "Nunito", sans-serif;
 }
-html body #root .div-welcome-header {
-  background-color: green;
+html body #root .div-welcome-page {
+  top: 0;
+  width: 100%;
 }
-html body #root .div-welcome-header h1 {
-  color: red;
-  font-size: 30px;
-  text-decoration: underline;
+html body #root .div-welcome-page .div-welcome-header {
+  height: 800px;
+  padding: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+html body #root .div-welcome-page .div-welcome-header h1 {
+  padding-bottom: 20px;
+  color: #ffffff;
+  font: 50px "PT Sans", sans-serif;
+  text-align: center;
+}
+html body #root .div-welcome-page .div-welcome-header p {
+  color: #ffffff;
+  font: 400 20px/2em "Nunito", sans-serif;
 }
 
 /*# sourceMappingURL=App.css.map */
