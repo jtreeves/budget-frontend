@@ -29,3 +29,5 @@ function Profile(props) {
 
 // Export function
 export default Profile;
+
+//Jeremy will edit this file very soon. 
