@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=PT+Sans:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=PT+Sans:wght@700&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
@@ -17,13 +17,19 @@ html body {
   background-color: #ccc;
 }
 html body #root {
+  height: 100%;
+}
+html body #root .div-app-container {
+  height: 100%;
+}
+html body #root .div-app-container .div-public-container {
   position: relative;
   height: 100%;
   max-width: 1920px;
   margin: 0 auto;
   background-color: #fff;
 }
-html body #root .nav-public {
+html body #root .div-app-container .div-public-container .nav-public {
   position: absolute;
   width: 100%;
   padding: 0 4vw;
@@ -31,32 +37,28 @@ html body #root .nav-public {
   display: flex;
   justify-content: space-between;
 }
-html body #root .nav-public a {
+html body #root .div-app-container .div-public-container .nav-public a {
   color: #fff;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-size: 30px;
 }
-html body #root .nav-public ul {
+html body #root .div-app-container .div-public-container .nav-public ul {
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 3vw;
   justify-items: end;
   align-items: center;
 }
-html body #root .nav-public ul li {
+html body #root .div-app-container .div-public-container .nav-public ul li {
   list-style-type: none;
 }
-html body #root .nav-public ul li a {
+html body #root .div-app-container .div-public-container .nav-public ul li a {
   color: #fff;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
-html body #root .div-welcome-page {
-  top: 0;
-  width: 100%;
-}
-html body #root .div-welcome-page .div-welcome-header {
+html body #root .div-app-container .div-public-container .div-welcome-header {
   height: 800px;
   padding: 0 10vw;
   display: flex;
@@ -64,19 +66,26 @@ html body #root .div-welcome-page .div-welcome-header {
   justify-content: center;
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
-html body #root .div-welcome-page .div-welcome-header h1 {
+html body #root .div-app-container .div-public-container .div-welcome-header h1 {
   color: #fff;
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-size: 50px;
   padding-bottom: 20px;
   text-align: center;
 }
-html body #root .div-welcome-page .div-welcome-header p {
+html body #root .div-app-container .div-public-container .div-welcome-header p {
   color: #fff;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 2em;
+}
+html body #root .div-app-container .div-dashboard {
+  top: 20px;
+  bottom: 20px;
+  width: 100%;
+  position: absolute;
+  background-color: #fff;
 }
 
 /*# sourceMappingURL=App.css.map */

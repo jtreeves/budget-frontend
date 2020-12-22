@@ -62,66 +62,79 @@ html {
     background-color: $color-light-gray;
 
     #root {
-      position: relative;
       height: 100%;
-      max-width: $app-max-width;
-      margin: 0 auto;
-      background-color: $color-white;
 
-      // Navigation ——————————————————————————————
+      .div-app-container {
+        height: 100%;
 
-      .nav-public {
-        position: absolute;
-        width: 100%;
-        padding: $public-padding;
-        padding-top: 40px;
-        display: flex;
-        justify-content: space-between;
+        .div-public-container {
+          position: relative;
+          height: 100%;
+          max-width: $app-max-width;
+          margin: 0 auto;
+          background-color: $color-white;
 
-        a {
-          @include text-title($color-white);
-        }
+          // Public Navigation ——————————————————————————————
 
-        ul {
-          display: grid;
-          grid-template-columns: repeat(4, auto);
-          gap: 3vw;
-          justify-items: end;
-          align-items: center;
-
-          li {
-            list-style-type: none;
+          .nav-public {
+            position: absolute;
+            width: 100%;
+            padding: $public-padding;
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
 
             a {
-              @include text-nav($color-white);
+              @include text-title($color-white);
+            }
+
+            ul {
+              display: grid;
+              grid-template-columns: repeat(4, auto);
+              gap: 3vw;
+              justify-items: end;
+              align-items: center;
+
+              li {
+                list-style-type: none;
+
+                a {
+                  @include text-nav($color-white);
+                }
+              }
+            }
+          }
+
+          // Welcome ——————————————————————————————
+
+          .div-welcome-header {
+            height: 800px;
+            padding: 0 10vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: $gradient;
+
+            h1 {
+              @include text-h1($color-white);
+              padding-bottom: 20px;
+              text-align: center;
+            }
+
+            p {
+              @include text-body($color-white);
             }
           }
         }
-      }
 
-      // Welcome ——————————————————————————————
+        // Dashboard ——————————————————————————————
 
-      .div-welcome-page {
-        top: 0;
-        width: 100%;
-
-        .div-welcome-header {
-          height: 800px;
-          padding: 0 10vw;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          background-image: $gradient;
-
-          h1 {
-            @include text-h1($color-white);
-            padding-bottom: 20px;
-            text-align: center;
-          }
-
-          p {
-            @include text-body($color-white);
-          }
+        .div-dashboard {
+          top: 20px;
+          bottom: 20px;
+          width: 100%;
+          position: absolute;
+          background-color: $color-white;
         }
       }
     }

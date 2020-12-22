@@ -65,29 +65,32 @@ function App() {
   };
 
   return (
-    <div>
-      <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />
-      <div>
-        <Switch>
-          <Route exact path="/" component={Welcome} />
-          <Route path="/about" component={About} />
-          <Route path="/signup" component={Signup} />
-          <Route
-            path="/login"
-            render={(props) => {
-              return (
-                <Login
-                  {...props}
-                  nowCurrentUser={nowCurrentUser}
-                  setIsAuthenticated={setIsAuthenticated}
-                  user={currentUser}
-                />
-              );
-            }}
-          />
-          <PrivateRoute path="/profile" component={Profile} user={currentUser} />
-        </Switch>
+    <div className="div-app-container">
+      <div className="div-public-container">
+        {/* MOVED NAVIGATION INSIDE DIV */}
+        {/* <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} /> */}
+        {/* TURNED OFF SWITCH */}
+        {/* <Switch> */}
+        <Route exact path="/" component={Welcome} />
+        <Route path="/about" component={About} />
+        <Route path="/signup" component={Signup} />
+        <Route
+          path="/login"
+          render={(props) => {
+            return (
+              <Login
+                {...props}
+                nowCurrentUser={nowCurrentUser}
+                setIsAuthenticated={setIsAuthenticated}
+                user={currentUser}
+              />
+            );
+          }}
+        />
       </div>
+      {/* MOVED PROFILE OUTSIDE DIV */}
+      <PrivateRoute path="/profile" component={Profile} user={currentUser} />
+      {/* </Switch> */}
     </div>
   );
 }

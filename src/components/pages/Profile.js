@@ -1,11 +1,9 @@
-
-import DefaultProfile from '../elements/DefaultProfile'
-import UserNavigation from '../elements/UserNavigation'
-
+import DefaultProfile from '../elements/DefaultProfile';
+import UserNavigation from '../elements/UserNavigation';
 
 function Profile(props) {
   return (
-    <div>
+    <div className="div-dashboard">
       <UserNavigation />
       <h1>Profile</h1>
       <div className="helper">
