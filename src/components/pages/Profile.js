@@ -5,6 +5,8 @@ import { useState } from 'react'
 import UserInfo from '../elements/UserInfo'
 import ProfileRoutes from '../elements/ProfileRoutes'
 
+// thomas' comment
+
 // Jackson
 
 function Profile(props) {
