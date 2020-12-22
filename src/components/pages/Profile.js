@@ -5,7 +5,7 @@ import { useState } from 'react'
 import UserInfo from '../elements/UserInfo'
 import ProfileRoutes from '../elements/ProfileRoutes'
 
-
+// Profile component
 function Profile(props) {
   
   return (
