@@ -1,4 +1,4 @@
-import CompactDisplay from './CompactDisplay';
+import CompactDisplay from '../elements/CompactDisplay';
 import CompactTotal from '../elements/CompactTotal';
 
 

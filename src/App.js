@@ -8,7 +8,7 @@ import setAuthToken from './utilities/setAuthToken';
 
 // Import internal components
 import Navigation from './components/elements/Navigation';
-import Footer from './components/elements/Footer';
+import UserNavigation from './components/elements/UserNavigation';
 import Welcome from './components/pages/Welcome';
 import About from './components/pages/About';
 import Signup from './components/pages/Signup';
@@ -55,6 +55,12 @@ function App() {
     setIsAuthenticated(true);
   };
 
+  // Establish current user
+  const nowCurrentUser = (userData) => {
+    setCurrentUser(userData);
+    setIsAuthenticated(true);
+  };
+
   // Log out user
   const handleLogout = () => {
     if (localStorage.getItem('jwtToken')) {
@@ -64,13 +70,18 @@ function App() {
     }
   };
 
+  const handleNavBars = () => {
+    if (isAuthenticated) {
+      return <UserNavigation handleLogout={handleLogout} />;
+    } else {
+      return <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />;
+    }
+  };
+
   return (
-    <div className="div-app-container">
-      <div className="div-public-container">
-        {/* MOVED NAVIGATION INSIDE DIV */}
-        {/* <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} /> */}
-        {/* TURNED OFF SWITCH */}
-        {/* <Switch> */}
+    <div>
+      {handleNavBars()}
+      <div>
         <Route exact path="/" component={Welcome} />
         <Route path="/about" component={About} />
         <Route path="/signup" component={Signup} />
@@ -87,10 +98,11 @@ function App() {
             );
           }}
         />
+
+        <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} />
+
+        <PrivateRoute exact path="/profile" component={Profile} user={currentUser} />
       </div>
-      {/* MOVED PROFILE OUTSIDE DIV */}
-      <PrivateRoute path="/profile" component={Profile} user={currentUser} />
-      {/* </Switch> */}
     </div>
   );
 }
