@@ -100,6 +100,7 @@ function App() {
                         path="/profile"
                         component={Profile}
                         user={currentUser}
+                        handleLogout={handleLogout}
                     />
                 
             </div>
