@@ -93,6 +93,7 @@ function App() {
                         path="/profile/:ext"
                         component={Profile}
                         user={currentUser}
+                        handleLogout={handleLogout}
                     />
 
                     <PrivateRoute
@@ -100,6 +101,7 @@ function App() {
                         path="/profile"
                         component={Profile}
                         user={currentUser}
+                        handleLogout={handleLogout}
                     />
                 
             </div>
