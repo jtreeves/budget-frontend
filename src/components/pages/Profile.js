@@ -1,4 +1,4 @@
-import DefaultProfile from '../elements/DefaultProfile'
+import DefaultProfile from '../profilePages/DefaultProfile'
 import UserNavigation from '../elements/UserNavigation'
 import { Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
@@ -18,7 +18,6 @@ function Profile(props) {
   if (currentTime >= expirationTime) {
     handleLogout();
     alert.show('Session has ended. Please log in.');
-    
   }
 
   const userData = props.user ?
@@ -37,7 +36,7 @@ function Profile(props) {
           <strong>ID:</strong> {props.user.id}
         </p>
         <div className="helper">
-        <ProfileRoutes />
+        <DefaultProfile />
         </div>
 
       </div>
