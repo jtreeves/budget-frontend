@@ -78,11 +78,13 @@ function App() {
                             />
                         }}
                     />
+                    
                     <PrivateRoute
                         path="/profile/:ext"
                         component={Profile}
                         user={currentUser}
                     />
+
                     <PrivateRoute
                         exact
                         path="/profile"

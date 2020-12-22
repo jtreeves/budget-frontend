@@ -1,32 +1,26 @@
-import { useEffect, useState } from 'react'
+// React Imports
+import { useState } from 'react'
 
-
+// Component Imports
 import UserNavigation from '../elements/UserNavigation'
-import DynamicContent from './DynamicContent'
+import UserInfo from '../elements/UserInfo'
+import ProfileRoutes from '../elements/ProfileRoutes'
+
 
 function Profile(props) {
   
-  const [extension, setExtension] = useState(props.match.params.ext)
-  
-
   return (
     <div>
-      <UserNavigation setExtension={setExtension}/>
-      <h1>Profile</h1>
+      <UserNavigation/>
+
+      <h1>Profile Page</h1>
+
+      <UserInfo name={props.user.name} email={props.user.email} id={props.user.id}/>
+
       <div className="helper">
-        <h2>User Info</h2>
-        <p>
-          <strong>Name:</strong> {props.user.name}
-        </p>
-        <p>
-          <strong>Email:</strong> {props.user.email}
-        </p>
-        <p>
-          <strong>ID:</strong> {props.user.id}
-        </p>
-      </div>
-      <div className="helper">
-        <DynamicContent extension={extension}/>
+
+       <ProfileRoutes />
+
       </div>
     </div>
   );
