@@ -8,6 +8,7 @@ import setAuthToken from './utilities/setAuthToken'
 
 // Import internal components
 import Navigation from './components/elements/Navigation'
+import UserNavigation from './components/elements/UserNavigation'
 import Welcome from './components/pages/Welcome'
 import About from './components/pages/About'
 import Signup from './components/pages/Signup'
@@ -31,6 +32,7 @@ function App() {
     //  Set initial state values
     const [currentUser, setCurrentUser] = useState('')
     const [isAuthenticated, setIsAuthenticated] = useState(true)
+
 
     // Implement useEffect
     useEffect(() => {
@@ -59,9 +61,17 @@ function App() {
         }
     }
 
+    const handleNavBars = () => {
+        if (isAuthenticated) {
+            return <UserNavigation handleLogout={handleLogout}/>
+        } else {
+            return <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />
+        }
+    }
+
     return (
         <div>
-            <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />
+            {handleNavBars()}
             <div>
                 
                     <Route exact path="/" component={Welcome} />
