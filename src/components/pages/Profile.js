@@ -3,7 +3,7 @@ import UserNavigation from '../elements/UserNavigation'
 import { Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 
-
+// Profile component
 function Profile(props) {
   const alert = useAlert()
   const { handleLogout } = props;
