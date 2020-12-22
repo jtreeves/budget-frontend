@@ -55,12 +55,6 @@ function App() {
     setIsAuthenticated(true);
   };
 
-  // Establish current user
-  const nowCurrentUser = (userData) => {
-    setCurrentUser(userData);
-    setIsAuthenticated(true);
-  };
-
   // Log out user
   const handleLogout = () => {
     if (localStorage.getItem('jwtToken')) {
@@ -79,30 +73,30 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="div-container-app">
       {handleNavBars()}
-      <div>
-        <Route exact path="/" component={Welcome} />
-        <Route path="/about" component={About} />
-        <Route path="/signup" component={Signup} />
-        <Route
-          path="/login"
-          render={(props) => {
-            return (
-              <Login
-                {...props}
-                nowCurrentUser={nowCurrentUser}
-                setIsAuthenticated={setIsAuthenticated}
-                user={currentUser}
-              />
-            );
-          }}
-        />
+      {/* <div className="div-container-pages"> */}
+      <Route exact path="/" component={Welcome} />
+      <Route path="/about" component={About} />
+      <Route path="/signup" component={Signup} />
+      <Route
+        path="/login"
+        render={(props) => {
+          return (
+            <Login
+              {...props}
+              nowCurrentUser={nowCurrentUser}
+              setIsAuthenticated={setIsAuthenticated}
+              user={currentUser}
+            />
+          );
+        }}
+      />
 
-        <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} />
+      <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} />
 
-        <PrivateRoute exact path="/profile" component={Profile} user={currentUser} />
-      </div>
+      <PrivateRoute exact path="/profile" component={Profile} user={currentUser} />
+      {/* </div> */}
     </div>
   );
 }

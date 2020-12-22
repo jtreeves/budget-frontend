@@ -7,12 +7,13 @@ import ProfileRoutes from '../elements/ProfileRoutes';
 
 function Profile(props) {
   return (
-    <div>
-      <h1>Profile Page</h1>
+    <div className="div-profile-page">
+      {/* TURNED OFF H1 */}
+      {/* <h1>Profile Page</h1> */}
 
       <UserInfo name={props.user.name} email={props.user.email} id={props.user.id} />
 
-      <div className="helper">
+      <div className="div-profile-workspace">
         <ProfileRoutes />
       </div>
     </div>

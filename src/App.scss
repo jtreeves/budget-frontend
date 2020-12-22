@@ -4,6 +4,7 @@
 
 $app-max-width: 1920px;
 $public-padding: 0 4vw;
+$app-border-radius: 10px;
 $color-black: #000;
 $color-white: #fff;
 $color-light-gray: #ccc;
@@ -63,49 +64,61 @@ html {
 
     #root {
       height: 100%;
+      background-color: red;
 
-      .div-app-container {
+      .div-container-app {
         height: 100%;
+        max-width: $app-max-width;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 4vw repeat(12, 1fr) 4vw;
+        grid-template-rows: 40px 1fr 40px;
 
-        .div-public-container {
-          position: relative;
-          height: 100%;
-          max-width: $app-max-width;
-          margin: 0 auto;
-          background-color: $color-white;
+        // Public Navigation ——————————————————————————————
 
-          // Public Navigation ——————————————————————————————
+        .nav-public {
+          grid-column: 2 / span 12;
+          grid-row: 2;
+          align-self: start;
+          z-index: 1;
+          display: flex;
+          justify-content: space-between;
 
-          .nav-public {
-            position: absolute;
-            width: 100%;
-            padding: $public-padding;
-            padding-top: 40px;
-            display: flex;
-            justify-content: space-between;
+          a {
+            @include text-title($color-white);
+          }
 
-            a {
-              @include text-title($color-white);
-            }
+          ul {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            gap: 3vw;
+            justify-items: end;
+            align-items: center;
 
-            ul {
-              display: grid;
-              grid-template-columns: repeat(4, auto);
-              gap: 3vw;
-              justify-items: end;
-              align-items: center;
+            li {
+              list-style-type: none;
 
-              li {
-                list-style-type: none;
-
-                a {
-                  @include text-nav($color-white);
-                }
+              a {
+                @include text-nav($color-white);
               }
             }
           }
+        }
 
-          // Welcome ——————————————————————————————
+        // User Navigation ——————————————————————————————
+
+        .nav-user {
+          grid-column: 1 / span 2;
+          grid-row: 2 / span 2;
+          z-index: 2;
+        }
+
+        // Welcome ——————————————————————————————
+
+        .div-welcome-page {
+          grid-column: 1 / span 14;
+          grid-row: 1 / span 3;
+          background-color: $color-white;
 
           .div-welcome-header {
             height: 800px;
@@ -127,14 +140,25 @@ html {
           }
         }
 
-        // Dashboard ——————————————————————————————
+        // Profile ——————————————————————————————
 
-        .div-dashboard {
-          top: 20px;
-          bottom: 20px;
-          width: 100%;
-          position: absolute;
+        .div-profile-page {
+          grid-column: 1 / span 12;
+          grid-row: 2 / span 2;
+          border-radius: $app-border-radius;
+          display: grid;
+          grid-template-columns: repeat(12, 1fr);
           background-color: $color-white;
+
+          .div-profile-workspace {
+            grid-column: 3 / span 7;
+            grid-row: 1 / span 1;
+          }
+
+          .div-profile-user-info {
+            grid-column: 10 / span 3;
+            grid-row: 1 / span 1;
+          }
         }
       }
     }

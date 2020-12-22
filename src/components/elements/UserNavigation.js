@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 function UserNavigation(props) {
   return (
-    <div>
+    <div className="nav-user">
       {/* <Logo /> */}
       <Link className="nav-links" to="/profile/income">
         Income
