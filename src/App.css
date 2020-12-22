@@ -5,8 +5,22 @@
   margin: 0;
 }
 
+li {
+  list-style-type: none;
+}
+
 a {
   text-decoration: none;
+}
+
+.timeframe {
+  margin-top: 3px;
+  color: #000;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4em;
+  text-align: center;
 }
 
 html {
@@ -18,7 +32,6 @@ html body {
 }
 html body #root {
   height: 100%;
-  background-color: red;
 }
 html body #root .div-container-app {
   height: 100%;
@@ -48,17 +61,14 @@ html body #root .div-container-app .nav-public ul {
   justify-items: end;
   align-items: center;
 }
-html body #root .div-container-app .nav-public ul li {
-  list-style-type: none;
-}
-html body #root .div-container-app .nav-public ul li a {
+html body #root .div-container-app .nav-public ul a {
   color: #fff;
   font-family: "Nunito", sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
 html body #root .div-container-app .nav-user {
-  grid-column: 1/span 2;
+  grid-column: 2/span 2;
   grid-row: 2/span 2;
   z-index: 2;
 }
@@ -90,9 +100,9 @@ html body #root .div-container-app .div-welcome-page .div-welcome-header p {
   line-height: 2em;
 }
 html body #root .div-container-app .div-profile-page {
-  grid-column: 1/span 12;
-  grid-row: 2/span 2;
-  border-radius: 10px;
+  grid-column: 2/span 12;
+  grid-row: 2/span 1;
+  border-radius: 20px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   background-color: #fff;
@@ -100,6 +110,36 @@ html body #root .div-container-app .div-profile-page {
 html body #root .div-container-app .div-profile-page .div-profile-workspace {
   grid-column: 3/span 7;
   grid-row: 1/span 1;
+  padding: 20px 2vw;
+  border-radius: 20px;
+  margin: 20px 0;
+  background-color: #ccc;
+}
+html body #root .div-container-app .div-profile-page .div-profile-workspace h2 {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 40px;
+}
+html body #root .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+  padding: 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  background-color: #fff;
+}
+html body #root .div-container-app .div-profile-page .div-profile-workspace .compact-container h3 {
+  color: #000;
+  font-family: "Nunito", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+html body #root .div-container-app .div-profile-page .div-profile-workspace .compact-container li {
+  margin-top: 3px;
+  color: #000;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4em;
 }
 html body #root .div-container-app .div-profile-page .div-profile-user-info {
   grid-column: 10/span 3;

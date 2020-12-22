@@ -4,7 +4,8 @@
 
 $app-max-width: 1920px;
 $public-padding: 0 4vw;
-$app-border-radius: 10px;
+$app-border-radius-large: 20px;
+$app-border-radius-small: 10px;
 $color-black: #000;
 $color-white: #fff;
 $color-light-gray: #ccc;
@@ -33,12 +34,34 @@ $font-family-secondary: 'PT Sans', sans-serif;
   font-size: 50px;
 }
 
+@mixin text-h2($color: $color-black) {
+  color: $color;
+  font-family: $font-family-secondary;
+  font-size: 40px;
+}
+
+@mixin text-h3($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 25px;
+  font-weight: 600;
+}
+
 @mixin text-body($color: $color-black) {
   color: $color;
   font-family: $font-family-primary;
   font-size: 20px;
   font-weight: 400;
   line-height: 2em;
+}
+
+@mixin text-body-02($color: $color-black) {
+  margin-top: 3px;
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4em;
 }
 
 // Global ——————————————————————————————
@@ -49,8 +72,17 @@ $font-family-secondary: 'PT Sans', sans-serif;
   margin: 0;
 }
 
+li {
+  list-style-type: none;
+}
+
 a {
   text-decoration: none;
+}
+
+.timeframe {
+  @include text-body-02();
+  text-align: center;
 }
 
 // Nested selectors ——————————————————————————————
@@ -64,7 +96,6 @@ html {
 
     #root {
       height: 100%;
-      background-color: red;
 
       .div-container-app {
         height: 100%;
@@ -95,12 +126,8 @@ html {
             justify-items: end;
             align-items: center;
 
-            li {
-              list-style-type: none;
-
-              a {
-                @include text-nav($color-white);
-              }
+            a {
+              @include text-nav($color-white);
             }
           }
         }
@@ -108,7 +135,7 @@ html {
         // User Navigation ——————————————————————————————
 
         .nav-user {
-          grid-column: 1 / span 2;
+          grid-column: 2 / span 2;
           grid-row: 2 / span 2;
           z-index: 2;
         }
@@ -143,9 +170,9 @@ html {
         // Profile ——————————————————————————————
 
         .div-profile-page {
-          grid-column: 1 / span 12;
-          grid-row: 2 / span 2;
-          border-radius: $app-border-radius;
+          grid-column: 2 / span 12;
+          grid-row: 2 / span 1;
+          border-radius: $app-border-radius-large;
           display: grid;
           grid-template-columns: repeat(12, 1fr);
           background-color: $color-white;
@@ -153,6 +180,30 @@ html {
           .div-profile-workspace {
             grid-column: 3 / span 7;
             grid-row: 1 / span 1;
+            padding: 20px 2vw;
+            border-radius: $app-border-radius-large;
+            margin: 20px 0;
+            background-color: $color-light-gray;
+
+            h2 {
+              @include text-h2();
+            }
+
+            .compact-container {
+              padding: 20px;
+              border-radius: $app-border-radius-small;
+              display: grid;
+              grid-template-columns: 3fr 1fr;
+              background-color: $color-white;
+
+              h3 {
+                @include text-h3();
+              }
+
+              li {
+                @include text-body-02();
+              }
+            }
           }
 
           .div-profile-user-info {
