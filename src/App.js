@@ -8,7 +8,7 @@ import setAuthToken from './utilities/setAuthToken'
 
 // Import internal components
 import Navigation from './components/elements/Navigation'
-import Footer from './components/elements/Footer'
+import UserNavigation from './components/elements/UserNavigation'
 import Welcome from './components/pages/Welcome'
 import About from './components/pages/About'
 import Signup from './components/pages/Signup'
@@ -20,6 +20,7 @@ import './App.css'
 
 // Create private route
 function PrivateRoute({component: Component, ...rest}) {
+
     const user = localStorage.getItem('jwtToken')
     return <Route {...rest} render={(props) => {
         return user ? <Component {...rest} {...props} /> : <Redirect to="/login" />
@@ -31,6 +32,7 @@ function App() {
     //  Set initial state values
     const [currentUser, setCurrentUser] = useState('')
     const [isAuthenticated, setIsAuthenticated] = useState(true)
+
 
     // Implement useEffect
     useEffect(() => {
@@ -59,11 +61,19 @@ function App() {
         }
     }
 
+    const handleNavBars = () => {
+        if (isAuthenticated) {
+            return <UserNavigation handleLogout={handleLogout}/>
+        } else {
+            return <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />
+        }
+    }
+
     return (
         <div>
-            <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />
+            {handleNavBars()}
             <div>
-                <Switch>
+                
                     <Route exact path="/" component={Welcome} />
                     <Route path="/about" component={About} />
                     <Route path="/signup" component={Signup} />
@@ -78,13 +88,21 @@ function App() {
                             />
                         }}
                     />
+                    
                     <PrivateRoute
+                        path="/profile/:ext"
+                        component={Profile}
+                        user={currentUser}
+                    />
+
+                    <PrivateRoute
+                        exact
                         path="/profile"
                         component={Profile}
                         user={currentUser}
                         handleLogout={handleLogout}
                     />
-                </Switch>
+                
             </div>
         </div>
     )

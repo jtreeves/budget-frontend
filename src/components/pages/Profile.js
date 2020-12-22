@@ -24,7 +24,7 @@ function Profile(props) {
   const userData = props.user ?
     (<div>
       <UserNavigation />
-      <h1>Profile</h1>
+      <h1>Profile Page</h1>
       <div className="helper">
         <h2>User Info</h2>
         <p>
@@ -37,8 +37,9 @@ function Profile(props) {
           <strong>ID:</strong> {props.user.id}
         </p>
         <div className="helper">
-        <DefaultProfile />
+        <ProfileRoutes />
         </div>
+
       </div>
       </div>) : <h4>Loading...</h4>
 
