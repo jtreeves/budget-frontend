@@ -1,28 +1,26 @@
+// React Imports
+import { useState } from 'react'
 
-import DefaultProfile from '../elements/DefaultProfile'
+// Component Imports
 import UserNavigation from '../elements/UserNavigation'
+import UserInfo from '../elements/UserInfo'
+import ProfileRoutes from '../elements/ProfileRoutes'
 
 
 function Profile(props) {
+  
   return (
     <div>
-      <UserNavigation />
-      <h1>Profile</h1>
+      <UserNavigation/>
+
+      <h1>Profile Page</h1>
+
+      <UserInfo name={props.user.name} email={props.user.email} id={props.user.id}/>
+
       <div className="helper">
-        <h2>User Info</h2>
-        <p>
-          <strong>Name:</strong> {props.user.name}
-        </p>
-        <p>
-          <strong>Email:</strong> {props.user.email}
-        </p>
-        <p>
-          <strong>ID:</strong> {props.user.id}
-        </p>
-      </div>
-      {/* Middle Section of Profile Page */}
-      <div className="helper">
-        <DefaultProfile />
+
+       <ProfileRoutes />
+
       </div>
     </div>
   );
