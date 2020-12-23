@@ -31,15 +31,17 @@ function Profile(props) {
 
   // Success Display
   const userData = props.user ?
-    (<div>
+    (<div className="div-profile-page">
       
-      <h1>Profile Page</h1>
+       {/* <h1>Profile Page</h1> */}
 
       <UserInfo name={name} email={email} id={id}/>
 
-      <div className="helper">
+      <div className="div-profile-workspace">
+
 
        <ProfileRoutes budget={budget}/>
+
 
       </div>
     </div>) : <h4>Loading...</h4>
@@ -55,9 +57,9 @@ function Profile(props) {
 
   // Profile Return
   return (
-    <div>
+    <>
       {props.user ? userData : errorDiv()}
-    </div>
+    </>
   )
 }
 

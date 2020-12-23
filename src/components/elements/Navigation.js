@@ -1,23 +1,23 @@
 // Import external dependency
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link } from 'react-router-dom';
 
 // Create function
 function Navigation(props) {
   return (
-    <nav>
+    <nav className="nav-public">
       <Link to="/">Kaleidoscope</Link>
-        <ul>
-          <li>
-            <NavLink exact to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink exact to="/about">
-              About
-            </NavLink>
-          </li>
-        
+      <ul>
+        <li>
+          <NavLink exact to="/">
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to="/about">
+            About
+          </NavLink>
+        </li>
+
         {props.isAuth ? (
           <>
             <li>
@@ -26,7 +26,7 @@ function Navigation(props) {
             <li>
               <span onClick={props.handleLogout}>Logout</span>
             </li>
-         </>
+          </>
         ) : (
           <>
             <li>
@@ -37,7 +37,7 @@ function Navigation(props) {
             </li>
           </>
         )}
-        </ul>
+      </ul>
     </nav>
   );
 }

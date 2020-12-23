@@ -1,58 +1,274 @@
-.nav-links {
-  margin-right: 5px;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=PT+Sans:wght@700&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.helper {
-  margin-bottom: 10px;
-  border: solid 2px red;
+li {
+  list-style-type: none;
 }
 
-.category-container {
-  padding: 5px;
-  margin: 10px auto;
-  width: 50%;
-  border: solid blue 2px;
+a {
+  text-decoration: none;
+
 }
 
-.compact-container {
-  margin: 10px;
-  padding: 5px;
-  border-radius: 10px;
-  background-color: lightgray;
-  display: flex;
-  justify-content: space-between;
+button {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+  height: 40px;
+  padding: 6px 20px;
+  border-width: 3px;
+  border-radius: 20px;
+  background-color: #edeef1;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-.compact-container-img {
-  margin: 10px;
-  padding: 5px;
-  border-radius: 10px;
-  border: solid 2px lightgray;
-  display: flex;
-  justify-content: space-between;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
+.timeframe {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+  text-align: center;
 }
 
 body {
-    margin-bottom: 60px;
+  height: 100%;
+  background-color: #d0e2c6;
+}
+body .div-container-app {
+  height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 4vw repeat(12, 1fr) 4vw;
+  grid-template-rows: 40px 1fr 40px;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
+body .div-container-app .nav-public {
+  align-self: start;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  grid-column: 2/span 12;
+  grid-row: 2;
 }
 
-.Logo {
-    width: 150px;
-    height: 100px;
-    margin: 0 auto;
-    border-radius: 10px;
+body .div-container-app .nav-public a {
+  color: #fff;
+  font-family: "PT Sans", sans-serif;
+  font-size: 30px;
 }
 
+body .div-container-app .nav-public ul {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 3vw;
+  justify-items: end;
+  align-items: center;
+}
+
+body .div-container-app .nav-public ul a {
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+body .div-container-app .nav-user {
+  z-index: 2;
+  padding: 30px 2vw;
+  grid-column: 2/span 2;
+  grid-row: 2/span 2;
+}
+body .div-container-app .nav-user p {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 30px;
+  font-size: 20px;
+}
+body .div-container-app .nav-user li {
+  margin-top: 20px;
+}
+body .div-container-app .nav-user li a {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-size: 16px;
+}
+body .div-container-app .nav-user li a:hover {
+  color: #6d9962;
+  font-weight: 700;
+}
+body .div-container-app .nav-user button {
+  margin-top: 20px;
+}
+body .div-container-app .div-public-page {
+  grid-column: 1/span 14;
+  grid-row: 1/span 3;
+  background-color: #fff;
+  text-align: center;
+}
+body .div-container-app .div-public-page .div-public-header {
+  height: 800px;
+  padding: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+body .div-container-app .div-public-page .div-public-header h1 {
+  color: #fff;
+  font-family: "PT Sans", sans-serif;
+  font-size: 50px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+body .div-container-app .div-public-page .div-public-header p {
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2em;
+}
+body .div-container-app .div-public-page .div-public-header-02 {
+  height: 120px;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+body .div-container-app .div-public-page h1 {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 50px;
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+body .div-container-app .div-public-page form {
+  padding: 20px;
+  border-radius: 20px;
+  display: inline-block;
+  background-color: #edeef1;
+  text-align: left;
+}
+body .div-container-app .div-public-page form label {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+  padding-left: 15px;
+  font-weight: 700;
+}
+body .div-container-app .div-public-page form input {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+  width: 240px;
+  height: 40px;
+  padding: 0 15px;
+  margin-bottom: 20px;
+  border-width: 0;
+  border-radius: 20px;
+  display: block;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+body .div-container-app .div-profile-page {
+  overflow: hidden;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column: 2/span 12;
+  grid-row: 2/span 1;
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+}
+body .div-container-app .div-profile-page .div-profile-workspace {
+  overflow: auto;
+  padding: 20px 2vw;
+  border-radius: 20px;
+  margin: 20px 0;
+  grid-column: 3/span 7;
+  background-color: #edeef1;
+}
+body .div-container-app .div-profile-page .div-profile-workspace h2 {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  background-color: #fff;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container h3 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container li {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .currency {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 25px;
+  text-align: center;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .timeframe {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .total {
+  background-color: #6d9962;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .total h3 {
+  color: #fff;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .total .currency {
+  color: #fff;
+}
+body .div-container-app .div-profile-page .div-profile-user-info {
+  padding: 30px 2vw;
+  grid-column: 10/span 3;
+  grid-row: 1/span 1;
+}
+body .div-container-app .div-profile-page .div-profile-user-info h2 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+body .div-container-app .div-profile-page .div-profile-user-info p {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
+
+/*# sourceMappingURL=App.css.map */
