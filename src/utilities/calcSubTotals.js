@@ -45,7 +45,7 @@ function calcSubTotals (budget) {
       
       budgetSubtotals.push(categoryObj)
   })
-  console.log(budgetSubtotals);
+  return budgetSubtotals;
 }
 
 
