@@ -7,28 +7,24 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utilities/setAuthToken';
 
 // Import internal components
-import Navigation from './components/elements/Navigation';
-import UserNavigation from './components/elements/UserNavigation';
-import Welcome from './components/pages/Welcome';
-import About from './components/pages/About';
-import Signup from './components/pages/Signup';
-import Login from './components/pages/Login';
-import Profile from './components/pages/Profile';
+import Navigation from './components/elements/Navigation'
+import UserNavigation from './components/elements/UserNavigation'
+import Welcome from './components/pages/Welcome'
+import About from './components/pages/About'
+import Signup from './components/pages/Signup'
+import Login from './components/pages/Login'
+import Profile from './components/pages/Profile'
 
 // Import internal CSS
 import './App.css';
 
 // Create private route
-function PrivateRoute({ component: Component, ...rest }) {
-  const user = localStorage.getItem('jwtToken');
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        return user ? <Component {...rest} {...props} /> : <Redirect to="/login" />;
-      }}
-    />
-  );
+function PrivateRoute({component: Component, ...rest}) {
+
+    const user = localStorage.getItem('jwtToken')
+    return <Route {...rest} render={(props) => {
+        return user ? <Component {...rest} {...props} /> : <Redirect to="/login" />
+    }} />
 }
 
 // Create function for the main operations of the app
@@ -93,12 +89,13 @@ function App() {
         }}
       />
 
-      <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} />
+      <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} handleLogout={handleLogout} />
 
-      <PrivateRoute exact path="/profile" component={Profile} user={currentUser} />
+      <PrivateRoute exact path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
       {/* </div> */}
     </div>
   );
+
 }
 
 // Export funtion

@@ -11,6 +11,7 @@ li {
 
 a {
   text-decoration: none;
+
 }
 
 button {
@@ -53,6 +54,7 @@ body .div-container-app {
   grid-template-columns: 4vw repeat(12, 1fr) 4vw;
   grid-template-rows: 40px 1fr 40px;
 }
+
 body .div-container-app .nav-public {
   align-self: start;
   z-index: 1;
@@ -61,11 +63,13 @@ body .div-container-app .nav-public {
   grid-column: 2/span 12;
   grid-row: 2;
 }
+
 body .div-container-app .nav-public a {
   color: #fff;
   font-family: "PT Sans", sans-serif;
   font-size: 30px;
 }
+
 body .div-container-app .nav-public ul {
   display: grid;
   grid-template-columns: repeat(4, auto);
@@ -73,12 +77,14 @@ body .div-container-app .nav-public ul {
   justify-items: end;
   align-items: center;
 }
+
 body .div-container-app .nav-public ul a {
   color: #fff;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
+
 body .div-container-app .nav-user {
   z-index: 2;
   padding: 30px 2vw;
