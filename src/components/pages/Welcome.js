@@ -1,8 +1,8 @@
 // Create function
 function Welcome() {
   return (
-    <div className="div-welcome-page">
-      <div className="div-welcome-header">
+    <div className="div-public-page">
+      <div className="div-public-header">
         <h1>Welcome</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolorum excepturi,

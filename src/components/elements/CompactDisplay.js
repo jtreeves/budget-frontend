@@ -12,7 +12,7 @@ function CompactDisplay(props) {
       </div>
 
       <div>
-        <h3>{props.total}</h3>
+        <h3 className="currency">{props.total}</h3>
         <h3 className="timeframe">Per Month</h3>
       </div>
     </div>
