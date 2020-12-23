@@ -3,6 +3,7 @@ import calcTotal from '../../utilities/calcTotal'
 function UserInfo(props) {
 
   const monthly = calcTotal(props.budget)
+  const weekly = (monthly / 4).toFixed(2)
 
   return (
     <div className="div-profile-user-info">
@@ -25,6 +26,9 @@ function UserInfo(props) {
         <div className="div-profile-workspace">
           <h2>Monthly</h2>
           <h2>${monthly}</h2>
+          <h2>Weekly</h2>
+          <h2>${weekly}</h2>
+          
         </div>
       </div>
     </div>
