@@ -21,7 +21,7 @@ function Profile(props) {
   const userData = props.user ?
     (<div className="div-profile-page">
       
-//       <h1>Profile Page</h1>
+       {/* <h1>Profile Page</h1> */}
 
       <UserInfo name={props.user.name} email={props.user.email} id={props.user.id}/>
 
@@ -40,9 +40,9 @@ const errorDiv = () => {
   };
 
   return (
-    <div>
+    <>
       {props.user ? userData : errorDiv()}
-    </div>
+    </>
   )
 }
 
