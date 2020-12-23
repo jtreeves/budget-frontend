@@ -9,7 +9,7 @@ function DefaultProfile(props) {
     "Loterry Winnings: $55.34",
     "Stimulus Check: $100.67",
   ];
-
+  
   return (
     <div>
       <h3>This is the Overview page!!!!</h3>
