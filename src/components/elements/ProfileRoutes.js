@@ -30,6 +30,7 @@ function ProfileRoutes(props) {
           path={"/profile"}
           component={DefaultProfile}
           user={props.currentUser}
+          budget={props.budget}
         />
 
         <PrivateRoute

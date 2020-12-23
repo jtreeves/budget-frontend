@@ -42,7 +42,6 @@ function calcSubTotals (budget) {
         budgetTotals[key] = total.toFixed(2)
       }) 
   })
-  console.log(budgetTotals);
   return budgetTotals;
 }
 
