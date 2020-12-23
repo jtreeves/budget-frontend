@@ -12,22 +12,12 @@ function DefaultProfile(props) {
   
   return (
     <div>
-      <h3>This is the Overview page!!!!</h3>
-      <div className="category-container">
-        <CompactDisplay
-          title="Income"
-          inputs={inputArrayIncome}
-          total="$1090.24"
-        />
-        <CompactTotal total="$2,453.67" />
-        <CompactDisplay title="Housing" inputs={inputArray} total="$1090.24" />
-        <CompactDisplay title="Auto" inputs={inputArray} total="$1090.24" />
-        <CompactDisplay
-          title="Food/Groceries"
-          inputs={inputArray}
-          total="$1090.24"
-        />
-      </div>
+      <h2>Budget</h2>
+      <CompactDisplay title="Income" inputs={inputArrayIncome} total="$1090.24" />
+      <CompactTotal total="$2,453.67" />
+      <CompactDisplay title="Housing" inputs={inputArray} total="$1090.24" />
+      <CompactDisplay title="Auto" inputs={inputArray} total="$1090.24" />
+      <CompactDisplay title="Food/Groceries" inputs={inputArray} total="$1090.24" />
     </div>
   );
 }
