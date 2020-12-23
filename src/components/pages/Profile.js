@@ -5,9 +5,7 @@ import { useState } from 'react'
 import UserInfo from '../elements/UserInfo'
 import ProfileRoutes from '../elements/ProfileRoutes'
 
-// thomas' comment
 
-// Jackson
 
 function Profile(props) {
   
@@ -30,4 +28,3 @@ function Profile(props) {
 // Export function
 export default Profile;
 
-//Jeremy will edit this file very soon. 
