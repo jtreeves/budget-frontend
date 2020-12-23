@@ -9,7 +9,7 @@ function calcTotal (budget) {
   expenses.forEach((obj) => {
     total += parseFloat(Object.values(obj))
   })
-  return total
+  return  parseFloat(total).toFixed(2)
 }
 
 export default calcTotal;
