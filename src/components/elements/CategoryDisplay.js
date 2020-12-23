@@ -12,7 +12,7 @@ function CategoryDisplay(props) {
 
   return (
     <div className="category-container">
-      <GraphContainer />
+      <GraphContainer /> 
       <CompactTotal total={calcTotal(props)}/>
       {inputs}
     </div>
