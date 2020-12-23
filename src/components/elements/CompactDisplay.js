@@ -1,24 +1,19 @@
 // Create function
 function CompactDisplay(props) {
-
-
   const inputs = props.inputs.map((ele, idx) => {
-    return <li key={idx}>{ele}</li>
-  })
-
+    return <li key={idx}>{ele}</li>;
+  });
 
   return (
     <div className="compact-container">
       <div>
         <h3>{props.title}</h3>
-        <ul>
-          {inputs}
-        </ul>
+        <ul>{inputs}</ul>
       </div>
 
       <div>
-        <h3>{props.total}</h3>
-        <h3>Per Month</h3>
+        <h3 className="currency">{props.total}</h3>
+        <h3 className="timeframe">Per Month</h3>
       </div>
     </div>
   );

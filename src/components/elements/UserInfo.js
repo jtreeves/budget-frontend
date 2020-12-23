@@ -1,6 +1,6 @@
 function UserInfo(props) {
   return (
-    <div>
+    <div className="div-profile-user-info">
       <div className="helper">
         <h2>User Info</h2>
         <p>

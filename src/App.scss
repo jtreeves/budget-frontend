@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=PT+Sans:wght@700&display=swap');
+
+// Variables ——————————————————————————————
+
+$app-max-width: 1920px;
+$public-padding: 0 4vw;
+$app-border-radius-large: 20px;
+$app-border-radius-small: 10px;
+$color-black: #000;
+$color-white: #fff;
+$color-light-gray: #edeef1;
+$color-medium-gray: #ccc;
+$color-light-green: #d0e2c6;
+$color-medium-green: #6d9962;
+$gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+$font-family-primary: 'Nunito Sans', sans-serif;
+$font-family-secondary: 'PT Sans', sans-serif;
+
+// Mixins ——————————————————————————————
+
+@mixin text-title($color: $color-black) {
+  color: $color;
+  font-family: $font-family-secondary;
+  font-size: 30px;
+}
+
+@mixin text-nav($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@mixin text-h1($color: $color-black) {
+  color: $color;
+  font-family: $font-family-secondary;
+  font-size: 50px;
+}
+
+@mixin text-h2($color: $color-black) {
+  color: $color;
+  font-family: $font-family-secondary;
+  font-size: 40px;
+}
+
+@mixin text-h3($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@mixin text-currency($color: $color-black) {
+  color: $color;
+  font-family: $font-family-secondary;
+  font-size: 25px;
+}
+
+@mixin text-body($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2em;
+}
+
+@mixin text-body-small($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
+
+// Global ——————————————————————————————
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  @include text-body-small();
+  height: 40px;
+  padding: 6px 20px;
+  border-width: 3px;
+  border-radius: 20px;
+  background-color: $color-light-gray;
+  box-shadow: 4px 4px 8px rgba($color: $color-black, $alpha: 0.3);
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 2px 2px 4px rgba($color: $color-black, $alpha: 0.6);
+  }
+}
+
+.timeframe {
+  @include text-body-small();
+  text-align: center;
+}
+
+// Nested selectors ——————————————————————————————
+
+body {
+  height: 100%;
+  background-color: $color-light-green;
+
+  .div-container-app {
+    height: 100vh;
+    max-width: $app-max-width;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 4vw repeat(12, 1fr) 4vw;
+    grid-template-rows: 40px 1fr 40px;
+
+    // Public Navigation ——————————————————————————————
+
+    .nav-public {
+      align-self: start;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      grid-column: 2 / span 12;
+      grid-row: 2;
+
+      a {
+        @include text-title($color-white);
+      }
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        gap: 3vw;
+        justify-items: end;
+        align-items: center;
+
+        a {
+          @include text-nav($color-white);
+        }
+      }
+    }
+
+    // User Navigation ——————————————————————————————
+
+    .nav-user {
+      z-index: 2;
+      padding: 30px 2vw;
+      grid-column: 2 / span 2;
+      grid-row: 2 / span 2;
+
+      p {
+        @include text-title();
+        font-size: 20px;
+      }
+
+      li {
+        margin-top: 20px;
+
+        a {
+          @include text-nav();
+          font-size: 16px;
+
+          &:hover {
+            color: $color-medium-green;
+            font-weight: 700;
+          }
+        }
+      }
+
+      button {
+        margin-top: 20px;
+      }
+    }
+
+    // Public Pages ——————————————————————————————
+
+    .div-public-page {
+      grid-column: 1 / span 14;
+      grid-row: 1 / span 3;
+      background-color: $color-white;
+      text-align: center;
+
+      .div-public-header {
+        height: 800px;
+        padding: 0 10vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-image: $gradient;
+
+        h1 {
+          @include text-h1($color-white);
+          padding-bottom: 20px;
+          text-align: center;
+        }
+
+        p {
+          @include text-body($color-white);
+        }
+      }
+
+      .div-public-header-02 {
+        height: 120px;
+        background-image: $gradient;
+      }
+
+      h1 {
+        @include text-h1();
+        margin: 40px 0 20px 0;
+        text-align: center;
+      }
+
+      form {
+        padding: 20px;
+        border-radius: $app-border-radius-large;
+        display: inline-block;
+        background-color: $color-light-gray;
+        text-align: left;
+
+        label {
+          @include text-body-small();
+          padding-left: 15px;
+          font-weight: 700;
+        }
+
+        input {
+          @include text-body-small();
+          width: 240px;
+          height: 40px;
+          padding: 0 15px;
+          margin-bottom: 20px;
+          border-width: 0;
+          border-radius: 20px;
+          display: block;
+          box-shadow: inset 2px 2px 4px rgba($color: $color-black, $alpha: 0.3);
+        }
+      }
+    }
+
+    // User Pages ——————————————————————————————
+
+    .div-profile-page {
+      overflow: hidden;
+      border-radius: $app-border-radius-large;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-column: 2 / span 12;
+      grid-row: 2 / span 1;
+      box-shadow: 15px 15px 30px rgba($color: $color-black, $alpha: 0.3);
+      background-color: $color-white;
+
+      .div-profile-workspace {
+        overflow: auto;
+        padding: 20px 2vw;
+        border-radius: $app-border-radius-large;
+        margin: 20px 0;
+        grid-column: 3 / span 7;
+        background-color: $color-light-gray;
+
+        h2 {
+          @include text-h2();
+          margin-bottom: 20px;
+        }
+
+        .compact-container {
+          padding: 15px 20px;
+          border-radius: $app-border-radius-small;
+          margin-top: 10px;
+          display: grid;
+          grid-template-columns: 3fr 1fr;
+          align-items: center;
+          background-color: $color-white;
+
+          h3 {
+            @include text-h3();
+          }
+
+          li {
+            @include text-body-small();
+          }
+
+          .currency {
+            @include text-currency();
+            text-align: center;
+          }
+
+          .timeframe {
+            @include text-body-small();
+          }
+        }
+
+        .total {
+          background-color: $color-medium-green;
+
+          h3 {
+            color: $color-white;
+          }
+
+          .currency {
+            color: $color-white;
+          }
+        }
+      }
+
+      .div-profile-user-info {
+        padding: 30px 2vw;
+        grid-column: 10 / span 3;
+        grid-row: 1 / span 1;
+
+        h2 {
+          @include text-h3();
+        }
+
+        p {
+          @include text-body-small();
+        }
+      }
+    }
+  }
+}

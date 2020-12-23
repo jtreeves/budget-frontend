@@ -19,16 +19,15 @@ function Profile(props) {
   }
 
   const userData = props.user ?
-    (<div>
+    (<div className="div-profile-page">
       
-      <h1>Profile Page</h1>
+//       <h1>Profile Page</h1>
 
       <UserInfo name={props.user.name} email={props.user.email} id={props.user.id}/>
 
-      <div className="helper">
+      <div className="div-profile-workspace">
 
        <ProfileRoutes />
-
       </div>
     </div>) : <h4>Loading...</h4>
 
