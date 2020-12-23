@@ -4,8 +4,6 @@ function UserInfo(props) {
 
   const monthly = calcTotal(props.budget)
 
-
-
   return (
     <div className="div-profile-user-info">
       <div>
@@ -26,7 +24,7 @@ function UserInfo(props) {
         <h2>Summary</h2>
         <div className="div-profile-workspace">
           <h2>Monthly</h2>
-          <h2>{monthly}</h2>
+          <h2>${monthly}</h2>
         </div>
       </div>
     </div>
