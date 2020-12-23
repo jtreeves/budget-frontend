@@ -35,7 +35,7 @@ function Profile(props) {
       
        {/* <h1>Profile Page</h1> */}
 
-      <UserInfo name={name} email={email} id={id}/>
+      <UserInfo name={name} email={email} id={id} budget={budget}/>
 
       <div className="div-profile-workspace">
 
