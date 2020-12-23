@@ -34,19 +34,18 @@
 
 function calcSubTotals (budget) {
 
-  let budgetSubtotals = []
+  let budgetTotals = {};
   Object.keys(budget).forEach((key) => {
       let total = 0;
-      let categoryObj = { category : key, total : total }
       budget[key].forEach((obj) => {
         total += parseFloat(Object.values(obj))
-        categoryObj.total = total.toFixed(2)
-      })
-      
-      budgetSubtotals.push(categoryObj)
+        budgetTotals[key] = total.toFixed(2)
+      }) 
   })
-  return budgetSubtotals;
+  console.log(budgetTotals);
+  return budgetTotals;
 }
+
 
 
 
