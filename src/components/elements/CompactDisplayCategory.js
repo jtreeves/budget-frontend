@@ -1,6 +1,5 @@
 // Create function
 function CompactDisplayCategory(props) {
-
   
   return (
     <div className="compact-container">
@@ -10,7 +9,7 @@ function CompactDisplayCategory(props) {
       </div>
 
       <div>
-        <h3>{Object.values(props.input)}</h3>
+        <h3>${Object.values(props.input)}</h3>
         <h3>Per Month</h3>
       </div>
     </div>

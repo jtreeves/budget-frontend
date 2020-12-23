@@ -2,7 +2,8 @@ const budgetSeed = {
   housing: [
     {"Rent": 1290.23},
     {"Insurance": 123.43},
-    {"Upkeep": 87.23}
+    {"Upkeep": 87.23},
+    {"Lawn Maint.": 45.00}
   ],
   utilities: [
     {"Internet": 56.34},
