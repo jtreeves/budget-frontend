@@ -5,7 +5,7 @@ import calcTotal from '../../utilities/calcTotal'
 
 // Create function
 function CategoryDisplay(props) {
-  console.log(props)
+
   const inputs = props.inputs.map((ele, idx) => {
     return <CompactDisplayCategory key={idx} input={ele} />
   })

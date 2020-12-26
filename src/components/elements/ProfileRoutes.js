@@ -12,15 +12,15 @@ import Transportation from '../profilePages/Transportation'
 
 function ProfileRoutes(props) {
   
-  
+  // Budget Components
   const { income, housing, foodAndDrinks, misc, transportation, utilities } = props.budget
 
-  const [incomeInputs, setIncomeInputs] = useState(income);
-  const [foodAndDrinkInputs, setFoodAndDrinkInputs] = useState(foodAndDrinks);
-  const [housingInputs, setHousingInputs] = useState(housing);
-  const [miscInputs, setMiscInputs] = useState(misc);
-  const [transportationInputs, setTransportationInputs] = useState(transportation);
-  const [utilitiesInputs, setUtilitiesInputs] = useState(utilities);
+  // const [incomeInputs, setIncomeInputs] = useState(income);
+  // const [foodAndDrinkInputs, setFoodAndDrinkInputs] = useState(foodAndDrinks);
+  // const [housingInputs, setHousingInputs] = useState(housing);
+  // const [miscInputs, setMiscInputs] = useState(misc);
+  // const [transportationInputs, setTransportationInputs] = useState(transportation);
+  // const [utilitiesInputs, setUtilitiesInputs] = useState(utilities);
 
 
   return (
@@ -38,7 +38,8 @@ function ProfileRoutes(props) {
           path={"/profile/housing"}
           component={Housing}
           user={props.currentUser}
-          inputs={housingInputs}
+          inputs={housing}
+          updateBudget={props.updateBudget}
         />
 
         <PrivateRoute
@@ -46,7 +47,7 @@ function ProfileRoutes(props) {
           path={"/profile/utilities"}
           component={Utilities}
           user={props.currentUser}
-          inputs={utilitiesInputs}
+          inputs={utilities}
         />
 
         <PrivateRoute
@@ -54,7 +55,7 @@ function ProfileRoutes(props) {
           path={"/profile/food-drinks"}
           component={FoodAndDrinks}
           user={props.currentUser}
-          inputs={foodAndDrinkInputs}
+          inputs={foodAndDrinks}
         />
 
         <PrivateRoute
@@ -62,7 +63,7 @@ function ProfileRoutes(props) {
           path={"/profile/income"}
           component={Income}
           user={props.currentUser}
-          inputs={incomeInputs}
+          inputs={income}
         />
 
         <PrivateRoute
@@ -70,7 +71,7 @@ function ProfileRoutes(props) {
           path={"/profile/misc"}
           component={Miscellaneous}
           user={props.currentUser}
-          inputs={miscInputs}
+          inputs={misc}
         />
 
         <PrivateRoute
@@ -78,7 +79,7 @@ function ProfileRoutes(props) {
           path={"/profile/transportation"}
           component={Transportation}
           user={props.currentUser}
-          inputs={transportationInputs}
+          inputs={transportation}
         />
 
     </div>

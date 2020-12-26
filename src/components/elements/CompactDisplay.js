@@ -3,8 +3,7 @@ function CompactDisplay(props) {
   const inputs = props.inputs.map((ele, idx) => {
     return <li key={idx}>{ele}</li>;
   });
-// console.log(props.income)
-// console.log(props.housing)
+
 console.log(props.foodAndDrinks)
 
   return (

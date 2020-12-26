@@ -24,7 +24,9 @@ function Profile(props) {
   const [budget, setBudget] = useState(budgetSeed)
   const [budgetTotals, setBudgetTotals] = useState(calcSubTotals(budgetSeed))
 
-
+  const updateBudget = () => {
+    console.log('updated');
+  }
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
     handleLogout();
@@ -42,7 +44,7 @@ function Profile(props) {
       <div className="div-profile-workspace">
 
 
-       <ProfileRoutes budget={budget}/>
+       <ProfileRoutes updateBudget={updateBudget} budget={budget}/>
 
 
       </div>
