@@ -40,6 +40,7 @@ function ProfileRoutes(props) {
           user={props.currentUser}
           inputs={housing}
           updateBudget={props.updateBudget}
+          budget={props.budget}
         />
 
         <PrivateRoute

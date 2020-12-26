@@ -1,73 +1,80 @@
-import { Link } from 'react-router-dom'
-import { useAlert } from 'react-alert'
+import { Link } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 // Component Imports
-import UserInfo from '../elements/UserInfo'
-import ProfileRoutes from '../elements/ProfileRoutes'
-import { useState } from 'react'
-import calcSubTotals from '../../utilities/calcSubTotals'
+import UserInfo from "../elements/UserInfo";
+import ProfileRoutes from "../elements/ProfileRoutes";
+import { useState } from "react";
+import calcSubTotals from "../../utilities/calcSubTotals";
 
 // data import (Developing Only)
-import budgetSeed from '../../seeders/futureSeeder'
-
+import budgetSeed from "../../seeders/futureSeeder";
 
 function Profile(props) {
-
   // Variables and Props
-  const alert = useAlert()
+  const alert = useAlert();
   const { handleLogout } = props;
   const { exp, id, name, email } = props.user;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
 
   // State
-  const [budget, setBudget] = useState(budgetSeed)
-  const [budgetTotals, setBudgetTotals] = useState(calcSubTotals(budgetSeed))
+  const [budget, setBudget] = useState(budgetSeed);
+  const [budgetTotals, setBudgetTotals] = useState(calcSubTotals(budget));
 
-  const updateBudget = () => {
-    console.log('updated');
-  }
+  // Budget state funcitons
+  const updateBudget = (category, input) => {
+    console.log(budget);
+    let inputTitle = input.type;
+    let inputValue = input.price;
+    let newInput = {};
+    newInput[inputTitle] = parseFloat(input.price);
+    setBudget((prevBudget) => ({
+      ...prevBudget,
+      [category]: [...prevBudget[category], newInput],
+    }));
+  };
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
     handleLogout();
-    alert.show('Session has ended. Please log in.');
+    alert.show("Session has ended. Please log in.");
   }
 
   // Success Display
-  const userData = props.user ?
-    (<div className="div-profile-page">
-      
-       {/* <h1>Profile Page</h1> */}
+  const userData = props.user ? (
+    <div className="div-profile-page">
+      {/* <h1>Profile Page</h1> */}
 
-      <UserInfo name={name} email={email} id={id} totals={budgetTotals} budget={budget}/>
+      <UserInfo
+        name={name}
+        email={email}
+        id={id}
+        totals={budgetTotals}
+        budget={budget}
+      />
 
       <div className="div-profile-workspace">
-
-
-       <ProfileRoutes updateBudget={updateBudget} budget={budget}/>
-
-
+        <ProfileRoutes updateBudget={updateBudget} budget={budget} />
       </div>
-    </div>) : <h4>Loading...</h4>
+    </div>
+  ) : (
+    <h4>Loading...</h4>
+  );
 
   // Error Display
   const errorDiv = () => {
     return (
-      <div> 
-        <h3>Please <Link to="/login">login</Link> to view this page</h3>
+      <div>
+        <h3>
+          Please <Link to="/login">login</Link> to view this page
+        </h3>
       </div>
     );
   };
 
   // Profile Return
-  return (
-    <>
-      {props.user ? userData : errorDiv()}
-    </>
-  )
+  return <>{props.user ? userData : errorDiv()}</>;
 }
 
 // Export function
 export default Profile;
-
-

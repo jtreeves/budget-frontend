@@ -2,6 +2,7 @@ import { useState } from "react";
 import CategoryDisplay from "../elements/CategoryDisplay";
 
 function Housing(props) {
+
   const [inputFormDisplayed, setInputFormDisplayed] = useState(false);
   const [newInput, setNewInput] = useState({
     type: "",
@@ -37,7 +38,7 @@ function Housing(props) {
             }}
           />
         </form>
-        <button onClick={props.updateBudget}>Submit Expense</button>
+        <button onClick={() => props.updateBudget("housing", newInput)}>Submit Expense</button>
       </div>
     );
   } else {
