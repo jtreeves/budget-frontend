@@ -20,7 +20,6 @@ function Profile(props) {
 
   // State
   const [budget, setBudget] = useState(budgetSeed);
-  const [budgetTotals, setBudgetTotals] = useState(calcSubTotals(budget));
 
   // Budget state funcitons
   const addBudgetInput = (category, input) => {
@@ -32,6 +31,7 @@ function Profile(props) {
     }));
     console.log(newInput);
   };
+
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
     handleLogout();
@@ -47,7 +47,6 @@ function Profile(props) {
         name={name}
         email={email}
         id={id}
-        totals={budgetTotals}
         budget={budget}
       />
 
