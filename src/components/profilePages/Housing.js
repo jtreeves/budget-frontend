@@ -1,11 +1,14 @@
-import CategoryDisplay from '../elements/CategoryDisplay'
+import CategoryDisplay from "../elements/CategoryDisplay";
 
 function Housing(props) {
-
   return (
     <div>
       <h3>This is the Housing page!!!!</h3>
-      <CategoryDisplay inputs={props.inputs} />
+      <CategoryDisplay
+        addBudgetInput={props.addBudgetInput}
+        budgetKey="housing"
+        inputs={props.inputs}
+      />
     </div>
   );
 }

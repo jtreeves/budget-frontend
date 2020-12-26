@@ -5,7 +5,11 @@ function Miscellaneous(props) {
   return (
     <div>
       <h3>This is the Miscellaneous page!!!!</h3>
-      <CategoryDisplay inputs={props.inputs} />
+      <CategoryDisplay
+        addBudgetInput={props.addBudgetInput}
+        budgetKey="misc"
+        inputs={props.inputs}
+      />
     </div>
   );
 }

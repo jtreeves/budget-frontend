@@ -1,15 +1,18 @@
 import calcTotal from '../../utilities/calcTotal'
+import calcSubTotals from '../../utilities/calcSubTotals'
 
 function UserInfo(props) {
+
+  const subTotals = calcSubTotals(props.budget)
 
   const monthlyExpense = calcTotal(props.budget)
   const weeklyExpense = (monthlyExpense / 4).toFixed(2)
 
-  const monthlyIncome = (props.totals.income)
+  const monthlyIncome = (subTotals.income)
   const weeklyIncome = (monthlyIncome / 4).toFixed(2)
 
-  const breakdown = Object.keys(props.totals).map((key, idx) => {
-    return <li key={idx}>{key}: ${props.totals[key]}</li>
+  const breakdown = Object.keys(subTotals).map((key, idx) => {
+    return <li key={idx}>{key}: ${subTotals[key]}</li>
   })
 
   return (

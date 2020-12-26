@@ -1,6 +1,6 @@
 // Import external dependencies
 import { useEffect, useState } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 
 // Import internal utility
