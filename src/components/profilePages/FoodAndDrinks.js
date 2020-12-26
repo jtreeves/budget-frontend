@@ -5,7 +5,11 @@ function FoodAndDrinks(props) {
   return (
     <div>
       <h3>This is the Food and Drinnks page!!!!</h3>
-      <CategoryDisplay inputs={props.inputs} />
+      <CategoryDisplay
+        addBudgetInput={props.addBudgetInput}
+        budgetKey="foodAndDrinks"
+        inputs={props.inputs}
+      />
     </div>
   );
 }

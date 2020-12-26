@@ -12,16 +12,8 @@ import Transportation from '../profilePages/Transportation'
 
 function ProfileRoutes(props) {
   
-  // Budget Components
+  // Budget Categories
   const { income, housing, foodAndDrinks, misc, transportation, utilities } = props.budget
-
-  // const [incomeInputs, setIncomeInputs] = useState(income);
-  // const [foodAndDrinkInputs, setFoodAndDrinkInputs] = useState(foodAndDrinks);
-  // const [housingInputs, setHousingInputs] = useState(housing);
-  // const [miscInputs, setMiscInputs] = useState(misc);
-  // const [transportationInputs, setTransportationInputs] = useState(transportation);
-  // const [utilitiesInputs, setUtilitiesInputs] = useState(utilities);
-
 
   return (
     <div>
@@ -39,8 +31,7 @@ function ProfileRoutes(props) {
           component={Housing}
           user={props.currentUser}
           inputs={housing}
-          updateBudget={props.updateBudget}
-          budget={props.budget}
+          addBudgetInput={props.addBudgetInput}
         />
 
         <PrivateRoute
@@ -49,6 +40,7 @@ function ProfileRoutes(props) {
           component={Utilities}
           user={props.currentUser}
           inputs={utilities}
+          addBudgetInput={props.addBudgetInput}
         />
 
         <PrivateRoute
@@ -57,6 +49,7 @@ function ProfileRoutes(props) {
           component={FoodAndDrinks}
           user={props.currentUser}
           inputs={foodAndDrinks}
+          addBudgetInput={props.addBudgetInput}
         />
 
         <PrivateRoute
@@ -65,6 +58,7 @@ function ProfileRoutes(props) {
           component={Income}
           user={props.currentUser}
           inputs={income}
+          addBudgetInput={props.addBudgetInput}
         />
 
         <PrivateRoute
@@ -73,6 +67,7 @@ function ProfileRoutes(props) {
           component={Miscellaneous}
           user={props.currentUser}
           inputs={misc}
+          addBudgetInput={props.addBudgetInput}
         />
 
         <PrivateRoute
@@ -81,6 +76,7 @@ function ProfileRoutes(props) {
           component={Transportation}
           user={props.currentUser}
           inputs={transportation}
+          addBudgetInput={props.addBudgetInput}
         />
 
     </div>

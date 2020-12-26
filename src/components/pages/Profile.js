@@ -23,16 +23,14 @@ function Profile(props) {
   const [budgetTotals, setBudgetTotals] = useState(calcSubTotals(budget));
 
   // Budget state funcitons
-  const updateBudget = (category, input) => {
-    console.log(budget);
-    let inputTitle = input.type;
-    let inputValue = input.price;
+  const addBudgetInput = (category, input) => {
     let newInput = {};
-    newInput[inputTitle] = parseFloat(input.price);
+    newInput[input.type] = parseFloat(input.price);
     setBudget((prevBudget) => ({
       ...prevBudget,
-      [category]: [...prevBudget[category], newInput],
+      [category]: [newInput, ...prevBudget[category]],
     }));
+    console.log(newInput);
   };
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
@@ -54,7 +52,7 @@ function Profile(props) {
       />
 
       <div className="div-profile-workspace">
-        <ProfileRoutes updateBudget={updateBudget} budget={budget} />
+        <ProfileRoutes addBudgetInput={addBudgetInput} budget={budget} />
       </div>
     </div>
   ) : (

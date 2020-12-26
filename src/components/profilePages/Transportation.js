@@ -5,7 +5,11 @@ function Transportation(props) {
   return (
     <div>
       <h3>This is the Transportation page!!!!</h3>
-      <CategoryDisplay inputs={props.inputs} />
+      <CategoryDisplay
+        addBudgetInput={props.addBudgetInput}
+        budgetKey="transportation"
+        inputs={props.inputs}
+      />
     </div>
   );
 }

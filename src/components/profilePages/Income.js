@@ -5,7 +5,11 @@ function Income(props) {
   return (
     <div>
       <h3>This is the Income page!!!!</h3>
-      <CategoryDisplay inputs={props.inputs} />
+      <CategoryDisplay
+        addBudgetInput={props.addBudgetInput}
+        budgetKey="income"
+        inputs={props.inputs}
+      />
     </div>
   );
 }
