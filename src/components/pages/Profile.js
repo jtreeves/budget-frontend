@@ -5,7 +5,6 @@ import { useAlert } from "react-alert";
 import UserInfo from "../elements/UserInfo";
 import ProfileRoutes from "../elements/ProfileRoutes";
 import { useState } from "react";
-import calcSubTotals from "../../utilities/calcSubTotals";
 
 // data import (Developing Only)
 import budgetSeed from "../../seeders/futureSeeder";
@@ -29,7 +28,6 @@ function Profile(props) {
       ...prevBudget,
       [category]: [newInput, ...prevBudget[category]],
     }));
-    console.log(newInput);
   };
 
   // Session Auto-Logout

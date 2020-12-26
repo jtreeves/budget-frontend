@@ -4,8 +4,6 @@ function CompactDisplay(props) {
     return <li key={idx}>{ele}</li>;
   });
 
-console.log(props.foodAndDrinks)
-
   return (
     <div className="compact-container">
       <div>

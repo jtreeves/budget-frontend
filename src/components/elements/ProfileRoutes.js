@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import PrivateRoute from '../../utilities/PrivateRoute'
 import DefaultProfile from '../profilePages/DefaultProfile'
 import Housing from '../profilePages/Housing'

@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
 
-import Logo from './Logo';
-
 function UserNavigation(props) {
   return (
     <div className="nav-user">
