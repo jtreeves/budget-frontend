@@ -7,6 +7,7 @@ function Income(props) {
       <h3>This is the Income page!!!!</h3>
       <CategoryDisplay
         addBudgetInput={props.addBudgetInput}
+        deleteBudgetInput={props.deleteBudgetInput}
         budgetKey="income"
         inputs={props.inputs}
       />

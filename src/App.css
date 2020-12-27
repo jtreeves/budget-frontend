@@ -11,8 +11,19 @@ li {
 
 a {
   text-decoration: none;
-
 }
+
+
+/* ---Created by thomas--- */
+.delete-tag {
+  color: dodgerblue;
+  text-decoration: underline;
+}
+
+.delete-tag:hover {
+  cursor: pointer;
+}
+/* ----------------------- */
 
 button {
   color: #000;

@@ -30,6 +30,7 @@ function ProfileRoutes(props) {
           user={props.currentUser}
           inputs={housing}
           addBudgetInput={props.addBudgetInput}
+          deleteBudgetInput={props.deleteBudgetInput}
         />
 
         <PrivateRoute
@@ -39,6 +40,7 @@ function ProfileRoutes(props) {
           user={props.currentUser}
           inputs={utilities}
           addBudgetInput={props.addBudgetInput}
+          deleteBudgetInput={props.deleteBudgetInput}
         />
 
         <PrivateRoute
@@ -48,6 +50,7 @@ function ProfileRoutes(props) {
           user={props.currentUser}
           inputs={foodAndDrinks}
           addBudgetInput={props.addBudgetInput}
+          deleteBudgetInput={props.deleteBudgetInput}
         />
 
         <PrivateRoute
@@ -57,6 +60,7 @@ function ProfileRoutes(props) {
           user={props.currentUser}
           inputs={income}
           addBudgetInput={props.addBudgetInput}
+          deleteBudgetInput={props.deleteBudgetInput}
         />
 
         <PrivateRoute
@@ -66,6 +70,7 @@ function ProfileRoutes(props) {
           user={props.currentUser}
           inputs={misc}
           addBudgetInput={props.addBudgetInput}
+          deleteBudgetInput={props.deleteBudgetInput}
         />
 
         <PrivateRoute
@@ -75,6 +80,7 @@ function ProfileRoutes(props) {
           user={props.currentUser}
           inputs={transportation}
           addBudgetInput={props.addBudgetInput}
+          deleteBudgetInput={props.deleteBudgetInput}
         />
 
     </div>

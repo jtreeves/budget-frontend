@@ -21,14 +21,22 @@ function Profile(props) {
   const [budget, setBudget] = useState(budgetSeed);
 
   // Budget state funcitons
-  const addBudgetInput = (category, input) => {
+  const addBudgetInput = (budgetKey, input) => {
     let newInput = {};
     newInput[input.type] = parseFloat(input.price);
     setBudget((prevBudget) => ({
       ...prevBudget,
-      [category]: [newInput, ...prevBudget[category]],
+      [budgetKey]: [newInput, ...prevBudget[budgetKey]],
     }));
   };
+
+  const deleteBudgetInput = (budgetKey, input, index) => {
+    // This makes a deep copy of the budget
+    let budgetCopy = JSON.parse(JSON.stringify(budget))
+    // Now you can edit budgetCopy without changing budget
+    budgetCopy[budgetKey].splice(index, 1)
+    setBudget(budgetCopy);
+  }
 
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
@@ -49,7 +57,10 @@ function Profile(props) {
       />
 
       <div className="div-profile-workspace">
-        <ProfileRoutes addBudgetInput={addBudgetInput} budget={budget} />
+        <ProfileRoutes 
+        deleteBudgetInput={deleteBudgetInput} 
+        addBudgetInput={addBudgetInput} 
+        budget={budget} />
       </div>
     </div>
   ) : (
