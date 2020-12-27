@@ -7,6 +7,7 @@ function Transportation(props) {
       <h3>This is the Transportation page!!!!</h3>
       <CategoryDisplay
         addBudgetInput={props.addBudgetInput}
+        deleteBudgetInput={props.deleteBudgetInput}
         budgetKey="transportation"
         inputs={props.inputs}
       />

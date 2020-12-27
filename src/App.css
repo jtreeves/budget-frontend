@@ -11,7 +11,6 @@ li {
 
 a {
   text-decoration: none;
-
 }
 
 button {
@@ -26,6 +25,7 @@ button {
   border-radius: 20px;
   background-color: #edeef1;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  outline: none;
   font-weight: 700;
   cursor: pointer;
 }

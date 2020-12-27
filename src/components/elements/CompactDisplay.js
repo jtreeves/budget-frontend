@@ -1,5 +1,6 @@
 // Create function
 function CompactDisplay(props) {
+  
   const inputs = props.inputs.map((ele, idx) => {
     return <li key={idx}>{ele}</li>;
   });

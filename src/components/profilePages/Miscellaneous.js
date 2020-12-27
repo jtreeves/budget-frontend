@@ -7,6 +7,7 @@ function Miscellaneous(props) {
       <h3>This is the Miscellaneous page!!!!</h3>
       <CategoryDisplay
         addBudgetInput={props.addBudgetInput}
+        deleteBudgetInput={props.deleteBudgetInput}
         budgetKey="misc"
         inputs={props.inputs}
       />

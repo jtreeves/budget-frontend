@@ -16,7 +16,7 @@ function CategoryDisplay(props) {
   const inputsObj = { inputs: [...props.inputs] };
 
   const inputs = props.inputs.map((ele, idx) => {
-    return <CompactDisplayCategory key={idx} input={ele} />;
+    return <CompactDisplayCategory deleteBudgetInput={props.deleteBudgetInput} index={idx} budgetKey={props.budgetKey} key={idx} input={ele} />;
   });
 
   return (

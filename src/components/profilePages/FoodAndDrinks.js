@@ -7,6 +7,7 @@ function FoodAndDrinks(props) {
       <h3>This is the Food and Drinnks page!!!!</h3>
       <CategoryDisplay
         addBudgetInput={props.addBudgetInput}
+        deleteBudgetInput={props.deleteBudgetInput}
         budgetKey="foodAndDrinks"
         inputs={props.inputs}
       />

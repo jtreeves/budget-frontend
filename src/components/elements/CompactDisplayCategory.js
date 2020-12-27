@@ -1,11 +1,17 @@
 // Create function
 function CompactDisplayCategory(props) {
-  
   return (
     <div className="compact-container">
       <div>
         <h3>{Object.keys(props.input)}</h3>
-
+        <button
+          className="delete-tag"
+          onClick={() => {
+            props.deleteBudgetInput(props.budgetKey, props.index)
+          }}
+        >
+          Delete
+        </button>
       </div>
 
       <div>
