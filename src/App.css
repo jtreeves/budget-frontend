@@ -13,18 +13,6 @@ a {
   text-decoration: none;
 }
 
-
-/* ---Created by thomas--- */
-.delete-tag {
-  color: dodgerblue;
-  text-decoration: underline;
-}
-
-.delete-tag:hover {
-  cursor: pointer;
-}
-/* ----------------------- */
-
 button {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
@@ -37,6 +25,7 @@ button {
   border-radius: 20px;
   background-color: #edeef1;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  outline: none;
   font-weight: 700;
   cursor: pointer;
 }

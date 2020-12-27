@@ -17,7 +17,7 @@ function ProfileRoutes(props) {
     <div>
         <PrivateRoute
           exact
-          path={"/profile"}
+          path={"/profile/overview"}
           component={DefaultProfile}
           user={props.currentUser}
           budget={props.budget}

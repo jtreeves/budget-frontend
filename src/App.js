@@ -90,7 +90,6 @@ function App() {
 
       <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} handleLogout={handleLogout} />
 
-      <PrivateRoute exact path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
     </div>
   );
 

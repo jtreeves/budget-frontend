@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import Logo from '../elements/Logo';
+
 
 // Import internal utility
 import setAuthToken from '../../utilities/setAuthToken';
@@ -58,7 +58,7 @@ function Login(props) {
   };
 
   // Redirect to profile page
-  if (props.user) return <Redirect to="/profile" />;
+  if (props.user) return <Redirect to="/profile/overview" />;
 
   return (
     <div className="div-public-page">

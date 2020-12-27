@@ -4,14 +4,14 @@ function CompactDisplayCategory(props) {
     <div className="compact-container">
       <div>
         <h3>{Object.keys(props.input)}</h3>
-        <a
+        <button
           className="delete-tag"
           onClick={() => {
-            props.deleteBudgetInput(props.budgetKey, props.input, props.index)
+            props.deleteBudgetInput(props.budgetKey, props.index)
           }}
         >
           Delete
-        </a>
+        </button>
       </div>
 
       <div>

@@ -30,7 +30,7 @@ function Profile(props) {
     }));
   };
 
-  const deleteBudgetInput = (budgetKey, input, index) => {
+  const deleteBudgetInput = (budgetKey, index) => {
     // This makes a deep copy of the budget
     let budgetCopy = JSON.parse(JSON.stringify(budget))
     // Now you can edit budgetCopy without changing budget

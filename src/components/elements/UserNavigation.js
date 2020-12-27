@@ -37,7 +37,7 @@ function UserNavigation(props) {
           </Link>
         </li>
         <li>
-          <Link className="nav-links" to="/profile">
+          <Link className="nav-links" to="/profile/overview">
             Overview
           </Link>
         </li>
