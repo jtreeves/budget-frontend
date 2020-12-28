@@ -96,7 +96,7 @@ function calcBudgetSubTotals (budget) {
   Object.keys(budget.categories).forEach((category) => {
     let sum = 0;
     Object.values(budget.categories[category].inputs).forEach((value) => {
-      sum += value;
+      sum += parseFloat(value)
     })
     budgetTotals[category] = sum;
   })
@@ -106,7 +106,7 @@ function calcBudgetSubTotals (budget) {
 function calcCategoryTotal (inputs) {
   let total = 0;
   Object.values(inputs).forEach((value) => {
-    total += value
+    total += parseFloat(value)
   })
   return total;
 }
@@ -115,8 +115,8 @@ function calcExpenseTotals (budget) {
   let total = 0
   Object.keys(budget.categories).forEach((category) => {
     Object.values(budget.categories[category].inputs).forEach((value) => {
-        if (category != "income") {
-         total += value
+        if (category !== "income") {
+         total += parseFloat(value)
         }
     })
   })

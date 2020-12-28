@@ -22,20 +22,20 @@ function Profile(props) {
   
 
   // Budget state funcitons
-  const addBudgetInput = (budgetKey, input) => {
-    let newInput = {};
-    newInput[input.type] = parseFloat(input.price);
-    setBudget((prevBudget) => ({
-      ...prevBudget,
-      [budgetKey]: [newInput, ...prevBudget[budgetKey]],
-    }));
-  };
 
-  const deleteBudgetInput = (budgetKey, index) => {
+  const addBudgetInput = (budgetKey, newInput) => {
     // This makes a deep copy of the budget
     let budgetCopy = JSON.parse(JSON.stringify(budget))
     // Now you can edit budgetCopy without changing budget
-    budgetCopy[budgetKey].splice(index, 1)
+    budgetCopy.categories[budgetKey].inputs[newInput.inputName] = newInput.inputValue
+    setBudget(budgetCopy);
+  };
+
+  const deleteBudgetInput = (budgetKey, inputKey) => {
+    // This makes a deep copy of the budget
+    let budgetCopy = JSON.parse(JSON.stringify(budget))
+    // Now you can edit budgetCopy without changing budget
+    delete budgetCopy.categories[budgetKey].inputs[inputKey]
     setBudget(budgetCopy);
   }
 

@@ -9,15 +9,14 @@ import calcFunctions from "../../utilities/calcFunctions";
 function CategoryDisplay(props) {
   
   const [newInput, setNewInput] = useState({
-    type: "",
-    price: "",
+    inputName: "",
+    inputValue: "",
   });
 
   const inputs = Object.keys(props.inputs).map((key, idx) => {
     return <CompactDisplayCategory 
     deleteBudgetInput={props.deleteBudgetInput} 
-    index={idx} 
-    budgetKey={key} 
+    budgetKey={props.budgetKey} 
     key={idx} 
     inputName={key}
     inputValue={props.inputs[key]}
@@ -37,8 +36,8 @@ function CategoryDisplay(props) {
             value={newInput.type}
             onChange={(e) => {
               setNewInput({
-                type: e.target.value,
-                price: newInput.price,
+                inputName: e.target.value,
+                inputValue: newInput.inputValue,
               });
             }}
           />
@@ -48,8 +47,8 @@ function CategoryDisplay(props) {
             value={newInput.price}
             onChange={(e) => {
               setNewInput({
-                type: newInput.type,
-                price: e.target.value,
+                inputName: newInput.inputName,
+                inputValue: e.target.value,
               });
             }}
           />

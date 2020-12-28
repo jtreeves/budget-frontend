@@ -8,7 +8,7 @@ function Utilities(props) {
       <CategoryDisplay
         addBudgetInput={props.addBudgetInput}
         deleteBudgetInput={props.deleteBudgetInput}
-        budgetKey="utilities"
+        budgetKey="utility"
         inputs={props.inputs}
       />
     </div>

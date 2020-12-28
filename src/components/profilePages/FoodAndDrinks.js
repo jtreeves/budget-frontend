@@ -8,7 +8,7 @@ function FoodAndDrinks(props) {
       <CategoryDisplay
         addBudgetInput={props.addBudgetInput}
         deleteBudgetInput={props.deleteBudgetInput}
-        budgetKey="foodAndDrinks"
+        budgetKey="food"
         inputs={props.inputs}
       />
     </div>

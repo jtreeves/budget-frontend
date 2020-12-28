@@ -7,7 +7,7 @@ function CompactDisplayCategory(props) {
         <button
           className="delete-tag"
           onClick={() => {
-            props.deleteBudgetInput(props.budgetKey, props.index)
+            props.deleteBudgetInput(props.budgetKey, props.inputName)
           }}
         >
           Delete
