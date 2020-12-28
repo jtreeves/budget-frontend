@@ -7,7 +7,7 @@ import ProfileRoutes from "../elements/ProfileRoutes";
 import { useState } from "react";
 
 // data import (Developing Only)
-import budgetSeed from "../../seeders/futureSeeder";
+import budgetSeed2 from "../../seeders/futureSeeder";
 
 function Profile(props) {
   // Variables and Props
@@ -18,7 +18,7 @@ function Profile(props) {
   let currentTime = Date.now();
 
   // State
-  const [budget, setBudget] = useState(budgetSeed);
+  const [budget, setBudget] = useState(budgetSeed2);
   
 
   // Budget state funcitons
@@ -50,12 +50,12 @@ function Profile(props) {
     <div className="div-profile-page">
       {/* <h1>Profile Page</h1> */}
 
-      <UserInfo
+      {/* <UserInfo
         name={name}
         email={email}
         id={id}
         budget={budget}
-      />
+      /> */}
 
       <div className="div-profile-workspace">
         <ProfileRoutes 

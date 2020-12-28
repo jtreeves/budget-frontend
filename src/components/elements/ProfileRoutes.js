@@ -11,7 +11,7 @@ import Transportation from '../profilePages/Transportation'
 function ProfileRoutes(props) {
   
   // Budget Categories
-  const { income, housing, foodAndDrinks, misc, transportation, utilities } = props.budget
+  const { housing, utility, transportation, entertainment, food, misc, income } = props.budget.categories
 
   return (
     <div>
@@ -28,7 +28,7 @@ function ProfileRoutes(props) {
           path={"/profile/housing"}
           component={Housing}
           user={props.currentUser}
-          inputs={housing}
+          inputs={housing.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -38,7 +38,7 @@ function ProfileRoutes(props) {
           path={"/profile/utilities"}
           component={Utilities}
           user={props.currentUser}
-          inputs={utilities}
+          inputs={utility.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -48,7 +48,7 @@ function ProfileRoutes(props) {
           path={"/profile/food-drinks"}
           component={FoodAndDrinks}
           user={props.currentUser}
-          inputs={foodAndDrinks}
+          inputs={food.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -58,7 +58,7 @@ function ProfileRoutes(props) {
           path={"/profile/income"}
           component={Income}
           user={props.currentUser}
-          inputs={income}
+          inputs={income.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -68,7 +68,7 @@ function ProfileRoutes(props) {
           path={"/profile/misc"}
           component={Miscellaneous}
           user={props.currentUser}
-          inputs={misc}
+          inputs={misc.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -78,7 +78,7 @@ function ProfileRoutes(props) {
           path={"/profile/transportation"}
           component={Transportation}
           user={props.currentUser}
-          inputs={transportation}
+          inputs={transportation.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />

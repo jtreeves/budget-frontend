@@ -53,6 +53,13 @@ const budgetSeed2 = {
 				water : 5
 			}
 		},
+		food : {
+
+			inputs : {
+				grocery : 4,
+				restaurant : 5
+			}
+		},
 		transportation : {
 
 			inputs : {
@@ -88,4 +95,4 @@ const budgetSeed2 = {
 	__v : 0
 }
 
-export default budgetSeed
+export default budgetSeed2

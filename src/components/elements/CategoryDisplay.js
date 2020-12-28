@@ -12,17 +12,23 @@ function CategoryDisplay(props) {
     type: "",
     price: "",
   });
+  console.log(props.inputs);
 
-  const inputsObj = { inputs: [...props.inputs] };
-
-  const inputs = props.inputs.map((ele, idx) => {
-    return <CompactDisplayCategory deleteBudgetInput={props.deleteBudgetInput} index={idx} budgetKey={props.budgetKey} key={idx} input={ele} />;
-  });
+  const inputs = Object.keys(props.inputs).map((key, idx) => {
+    return <CompactDisplayCategory 
+    deleteBudgetInput={props.deleteBudgetInput} 
+    index={idx} 
+    budgetKey={key} 
+    key={idx} 
+    inputName={key}
+    inputValue={props.inputs[key]}
+    />;
+  })
 
   return (
     <div className="category-container">
       <GraphContainer />
-      <CompactTotal total={calcTotal(inputsObj)} />
+      {/* <CompactTotal total={calcTotal(inputsObj)} /> */}
 
       <div className="new-input">
         <form>
