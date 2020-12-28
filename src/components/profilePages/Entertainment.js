@@ -1,6 +1,6 @@
 import CategoryDisplay from '../elements/CategoryDisplay'
 
-function FoodAndDrinks(props) {
+function Entertainment(props) {
 
   return (
     <div>
@@ -8,7 +8,7 @@ function FoodAndDrinks(props) {
       <CategoryDisplay
         addBudgetInput={props.addBudgetInput}
         deleteBudgetInput={props.deleteBudgetInput}
-        budgetKey="food"
+        budgetKey="entertainment"
         inputs={props.inputs}
       />
     </div>
@@ -16,4 +16,4 @@ function FoodAndDrinks(props) {
 }
 
 // Export function
-export default FoodAndDrinks;
+export default Entertainment;

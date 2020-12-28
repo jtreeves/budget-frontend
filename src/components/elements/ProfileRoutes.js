@@ -4,8 +4,9 @@ import Housing from '../profilePages/Housing'
 import Utilities from '../profilePages/Utilities'
 import Miscellaneous from '../profilePages/Miscellaneous'
 import Income from '../profilePages/Income'
-import FoodAndDrinks from '../profilePages/FoodAndDrinks'
+import Food from '../profilePages/Food'
 import Transportation from '../profilePages/Transportation'
+import Entertainment from '../profilePages/Entertainment'
 
 
 function ProfileRoutes(props) {
@@ -35,6 +36,16 @@ function ProfileRoutes(props) {
 
         <PrivateRoute
           exact
+          path={"/profile/entertainment"}
+          component={Entertainment}
+          user={props.currentUser}
+          inputs={entertainment.inputs}
+          addBudgetInput={props.addBudgetInput}
+          deleteBudgetInput={props.deleteBudgetInput}
+        />
+
+        <PrivateRoute
+          exact
           path={"/profile/utilities"}
           component={Utilities}
           user={props.currentUser}
@@ -46,7 +57,7 @@ function ProfileRoutes(props) {
         <PrivateRoute
           exact
           path={"/profile/food-drinks"}
-          component={FoodAndDrinks}
+          component={Food}
           user={props.currentUser}
           inputs={food.inputs}
           addBudgetInput={props.addBudgetInput}
