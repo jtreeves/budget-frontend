@@ -42,43 +42,43 @@ const budgetSeed2 = {
 
 			inputs : {
 				rent : 1,
-				mortgage : 2,
-				hostel : 3
+				mortgage : 1,
+				hostel : 1
 			}
 		},
 		utility : {
 
 			inputs : {
-				electric : 4,
-				water : 5
+				electric : 1,
+				water : 1
 			}
 		},
 		transportation : {
 
 			inputs : {
-				plane : 6,
-				train : 7,
-				automobile : 8
+				plane : 1,
+				train : 1,
+				automobile : 1
 			}
 		},
 		entertainment : {
 
 			inputs : {
 				movies : 1,
-				books : 2
+				books : 1
 			}
 		},
 		misc : {
 
 			inputs : {
-				random1 : 3,
-				random2 : 4
+				random1 : 1,
+				random2 : 1
 			}
 		},
 		income : {
 
 			inputs : {
-				salary : 1,
+				salary : 5000,
 				investment : 2,
 				trust : 3,
 				lottery : 4
@@ -104,22 +104,21 @@ function calcTotal (budget) {
   return  parseFloat(total).toFixed(2)
 }
 
-function calcTotalBackend (budget) {
-  let expenses = [];
-  let total = 0;
-  Object.keys(budget).forEach((key) => {
-    if (key !== "income") {
-      expenses.push(...budget[key])
-    }
+function calcTotalExpenses (budget) {
+  let total = 0
+  Object.keys(budget.categories).forEach((category) => {
+    Object.values(budget.categories[category].inputs).forEach((value) => {
+        if (category != "income") {
+         total += value
+        }
+    })
   })
-  expenses.forEach((obj) => {
-    total += parseFloat(Object.values(obj))
-  })
-  return  parseFloat(total).toFixed(2)
+  console.log(total);
+  return total
 }
 
-// calcTotalBackend(budgetSeed2)
-calcTotal(budgetSeed)
+
+
 
 export default calcTotal;
 
