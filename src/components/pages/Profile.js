@@ -1,28 +1,49 @@
+
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
+import axios from 'axios'
 
 // Component Imports
 import UserInfo from "../elements/UserInfo";
 import ProfileRoutes from "../elements/ProfileRoutes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // data import (Developing Only)
-import budgetSeed2 from "../../seeders/futureSeeder";
+// import budgetSeed2 from "../../seeders/futureSeeder";
 
 function Profile(props) {
+  
   // Variables and Props
   const alert = useAlert();
   const { handleLogout } = props;
   const { exp, id, name, email } = props.user;
+  const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
 
-  // State
-  const [budget, setBudget] = useState(budgetSeed2);
   
+  // Fetching Budgets
+  useEffect(() => {
+    async function fetchBudgets() {
+      if (props.user) {
+        let apiRes = await axios.get(backendUrl + '/budgets/all/' + id)
+        let budgets = await apiRes.data.budgets
+        setBudget(budgets[0])
+        setBudgetArray(budgets)
+      }
+    }
+    try {
+      fetchBudgets()
+    } catch (error) {
+      console.log(error);
+    }
+  }, [backendUrl, id, props.user])
 
+  // State
+  const [budget, setBudget] = useState(null);
+  const [budgetArray, setBudgetArray] = useState(null)
+  
   // Budget state funcitons
-
   const addBudgetInput = (budgetKey, newInput) => {
     // This makes a deep copy of the budget
     let budgetCopy = JSON.parse(JSON.stringify(budget))
@@ -46,7 +67,7 @@ function Profile(props) {
   }
 
   // Success Display
-  const userData = props.user ? (
+  const userData = props.user && budget ? (
     <div className="div-profile-page">
       {/* <h1>Profile Page</h1> */}
 
