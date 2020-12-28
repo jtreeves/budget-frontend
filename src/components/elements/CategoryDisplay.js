@@ -3,7 +3,7 @@ import { useState } from "react";
 import CompactTotal from "../elements/CompactTotal";
 import GraphContainer from "../elements/GraphContainer";
 import CompactDisplayCategory from "../elements/CompactDisplayCategory";
-import calcTotal from "../../utilities/calcTotal";
+import calcFunctions from "../../utilities/calcFunctions";
 
 // Create function
 function CategoryDisplay(props) {
@@ -12,7 +12,6 @@ function CategoryDisplay(props) {
     type: "",
     price: "",
   });
-  console.log(props.inputs);
 
   const inputs = Object.keys(props.inputs).map((key, idx) => {
     return <CompactDisplayCategory 
@@ -28,7 +27,7 @@ function CategoryDisplay(props) {
   return (
     <div className="category-container">
       <GraphContainer />
-      {/* <CompactTotal total={calcTotal(inputsObj)} /> */}
+      <CompactTotal total={calcFunctions.calcCategoryTotal(props.inputs)} />
 
       <div className="new-input">
         <form>

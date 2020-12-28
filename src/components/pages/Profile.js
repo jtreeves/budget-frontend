@@ -50,12 +50,12 @@ function Profile(props) {
     <div className="div-profile-page">
       {/* <h1>Profile Page</h1> */}
 
-      {/* <UserInfo
+      <UserInfo
         name={name}
         email={email}
         id={id}
         budget={budget}
-      /> */}
+      />
 
       <div className="div-profile-workspace">
         <ProfileRoutes 
