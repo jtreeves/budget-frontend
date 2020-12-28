@@ -1,3 +1,5 @@
+import SimplePieChart from './SimplePieChart';
+
 // Create function
 function CompactDisplayCategory(props) {
   return (
@@ -18,6 +20,7 @@ function CompactDisplayCategory(props) {
         <h3>${Object.values(props.input)}</h3>
         <h3>Per Month</h3>
       </div>
+      <SimplePieChart />
     </div>
   );
 }

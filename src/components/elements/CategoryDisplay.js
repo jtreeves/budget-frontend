@@ -5,6 +5,7 @@ import GraphContainer from "../elements/GraphContainer";
 import CompactDisplayCategory from "../elements/CompactDisplayCategory";
 import calcTotal from "../../utilities/calcTotal";
 
+
 // Create function
 function CategoryDisplay(props) {
   
