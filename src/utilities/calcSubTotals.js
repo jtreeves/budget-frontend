@@ -37,8 +37,7 @@ const budgetSeed2 = {
 	user : "ObjectId(5fe39c7f19256ceffb806410)",
 	categories : {
 		housing : {
-			// date : ISODate("2020-12-28T15:54:48.219Z"),
-			// _id : ObjectId("5fea0001d7ff59802441de46"),
+
 			inputs : {
 				rent : 1,
 				mortgage : 2,
@@ -46,16 +45,14 @@ const budgetSeed2 = {
 			}
 		},
 		utility : {
-			// date : ISODate("2020-12-28T15:54:48.222Z"),
-			// _id : ObjectId("5fea0001d7ff59802441de47"),
+
 			inputs : {
 				electric : 4,
 				water : 5
 			}
 		},
 		transportation : {
-			// // date : ISODate("2020-12-28T15:54:48.223Z"),
-			// _id : ObjectId("5fea0001d7ff59802441de48"),
+
 			inputs : {
 				plane : 6,
 				train : 7,
@@ -63,24 +60,21 @@ const budgetSeed2 = {
 			}
 		},
 		entertainment : {
-			// date : ISODate("2020-12-28T15:54:48.223Z"),
-			// _id : ObjectId("5fea0001d7ff59802441de49"),
+
 			inputs : {
 				movies : 1,
 				books : 2
 			}
 		},
 		misc : {
-			// date : ISODate("2020-12-28T15:54:48.223Z"),
-			// _id : ObjectId("5fea0001d7ff59802441de4a"),
+
 			inputs : {
 				random1 : 3,
 				random2 : 4
 			}
 		},
 		income : {
-			// date : ISODate("2020-12-28T15:54:48.224Z"),
-			// _id : ObjectId("5fea0001d7ff59802441de4b"),
+
 			inputs : {
 				salary : 1,
 				investment : 2,
@@ -121,8 +115,8 @@ function calcSubTotalsBackend (budget) {
   return budgetTotals;
 }
 
-calcSubTotalsBackend(budgetSeed2)
+// calcSubTotalsBackend(budgetSeed2)
 
 
 
-// export default calcSubTotals;
+export default calcSubTotals;
