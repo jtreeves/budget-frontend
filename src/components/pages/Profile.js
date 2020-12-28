@@ -19,6 +19,7 @@ function Profile(props) {
 
   // State
   const [budget, setBudget] = useState(budgetSeed);
+  console.log(budget.categories);
 
   // Budget state funcitons
   const addBudgetInput = (budgetKey, input) => {
