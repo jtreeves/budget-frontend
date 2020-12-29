@@ -1,14 +1,14 @@
 import CategoryDisplay from '../elements/CategoryDisplay'
 
-function Utilities(props) {
+function Food(props) {
 
   return (
     <div>
-      <h3>This is the Utilities page!!!!</h3>
+      <h3>This is the Food and Drinnks page!!!!</h3>
       <CategoryDisplay
         addBudgetInput={props.addBudgetInput}
         deleteBudgetInput={props.deleteBudgetInput}
-        budgetKey="utility"
+        budgetKey="food"
         inputs={props.inputs}
       />
     </div>
@@ -16,4 +16,4 @@ function Utilities(props) {
 }
 
 // Export function
-export default Utilities;
+export default Food;

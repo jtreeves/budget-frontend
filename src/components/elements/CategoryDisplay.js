@@ -3,27 +3,31 @@ import { useState } from "react";
 import CompactTotal from "../elements/CompactTotal";
 import GraphContainer from "../elements/GraphContainer";
 import CompactDisplayCategory from "../elements/CompactDisplayCategory";
-import calcTotal from "../../utilities/calcTotal";
+import calcFunctions from "../../utilities/calcFunctions";
 
 
 // Create function
 function CategoryDisplay(props) {
   
   const [newInput, setNewInput] = useState({
-    type: "",
-    price: "",
+    inputName: "",
+    inputValue: "",
   });
 
-  const inputsObj = { inputs: [...props.inputs] };
-
-  const inputs = props.inputs.map((ele, idx) => {
-    return <CompactDisplayCategory deleteBudgetInput={props.deleteBudgetInput} index={idx} budgetKey={props.budgetKey} key={idx} input={ele} />;
-  });
+  const inputs = Object.keys(props.inputs).map((key, idx) => {
+    return <CompactDisplayCategory 
+    deleteBudgetInput={props.deleteBudgetInput} 
+    budgetKey={props.budgetKey} 
+    key={idx} 
+    inputName={key}
+    inputValue={props.inputs[key]}
+    />;
+  })
 
   return (
     <div className="category-container">
       <GraphContainer />
-      <CompactTotal total={calcTotal(inputsObj)} />
+      <CompactTotal total={calcFunctions.calcCategoryTotal(props.inputs)} />
 
       <div className="new-input">
         <form>
@@ -33,8 +37,8 @@ function CategoryDisplay(props) {
             value={newInput.type}
             onChange={(e) => {
               setNewInput({
-                type: e.target.value,
-                price: newInput.price,
+                inputName: e.target.value,
+                inputValue: newInput.inputValue,
               });
             }}
           />
@@ -44,8 +48,8 @@ function CategoryDisplay(props) {
             value={newInput.price}
             onChange={(e) => {
               setNewInput({
-                type: newInput.type,
-                price: e.target.value,
+                inputName: newInput.inputName,
+                inputValue: e.target.value,
               });
             }}
           />

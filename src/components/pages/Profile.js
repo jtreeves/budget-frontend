@@ -1,42 +1,86 @@
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
+import axios from "axios";
 
 // Component Imports
 import UserInfo from "../elements/UserInfo";
+import UserNavigation from '../elements/UserNavigation'
 import ProfileRoutes from "../elements/ProfileRoutes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // data import (Developing Only)
-import budgetSeed from "../../seeders/futureSeeder";
+// import budgetSeed2 from "../../seeders/futureSeeder";
 
 function Profile(props) {
+  /* ------------------------------------------------------- */
+
   // Variables and Props
   const alert = useAlert();
   const { handleLogout } = props;
   const { exp, id, name, email } = props.user;
+  const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
 
+  /* ------------------------------------------------------- */
+
+  // API crud
+  useEffect(() => {
+    async function fetchBudgets() {
+      if (props.user) {
+        let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
+        let budgets = await apiRes.data.budgets;
+        await setBudget(budgets[0]);
+        await setBudgetArray(budgets);
+        await setBudgetsLoaded(true)
+      }
+    }
+    try {
+      fetchBudgets();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [backendUrl, id, props.user]);
+
+  const saveBudget = async (currentBudget) => {
+    console.log(currentBudget._id);
+    try {
+      let apiRes = await axios.put(backendUrl + "/budgets/" + currentBudget._id, {
+        categories: currentBudget.categories
+      })
+      console.log(apiRes);
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
+  /* ------------------------------------------------------- */
+
   // State
-  const [budget, setBudget] = useState(budgetSeed);
+  const [budget, setBudget] = useState({})
+  const [budgetArray, setBudgetArray] = useState([])
+  const [budgetsLoaded, setBudgetsLoaded] = useState(false)
 
-  // Budget state funcitons
-  const addBudgetInput = (budgetKey, input) => {
-    let newInput = {};
-    newInput[input.type] = parseFloat(input.price);
-    setBudget((prevBudget) => ({
-      ...prevBudget,
-      [budgetKey]: [newInput, ...prevBudget[budgetKey]],
-    }));
-  };
+  // State funcitons
 
-  const deleteBudgetInput = (budgetKey, index) => {
+  const addBudgetInput = (budgetKey, newInput) => {
     // This makes a deep copy of the budget
     let budgetCopy = JSON.parse(JSON.stringify(budget))
     // Now you can edit budgetCopy without changing budget
-    budgetCopy[budgetKey].splice(index, 1)
+    budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
+      newInput.inputValue;
     setBudget(budgetCopy);
-  }
+  };
+
+  const deleteBudgetInput = (budgetKey, inputKey) => {
+    // This makes a deep copy of the budget
+    let budgetCopy = JSON.parse(JSON.stringify(budget));
+    // Now you can edit budgetCopy without changing budget
+    delete budgetCopy.categories[budgetKey].inputs[inputKey];
+    setBudget(budgetCopy);
+  };
+
+  /* ------------------------------------------------------- */
 
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
@@ -44,28 +88,29 @@ function Profile(props) {
     alert.show("Session has ended. Please log in.");
   }
 
+  /* ------------------------------------------------------- */
+
   // Success Display
-  const userData = props.user ? (
-    <div className="div-profile-page">
-      {/* <h1>Profile Page</h1> */}
+  const userData =
+    budgetsLoaded ? (
+      <>
+        <UserNavigation handleLogout={handleLogout} budgetArray={budgetArray}/>
+        <div className="div-profile-page">
+          <UserInfo name={name} email={email} id={id} saveBudget={saveBudget} budget={budget} />
 
-      <UserInfo
-        name={name}
-        email={email}
-        id={id}
-        budget={budget}
-      />
+          <div className="div-profile-workspace">
+            <ProfileRoutes
+              deleteBudgetInput={deleteBudgetInput}
+              addBudgetInput={addBudgetInput}
+              budget={budget}
+            />
+          </div>
+        </div>
 
-      <div className="div-profile-workspace">
-        <ProfileRoutes 
-        deleteBudgetInput={deleteBudgetInput} 
-        addBudgetInput={addBudgetInput} 
-        budget={budget} />
-      </div>
-    </div>
-  ) : (
-    <h4>Loading...</h4>
-  );
+      </>
+    ) : (
+      <h4>Loading...</h4>
+    );
 
   // Error Display
   const errorDiv = () => {
@@ -77,6 +122,8 @@ function Profile(props) {
       </div>
     );
   };
+
+  /* ------------------------------------------------------- */
 
   // Profile Return
   return <>{props.user ? userData : errorDiv()}</>;

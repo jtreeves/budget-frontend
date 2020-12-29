@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
+import BudgetsDisplay from '../elements/BudgetsDisplay'
 
 function UserNavigation(props) {
   return (
     <div className="nav-user">
-      {/* <Logo /> */}
       <p>Kaleidoscope</p>
       <ul>
         <li>
@@ -32,6 +32,11 @@ function UserNavigation(props) {
           </Link>
         </li>
         <li>
+          <Link className="nav-links" to="/profile/entertainment">
+            Entertainment
+          </Link>
+        </li>
+        <li>
           <Link className="nav-links" to="/profile/misc">
             Miscellaneous
           </Link>
@@ -43,11 +48,7 @@ function UserNavigation(props) {
         </li>
       </ul>
       <button onClick={props.handleLogout}>Logout</button>
-      {/* Create loop to do the following:
-            if no saved budgets display "No Saved Budgets"
-            else saved budgets > 0 display list of budgets as links
-            to specified budgets.
-            */}
+      <BudgetsDisplay budgetArray={props.budgetArray}/>
     </div>
   );
 }

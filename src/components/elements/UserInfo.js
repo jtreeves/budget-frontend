@@ -1,11 +1,11 @@
-import calcTotal from '../../utilities/calcTotal'
-import calcSubTotals from '../../utilities/calcSubTotals'
+import calcFunctions from '../../utilities/calcFunctions'
 
 function UserInfo(props) {
 
-  const subTotals = calcSubTotals(props.budget)
-
-  const monthlyExpense = calcTotal(props.budget)
+  
+  const subTotals = calcFunctions.calcBudgetSubTotals(props.budget)
+  
+  const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget)
   const weeklyExpense = (monthlyExpense / 4).toFixed(2)
 
   const monthlyIncome = (subTotals.income)
@@ -48,6 +48,7 @@ function UserInfo(props) {
           </ul>
         </div>
       </div>
+      <button onClick={() => props.saveBudget(props.budget)}>Save Budget</button>
     </div>
   );
 }

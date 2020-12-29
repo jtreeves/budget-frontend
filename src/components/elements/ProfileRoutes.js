@@ -4,14 +4,15 @@ import Housing from '../profilePages/Housing'
 import Utilities from '../profilePages/Utilities'
 import Miscellaneous from '../profilePages/Miscellaneous'
 import Income from '../profilePages/Income'
-import FoodAndDrinks from '../profilePages/FoodAndDrinks'
+import Food from '../profilePages/Food'
 import Transportation from '../profilePages/Transportation'
+import Entertainment from '../profilePages/Entertainment'
 
 
 function ProfileRoutes(props) {
   
   // Budget Categories
-  const { income, housing, foodAndDrinks, misc, transportation, utilities } = props.budget
+  const { housing, utility, transportation, entertainment, food, misc, income } = props.budget.categories
 
   return (
     <div>
@@ -28,7 +29,17 @@ function ProfileRoutes(props) {
           path={"/profile/housing"}
           component={Housing}
           user={props.currentUser}
-          inputs={housing}
+          inputs={housing.inputs}
+          addBudgetInput={props.addBudgetInput}
+          deleteBudgetInput={props.deleteBudgetInput}
+        />
+
+        <PrivateRoute
+          exact
+          path={"/profile/entertainment"}
+          component={Entertainment}
+          user={props.currentUser}
+          inputs={entertainment.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -38,7 +49,7 @@ function ProfileRoutes(props) {
           path={"/profile/utilities"}
           component={Utilities}
           user={props.currentUser}
-          inputs={utilities}
+          inputs={utility.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -46,9 +57,9 @@ function ProfileRoutes(props) {
         <PrivateRoute
           exact
           path={"/profile/food-drinks"}
-          component={FoodAndDrinks}
+          component={Food}
           user={props.currentUser}
-          inputs={foodAndDrinks}
+          inputs={food.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -58,7 +69,7 @@ function ProfileRoutes(props) {
           path={"/profile/income"}
           component={Income}
           user={props.currentUser}
-          inputs={income}
+          inputs={income.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -68,7 +79,7 @@ function ProfileRoutes(props) {
           path={"/profile/misc"}
           component={Miscellaneous}
           user={props.currentUser}
-          inputs={misc}
+          inputs={misc.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
@@ -78,7 +89,7 @@ function ProfileRoutes(props) {
           path={"/profile/transportation"}
           component={Transportation}
           user={props.currentUser}
-          inputs={transportation}
+          inputs={transportation.inputs}
           addBudgetInput={props.addBudgetInput}
           deleteBudgetInput={props.deleteBudgetInput}
         />
