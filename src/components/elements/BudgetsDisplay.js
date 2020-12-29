@@ -1,7 +1,7 @@
 function BudgetsDisplay(props) {
 
   const budgets = props.budgetArray.map((budget, idx) => {
-    return <li key={idx}>{budget._id}</li>
+    return <li key={idx}>Budget {idx + 1}</li>
   })
   return (
     <div>
