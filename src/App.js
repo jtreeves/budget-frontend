@@ -8,7 +8,6 @@ import setAuthToken from './utilities/setAuthToken';
 
 // Import internal components
 import Navigation from './components/elements/Navigation'
-import UserNavigation from './components/elements/UserNavigation'
 import Welcome from './components/pages/Welcome'
 import About from './components/pages/About'
 import Signup from './components/pages/Signup'
@@ -62,8 +61,7 @@ function App() {
 
   const handleNavBars = () => {
     if (isAuthenticated) {
-      // return <UserNavigation handleLogout={handleLogout} />;
-      return
+      return <Redirect to="/profile/overview" />;
     } else {
       return <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />;
     }

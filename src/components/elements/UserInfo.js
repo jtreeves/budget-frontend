@@ -48,6 +48,7 @@ function UserInfo(props) {
           </ul>
         </div>
       </div>
+      <button onClick={() => props.saveBudget(props.budget)}>Save Budget</button>
     </div>
   );
 }

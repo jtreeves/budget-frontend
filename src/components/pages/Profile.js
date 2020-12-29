@@ -12,6 +12,8 @@ import { useState, useEffect } from "react";
 // import budgetSeed2 from "../../seeders/futureSeeder";
 
 function Profile(props) {
+  /* ------------------------------------------------------- */
+
   // Variables and Props
   const alert = useAlert();
   const { handleLogout } = props;
@@ -20,15 +22,17 @@ function Profile(props) {
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
 
-  // API functions
+  /* ------------------------------------------------------- */
 
+  // API crud
   useEffect(() => {
     async function fetchBudgets() {
       if (props.user) {
         let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
         let budgets = await apiRes.data.budgets;
-        setBudget(budgets[0]);
-        setBudgetArray(budgets);
+        await setBudget(budgets[0]);
+        await setBudgetArray(budgets);
+        await setBudgetsLoaded(true)
       }
     }
     try {
@@ -38,14 +42,30 @@ function Profile(props) {
     }
   }, [backendUrl, id, props.user]);
 
-  // State
-  const [budget, setBudget] = useState(null);
-  const [budgetArray, setBudgetArray] = useState(null);
+  const saveBudget = async (currentBudget) => {
+    console.log(currentBudget._id);
+    try {
+      let apiRes = await axios.put(backendUrl + "/budgets/" + currentBudget._id, {
+        categories: currentBudget.categories
+      })
+      console.log(apiRes);
+    } catch(error) {
+      console.log(error);
+    }
+  }
 
-  // Budget state funcitons
+  /* ------------------------------------------------------- */
+
+  // State
+  const [budget, setBudget] = useState({})
+  const [budgetArray, setBudgetArray] = useState([])
+  const [budgetsLoaded, setBudgetsLoaded] = useState(false)
+
+  // State funcitons
+
   const addBudgetInput = (budgetKey, newInput) => {
     // This makes a deep copy of the budget
-    let budgetCopy = JSON.parse(JSON.stringify(budget));
+    let budgetCopy = JSON.parse(JSON.stringify(budget))
     // Now you can edit budgetCopy without changing budget
     budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
       newInput.inputValue;
@@ -60,19 +80,23 @@ function Profile(props) {
     setBudget(budgetCopy);
   };
 
+  /* ------------------------------------------------------- */
+
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
     handleLogout();
     alert.show("Session has ended. Please log in.");
   }
 
+  /* ------------------------------------------------------- */
+
   // Success Display
   const userData =
-    props.user && budget ? (
+    budgetsLoaded ? (
       <>
         <UserNavigation handleLogout={handleLogout} budgetArray={budgetArray}/>
         <div className="div-profile-page">
-          <UserInfo name={name} email={email} id={id} budget={budget} />
+          <UserInfo name={name} email={email} id={id} saveBudget={saveBudget} budget={budget} />
 
           <div className="div-profile-workspace">
             <ProfileRoutes
@@ -98,6 +122,8 @@ function Profile(props) {
       </div>
     );
   };
+
+  /* ------------------------------------------------------- */
 
   // Profile Return
   return <>{props.user ? userData : errorDiv()}</>;
