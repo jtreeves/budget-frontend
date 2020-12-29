@@ -1,10 +1,10 @@
-
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
-import axios from 'axios'
+import axios from "axios";
 
 // Component Imports
 import UserInfo from "../elements/UserInfo";
+import UserNavigation from '../elements/UserNavigation'
 import ProfileRoutes from "../elements/ProfileRoutes";
 import { useState, useEffect } from "react";
 
@@ -12,7 +12,6 @@ import { useState, useEffect } from "react";
 // import budgetSeed2 from "../../seeders/futureSeeder";
 
 function Profile(props) {
-  
   // Variables and Props
   const alert = useAlert();
   const { handleLogout } = props;
@@ -21,44 +20,45 @@ function Profile(props) {
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
 
-  
-  // Fetching Budgets
+  // API functions
+
   useEffect(() => {
     async function fetchBudgets() {
       if (props.user) {
-        let apiRes = await axios.get(backendUrl + '/budgets/all/' + id)
-        let budgets = await apiRes.data.budgets
-        setBudget(budgets[0])
-        setBudgetArray(budgets)
+        let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
+        let budgets = await apiRes.data.budgets;
+        setBudget(budgets[0]);
+        setBudgetArray(budgets);
       }
     }
     try {
-      fetchBudgets()
+      fetchBudgets();
     } catch (error) {
       console.log(error);
     }
-  }, [backendUrl, id, props.user])
+  }, [backendUrl, id, props.user]);
 
   // State
   const [budget, setBudget] = useState(null);
-  const [budgetArray, setBudgetArray] = useState(null)
-  
+  const [budgetArray, setBudgetArray] = useState(null);
+
   // Budget state funcitons
   const addBudgetInput = (budgetKey, newInput) => {
     // This makes a deep copy of the budget
-    let budgetCopy = JSON.parse(JSON.stringify(budget))
+    let budgetCopy = JSON.parse(JSON.stringify(budget));
     // Now you can edit budgetCopy without changing budget
-    budgetCopy.categories[budgetKey].inputs[newInput.inputName] = newInput.inputValue
+    budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
+      newInput.inputValue;
     setBudget(budgetCopy);
   };
 
   const deleteBudgetInput = (budgetKey, inputKey) => {
     // This makes a deep copy of the budget
-    let budgetCopy = JSON.parse(JSON.stringify(budget))
+    let budgetCopy = JSON.parse(JSON.stringify(budget));
     // Now you can edit budgetCopy without changing budget
-    delete budgetCopy.categories[budgetKey].inputs[inputKey]
+    delete budgetCopy.categories[budgetKey].inputs[inputKey];
     setBudget(budgetCopy);
-  }
+  };
 
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
@@ -67,27 +67,26 @@ function Profile(props) {
   }
 
   // Success Display
-  const userData = props.user && budget ? (
-    <div className="div-profile-page">
-      {/* <h1>Profile Page</h1> */}
+  const userData =
+    props.user && budget ? (
+      <>
+        <UserNavigation handleLogout={handleLogout} budgetArray={budgetArray}/>
+        <div className="div-profile-page">
+          <UserInfo name={name} email={email} id={id} budget={budget} />
 
-      <UserInfo
-        name={name}
-        email={email}
-        id={id}
-        budget={budget}
-      />
+          <div className="div-profile-workspace">
+            <ProfileRoutes
+              deleteBudgetInput={deleteBudgetInput}
+              addBudgetInput={addBudgetInput}
+              budget={budget}
+            />
+          </div>
+        </div>
 
-      <div className="div-profile-workspace">
-        <ProfileRoutes 
-        deleteBudgetInput={deleteBudgetInput} 
-        addBudgetInput={addBudgetInput} 
-        budget={budget} />
-      </div>
-    </div>
-  ) : (
-    <h4>Loading...</h4>
-  );
+      </>
+    ) : (
+      <h4>Loading...</h4>
+    );
 
   // Error Display
   const errorDiv = () => {

@@ -62,7 +62,8 @@ function App() {
 
   const handleNavBars = () => {
     if (isAuthenticated) {
-      return <UserNavigation handleLogout={handleLogout} />;
+      // return <UserNavigation handleLogout={handleLogout} />;
+      return
     } else {
       return <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />;
     }
