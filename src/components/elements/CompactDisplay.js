@@ -1,9 +1,10 @@
 // Create function
 function CompactDisplay(props) {
   
-  const inputs = props.inputs.map((ele, idx) => {
-    return <li key={idx}>{ele}</li>;
-  });
+
+  const inputs = Object.keys(props.inputs).map((inputKey, idx) => {
+    return <li key={idx}>{inputKey}: ${props.inputs[inputKey]}</li>
+  })
 
   return (
     <div className="compact-container">
@@ -13,7 +14,7 @@ function CompactDisplay(props) {
       </div>
 
       <div>
-        <h3 className="currency">{props.total}</h3>
+        <h3 className="currency">${props.total}</h3>
         <h3 className="timeframe">Per Month</h3>
       </div>
     </div>
