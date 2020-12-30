@@ -271,4 +271,11 @@ body .div-container-app .div-profile-page .div-profile-user-info p {
   line-height: 1.6em;
 }
 
+/* created by thomas */
+.chart-container {
+  padding: 30px;
+  background-color: whitesmoke;
+  margin: 0 auto;
+}
+
 /*# sourceMappingURL=App.css.map */

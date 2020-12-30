@@ -6,10 +6,12 @@ const data = [{name: 'Group A', value: 600},
               {name: 'Group B', value: 100},
               {name: 'Group C', value: 500}, 
               {name: 'Group D', value: 1000},
-              {name: 'Group E', value: 900}
+              {name: 'Group E', value: 900},
+              {name: 'Group F', value: 900},
+              {name: 'Group G', value: 900},
             ];
             
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0000'];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0000', '#00FF00', '#FF00FF'];
 
 // const RADIAN = Math.PI / 180;                    
 
