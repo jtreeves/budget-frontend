@@ -2,31 +2,27 @@ import React, { Component } from 'react'
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 
-const data = [{name: 'Group A', value: 600}, 
-              {name: 'Group B', value: 100},
-              {name: 'Group C', value: 500}, 
-              {name: 'Group D', value: 1000},
-              {name: 'Group E', value: 900}
-            ];
+let data = [];
             
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0000'];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0000', '#00FF00', '#FF00FF'];
 
 // const RADIAN = Math.PI / 180;                    
 
 class SimplePieChart extends Component{
-  constructor(props) {
-    super(props)
-  }
-	render () {
-    const newData = [];
 
-    const reformatData = Object.keys(this.props.subTotals).forEach((key) => {
+	render () {
+
+    let newData = [];
+
+    Object.keys(this.props.subTotals).forEach((key) => {
       let chartInput = Object.create( {name: "", value: null} )
       chartInput.name = key
       chartInput.value = this.props.subTotals[key]
       newData.push(chartInput)
     })
-    
+
+    data = newData;
+
   	return (
       <ResponsiveContainer width={75} height={75}>
       <PieChart className="PieChart"
@@ -34,7 +30,7 @@ class SimplePieChart extends Component{
       width={75} height={75} onMouseEnter={this.onPieEnter}>
   
         <Pie className="Pie"
-          data={newData} 
+          data={data} 
           // Placement of chart on page
           cx={32} 
           cy={33} 

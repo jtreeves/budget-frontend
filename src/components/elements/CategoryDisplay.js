@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import CompactTotalCategory from "../elements/CompactTotalCategory";
-import GraphContainer from "../elements/GraphContainer";
+import CategoryCharts from "./CategoryCharts";
 import CompactDisplayCategory from "../elements/CompactDisplayCategory";
 import calcFunctions from "../../utilities/calcFunctions";
 
@@ -26,7 +26,7 @@ function CategoryDisplay(props) {
 
   return (
     <div className="category-container">
-      <GraphContainer />
+      <CategoryCharts inputs={props.inputs}/>
       <CompactTotalCategory total={calcFunctions.calcCategoryTotal(props.inputs)} />
 
       <div className="new-input">
