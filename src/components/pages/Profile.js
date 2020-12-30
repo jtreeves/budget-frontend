@@ -21,6 +21,11 @@ function Profile(props) {
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
+  
+  // State
+  const [budget, setBudget] = useState({})
+  const [budgetArray, setBudgetArray] = useState([])
+  const [budgetsLoaded, setBudgetsLoaded] = useState(false)
 
   /* ------------------------------------------------------- */
 
@@ -42,6 +47,22 @@ function Profile(props) {
     }
   }, [backendUrl, id, props.user]);
 
+  useEffect(() => {
+    async function autoSave() {
+      if (budgetsLoaded) {
+        console.log("autosavinggggggg");
+        let apiRes = await axios.put(backendUrl + "/budgets/" + budget._id, {
+          categories: budget.categories
+        })
+      }
+    }
+    try {
+      autoSave()
+    } catch (error) {
+      console.log(error)
+    }
+  }, [budget])
+
   const saveBudget = async (currentBudget) => {
     console.log(currentBudget._id);
     try {
@@ -56,10 +77,6 @@ function Profile(props) {
 
   /* ------------------------------------------------------- */
 
-  // State
-  const [budget, setBudget] = useState({})
-  const [budgetArray, setBudgetArray] = useState([])
-  const [budgetsLoaded, setBudgetsLoaded] = useState(false)
 
   // State funcitons
 
