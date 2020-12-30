@@ -1,6 +1,20 @@
 import CategoryChart from "./CategoryChart"
 
 function CategoryCharts(props) {
+
+  // console.log(props.inputs);
+
+  const newData = []
+
+  Object.keys(props.inputs).forEach((key) => {
+
+    let chartInput = Object.create( { name: ""})
+    chartInput.name = key
+    chartInput[key] = props.inputs[key]
+    newData.push(chartInput)
+  })
+
+
   const data = [
     {
       name: 'Page A', pv: 2400
@@ -27,7 +41,7 @@ function CategoryCharts(props) {
 
   return (
     <div className="chart-container">
-      <CategoryChart data={data}/>
+      <CategoryChart data={newData}/>
     </div>
   );
 }
