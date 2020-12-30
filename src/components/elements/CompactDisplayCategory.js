@@ -1,4 +1,4 @@
-import SimplePieChart from './SimplePieChart';
+
 
 // Create function
 function CompactDisplayCategory(props) {
@@ -20,7 +20,6 @@ function CompactDisplayCategory(props) {
         <h3>${props.inputValue}</h3>
         <h3>Per Month</h3>
       </div>
-      <SimplePieChart />
     </div>
   );
 }
