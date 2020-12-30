@@ -1,4 +1,5 @@
 import calcFunctions from '../../utilities/calcFunctions'
+import UserInfoPieChart from './UserInfoPieChart'
 
 function UserInfo(props) {
 
@@ -46,6 +47,7 @@ function UserInfo(props) {
           <ul>
             {breakdown}
           </ul>
+          <UserInfoPieChart subTotals={subTotals}/>
         </div>
       </div>
       <button onClick={() => props.saveBudget(props.budget)}>Save Budget</button>

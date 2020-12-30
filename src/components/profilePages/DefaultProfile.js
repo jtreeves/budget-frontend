@@ -1,23 +1,23 @@
+import calcFunctions from '../../utilities/calcFunctions'
 import CompactDisplay from "../elements/CompactDisplay";
 import CompactTotal from "../elements/CompactTotal";
 
 function DefaultProfile(props) {
-  // Placeholders for user data
-  let inputArray = ["Rent: $934.23", "Insurance: $55.34", "Upkeep: $100.67"];
-  let inputArrayIncome = [
-    "Trustfund: 934.23",
-    "Loterry Winnings: $55.34",
-    "Stimulus Check: $100.67",
-  ];
 
+  const { housing, utility, transportation, entertainment, food, misc, income } = props.budget.categories
+  const subTotals = calcFunctions.calcBudgetSubTotals(props.budget)
+  const totalExpense = calcFunctions.calcExpenseTotals(props.budget)
   return (
     <div>
-      <h2>Budget</h2>
-      <CompactDisplay title="Income" inputs={inputArrayIncome} total="$1090.24" income={props.budget.income}/>
-      <CompactTotal total="2,453.67" />
-      <CompactDisplay title="Housing" inputs={inputArray} total="$1090.24" housing={props.budget.housing}/>
-      <CompactDisplay title="Transportation" inputs={inputArray} total="$1090.24" transportation={props.budget.transportation}/>
-      <CompactDisplay title="Food/Groceries" inputs={inputArray} total="$1090.24" foodAndDrinks={props.budget.foodAndDrinks}/>
+      <h2>Budget Overview</h2>
+      <CompactDisplay title="Income" inputs={income.inputs} total={subTotals.income}/>
+      <CompactTotal totalExpense={totalExpense} totalIncome={subTotals.income} />
+      <CompactDisplay title="Housing" inputs={housing.inputs} total={subTotals.housing}/>
+      <CompactDisplay title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
+      <CompactDisplay title="Transportation" inputs={transportation.inputs} total={subTotals.transportation}/>
+      <CompactDisplay title="Food & Drink" inputs={food.inputs} total={subTotals.food}/>
+      <CompactDisplay title="Entertainment" inputs={entertainment.inputs} total={subTotals.entertainment}/>
+      <CompactDisplay title="Miscellaneous" inputs={misc.inputs} total={subTotals.misc}/>
     </div>
   );
 }
