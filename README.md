@@ -1,6 +1,6 @@
 # Kaleidoscope Frontend
 
-This is the frontend repository for the Kaleidoscope app. It contains the code necessary for the client to view the app. It was designed to work with the app's [backend repository](https://github.com/jtreeves/budget-backend).
+This is the frontend repository for the Kaleidoscope app. It contains the code necessary for the client to view the app. It was designed to work with the app's [backend repository](https://github.com/jtreeves/budget-backend). To engage with a live version of the entire app, visit [its deployed site](HEROKULINKTK).
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ This is the frontend repository for the Kaleidoscope app. It contains the code n
 
 ## About Kaleidoscope
 
-An app for seeing how simple life changes can result in dramatic budget opportunities.
+Kaleidoscope is an app for seeing how simple life changes can result in dramatic budget opportunities. It was made through the collaborative efforts of Alan Avery, Jackson Reeves, Jeremy Uriz, and Thomas Gilbert.
 
 ## Installation Instructions
 
