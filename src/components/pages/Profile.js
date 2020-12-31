@@ -8,11 +8,9 @@ import UserNavigation from "../elements/UserNavigation";
 import ProfileRoutes from "../elements/ProfileRoutes";
 import { useState, useEffect } from "react";
 
-// data import (Developing Only)
-// import budgetSeed2 from "../../seeders/futureSeeder";
 
 function Profile(props) {
-  /* ------------------------------------------------------- */
+
 
   // Variables and Props
   const alert = useAlert();
@@ -22,12 +20,13 @@ function Profile(props) {
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
 
+
   // State
   const [budget, setBudget] = useState({});
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
 
-  /* ------------------------------------------------------- */
+
 
   // API crud
   useEffect(() => {
@@ -66,6 +65,7 @@ function Profile(props) {
     if (budgetsLoaded) {
       let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
       let budgets = await apiRes.data.budgets;
+      console.log(budgets[0].title);
       await setBudget(budgets[0]);
       await setBudgetArray(budgets);
     } else {
@@ -73,22 +73,7 @@ function Profile(props) {
     }
   };
 
-  const saveBudget = async (currentBudget) => {
-    console.log(currentBudget._id);
-    try {
-      let apiRes = await axios.put(
-        backendUrl + "/budgets/" + currentBudget._id,
-        {
-          categories: currentBudget.categories,
-        }
-      );
-      console.log(apiRes);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  /* ------------------------------------------------------- */
 
   // State funcitons
 
@@ -109,7 +94,7 @@ function Profile(props) {
     setBudget(budgetCopy);
   };
 
-  /* ------------------------------------------------------- */
+
 
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
@@ -117,7 +102,7 @@ function Profile(props) {
     alert.show("Session has ended. Please log in.");
   }
 
-  /* ------------------------------------------------------- */
+
 
   // Success Display
   const userData = budgetsLoaded ? (
@@ -133,7 +118,6 @@ function Profile(props) {
           name={name}
           email={email}
           id={id}
-          saveBudget={saveBudget}
           reFetchBudgets={reFetchBudgets}
           budget={budget}
         />
@@ -162,7 +146,7 @@ function Profile(props) {
     );
   };
 
-  /* ------------------------------------------------------- */
+
 
   // Profile Return
   return <>{props.user ? userData : errorDiv()}</>;

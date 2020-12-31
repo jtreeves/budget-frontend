@@ -18,14 +18,11 @@ function UserInfo(props) {
 
 
   const handleSubmit = async () => {
-    console.log(budgetName);
-    console.log(colorScheme);
     let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
       colorScheme: colorScheme,
       categories: props.budget.categories
     });
-    console.log(apiRes);
     setDisplayForm(false);
     props.reFetchBudgets()
   };
@@ -90,9 +87,6 @@ function UserInfo(props) {
           <UserInfoPieChart subTotals={subTotals} />
         </div>
       </div>
-      <button onClick={() => props.saveBudget(props.budget)}>
-        Save Budget
-      </button>
     </div>
   );
 }
