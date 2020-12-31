@@ -111,7 +111,7 @@ function Profile(props) {
   const userData =
     budgetsLoaded ? (
       <>
-        <UserNavigation handleLogout={handleLogout} budgetArray={budgetArray}/>
+        <UserNavigation user={props.user} handleLogout={handleLogout} budgetArray={budgetArray}/>
         <div className="div-profile-page">
           <UserInfo name={name} email={email} id={id} saveBudget={saveBudget} budget={budget} />
 
