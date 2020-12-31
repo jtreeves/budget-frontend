@@ -78,6 +78,24 @@ Notes about general approach TK.
 
 ## Designs
 
+**Main Page**
+![Main Page](/images/design1.jpg)
+
+**Sign Up**
+![Sign Up](/images/design2.jpg)
+
+**Log In**
+![Log In](/images/design3.jpg)
+
+**Profile**
+![Profile](/images/design4.jpg)
+
+**Budget**
+![Budget](/images/design5.jpg)
+
+**Utilities**
+![Utilities](/images/design6.jpg)
+
 ## Views
 
 Screenshots of the deployed website TK.
