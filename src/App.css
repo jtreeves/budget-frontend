@@ -278,4 +278,8 @@ body .div-container-app .div-profile-page .div-profile-user-info p {
   margin: 0 auto;
 }
 
+.budget-links:hover {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=App.css.map */

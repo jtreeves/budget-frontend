@@ -26,8 +26,6 @@ function Profile(props) {
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
 
-
-
   // API crud
   useEffect(() => {
     async function fetchBudgets() {
@@ -61,19 +59,29 @@ function Profile(props) {
     }
   }, [budget]);
 
-  const reFetchBudgets = async () => {
+  const reFetchBudgets = async (budget) => {
     if (budgetsLoaded) {
       let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
       let budgets = await apiRes.data.budgets;
-      console.log(budgets[0].title);
-      await setBudget(budgets[0]);
       await setBudgetArray(budgets);
+      await budgets.forEach((ele) => {
+        if (ele._id === budget._id) {
+          setBudget(ele)
+        }
+      })
     } else {
       return;
     }
   };
 
-
+  const loadNewBudget = async () => {
+    if (budgetsLoaded) {
+      let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
+      let budgets = await apiRes.data.budgets;
+      await setBudgetArray(budgets);
+      await setBudget(budgets[budgets.length - 1])
+  }
+}
 
   // State funcitons
 
@@ -94,7 +102,23 @@ function Profile(props) {
     setBudget(budgetCopy);
   };
 
-
+  const switchBudgets = (budget) => {
+    async function fetchBudgets() {
+      if (props.user) {
+        let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
+        let budgets = await apiRes.data.budgets;
+        await setBudgetArray(budgets);
+        budgetArray.forEach((ele) => {
+          if (ele._id === budget._id) {
+            setBudget(ele)
+          } else {
+            return
+          }
+        })
+      }
+    }
+    fetchBudgets()
+  }
 
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
@@ -111,7 +135,8 @@ function Profile(props) {
         user={props.user}
         handleLogout={handleLogout}
         budgetArray={budgetArray}
-        reFetchBudgets={reFetchBudgets}
+        loadNewBudget={loadNewBudget}
+        switchBudgets={switchBudgets}
       />
       <div className="div-profile-page">
         <UserInfo

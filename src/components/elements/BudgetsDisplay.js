@@ -5,7 +5,7 @@ import axios from "axios";
 function BudgetsDisplay(props) {
   const [formDisplayed, setFormDisplayed] = useState(false);
   const [budgetName, setBudgetName] = useState("");
-  const [colorScheme, setColorScheme] = useState("red");
+  const [colorScheme, setColorScheme] = useState("Red");
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const emptyCategories = {
     housing: {},
@@ -18,16 +18,13 @@ function BudgetsDisplay(props) {
   }
 
   const handleSubmit = async () => {
-    console.log(budgetName);
-    console.log(colorScheme);
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,
       colorScheme: colorScheme,
       categories: emptyCategories
     });
-    console.log(apiRes);
     setFormDisplayed(false);
-    props.reFetchBudgets();
+    props.loadNewBudget();
   };
 
   const budgetForm = () => {
@@ -54,7 +51,7 @@ function BudgetsDisplay(props) {
   };
 
   const budgets = props.budgetArray.map((budget, idx) => {
-    return <li key={idx}>{budget.title}</li>;
+    return <li key={idx}><a className="budget-links" onClick={() => props.switchBudgets(budget)}>{budget.title}</a></li>;
   });
 
   return (

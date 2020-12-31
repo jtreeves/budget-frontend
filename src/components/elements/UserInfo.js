@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BudgetInfo from "./BudgetInfo";
 import EditBudgetForm from "../../utilities/EditBudgetForm";
 import calcFunctions from "../../utilities/calcFunctions";
@@ -16,6 +16,12 @@ function UserInfo(props) {
   const weeklyIncome = (monthlyIncome / 4).toFixed(2);
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
+  useEffect(() => {
+    setDisplayForm(false)
+    setBudgetName(props.budget.title)
+    setColorScheme(props.budget.colorScheme)
+  }, [props.budget])
+
 
   const handleSubmit = async () => {
     let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
@@ -24,7 +30,7 @@ function UserInfo(props) {
       categories: props.budget.categories
     });
     setDisplayForm(false);
-    props.reFetchBudgets()
+    props.reFetchBudgets(props.budget)
   };
 
   const infoOrForm = () => {
