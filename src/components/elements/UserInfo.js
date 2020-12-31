@@ -61,6 +61,7 @@ function UserInfo(props) {
     } else {
       return (
         <BudgetInfo
+          budgetArray={props.budgetArray}
           setDisplayForm={setDisplayForm}
           title={props.budget.title}
           colorScheme={props.budget.colorScheme}

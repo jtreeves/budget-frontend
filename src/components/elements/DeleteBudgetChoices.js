@@ -18,7 +18,7 @@ function DeleteBudgetChoices(props) {
         <strong>ID:</strong> {props._id}
       </p>
       <button onClick={() => deleteConfirmed()}>Yes, Delete</button>
-      <button onClick={() => props.setDeletePressed(false)}>Cancel</button>
+      <button onClick={() => props.setDeletePressed(false)}>No, Cancel</button>
     </div>
   );
 }

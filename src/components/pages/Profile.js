@@ -80,16 +80,20 @@ function Profile(props) {
   };
 
   const deleteBudget = async (budgetId) => {
-    async function fetchBudgets() {;
+    async function resetBudgets() {;
       let index = budgetArray.findIndex((ele) => ele._id === budgetId)
       let budgetArrayCopy = budgetArray.slice()
       budgetArrayCopy.splice(index, 1)
       await setBudgetArray(budgetArrayCopy)
       await setBudget(budgetArray[0]);
       let apiRes = await axios.delete(backendUrl + "/budgets/" + budgetId);
+      let apiRes2 = await axios.get(backendUrl + "/budgets/all/" + id);
+      let budgets = await apiRes2.data.budgets;
+      await setBudgetArray(budgets)
+      await setBudget(budgets[0]);
     }
     try {
-      fetchBudgets();
+      resetBudgets();
     } catch (error) {
       console.log(error);
     }
@@ -150,6 +154,7 @@ function Profile(props) {
       />
       <div className="div-profile-page">
         <UserInfo
+          budgetArray={budgetArray}
           deleteBudget={deleteBudget}
           name={name}
           email={email}
