@@ -48,7 +48,7 @@ function UserNavigation(props) {
         </li>
       </ul>
       <button onClick={props.handleLogout}>Logout</button>
-      <BudgetsDisplay budgetArray={props.budgetArray}/>
+      <BudgetsDisplay switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
     </div>
   );
 }

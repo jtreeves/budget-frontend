@@ -278,4 +278,11 @@ body .div-container-app .div-profile-page .div-profile-user-info p {
   margin: 0 auto;
 }
 
+.budget-links:hover {
+  cursor: pointer;
+}
+
+.helper {
+  border: solid 2px tomato;
+}
 /*# sourceMappingURL=App.css.map */
