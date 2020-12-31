@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Component Imports
 import UserInfo from "../elements/UserInfo";
-import UserNavigation from '../elements/UserNavigation'
+import UserNavigation from "../elements/UserNavigation";
 import ProfileRoutes from "../elements/ProfileRoutes";
 import { useState, useEffect } from "react";
 
@@ -21,11 +21,11 @@ function Profile(props) {
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
-  
+
   // State
-  const [budget, setBudget] = useState({})
-  const [budgetArray, setBudgetArray] = useState([])
-  const [budgetsLoaded, setBudgetsLoaded] = useState(false)
+  const [budget, setBudget] = useState({});
+  const [budgetArray, setBudgetArray] = useState([]);
+  const [budgetsLoaded, setBudgetsLoaded] = useState(false);
 
   /* ------------------------------------------------------- */
 
@@ -37,7 +37,7 @@ function Profile(props) {
         let budgets = await apiRes.data.budgets;
         await setBudget(budgets[0]);
         await setBudgetArray(budgets);
-        await setBudgetsLoaded(true)
+        await setBudgetsLoaded(true);
       }
     }
     try {
@@ -51,37 +51,50 @@ function Profile(props) {
     async function autoSave() {
       if (budgetsLoaded) {
         let apiRes = await axios.put(backendUrl + "/budgets/" + budget._id, {
-          categories: budget.categories
-        })
+          categories: budget.categories,
+        });
       }
     }
     try {
-      autoSave()
+      autoSave();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }, [budget])
+  }, [budget]);
+
+  const reFetchBudgets = async () => {
+    if (budgetsLoaded) {
+      let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
+      let budgets = await apiRes.data.budgets;
+      await setBudget(budgets[0]);
+      await setBudgetArray(budgets);
+    } else {
+      return;
+    }
+  };
 
   const saveBudget = async (currentBudget) => {
     console.log(currentBudget._id);
     try {
-      let apiRes = await axios.put(backendUrl + "/budgets/" + currentBudget._id, {
-        categories: currentBudget.categories
-      })
+      let apiRes = await axios.put(
+        backendUrl + "/budgets/" + currentBudget._id,
+        {
+          categories: currentBudget.categories,
+        }
+      );
       console.log(apiRes);
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   /* ------------------------------------------------------- */
-
 
   // State funcitons
 
   const addBudgetInput = (budgetKey, newInput) => {
     // This makes a deep copy of the budget
-    let budgetCopy = JSON.parse(JSON.stringify(budget))
+    let budgetCopy = JSON.parse(JSON.stringify(budget));
     // Now you can edit budgetCopy without changing budget
     budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
       newInput.inputValue;
@@ -107,26 +120,36 @@ function Profile(props) {
   /* ------------------------------------------------------- */
 
   // Success Display
-  const userData =
-    budgetsLoaded ? (
-      <>
-        <UserNavigation user={props.user} handleLogout={handleLogout} budgetArray={budgetArray}/>
-        <div className="div-profile-page">
-          <UserInfo name={name} email={email} id={id} saveBudget={saveBudget} budget={budget} />
+  const userData = budgetsLoaded ? (
+    <>
+      <UserNavigation
+        user={props.user}
+        handleLogout={handleLogout}
+        budgetArray={budgetArray}
+        reFetchBudgets={reFetchBudgets}
+      />
+      <div className="div-profile-page">
+        <UserInfo
+          name={name}
+          email={email}
+          id={id}
+          saveBudget={saveBudget}
+          reFetchBudgets={reFetchBudgets}
+          budget={budget}
+        />
 
-          <div className="div-profile-workspace">
-            <ProfileRoutes
-              deleteBudgetInput={deleteBudgetInput}
-              addBudgetInput={addBudgetInput}
-              budget={budget}
-            />
-          </div>
+        <div className="div-profile-workspace">
+          <ProfileRoutes
+            deleteBudgetInput={deleteBudgetInput}
+            addBudgetInput={addBudgetInput}
+            budget={budget}
+          />
         </div>
-
-      </>
-    ) : (
-      <h4>Loading...</h4>
-    );
+      </div>
+    </>
+  ) : (
+    <h4>Loading...</h4>
+  );
 
   // Error Display
   const errorDiv = () => {

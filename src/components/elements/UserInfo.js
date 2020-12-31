@@ -23,10 +23,11 @@ function UserInfo(props) {
     let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
       colorScheme: colorScheme,
-      categories: props.budget.categories,
+      categories: props.budget.categories
     });
-    // console.log(apiRes);
+    console.log(apiRes);
     setDisplayForm(false);
+    props.reFetchBudgets()
   };
 
   const infoOrForm = () => {

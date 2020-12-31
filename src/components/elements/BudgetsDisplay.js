@@ -27,6 +27,7 @@ function BudgetsDisplay(props) {
     });
     console.log(apiRes);
     setFormDisplayed(false);
+    props.reFetchBudgets();
   };
 
   const budgetForm = () => {
