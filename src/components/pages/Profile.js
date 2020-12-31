@@ -50,7 +50,6 @@ function Profile(props) {
   useEffect(() => {
     async function autoSave() {
       if (budgetsLoaded) {
-        console.log("autosavinggggggg");
         let apiRes = await axios.put(backendUrl + "/budgets/" + budget._id, {
           categories: budget.categories
         })
