@@ -59,6 +59,21 @@ Alternatively, you may use the live version of the [Kaleidoscope](HEROKULINKTK) 
 
 ## Dependencies
 
+- @testing-library/jest-dom
+- @testing-library/react
+- @testing-library/user-event
+- axios
+- dotenv
+- jwt-decode
+- react
+- react-alert
+- react-alert-template-basic
+- react-dom
+- react-router-dom
+- react-scripts
+- recharts
+- web-vitals
+
 ## Designs
 
 ## Views
