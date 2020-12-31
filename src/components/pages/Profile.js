@@ -165,6 +165,7 @@ function Profile(props) {
 
         <div className="div-profile-workspace">
           <ProfileRoutes
+            budgetArray={budgetArray}
             deleteBudgetInput={deleteBudgetInput}
             addBudgetInput={addBudgetInput}
             budget={budget}

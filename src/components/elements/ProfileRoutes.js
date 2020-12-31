@@ -7,12 +7,14 @@ import Income from '../profilePages/Income'
 import Food from '../profilePages/Food'
 import Transportation from '../profilePages/Transportation'
 import Entertainment from '../profilePages/Entertainment'
+import CompareBudgets from '../profilePages/CompareBudgets'
 
 
 function ProfileRoutes(props) {
   
   // Budget Categories
   const { housing, utility, transportation, entertainment, food, misc, income } = props.budget.categories
+
 
   return (
     <div>
@@ -22,6 +24,15 @@ function ProfileRoutes(props) {
           component={DefaultProfile}
           user={props.currentUser}
           budget={props.budget}
+        />
+
+        <PrivateRoute
+          exact
+          path={"/profile/compare"}
+          component={CompareBudgets}
+          user={props.currentUser}
+          budget={props.budget}
+          budgetArray={props.budgetArray}
         />
 
         <PrivateRoute
