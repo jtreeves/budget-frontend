@@ -35,6 +35,7 @@ function BudgetsDisplay(props) {
           setColor={setColorScheme}
           budgetName={budgetName}
           colorScheme={colorScheme}
+          setFormDisplayed={setFormDisplayed}
         />
       );
     } else {
@@ -51,7 +52,9 @@ function BudgetsDisplay(props) {
   };
 
   const budgets = props.budgetArray.map((budget, idx) => {
-    return <li key={idx}><a className="budget-links" onClick={() => props.switchBudgets(budget)}>{budget.title}</a></li>;
+    return <div>
+      <li key={idx}><a className="budget-links" onClick={() => props.switchBudgets(budget)}>{budget.title}</a></li>
+    </div>;
   });
 
   return (

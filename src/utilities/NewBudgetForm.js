@@ -9,6 +9,7 @@ function NewBudgetForm(props) {
         <option value="Blue">Blue</option>
         <option value="Green">Green</option>
       </select>
+      <button onClick={() => props.setFormDisplayed(false)}>Cancel</button>
     </div>
   );
 }

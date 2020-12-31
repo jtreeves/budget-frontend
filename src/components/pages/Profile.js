@@ -8,10 +8,7 @@ import UserNavigation from "../elements/UserNavigation";
 import ProfileRoutes from "../elements/ProfileRoutes";
 import { useState, useEffect } from "react";
 
-
 function Profile(props) {
-
-
   // Variables and Props
   const alert = useAlert();
   const { handleLogout } = props;
@@ -19,7 +16,6 @@ function Profile(props) {
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
-
 
   // State
   const [budget, setBudget] = useState({});
@@ -66,9 +62,9 @@ function Profile(props) {
       await setBudgetArray(budgets);
       await budgets.forEach((ele) => {
         if (ele._id === budget._id) {
-          setBudget(ele)
+          setBudget(ele);
         }
-      })
+      });
     } else {
       return;
     }
@@ -79,9 +75,25 @@ function Profile(props) {
       let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
       let budgets = await apiRes.data.budgets;
       await setBudgetArray(budgets);
-      await setBudget(budgets[budgets.length - 1])
-  }
-}
+      await setBudget(budgets[budgets.length - 1]);
+    }
+  };
+
+  const deleteBudget = async (budgetId) => {
+    async function fetchBudgets() {;
+      let index = budgetArray.findIndex((ele) => ele._id === budgetId)
+      let budgetArrayCopy = budgetArray.slice()
+      budgetArrayCopy.splice(index, 1)
+      await setBudgetArray(budgetArrayCopy)
+      await setBudget(budgetArray[0]);
+      let apiRes = await axios.delete(backendUrl + "/budgets/" + budgetId);
+    }
+    try {
+      fetchBudgets();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // State funcitons
 
@@ -110,23 +122,21 @@ function Profile(props) {
         await setBudgetArray(budgets);
         budgetArray.forEach((ele) => {
           if (ele._id === budget._id) {
-            setBudget(ele)
+            setBudget(ele);
           } else {
-            return
+            return;
           }
-        })
+        });
       }
     }
-    fetchBudgets()
-  }
+    fetchBudgets();
+  };
 
   // Session Auto-Logout
   if (currentTime >= expirationTime) {
     handleLogout();
     alert.show("Session has ended. Please log in.");
   }
-
-
 
   // Success Display
   const userData = budgetsLoaded ? (
@@ -140,6 +150,7 @@ function Profile(props) {
       />
       <div className="div-profile-page">
         <UserInfo
+          deleteBudget={deleteBudget}
           name={name}
           email={email}
           id={id}
@@ -170,8 +181,6 @@ function Profile(props) {
       </div>
     );
   };
-
-
 
   // Profile Return
   return <>{props.user ? userData : errorDiv()}</>;

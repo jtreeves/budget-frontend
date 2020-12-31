@@ -282,4 +282,7 @@ body .div-container-app .div-profile-page .div-profile-user-info p {
   cursor: pointer;
 }
 
+.helper {
+  border: solid 2px tomato;
+}
 /*# sourceMappingURL=App.css.map */

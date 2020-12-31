@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import BudgetInfo from "./BudgetInfo";
+import DeleteBudgetChoices from "./DeleteBudgetChoices";
 import EditBudgetForm from "../../utilities/EditBudgetForm";
 import calcFunctions from "../../utilities/calcFunctions";
 import UserInfoPieChart from "./UserInfoPieChart";
@@ -7,6 +8,7 @@ import axios from "axios";
 
 function UserInfo(props) {
   const [displayForm, setDisplayForm] = useState(false);
+  const [deletePressed, setDeletePressed] = useState(false);
   const [budgetName, setBudgetName] = useState(props.budget.title);
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
@@ -17,31 +19,43 @@ function UserInfo(props) {
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
-    setDisplayForm(false)
-    setBudgetName(props.budget.title)
-    setColorScheme(props.budget.colorScheme)
-  }, [props.budget])
-
+    setDisplayForm(false);
+    setBudgetName(props.budget.title);
+    setColorScheme(props.budget.colorScheme);
+  }, [props.budget]);
 
   const handleSubmit = async () => {
     let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
       colorScheme: colorScheme,
-      categories: props.budget.categories
+      categories: props.budget.categories,
     });
     setDisplayForm(false);
-    props.reFetchBudgets(props.budget)
+    props.reFetchBudgets(props.budget);
   };
 
   const infoOrForm = () => {
-    if (displayForm) {
+    if (displayForm && !deletePressed) {
       return (
         <EditBudgetForm
+          setDisplayForm={setDisplayForm}
           handleSubmit={handleSubmit}
           setBudgetName={setBudgetName}
           setColorScheme={setColorScheme}
           colorScheme={colorScheme}
           budgetName={budgetName}
+          _id={props.budget._id}
+        />
+      );
+    } else if (deletePressed) {
+      return (
+        <DeleteBudgetChoices
+          deleteBudget={props.deleteBudget}
+          setDeletePressed={setDeletePressed}
+          title={props.budget.title}
+          colorScheme={props.budget.colorScheme}
+          _id={props.budget._id}
+          budget={props.budget}
         />
       );
     } else {
@@ -51,6 +65,7 @@ function UserInfo(props) {
           title={props.budget.title}
           colorScheme={props.budget.colorScheme}
           _id={props.budget._id}
+          setDeletePressed={setDeletePressed}
         />
       );
     }
@@ -74,7 +89,7 @@ function UserInfo(props) {
         <p>
           <strong>ID:</strong> {props.id}
         </p>
-        {infoOrForm()}
+        <div className="helper">{infoOrForm()}</div>
       </div>
 
       <div>

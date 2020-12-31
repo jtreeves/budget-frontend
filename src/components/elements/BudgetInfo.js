@@ -1,4 +1,5 @@
 function BudgetInfo(props) {
+
   return (
     <div>
       <h2>Current Budget</h2>
@@ -12,6 +13,7 @@ function BudgetInfo(props) {
         <strong>ID:</strong> {props._id}
       </p>
       <button onClick={() => props.setDisplayForm(true)}>Edit Budget</button>
+      <button onClick={() => props.setDeletePressed(true)}>Delete Budget</button>
     </div>
   );
 }
