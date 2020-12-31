@@ -1,34 +1,35 @@
 # Kaleidoscope Frontend
 
-This is the frontend repository for the Kaleidoscope app. It contains the code necessary for the client to view the app. It was designed to work with the app's [backend repository](https://github.com/jtreeves/budget-backend). To engage with a live version of the entire app, visit [its deployed site](HEROKULINKTK).
+This is the frontend repository for the Kaleidoscope app. It contains the code necessary for the client to view the app. It was designed to work with the app's [backend repository](https://github.com/jtreeves/budget-backend). To use the entire app, visit the [Kaleidoscope](HEROKULINKTK) site.
 
-## Table of Contents
+### Contents
 
-1. [About Kaleidoscope](https://github.com/jtreeves/budget-frontend#about-kaleidoscope)
-2. [Installation Instructions](https://github.com/jtreeves/budget-frontend#installation-instructions)
-3. [Screenshots of Site](https://github.com/jtreeves/budget-frontend#screenshots-of-site)
-4. [Wireframes](https://github.com/jtreeves/budget-frontend#wireframes)
-5. [User Stories](https://github.com/jtreeves/budget-frontend#user-stories)
-6. [Explanations of Technologies Used](https://github.com/jtreeves/budget-frontend#explanations-of-technologies-used)
-7. [Explanation of General Approach](https://github.com/jtreeves/budget-frontend#explanation-of-general-approach)
-8. [Unsolved Problems and Major Hurdles](https://github.com/jtreeves/budget-frontend#unsolved-problems-and-major-hurdles)
+1. [About](https://github.com/jtreeves/budget-frontend#about)
+2. [Installation](https://github.com/jtreeves/budget-frontend#installation)
+3. [Explanation](https://github.com/jtreeves/budget-frontend#explanation)
+4. [User Stories](https://github.com/jtreeves/budget-frontend#user-stories)
+5. [Features](https://github.com/jtreeves/budget-frontend#features)
+6. [Dependencies](https://github.com/jtreeves/budget-frontend#dependencies)
+7. [Designs](https://github.com/jtreeves/budget-frontend#designs)
+8. [Views](https://github.com/jtreeves/budget-frontend#views)
+9. [Further Thoughts](https://github.com/jtreeves/budget-frontend#further-thoughts)
 
-## About Kaleidoscope
+## About
 
 Kaleidoscope is an app for seeing how simple life changes can result in dramatic budget opportunities. It was made through the collaborative efforts of Alan Avery, Jackson Reeves, Jeremy Uriz, and Thomas Gilbert.
 
-## Installation Instructions
+## Installation
 
-## Screenshots of Site
-
-TK
-
-## Wireframes
+## Explanation
 
 ## User Stories
 
-## Explanations of Technologies Used
+## Features
 
-## Explanation of General Approach
+## Dependencies
 
-## Unsolved Problems and Major Hurdles
+## Designs
+
+## Views
+
+## Further Thoughts
