@@ -40,6 +40,8 @@ Alternatively, you may use the live version of the [Kaleidoscope](HEROKULINKTK) 
 
 ## Explanation
 
+Notes about general approach TK.
+
 ## User Stories
 
 - As a potential user, I want to sign up for Kaleidoscope, so I can use the service.
@@ -78,4 +80,8 @@ Alternatively, you may use the live version of the [Kaleidoscope](HEROKULINKTK) 
 
 ## Views
 
+Screenshots of the deployed website TK.
+
 ## Further Thoughts
+
+Notes aboud stretch goals and problem areas TK.
