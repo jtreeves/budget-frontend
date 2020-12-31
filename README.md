@@ -59,6 +59,9 @@ Notes about general approach TK.
 
 ## Features
 
+- Forms for signing up and logging in users
+- Views for separate parts of a user's budget
+
 ## Dependencies
 
 - @testing-library/jest-dom
