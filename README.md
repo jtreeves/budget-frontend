@@ -1,23 +1,26 @@
-# Kaleidoscope
+# Kaleidoscope Frontend
 
-An app for seeing how simple life changes can result in dramatic budget opportunities
+This is the frontend repository for the Kaleidoscope app. It contains the code necessary for the client to view the app. It was designed to work with the app's [backend repository](https://github.com/jtreeves/budget-backend).
 
-Let us help you!
+## Table of Contents
 
-More words!
+1. [Text](URL)
+2. [Text](URL)
 
-So many more words!
+## About Kaleidoscope
 
-Installation Instructions
+An app for seeing how simple life changes can result in dramatic budget opportunities.
 
-Screenshots of Site
+## Installation Instructions
 
-Wireframes
+## Screenshots of Site
 
-User Stories
+## Wireframes
 
-Explanations of Technologies Used
+## User Stories
 
-Explanation of General Approach
+## Explanations of Technologies Used
 
-Unsolved Problems and Major Hurdles
+## Explanation of General Approach
+
+## Unsolved Problems and Major Hurdles
