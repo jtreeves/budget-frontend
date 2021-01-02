@@ -204,7 +204,6 @@ function calcAllBudgetTotals (array) {
       totalExpense: 0,
       totalIncome: 0,
     }
-    console.log(budget.title);
     Object.keys(budget.categories).forEach((key) => {
       let total = 0
       Object.values(budget.categories[key]).forEach((inputs) => {

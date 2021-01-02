@@ -100,7 +100,6 @@ function Profile(props) {
   };
 
   // State funcitons
-
   const addBudgetInput = (budgetKey, newInput) => {
     // This makes a deep copy of the budget
     let budgetCopy = JSON.parse(JSON.stringify(budget));
