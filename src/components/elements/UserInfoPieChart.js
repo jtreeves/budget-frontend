@@ -32,11 +32,11 @@ class SimplePieChart extends Component{
         <Pie className="Pie"
           data={data} 
           // Placement of chart on page
-          cx={32} 
-          cy={33} 
+          cx={35} 
+          cy={35} 
           // Controls size of  
           innerRadius={20} 
-          outerRadius={40} 
+          outerRadius={35} 
           // Couldn't get this to do anything. Even on the demo site. 
           fill="#8884d8"
           // paddingAbgle contrtols gap between each portion of the pie chart.
