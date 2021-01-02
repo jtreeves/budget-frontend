@@ -42,6 +42,7 @@ function Profile(props) {
 
   useEffect(() => {
     async function autoSave() {
+      console.log("1");
       if (budgetsLoaded) {
         let apiRes = await axios.put(backendUrl + "/budgets/" + budget._id, {
           categories: budget.categories,
@@ -56,6 +57,7 @@ function Profile(props) {
   }, [budget]);
 
   const reFetchBudgets = async (budget) => {
+    console.log("2");
     if (budgetsLoaded) {
       let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
       let budgets = await apiRes.data.budgets;
@@ -100,13 +102,14 @@ function Profile(props) {
   };
 
   // State funcitons
-  const addBudgetInput = (budgetKey, newInput) => {
+  const addBudgetInput = async (budgetKey, newInput) => {
     // This makes a deep copy of the budget
     let budgetCopy = JSON.parse(JSON.stringify(budget));
     // Now you can edit budgetCopy without changing budget
     budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
       newInput.inputValue;
-    setBudget(budgetCopy);
+    await setBudget(budgetCopy);
+    reFetchBudgets(budget)
   };
 
   const deleteBudgetInput = (budgetKey, inputKey) => {
@@ -115,6 +118,7 @@ function Profile(props) {
     // Now you can edit budgetCopy without changing budget
     delete budgetCopy.categories[budgetKey].inputs[inputKey];
     setBudget(budgetCopy);
+    reFetchBudgets(budget)
   };
 
   const switchBudgets = (budget) => {
@@ -173,7 +177,10 @@ function Profile(props) {
       </div>
     </>
   ) : (
+    <>
     <h4>Loading...</h4>
+    <button onClick={handleLogout}>Logout</button>
+    </>
   );
 
   // Error Display
