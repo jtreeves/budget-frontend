@@ -29,7 +29,7 @@ function CategoryDisplay(props) {
   return (
     <div className="category-container">
       <CategoryCharts color={props.budget.colorScheme} inputs={props.inputs}/>
-      <CompactTotalCategory total={calcFunctions.calcCategoryTotal(props.inputs)} />
+      <CompactTotalCategory budgetKey={props.budgetKey} total={calcFunctions.calcCategoryTotal(props.inputs)} />
 
       <div className="new-input">
         <form noValidate>
