@@ -39,7 +39,6 @@ function Dashboard(props) {
     });
 
     props.reFetchUser()
-    // window.location.reload(false)
 
   }
 
@@ -57,7 +56,7 @@ function Dashboard(props) {
           value={budgetTitle}
           onChange={(e) => setBudgetTitle(e.target.value)}
         />
-        <Cities setLocation={setLocation}/>
+        <Cities location={location} setLocation={setLocation}/>
 
         <div>
           <label htmlFor="colorScheme">Color Scheme:</label>

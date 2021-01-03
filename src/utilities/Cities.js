@@ -79,8 +79,8 @@ function Cities(props) {
 
   return (
     <div>
-      <label htmlFor="cities">Set Location: </label>
-      <select onChange={(e) => props.setLocation(e.target.value)} name="cities" id="cities">
+      <label htmlFor="cities"><strong>Set Location:</strong> </label>
+      <select value={props.location} onChange={(e) => props.setLocation(e.target.value)} name="cities" id="cities">
         {options}
       </select>
     </div>
