@@ -88,7 +88,145 @@
 // 	__v : 0
 // }
 
+
+// let budgets = [{
+//   _id: 321,
+// 	title : "Budget 1",
+// 	colorScheme : "Blue",
+// 	categories : {
+// 		housing : {
+
+// 			inputs : {
+// 				rent : 234,
+// 				mortage : 1000
+// 			}
+// 		},
+// 		utility : {
+
+// 			inputs : {
+
+// 			}
+// 		},
+// 		food : {
+
+// 			inputs : {
+// 				ert45 : 345,
+// 				eghh : 345
+// 			}
+// 		},
+// 		transportation : {
+
+// 			inputs : {
+
+// 			}
+// 		},
+// 		entertainment : {
+
+// 			inputs : {
+
+// 			}
+// 		},
+// 		misc : {
+
+// 			inputs : {
+
+// 			}
+// 		},
+// 		income : {
+
+// 			inputs : {
+// 				asdf : 234,
+// 				asdff : 234
+// 			}
+// 		}
+// 	},
+// 	__v : 0
+// },
+// {
+//   _id: 123,
+// 	title : "Budget 2",
+// 	colorScheme : "Red",
+// 	categories : {
+// 		housing : {
+
+// 			inputs : {
+// 				rent : 234
+// 			}
+// 		},
+// 		utility : {
+
+// 			inputs : {
+
+// 			}
+// 		},
+// 		food : {
+
+// 			inputs : {
+// 				ert : 345
+// 			}
+// 		},
+// 		transportation : {
+
+// 			inputs : {
+// 				sdf : 234,
+// 				sdf4 : 234,
+// 				sdf42 : 234
+// 			}
+// 		},
+// 		entertainment : {
+
+// 			inputs : {
+
+// 			}
+// 		},
+// 		misc : {
+
+// 			inputs : {
+// 				sdfg : 345
+// 			}
+// 		},
+// 		income : {
+
+// 			inputs : {
+
+// 			}
+// 		}
+// 	},
+// 	__v : 0
+// }]
 // let test = {salary: 1, investment: 2, trust: 3, lottery: 4}
+function calcAllBudgetTotals (array) {
+  let budgetTotals = [];
+  array.forEach((budget) => {
+    let abbrevBudget = {
+      title: budget.title,
+      id: budget._id,
+      totalExpense: 0,
+      totalIncome: 0,
+    }
+    Object.keys(budget.categories).forEach((key) => {
+      let total = 0
+      Object.values(budget.categories[key]).forEach((inputs) => {
+        if (key === "income") {
+          if (typeof inputs === "object") {          
+            Object.keys(inputs).forEach((key) => {
+              abbrevBudget.totalIncome += parseFloat(inputs[key])
+            })
+          } 
+        } else {
+          if (typeof inputs === "object") {          
+            Object.keys(inputs).forEach((key) => {
+              abbrevBudget.totalExpense += parseFloat(inputs[key])
+            })
+          } 
+        }
+      })
+    })
+    budgetTotals.push(abbrevBudget)
+  })
+  return budgetTotals
+}
+
 
 function calcBudgetSubTotals (budget) {
   let budgetTotals = {};
@@ -123,11 +261,11 @@ function calcExpenseTotals (budget) {
   return total
 }
 
-
 const calcFunctions = {
   calcExpenseTotals,
   calcCategoryTotal,
-  calcBudgetSubTotals
+  calcBudgetSubTotals,
+  calcAllBudgetTotals
 }
 
 

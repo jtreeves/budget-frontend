@@ -3,9 +3,9 @@ import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-export default class Example extends PureComponent {
 
-  
+export default class AllBudgetsChartTotals extends PureComponent {
+
   render() {
     
     return (
@@ -17,14 +17,14 @@ export default class Example extends PureComponent {
           top: 5, right: 30, left: 20, bottom: 5,
         }}
       >
-
+        <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey={this.props.title} fill={this.props.color} />
+        <Bar dataKey="Expense" fill="#8884d8" />
+        <Bar dataKey="Income" fill="#82ca9d" />
       </BarChart>
     );
   }
 }
-
