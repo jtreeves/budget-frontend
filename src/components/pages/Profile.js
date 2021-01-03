@@ -42,7 +42,6 @@ function Profile(props) {
 
   useEffect(() => {
     async function autoSave() {
-      console.log("1");
       if (budgetsLoaded) {
         let apiRes = await axios.put(backendUrl + "/budgets/" + budget._id, {
           categories: budget.categories,
@@ -57,7 +56,6 @@ function Profile(props) {
   }, [budget]);
 
   const reFetchBudgets = async (budget) => {
-    console.log("2");
     if (budgetsLoaded) {
       let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
       let budgets = await apiRes.data.budgets;
