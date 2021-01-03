@@ -65,6 +65,7 @@ function UserInfo(props) {
           setDisplayForm={setDisplayForm}
           title={props.budget.title}
           colorScheme={props.budget.colorScheme}
+          location={props.budget.location}
           _id={props.budget._id}
           setDeletePressed={setDeletePressed}
         />

@@ -6,6 +6,7 @@ import axios from "axios";
 import UserInfo from "../elements/UserInfo";
 import UserNavigation from "../elements/UserNavigation";
 import ProfileRoutes from "../elements/ProfileRoutes";
+import Dashboard from "./Dashboard"
 import { useState, useEffect } from "react";
 
 function Profile(props) {
@@ -21,6 +22,7 @@ function Profile(props) {
   const [budget, setBudget] = useState({});
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
+  const [currentUser, setCurrentUser] = useState(props.user)
 
   // API crud
   useEffect(() => {
@@ -143,6 +145,8 @@ function Profile(props) {
     alert.show("Session has ended. Please log in.");
   }
 
+
+  
   // Success Display
   const userData = budgetsLoaded ? (
     <>
@@ -152,7 +156,7 @@ function Profile(props) {
         budgetArray={budgetArray}
         loadNewBudget={loadNewBudget}
         switchBudgets={switchBudgets}
-      />
+        />
       <div className="div-profile-page">
         <UserInfo
           budgetArray={budgetArray}
@@ -162,7 +166,7 @@ function Profile(props) {
           id={id}
           reFetchBudgets={reFetchBudgets}
           budget={budget}
-        />
+          />
 
         <div className="div-profile-workspace">
           <ProfileRoutes
@@ -170,7 +174,7 @@ function Profile(props) {
             deleteBudgetInput={deleteBudgetInput}
             addBudgetInput={addBudgetInput}
             budget={budget}
-          />
+            />
         </div>
       </div>
     </>
@@ -180,7 +184,7 @@ function Profile(props) {
     <button onClick={handleLogout}>Logout</button>
     </>
   );
-
+  
   // Error Display
   const errorDiv = () => {
     return (
@@ -191,9 +195,21 @@ function Profile(props) {
       </div>
     );
   };
-
+  
+  // Choose Display 
+  const chooseDisplay = () => {
+    if (props.user) {
+      if (currentUser.firstTimeUser) {
+        return <Dashboard user={props.user}/>
+      } else {
+        return userData
+      }
+    } else {
+      errorDiv()
+    }
+  }
   // Profile Return
-  return <>{props.user ? userData : errorDiv()}</>;
+  return <>{chooseDisplay()}</>;
 }
 
 // Export function
