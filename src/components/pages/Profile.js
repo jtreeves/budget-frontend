@@ -100,14 +100,14 @@ function Profile(props) {
   };
 
   // State funcitons
-
-  const addBudgetInput = (budgetKey, newInput) => {
+  const addBudgetInput = async (budgetKey, newInput) => {
     // This makes a deep copy of the budget
     let budgetCopy = JSON.parse(JSON.stringify(budget));
     // Now you can edit budgetCopy without changing budget
     budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
       newInput.inputValue;
-    setBudget(budgetCopy);
+    await setBudget(budgetCopy);
+    reFetchBudgets(budget)
   };
 
   const deleteBudgetInput = (budgetKey, inputKey) => {
@@ -116,6 +116,7 @@ function Profile(props) {
     // Now you can edit budgetCopy without changing budget
     delete budgetCopy.categories[budgetKey].inputs[inputKey];
     setBudget(budgetCopy);
+    reFetchBudgets(budget)
   };
 
   const switchBudgets = (budget) => {
@@ -166,6 +167,7 @@ function Profile(props) {
 
         <div className="div-profile-workspace">
           <ProfileRoutes
+            budgetArray={budgetArray}
             deleteBudgetInput={deleteBudgetInput}
             addBudgetInput={addBudgetInput}
             budget={budget}
@@ -174,7 +176,10 @@ function Profile(props) {
       </div>
     </>
   ) : (
+    <>
     <h4>Loading...</h4>
+    <button onClick={handleLogout}>Logout</button>
+    </>
   );
 
   // Error Display

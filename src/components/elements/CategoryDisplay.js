@@ -24,13 +24,15 @@ function CategoryDisplay(props) {
     />;
   })
 
+  
+
   return (
     <div className="category-container">
-      <CategoryCharts inputs={props.inputs}/>
-      <CompactTotalCategory total={calcFunctions.calcCategoryTotal(props.inputs)} />
+      <CategoryCharts title={props.budget.title} color={props.budget.colorScheme} inputs={props.inputs}/>
+      <CompactTotalCategory budgetKey={props.budgetKey} total={calcFunctions.calcCategoryTotal(props.inputs)} />
 
       <div className="new-input">
-        <form>
+        <form noValidate>
           <label htmlFor="expenseType">Type</label>
           <input
             type="text"
@@ -44,7 +46,7 @@ function CategoryDisplay(props) {
           />
           <label htmlFor="expensePrice">Price</label>
           <input
-            type="text"
+            type="number"
             value={newInput.price}
             onChange={(e) => {
               setNewInput({

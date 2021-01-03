@@ -8,7 +8,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0000', '#00FF00'
 
 // const RADIAN = Math.PI / 180;                    
 
-class SimplePieChart extends Component{
+class UserInfoPieChart extends Component{
 
 	render () {
 
@@ -54,4 +54,4 @@ class SimplePieChart extends Component{
   }
 }
 
-export default SimplePieChart;
+export default UserInfoPieChart;

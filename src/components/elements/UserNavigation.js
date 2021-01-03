@@ -46,6 +46,14 @@ function UserNavigation(props) {
             Overview
           </Link>
         </li>
+        <li>
+          <hr />
+        </li>
+        <li>
+          <Link className="nav-links" to="/profile/compare">
+            Compare Budgets
+          </Link>
+        </li>
       </ul>
       <button onClick={props.handleLogout}>Logout</button>
       <BudgetsDisplay switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
