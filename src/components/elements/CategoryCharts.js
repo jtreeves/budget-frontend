@@ -5,18 +5,17 @@ function CategoryCharts(props) {
   
 
   const newData = []
-
   Object.keys(props.inputs).forEach((key) => {
     let chartInput = {
       name: key,
-      "Expense": props.inputs[key]
     }
+    chartInput[props.title] = props.inputs[key]
     newData.push(chartInput)
   })
 
   return (
     <div className="chart-container">
-      <CategoryChart color={props.color} data={newData}/>
+      <CategoryChart title={props.title} color={props.color} data={newData}/>
     </div>
   );
 }

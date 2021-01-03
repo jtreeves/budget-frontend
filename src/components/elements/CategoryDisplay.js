@@ -28,7 +28,7 @@ function CategoryDisplay(props) {
 
   return (
     <div className="category-container">
-      <CategoryCharts color={props.budget.colorScheme} inputs={props.inputs}/>
+      <CategoryCharts title={props.budget.title} color={props.budget.colorScheme} inputs={props.inputs}/>
       <CompactTotalCategory budgetKey={props.budgetKey} total={calcFunctions.calcCategoryTotal(props.inputs)} />
 
       <div className="new-input">

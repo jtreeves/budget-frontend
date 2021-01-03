@@ -22,7 +22,7 @@ export default class Example extends PureComponent {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey="Expense" fill={this.props.color} />
+        <Bar dataKey={this.props.title} fill={this.props.color} />
       </BarChart>
     );
   }
