@@ -22,10 +22,15 @@ function Profile(props) {
   const [budget, setBudget] = useState({});
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
-  const [currentUser, setCurrentUser] = useState(props.user)
+  const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
+  console.log(firstTimeUser);
 
   // API crud
   useEffect(() => {
+    if (firstTimeUser) {
+      reFetchUser()
+      return
+    }
     async function fetchBudgets() {
       if (props.user) {
         let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
@@ -40,7 +45,7 @@ function Profile(props) {
     } catch (error) {
       console.log(error);
     }
-  }, [backendUrl, id, props.user]);
+  }, [backendUrl, id, props.user, firstTimeUser]);
 
   useEffect(() => {
     async function autoSave() {
@@ -57,6 +62,11 @@ function Profile(props) {
     }
   }, [budget]);
 
+  const reFetchUser = async () => {
+    let apiRes = await axios.get(backendUrl + "/users/" + id);
+    setFirstTimeUser(apiRes.data.user.firstTimeUser)
+  }
+  
   const reFetchBudgets = async (budget) => {
     if (budgetsLoaded) {
       let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
@@ -197,10 +207,10 @@ function Profile(props) {
   };
   
   // Choose Display 
-  const chooseDisplay = () => {
+  const displayFilter = () => {
     if (props.user) {
-      if (currentUser.firstTimeUser) {
-        return <Dashboard user={props.user}/>
+      if (firstTimeUser) {
+        return <Dashboard reFetchUser={reFetchUser} user={props.user}/>
       } else {
         return userData
       }
@@ -209,7 +219,7 @@ function Profile(props) {
     }
   }
   // Profile Return
-  return <>{chooseDisplay()}</>;
+  return <>{displayFilter()}</>;
 }
 
 // Export function

@@ -38,7 +38,8 @@ function Dashboard(props) {
       firstTimeUser: false
     });
 
-    window.location.reload(false)
+    props.reFetchUser()
+    // window.location.reload(false)
 
   }
 
