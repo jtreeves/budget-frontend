@@ -6,6 +6,7 @@ function Utilities(props) {
     <div>
       <h3>This is the Utilities page!!!!</h3>
       <CategoryDisplay
+        budget={props.budget}
         addBudgetInput={props.addBudgetInput}
         deleteBudgetInput={props.deleteBudgetInput}
         budgetKey="utility"

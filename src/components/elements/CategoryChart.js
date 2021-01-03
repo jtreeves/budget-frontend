@@ -3,24 +3,11 @@ import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
-const colorArray = ["red", "green", "blue", "orange", "purple"]
-
 export default class Example extends PureComponent {
 
   
   render() {
     
-    let color = 0;
-
-    const bars = this.props.data.map((chartInput, idx) => {
-      if (color >= colorArray.length) {
-        color = 0;
-      } else {
-        color += 1;
-      }
-      return <Bar key={idx} dataKey={chartInput.name} fill={colorArray[color]} />
-    })
-
     return (
       <BarChart
         width={500}
@@ -31,11 +18,11 @@ export default class Example extends PureComponent {
         }}
       >
 
-        <XAxis dataKey="Type" />
+        <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
         <Legend />
-        {bars}
+        <Bar dataKey="Expense" fill={this.props.color} />
       </BarChart>
     );
   }

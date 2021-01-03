@@ -8,7 +8,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF0000', '#00FF00'
 
 // const RADIAN = Math.PI / 180;                    
 
-class SimplePieChart extends Component{
+class UserInfoPieChart extends Component{
 
 	render () {
 
@@ -32,11 +32,11 @@ class SimplePieChart extends Component{
         <Pie className="Pie"
           data={data} 
           // Placement of chart on page
-          cx={32} 
-          cy={33} 
+          cx={35} 
+          cy={35} 
           // Controls size of  
           innerRadius={20} 
-          outerRadius={40} 
+          outerRadius={35} 
           // Couldn't get this to do anything. Even on the demo site. 
           fill="#8884d8"
           // paddingAbgle contrtols gap between each portion of the pie chart.
@@ -54,4 +54,4 @@ class SimplePieChart extends Component{
   }
 }
 
-export default SimplePieChart;
+export default UserInfoPieChart;

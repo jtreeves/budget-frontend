@@ -83,8 +83,8 @@ function BudgetsDisplay(props) {
   };
 
   const budgets = props.budgetArray.map((budget, idx) => {
-    return <div>
-      <li key={idx}><a className="budget-links" onClick={() => props.switchBudgets(budget)}>{budget.title}</a></li>
+    return <div key={idx}>
+      <li><a className="budget-links" onClick={() => props.switchBudgets(budget)}>{budget.title}</a></li>
     </div>;
   });
 
