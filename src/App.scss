@@ -15,6 +15,11 @@ $color-medium-green: #6d9962;
 $gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 $font-family-primary: 'Nunito Sans', sans-serif;
 $font-family-secondary: 'PT Sans', sans-serif;
+$box-shadow-small: 4px 4px 8px
+  rgba(
+    $color: $color-black,
+    $alpha: 0.3
+  );
 
 // Mixins ——————————————————————————————
 
@@ -104,6 +109,32 @@ button {
   }
 }
 
+form {
+  padding: 20px;
+  border-radius: $app-border-radius-large;
+  display: inline-block;
+  background-color: $color-light-gray;
+  text-align: left;
+
+  label {
+    @include text-body-small();
+    padding-left: 15px;
+    font-weight: 700;
+  }
+
+  input {
+    @include text-body-small();
+    width: 240px;
+    height: 40px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    border-width: 0;
+    border-radius: 20px;
+    display: block;
+    box-shadow: inset 2px 2px 4px rgba($color: $color-black, $alpha: 0.3);
+  }
+}
+
 .timeframe {
   @include text-body-small();
   text-align: center;
@@ -113,10 +144,10 @@ button {
 
 body {
   height: 100%;
-  background-color: $color-light-green;
+  background-color: $color-light-gray;
 
   .div-container-app {
-    height: 100vh;
+    height: 100%;
     max-width: $app-max-width;
     margin: 0 auto;
     display: grid;
@@ -126,27 +157,38 @@ body {
     // Public Navigation ——————————————————————————————
 
     .nav-public {
-      align-self: start;
       z-index: 1;
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr;
+      row-gap: 15px;
+      justify-items: end;
+      align-items: center;
       grid-column: 2 / span 12;
       grid-row: 2;
+      align-self: start;
 
-      a {
-        @include text-title($color-white);
+      img {
+        width: 200px;
       }
 
       ul {
-        display: grid;
-        grid-template-columns: repeat(4, auto);
-        gap: 3vw;
-        justify-items: end;
-        align-items: center;
+        li {
+          @include text-nav($color-white);
+          margin-left: 4vw;
+          display: inline-block;
+          cursor: pointer;
+        }
 
         a {
           @include text-nav($color-white);
         }
+      }
+
+      #div-login {
+        border-radius: $app-border-radius-large;
+        grid-column: 2;
+        box-shadow: $box-shadow-small;
       }
     }
 
@@ -209,42 +251,36 @@ body {
         }
       }
 
-      .div-public-header-02 {
-        height: 120px;
-        background-image: $gradient;
-      }
+      // .div-public-header-02 {
+      //   height: 120px;
+      //   background-image: $gradient;
+      // }
 
-      h1 {
-        @include text-h1();
-        margin: 40px 0 20px 0;
-        text-align: center;
-      }
+      .div-signup {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
 
-      form {
-        padding: 20px;
-        border-radius: $app-border-radius-large;
-        display: inline-block;
-        background-color: $color-light-gray;
-        text-align: left;
-
-        label {
-          @include text-body-small();
-          padding-left: 15px;
-          font-weight: 700;
+        .div-signup-img {
+          background-image: url('https://res.cloudinary.com/alanavery/image/upload/v1609635077/kaleidoscope/abillion-0gVthlBI_Z4-unsplash_vmisaz.jpg');
+          background-position: center;
+          background-size: cover;
         }
 
-        input {
-          @include text-body-small();
-          width: 240px;
-          height: 40px;
-          padding: 0 15px;
-          margin-bottom: 20px;
-          border-width: 0;
-          border-radius: 20px;
-          display: block;
-          box-shadow: inset 2px 2px 4px rgba($color: $color-black, $alpha: 0.3);
+        .div-signup-form {
+          padding: 40px 4vw;
+
+          h2 {
+            @include text-h2();
+            padding-bottom: 20px;
+          }
         }
       }
+
+      // h1 {
+      //   @include text-h1();
+      //   margin: 40px 0 20px 0;
+      //   text-align: center;
+      // }
     }
 
     // User Pages ——————————————————————————————
@@ -327,4 +363,24 @@ body {
       }
     }
   }
+}
+
+// Transitions ——————————————————————————————
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
 }
