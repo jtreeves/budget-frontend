@@ -23,7 +23,6 @@ function Profile(props) {
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
-  console.log(firstTimeUser);
 
   // API crud
   useEffect(() => {
