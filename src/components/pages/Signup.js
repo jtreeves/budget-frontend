@@ -1,6 +1,5 @@
 // Import external dependencies
 import { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import axios from 'axios';
 
@@ -11,14 +10,14 @@ import FormGroup from '../elements/FormGroup';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 // Create function
-function Signup() {
+function Signup(props) {
   const alert = useAlert();
+
   // Set initial state values
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [redirect, setRedirect] = useState(false);
 
   // Set name from form
   const handleName = (e) => {
@@ -50,8 +49,10 @@ function Signup() {
         if (password.length >= 8) {
           // Create new user if both checks pass
           const newUser = { name, email, password };
-          await axios.post(`${REACT_APP_SERVER_URL}/users/signup`, newUser);
-          setRedirect(true);
+          const reqData = await axios.post(`${REACT_APP_SERVER_URL}/users/signup`, newUser);
+          console.log(reqData);
+          // Automatically login new user
+          props.handleLoginAfterSignup(email, password);
         } else {
           // Alert user if password too short
           alert.show('Password must be at least 8 characters long');
@@ -62,17 +63,13 @@ function Signup() {
       }
     } catch (error) {
       // Alert user if email already in use
-      alert.show(error.response.data.msg);
+      alert.show(`SIGNUP ERROR: ${error}`);
       console.log(`SIGNUP ERROR: ${error}`);
     }
   };
 
-  // Redirect to login page
-  if (redirect) return <Redirect to="/" />;
-
   return (
     <div className="div-signup">
-      {/* <div className="div-public-header-02"></div> */}
       <div className="div-signup-img"></div>
       <div className="div-signup-form">
         <h2>Sign Up</h2>

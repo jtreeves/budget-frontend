@@ -11,14 +11,6 @@ function Navigation(props) {
   const [loginVisible, setLoginVisible] = useState(false);
 
   // Toggle login form visibility
-  const toggleLogin = () => {
-    if (!loginVisible) {
-      setLoginVisible(true);
-    } else {
-      setLoginVisible(false);
-    }
-  }
-
   document.onmousedown = (e) => {
     if (!loginVisible && e.target.id === 'nav-login') {
       setLoginVisible(true)
@@ -29,7 +21,7 @@ function Navigation(props) {
   
   return (
     <nav className="nav-public">
-      <Link to="/">Kaleidoscope</Link>
+      <Link to="/"><img src="https://res.cloudinary.com/alanavery/image/upload/v1609691759/kaleidoscope/kaleidoscope-logo-primary-white_cacix8.png" alt="Kaleidoscope logo"/></Link>
       <ul>
         <li>
           <NavLink exact to="/about">
@@ -62,8 +54,11 @@ function Navigation(props) {
         exit={!loginVisible}
       >
         <Login
-          nowCurrentUser={props.nowCurrentUser}
-          user={props.user}
+          handleLogin={props.handleLogin}
+          handleLoginEmail={props.handleLoginEmail}
+          handleLoginPassword={props.handleLoginPassword}
+          loginEmail={props.loginEmail}
+          loginPassword={props.loginPassword}
         />
       </CSSTransition>
     </nav>

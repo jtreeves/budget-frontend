@@ -11,6 +11,7 @@ function UserInfo(props) {
   const [deletePressed, setDeletePressed] = useState(false);
   const [budgetName, setBudgetName] = useState(props.budget.title);
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
+  const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
   const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
   const weeklyExpense = (monthlyExpense / 4).toFixed(2);
@@ -34,6 +35,36 @@ function UserInfo(props) {
     props.reFetchBudgets(props.budget);
   };
 
+  const userInfoButtons = () => {
+    if (!userDeletePressed) {
+      return (
+        <button onClick={() => setUserDeletePressed(true)}>
+          Delete User
+        </button>
+      )
+    } else if (userDeletePressed) {
+      return (
+        <div>
+          <button onClick={deleteUser}>
+            Yes, Delete
+          </button>
+          <button onClick={() => setUserDeletePressed(false)}>
+            No, Cancel
+          </button>
+        </div>
+      )
+    }
+  }
+  
+  const deleteUser = async () => {
+    try {
+      props.handleLogout();
+      await axios.delete(backendUrl + "/users/" + props.id);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  
   const infoOrForm = () => {
     if (displayForm && !deletePressed) {
       return (
@@ -87,9 +118,7 @@ function UserInfo(props) {
         <p>
           <strong>Name:</strong> {props.name}
         </p>
-        <p>
-          <strong>ID:</strong> {props.id}
-        </p>
+        <div>{userInfoButtons()}</div>
         <div className="helper">{infoOrForm()}</div>
       </div>
 

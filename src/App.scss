@@ -168,8 +168,8 @@ body {
       grid-row: 2;
       align-self: start;
 
-      a {
-        @include text-title($color-white);
+      img {
+        width: 200px;
       }
 
       ul {

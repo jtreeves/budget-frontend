@@ -97,10 +97,8 @@ body .div-container-app .nav-public {
   grid-row: 2;
   align-self: start;
 }
-body .div-container-app .nav-public a {
-  color: #fff;
-  font-family: "PT Sans", sans-serif;
-  font-size: 30px;
+body .div-container-app .nav-public img {
+  width: 200px;
 }
 body .div-container-app .nav-public ul li {
   color: #fff;
