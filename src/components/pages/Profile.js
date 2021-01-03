@@ -181,7 +181,7 @@ function Profile(props) {
     return (
       <div>
         <h3>
-          Please <Link to="/login">login</Link> to view this page
+          Please <Link to="/">login</Link> to view this page
         </h3>
       </div>
     );

@@ -61,9 +61,7 @@ function Login(props) {
   if (props.user) return <Redirect to="/profile/overview" />;
 
   return (
-    <div className="div-public-page">
-      <div className="div-public-header-02"></div>
-      <h1 className="py-2">Log In</h1>
+    <div id="div-login">
       <form onSubmit={handleSubmit}>
         <FormGroup
           type="email"

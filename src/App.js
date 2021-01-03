@@ -22,7 +22,7 @@ function PrivateRoute({component: Component, ...rest}) {
 
     const user = localStorage.getItem('jwtToken')
     return <Route {...rest} render={(props) => {
-        return user ? <Component {...rest} {...props} /> : <Redirect to="/login" />
+        return user ? <Component {...rest} {...props} /> : <Redirect to="/" />
     }} />
 }
 
@@ -63,7 +63,14 @@ function App() {
     if (isAuthenticated) {
       return <Redirect to="/profile/overview" />;
     } else {
-      return <Navigation handleLogout={handleLogout} isAuth={isAuthenticated} />;
+      return (
+        <Navigation
+          handleLogout={handleLogout}
+          isAuth={isAuthenticated}
+          nowCurrentUser={nowCurrentUser}
+          user={currentUser}
+        />
+      );
     }
   };
 
@@ -72,23 +79,7 @@ function App() {
       {handleNavBars()}
       <Route exact path="/" component={Welcome} />
       <Route path="/about" component={About} />
-      <Route path="/signup" component={Signup} />
-      <Route
-        path="/login"
-        render={(props) => {
-          return (
-            <Login
-              {...props}
-              nowCurrentUser={nowCurrentUser}
-              setIsAuthenticated={setIsAuthenticated}
-              user={currentUser}
-            />
-          );
-        }}
-      />
-
       <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} handleLogout={handleLogout} />
-
     </div>
   );
 

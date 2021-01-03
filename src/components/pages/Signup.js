@@ -68,37 +68,40 @@ function Signup() {
   };
 
   // Redirect to login page
-  if (redirect) return <Redirect to="/login" />;
+  if (redirect) return <Redirect to="/" />;
 
   return (
-    <div className="div-public-page">
-      <div className="div-public-header-02"></div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <FormGroup type="text" label="name" value={name} display="Name" onChange={handleName} />
-        <FormGroup
-          type="email"
-          label="email"
-          value={email}
-          display="Email"
-          onChange={handleEmail}
-        />
-        <FormGroup
-          type="password"
-          label="password"
-          value={password}
-          display="Password"
-          onChange={handlePassword}
-        />
-        <FormGroup
-          type="password"
-          label="confirmPassword"
-          value={confirmPassword}
-          display="Confirm Password"
-          onChange={handleConfirmPassword}
-        />
-        <button type="submit">Submit</button>
-      </form>
+    <div className="div-signup">
+      {/* <div className="div-public-header-02"></div> */}
+      <div className="div-signup-img"></div>
+      <div className="div-signup-form">
+        <h2>Sign Up</h2>
+        <form onSubmit={handleSubmit}>
+          <FormGroup type="text" label="name" value={name} display="Name" onChange={handleName} />
+          <FormGroup
+            type="email"
+            label="email"
+            value={email}
+            display="Email"
+            onChange={handleEmail}
+          />
+          <FormGroup
+            type="password"
+            label="password"
+            value={password}
+            display="Password"
+            onChange={handlePassword}
+          />
+          <FormGroup
+            type="password"
+            label="confirmPassword"
+            value={confirmPassword}
+            display="Confirm Password"
+            onChange={handleConfirmPassword}
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }

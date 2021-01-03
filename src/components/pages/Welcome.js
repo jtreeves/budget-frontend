@@ -1,3 +1,5 @@
+import Signup from './Signup';
+
 // Create function
 function Welcome() {
   return (
@@ -10,6 +12,7 @@ function Welcome() {
           beatae qui dolorem tempora possimus accusantium, fugit eius quidem?
         </p>
       </div>
+      <Signup />
     </div>
   );
 }
