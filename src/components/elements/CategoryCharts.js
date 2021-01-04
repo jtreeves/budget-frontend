@@ -2,8 +2,6 @@ import CategoryChart from "./CategoryChart"
 
 function CategoryCharts(props) {
 
-  
-
   const newData = []
   Object.keys(props.inputs).forEach((key) => {
     let chartInput = {
@@ -13,11 +11,21 @@ function CategoryCharts(props) {
     newData.push(chartInput)
   })
 
-  return (
-    <div className="chart-container">
-      <CategoryChart title={props.title} color={props.color} data={newData}/>
-    </div>
-  );
+    if (newData.length === 0) {
+      return (
+        <div>
+          <h2>No data to display</h2>
+          <h2>Enter data below</h2>
+          <h1> &darr; </h1>
+        </div>
+      )
+    } else {
+      return (
+        <div className="chart-container">
+          <CategoryChart title={props.title} color={props.color} data={newData}/>
+        </div>
+      )
+    }
 }
 
 // Export function
