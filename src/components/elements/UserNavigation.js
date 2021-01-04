@@ -11,14 +11,6 @@ function UserNavigation(props) {
             Overview
           </Link>
         </li>
-        <li className="link1">
-          <Link className="nav-links" to="/profile/income">
-            Income
-          </Link>
-        </li>
-        <li className="link1">
-          Expenses
-        </li>
         <li className="link2">
           <Link className="nav-links" to="/profile/housing">
             Housing

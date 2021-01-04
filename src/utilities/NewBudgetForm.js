@@ -23,6 +23,7 @@ function NewBudgetForm(props) {
       <button className="button-small button-left" onClick={() => props.handleSubmit()}>Add</button>
       <button className="button-small" onClick={() => props.setFormDisplayed(false)}>Cancel</button>
       <Cities setLocation={props.setLocation}/>
+      <input type="number" placeholder="Income" value={props.income} onChange={(e) => props.setIncome(e.target.value)}/>
       <button onClick={() => props.setFormDisplayed(false)}>Cancel</button>
     </form>
   );
