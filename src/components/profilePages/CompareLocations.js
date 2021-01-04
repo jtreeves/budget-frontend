@@ -8,6 +8,14 @@ function CompareLocations(props) {
   const [citiesToCompare, setCitiesToCompare] = useState([]);
   const [selectedCity, setSelectedCity] = useState("Albany, NY");
   const [budgetLocationCPI, setBudgetLocationCPI] = useState(null);
+  const [budgetLocationGroceries, setBudgetLocationGroceries] = useState(null);
+  const [budgetLocationRestaurants, setBudgetLocationRestaurants] = useState(
+    null
+  );
+  const [budgetLocationHealthCare, setBudgetLocationHealthCare] = useState(
+    null
+  );
+  const [budgetLocationRent, setBudgetLocationRent] = useState(null);
   const [cityCPIS, setCityCPIS] = useState({});
   const budgetTotals = calcFunctions.calcAllBudgetTotals([props.budget]);
   const NUMBEO_API_KEY = process.env.NUMBEO_API_KEY;
@@ -24,6 +32,18 @@ function CompareLocations(props) {
         .then((data) => {
           let cityCpi = data.cpi_and_rent_index;
           setBudgetLocationCPI(cityCpi);
+          if (data.groceries_index) {
+            setBudgetLocationGroceries(data.groceries_index);
+          }
+          if (data.restaurant_price_index) {
+            setBudgetLocationRestaurants(data.restaurant_price_index);
+          }
+          if (data.health_care_index) {
+            setBudgetLocationHealthCare(data.health_care_index);
+          }
+          if (data.rent_index) {
+            setBudgetLocationRent(data.rent_index);
+          }
         });
     };
     fetchCityIndices();
@@ -119,27 +139,103 @@ function CompareLocations(props) {
   });
 
   const comparisonCities = Object.keys(cityCPIS).map((city, idx) => {
-    return <li key={idx}>{city}: {cityCPIS[city]}</li>
-  })
+    return (
+      <li key={idx}>
+        {city}: {cityCPIS[city]}
+      </li>
+    );
+  });
 
-  const showCpi = () => {
+  const showOverall = () => {
     if (budgetLocationCPI) {
-      return <h3>Numbeo Cpi: {budgetLocationCPI}</h3>;
+      return (
+        <h3>
+          Overall: {ordinal_suffix_of(Math.round(budgetLocationCPI))} Percentile
+        </h3>
+      );
     } else {
-      return <h3>Numbeo Cpi: Loading...</h3>;
+      return <h3>Overall: Loading...</h3>;
     }
   };
 
+  const showGroceries = () => {
+    if (budgetLocationGroceries) {
+      return (
+        <h3>
+          Groceries: {ordinal_suffix_of(Math.round(budgetLocationGroceries))}{" "}
+          Percentile
+        </h3>
+      );
+    } else {
+      return <h3>Groceries: Loading...</h3>;
+    }
+  };
+
+  const showRestaurants = () => {
+    if (budgetLocationRestaurants) {
+      return (
+        <h3>
+          Restaurants:{" "}
+          {ordinal_suffix_of(Math.round(budgetLocationRestaurants))} Percentile
+        </h3>
+      );
+    } else {
+      return <h3>Restaurants: Loading...</h3>;
+    }
+  };
+
+  const showRent = () => {
+    if (budgetLocationRent) {
+      return (
+        <h3>
+          Rent: {ordinal_suffix_of(Math.round(budgetLocationRent))} Percentile
+        </h3>
+      );
+    } else {
+      return <h3>Rent: Loading...</h3>;
+    }
+  };
+
+  const showHealth = () => {
+    if (budgetLocationHealthCare) {
+      return (
+        <h3>
+          HealthCare: {ordinal_suffix_of(Math.round(budgetLocationHealthCare))}{" "}
+          Percentile
+        </h3>
+      );
+    } else {
+      return <h3>HealthCare: Loading...</h3>;
+    }
+  };
+
+  function ordinal_suffix_of(i) {
+    let j = i % 10,
+      k = i % 100;
+    if (j == 1 && k != 11) {
+      return i + "st";
+    }
+    if (j == 2 && k != 12) {
+      return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+      return i + "rd";
+    }
+    return i + "th";
+  }
 
   return (
     <div>
       <h2>Compare Locations</h2>
       <div>
         <h3>Your Location: {props.budget.location}</h3>
-        <h3>Income: ${budgetTotals[0].totalIncome}</h3>
-        <h3>Expenses: ${budgetTotals[0].totalExpense}</h3>
-        <h3>Savings: ${budgetTotals[0].totalSavings}</h3>
-        {showCpi()}
+        <div className="helper">
+          {showOverall()}
+          {showRent()}
+          {showHealth()}
+          {showGroceries()}
+          {showRestaurants()}
+        </div>
         <h3>Add city to compare</h3>
         <Cities
           setLocation={setSelectedCity}
@@ -148,9 +244,7 @@ function CompareLocations(props) {
         />
         <button onClick={() => addCity()}>Add City</button>
         <div>{cities}</div>
-        <ul>
-          {comparisonCities}
-        </ul>
+        <ul>{comparisonCities}</ul>
       </div>
     </div>
   );
