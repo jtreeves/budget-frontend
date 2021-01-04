@@ -418,28 +418,38 @@ body .div-container-app .div-profile-page .div-user-info .div-user-delete-confir
   justify-content: space-between;
   align-items: center;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary {
+body .div-container-app .div-profile-page .div-user-info .div-current-budget {
   padding: 12px;
   border-radius: 10px;
   margin-top: 30px;
   background-color: #edeef1;
+  padding: 0;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary .chart-budget-summary {
-  margin: 20px 0;
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-name {
+  padding: 8px 12px;
+  border-radius: 10px 10px 0 0;
+  background-color: #666666;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary h2 {
-  color: #000;
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-name h2 {
+  color: #fff;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
+  font-size: 26px;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary h4 {
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary {
+  padding: 20px 12px 12px 12px;
+}
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .chart-budget-summary {
+  margin-bottom: 20px;
+}
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h4 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary h3 {
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h3 {
   color: #000;
   font-family: "PT Sans", sans-serif;
   font-size: 40px;
@@ -447,13 +457,13 @@ body .div-container-app .div-profile-page .div-user-info .div-budget-summary h3 
   font-size: 30px;
   line-height: 1;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary .subsection-buttons {
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .subsection-buttons {
   margin-top: 30px;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary .div-budget-delete-confirm {
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .div-budget-delete-confirm {
   margin-top: 30px;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary .div-budget-delete-confirm p {
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .div-budget-delete-confirm p {
   margin-bottom: 8px;
 }
 body .div-container-app .div-profile-page .div-user-info p {

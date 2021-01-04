@@ -380,7 +380,7 @@ body {
         .subsection-buttons {
           margin-top: 30px;
         }
-    }
+      }
     }
 
     // User Pages ——————————————————————————————
@@ -438,7 +438,7 @@ body {
           #cc-food-drink {
             @include gradient(#ffb703, #f68200);
           }
-          
+
           #cc-transportation {
             @include gradient(#5cbd3a, #367724);
           }
@@ -456,26 +456,26 @@ body {
             display: grid;
             grid-template-columns: 3fr 1fr;
             align-items: center;
-            
+
             h3 {
               @include text-h3();
             }
-            
+
             li {
               @include text-body-small();
             }
-            
+
             .currency {
               @include text-currency();
               text-align: center;
             }
-            
+
             .timeframe {
               @include text-body-small();
             }
           }
         }
-        
+
         .compact-container-total {
           padding: 10px 0;
           border-radius: $border-radius-small;
@@ -490,7 +490,7 @@ body {
             padding-left: 20px;
             grid-column: 2 / span 1;
           }
-          
+
           .currency {
             @include text-currency();
             padding-right: 20px;
@@ -529,37 +529,49 @@ body {
           align-items: center;
         }
 
-        .div-budget-summary {
+        .div-current-budget {
           @include box-subsection();
+          padding: 0;
 
-          .chart-budget-summary {
-            margin: 20px 0;
+          .div-budget-name {
+            padding: 8px 12px;
+            border-radius: $border-radius-small $border-radius-small 0 0;
+            background-color: $color-dark-gray;
+  
+            h2 {
+              @include text-h3($color-white);
+              font-size: 26px;
+            }
           }
 
-          h2 {
-            @include text-h3();
-          }
+          .div-budget-summary {
+            padding: 20px 12px 12px 12px;
 
-          h4 {
-            @include text-h4();
-          }
-
-          h3 {
-            @include text-h2();
-            margin-top: 10px;
-            font-size: 30px;
-            line-height: 1;
-          }
-
-          .subsection-buttons {
-            margin-top: 30px;
-          }
-
-          .div-budget-delete-confirm {
-            margin-top: 30px;
-
-            p {
-              margin-bottom: 8px;
+            .chart-budget-summary {
+              margin-bottom: 20px;
+            }
+  
+            h4 {
+              @include text-h4();
+            }
+  
+            h3 {
+              @include text-h2();
+              margin-top: 10px;
+              font-size: 30px;
+              line-height: 1;
+            }
+  
+            .subsection-buttons {
+              margin-top: 30px;
+            }
+  
+            .div-budget-delete-confirm {
+              margin-top: 30px;
+  
+              p {
+                margin-bottom: 8px;
+              }
             }
           }
         }

@@ -122,6 +122,23 @@ function UserInfo(props) {
     );
   });
 
+  const provideColorCode = (colorName) => {
+    switch (colorName) {
+      case 'Magenta':
+        return '#9f2e71';
+      case 'Red':
+        return '#aa0100';
+      case 'Orange':
+        return '#f68200';
+      case 'Green':
+        return '#367724';
+      case 'Blue':
+        return '#116b90';
+      case 'Purple':
+        return '#5e235f';
+    }
+  }
+
   return (
     <div className="div-user-info">
       <div className="div-user-name">
@@ -131,14 +148,18 @@ function UserInfo(props) {
 
       {userInfoButtons()}
 
-      <div className="div-budget-summary">
-        <h2>{props.budget.title}</h2>
-        <UserInfoPieChart subTotals={subTotals} />
-        <h4>Income: {monthlyIncome}</h4>
-        <h4>Total Expenses: {monthlyExpense}</h4>
-        <h3>${monthlyIncomeNum - monthlyExpenseNum}</h3>
-        <p>left over each month</p>
-        {infoOrForm()}
+      <div className="div-current-budget">
+        <div className="div-budget-name" style={{ backgroundColor: provideColorCode(props.budget.colorScheme) }}>
+          <h2>{props.budget.title}</h2>
+        </div>
+        <div className="div-budget-summary">
+          <UserInfoPieChart subTotals={subTotals} />
+          <h4>Income: {monthlyIncome}</h4>
+          <h4>Total Expenses: {monthlyExpense}</h4>
+          <h3>${monthlyIncomeNum - monthlyExpenseNum}</h3>
+          <p>left over each month</p>
+          {infoOrForm()}
+        </div>
       </div>
     </div>
   );
