@@ -6,6 +6,7 @@ import axios from "axios";
 import UserInfo from "../elements/UserInfo";
 import UserNavigation from "../elements/UserNavigation";
 import ProfileRoutes from "../elements/ProfileRoutes";
+import Dashboard from "./Dashboard"
 import { useState, useEffect } from "react";
 
 function Profile(props) {
@@ -21,9 +22,14 @@ function Profile(props) {
   const [budget, setBudget] = useState({});
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
+  const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
 
   // API crud
   useEffect(() => {
+    if (firstTimeUser || firstTimeUser == null) {
+      reFetchUser()
+      return
+    }
     async function fetchBudgets() {
       if (props.user) {
         let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
@@ -38,7 +44,7 @@ function Profile(props) {
     } catch (error) {
       console.log(error);
     }
-  }, [backendUrl, id, props.user]);
+  }, [backendUrl, id, props.user, firstTimeUser]);
 
   useEffect(() => {
     async function autoSave() {
@@ -55,6 +61,11 @@ function Profile(props) {
     }
   }, [budget]);
 
+  const reFetchUser = async () => {
+    let apiRes = await axios.get(backendUrl + "/users/" + id);
+    setFirstTimeUser(apiRes.data.user.firstTimeUser)
+  }
+  
   const reFetchBudgets = async (budget) => {
     if (budgetsLoaded) {
       let apiRes = await axios.get(backendUrl + "/budgets/all/" + id);
@@ -100,14 +111,14 @@ function Profile(props) {
   };
 
   // State funcitons
-
-  const addBudgetInput = (budgetKey, newInput) => {
+  const addBudgetInput = async (budgetKey, newInput) => {
     // This makes a deep copy of the budget
     let budgetCopy = JSON.parse(JSON.stringify(budget));
     // Now you can edit budgetCopy without changing budget
     budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
       newInput.inputValue;
-    setBudget(budgetCopy);
+    await setBudget(budgetCopy);
+    reFetchBudgets(budget)
   };
 
   const deleteBudgetInput = (budgetKey, inputKey) => {
@@ -116,6 +127,7 @@ function Profile(props) {
     // Now you can edit budgetCopy without changing budget
     delete budgetCopy.categories[budgetKey].inputs[inputKey];
     setBudget(budgetCopy);
+    reFetchBudgets(budget)
   };
 
   const switchBudgets = (budget) => {
@@ -142,6 +154,8 @@ function Profile(props) {
     alert.show("Session has ended. Please log in.");
   }
 
+
+  
   // Success Display
   const userData = budgetsLoaded ? (
     <>
@@ -151,7 +165,7 @@ function Profile(props) {
         budgetArray={budgetArray}
         loadNewBudget={loadNewBudget}
         switchBudgets={switchBudgets}
-      />
+        />
       <div className="div-profile-page">
         <UserInfo
           budgetArray={budgetArray}
@@ -164,19 +178,24 @@ function Profile(props) {
           handleLogout={props.handleLogout}
         />
 
+
         <div className="div-profile-workspace">
           <ProfileRoutes
+            budgetArray={budgetArray}
             deleteBudgetInput={deleteBudgetInput}
             addBudgetInput={addBudgetInput}
             budget={budget}
-          />
+            />
         </div>
       </div>
     </>
   ) : (
+    <>
     <h4>Loading...</h4>
+    <button onClick={handleLogout}>Logout</button>
+    </>
   );
-
+  
   // Error Display
   const errorDiv = () => {
     return (
@@ -187,9 +206,21 @@ function Profile(props) {
       </div>
     );
   };
-
+  
+  // Choose Display 
+  const displayFilter = () => {
+    if (props.user) {
+      if (firstTimeUser) {
+        return <Dashboard reFetchUser={reFetchUser} user={props.user}/>
+      } else {
+        return userData
+      }
+    } else {
+      errorDiv()
+    }
+  }
   // Profile Return
-  return <>{props.user ? userData : errorDiv()}</>;
+  return <>{displayFilter()}</>;
 }
 
 // Export function

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewBudgetForm from "../../utilities/NewBudgetForm";
 import axios from "axios";
 
@@ -6,6 +6,9 @@ function BudgetsDisplay(props) {
   const [formDisplayed, setFormDisplayed] = useState(false);
   const [budgetName, setBudgetName] = useState("");
   const [colorScheme, setColorScheme] = useState("Red");
+  const [copyDataFrom, setCopyDataFrom] = useState("None")
+  const [location, setLocation] = useState("Albany, NY");
+  const [copyDataChoices, setCopyDataChoices] = useState([])
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const emptyCategories = {
     housing: {},
@@ -16,12 +19,40 @@ function BudgetsDisplay(props) {
     misc: {},
     income: {},
   }
+  
+  function copyDataFilter() {
+    let returnObj;
+    if (copyDataFrom === "None") {
+      returnObj = emptyCategories
+    } else {
+      props.budgetArray.forEach((budget) => {
+        if (budget._id === copyDataFrom) {
+          returnObj = budget.categories
+        }
+      })
+    }
+    return returnObj
+  }
+
+  useEffect(() => {
+    const arrayCopy = []
+    props.budgetArray.forEach((budget) => {
+      let abbrevBudget = {
+        title: budget.title,
+        _id: budget._id
+      }
+      arrayCopy.push(abbrevBudget)
+    })
+    setCopyDataChoices(arrayCopy)
+  }, [props.budgetArray])
 
   const handleSubmit = async () => {
+    let inputs = copyDataFilter()
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,
       colorScheme: colorScheme,
-      categories: emptyCategories
+      categories: inputs,
+      location: location
     });
     setFormDisplayed(false);
     props.loadNewBudget();
@@ -31,6 +62,9 @@ function BudgetsDisplay(props) {
     if (formDisplayed) {
       return (
         <NewBudgetForm
+          setLocation={setLocation}
+          setCopyDataFrom={setCopyDataFrom}
+          copyDataChoices={copyDataChoices}
           setName={setBudgetName}
           setColor={setColorScheme}
           budgetName={budgetName}
@@ -52,8 +86,8 @@ function BudgetsDisplay(props) {
   };
 
   const budgets = props.budgetArray.map((budget, idx) => {
-    return <div>
-      <li key={idx}><a className="budget-links" onClick={() => props.switchBudgets(budget)}>{budget.title}</a></li>
+    return <div key={idx}>
+      <li><a className="budget-links" onClick={() => props.switchBudgets(budget)}>{budget.title}</a></li>
     </div>;
   });
 
