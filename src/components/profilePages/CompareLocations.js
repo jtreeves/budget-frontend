@@ -8,6 +8,7 @@ function CompareLocations(props) {
   const [citiesToCompare, setCitiesToCompare] = useState([]);
   const [selectedCity, setSelectedCity] = useState("Albany, NY");
   const [budgetLocationCPI, setBudgetLocationCPI] = useState(null);
+  const [cityCPIS, setCityCPIS] = useState({})
   const budgetTotals = calcFunctions.calcAllBudgetTotals([props.budget]);
   const NUMBEO_API_KEY = process.env.NUMBEO_API_KEY;
 
@@ -15,25 +16,30 @@ function CompareLocations(props) {
     const fetchCityIndices = () => {
       fetch(
         `https://www.numbeo.com/api/indices?api_key=qt1nz2cebg6wjk&query=${props.budget.location}`
-      )
+        )
         .then((res) => {
           return res.json();
         })
         .then((data) => {
           let cityCpi = data.cpi_and_rent_index
-          console.log(cityCpi);
           setBudgetLocationCPI(cityCpi)
         });
-    };
+      };
+      fetchCityIndices()
+    }, []);
+    
+  useEffect(() => {
+      const fetchCityIndices = () => {
+        console.log(citiesToCompare);
+          }
     fetchCityIndices()
-  }, []);
+  }, [citiesToCompare]);
 
   const addCity = () => {
     let cityAlreadyAdded = false;
     let arrayCopy = citiesToCompare.slice();
     arrayCopy.forEach((city) => {
       if (city === selectedCity) {
-        console.log("hey");
         cityAlreadyAdded = true;
       }
     });
