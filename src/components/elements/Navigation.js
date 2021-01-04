@@ -41,7 +41,7 @@ function Navigation(props) {
         ) : (
           <>
             <li>
-              <span id="nav-login">Login</span>
+              <span id="nav-login">Log In</span>
             </li>
           </>
         )}

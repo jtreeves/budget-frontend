@@ -9,15 +9,15 @@ function DefaultProfile(props) {
   const totalExpense = calcFunctions.calcExpenseTotals(props.budget)
   return (
     <div>
-      <h2>Budget Overview</h2>
-      <CompactDisplay title="Income" inputs={income.inputs} total={subTotals.income}/>
+      <h2>Overview</h2>
+      <CompactDisplay compactContainerId="cc-income" title="Income" inputs={income.inputs} total={subTotals.income}/>
       <CompactTotal totalExpense={totalExpense} totalIncome={subTotals.income} />
-      <CompactDisplay title="Housing" inputs={housing.inputs} total={subTotals.housing}/>
-      <CompactDisplay title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
-      <CompactDisplay title="Transportation" inputs={transportation.inputs} total={subTotals.transportation}/>
-      <CompactDisplay title="Food & Drink" inputs={food.inputs} total={subTotals.food}/>
-      <CompactDisplay title="Entertainment" inputs={entertainment.inputs} total={subTotals.entertainment}/>
-      <CompactDisplay title="Miscellaneous" inputs={misc.inputs} total={subTotals.misc}/>
+      <CompactDisplay compactContainerId="cc-housing" title="Housing" inputs={housing.inputs} total={subTotals.housing}/>
+      <CompactDisplay compactContainerId="cc-utilities" title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
+      <CompactDisplay compactContainerId="cc-food-drink" title="Food & Drink" inputs={food.inputs} total={subTotals.food}/>
+      <CompactDisplay compactContainerId="cc-transportation" title="Transportation" inputs={transportation.inputs} total={subTotals.transportation}/>
+      <CompactDisplay compactContainerId="cc-entertainment" title="Entertainment" inputs={entertainment.inputs} total={subTotals.entertainment}/>
+      <CompactDisplay compactContainerId="cc-miscellaneous" title="Miscellaneous" inputs={misc.inputs} total={subTotals.misc}/>
     </div>
   );
 }

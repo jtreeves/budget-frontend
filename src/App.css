@@ -11,6 +11,7 @@ li {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 button {
@@ -32,6 +33,17 @@ button:hover {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
+.button-small {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.button-left {
+  margin-right: 8px;
+}
+
 form {
   padding: 20px;
   border-radius: 20px;
@@ -48,7 +60,8 @@ form label {
   padding-left: 15px;
   font-weight: 700;
 }
-form input {
+form input,
+form select {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
@@ -62,6 +75,28 @@ form input {
   border-radius: 20px;
   display: block;
   box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-small {
+  width: 100%;
+  padding: 0;
+  margin-top: 30px;
+}
+.form-small label {
+  padding-left: 0;
+  font-size: 14px;
+}
+.form-small input,
+.form-small select {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.form-small button {
+  margin-top: 10px;
 }
 
 .timeframe {
@@ -82,7 +117,7 @@ body .div-container-app {
   max-width: 1920px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 4vw repeat(12, 1fr) 4vw;
+  grid-template-columns: 4vw 200px 1fr 300px 4vw;
   grid-template-rows: 40px 1fr 40px;
 }
 body .div-container-app .nav-public {
@@ -93,8 +128,8 @@ body .div-container-app .nav-public {
   row-gap: 15px;
   justify-items: end;
   align-items: center;
-  grid-column: 2/span 12;
-  grid-row: 2;
+  grid-column: 2/span 3;
+  grid-row: 2/span 1;
   align-self: start;
 }
 body .div-container-app .nav-public img {
@@ -117,40 +152,11 @@ body .div-container-app .nav-public ul a {
 }
 body .div-container-app .nav-public #div-login {
   border-radius: 20px;
-  grid-column: 2;
+  grid-column: 2/span 1;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
-body .div-container-app .nav-user {
-  z-index: 2;
-  padding: 30px 2vw;
-  grid-column: 2/span 2;
-  grid-row: 2/span 2;
-}
-body .div-container-app .nav-user p {
-  color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 30px;
-  font-size: 20px;
-}
-body .div-container-app .nav-user li {
-  margin-top: 20px;
-}
-body .div-container-app .nav-user li a {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  font-size: 16px;
-}
-body .div-container-app .nav-user li a:hover {
-  color: #6d9962;
-  font-weight: 700;
-}
-body .div-container-app .nav-user button {
-  margin-top: 20px;
-}
 body .div-container-app .div-public-page {
-  grid-column: 1/span 14;
+  grid-column: 1/span 5;
   grid-row: 1/span 3;
   background-color: #fff;
   text-align: center;
@@ -195,12 +201,87 @@ body .div-container-app .div-public-page .div-signup .div-signup-form h2 {
   font-size: 40px;
   padding-bottom: 20px;
 }
+body .div-container-app .nav-user {
+  z-index: 2;
+  padding: 30px 20px;
+  grid-column: 2/span 1;
+  grid-row: 2/span 1;
+}
+body .div-container-app .nav-user img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+body .div-container-app .nav-user .link1 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding-top: 5px;
+  border-top: solid 2px #edeef1;
+  margin-top: 20px;
+}
+body .div-container-app .nav-user .link1 a {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+body .div-container-app .nav-user .link1 a:hover {
+  text-decoration: underline;
+}
+body .div-container-app .nav-user .link2 {
+  margin-top: 15px;
+}
+body .div-container-app .nav-user .link2 a {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 10px;
+}
+body .div-container-app .nav-user .link2 a:hover {
+  text-decoration: underline;
+}
+body .div-container-app .nav-user .nonlink {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+body .div-container-app .nav-user .div-budgets {
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: #edeef1;
+}
+body .div-container-app .nav-user .div-budgets h3 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+body .div-container-app .nav-user .div-budgets li {
+  margin-top: 10px;
+}
+body .div-container-app .nav-user .div-budgets li a {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+body .div-container-app .nav-user .div-budgets li a:hover {
+  text-decoration: underline;
+}
+body .div-container-app .nav-user .div-budgets .subsection-buttons {
+  margin-top: 30px;
+}
 body .div-container-app .div-profile-page {
   overflow: hidden;
   border-radius: 20px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column: 2/span 12;
+  grid-template-columns: 200px 1fr 300px;
+  grid-column: 2/span 3;
   grid-row: 2/span 1;
   box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.3);
   background-color: #fff;
@@ -210,7 +291,7 @@ body .div-container-app .div-profile-page .div-profile-workspace {
   padding: 20px 2vw;
   border-radius: 20px;
   margin: 20px 0;
-  grid-column: 3/span 7;
+  grid-column: 2/span 1;
   background-color: #edeef1;
 }
 body .div-container-app .div-profile-page .div-profile-workspace h2 {
@@ -220,61 +301,162 @@ body .div-container-app .div-profile-page .div-profile-workspace h2 {
   margin-bottom: 20px;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
-  padding: 15px 20px;
   border-radius: 10px;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 4vw 1fr;
   align-items: center;
   background-color: #fff;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container h3 {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .div-color-bar {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background-color: red;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-income {
+  background-image: linear-gradient(to top, #ccc 0%, #666666 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-housing {
+  background-image: linear-gradient(to top, #c63b8d 0%, #781b53 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-utilities {
+  background-image: linear-gradient(to top, #eb0000 0%, #aa0100 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-food-drink {
+  background-image: linear-gradient(to top, #ffb703 0%, #f68200 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-transportation {
+  background-image: linear-gradient(to top, #5cbd3a 0%, #367724 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-entertainment {
+  background-image: linear-gradient(to top, #019be0 0%, #116b90 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-miscellaneous {
+  background-image: linear-gradient(to top, #963899 0%, #5e235f 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
+  padding: 15px 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container li {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text li {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6em;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .currency {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
   color: #000;
   font-family: "PT Sans", sans-serif;
   font-size: 25px;
   text-align: center;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .timeframe {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6em;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .total {
-  background-color: #6d9962;
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total {
+  padding: 10px 0;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 4vw 3fr 1fr;
+  align-items: center;
+  background-color: #ccc;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .total h3 {
-  color: #fff;
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total h3 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding-left: 20px;
+  grid-column: 2/span 1;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .total .currency {
-  color: #fff;
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 25px;
+  padding-right: 20px;
+  text-align: center;
 }
-body .div-container-app .div-profile-page .div-profile-user-info {
-  padding: 30px 2vw;
-  grid-column: 10/span 3;
+body .div-container-app .div-profile-page .div-user-info {
+  width: 100%;
+  padding: 30px 20px;
+  grid-column: 3/span 1;
   grid-row: 1/span 1;
 }
-body .div-container-app .div-profile-page .div-profile-user-info h2 {
+body .div-container-app .div-profile-page .div-user-info .div-user-name {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-name h4 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  align-self: center;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-delete-confirm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary {
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: #edeef1;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary .chart-budget-summary {
+  margin: 20px 0;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary h2 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
-body .div-container-app .div-profile-page .div-profile-user-info p {
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary h4 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary h3 {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 40px;
+  margin-top: 10px;
+  font-size: 30px;
+  line-height: 1;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary .subsection-buttons {
+  margin-top: 30px;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary .div-budget-delete-confirm {
+  margin-top: 30px;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary .div-budget-delete-confirm p {
+  margin-bottom: 8px;
+}
+body .div-container-app .div-profile-page .div-user-info p {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;

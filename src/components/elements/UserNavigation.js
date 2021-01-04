@@ -4,54 +4,54 @@ import BudgetsDisplay from '../elements/BudgetsDisplay'
 function UserNavigation(props) {
   return (
     <div className="nav-user">
-      <p>Kaleidoscope</p>
+      <img src="https://res.cloudinary.com/alanavery/image/upload/v1609718928/kaleidoscope/kaleidoscope-logo-primary-black_lphgwi.png" alt="Kaleidoscope logo"/>
       <ul>
-        <li>
-          <Link className="nav-links" to="/profile/income">
-            Income
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-links" to="/profile/housing">
-            Housing
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-links" to="/profile/utilities">
-            Utilities
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-links" to="/profile/transportation">
-            Transportation
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-links" to="/profile/food-drinks">
-            Food & Drink
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-links" to="/profile/entertainment">
-            Entertainment
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-links" to="/profile/misc">
-            Miscellaneous
-          </Link>
-        </li>
-        <li>
+        <li className="link1">
           <Link className="nav-links" to="/profile/overview">
             Overview
           </Link>
         </li>
-        <li>
-          <hr />
+        <li className="link1">
+          <Link className="nav-links" to="/profile/income">
+            Income
+          </Link>
         </li>
-        <li>
-          <Link className="nav-links" to="/profile/compare-budgets">
-            Compare Budgets
+        <li className="link1">
+          Expenses
+        </li>
+        <li className="link2">
+          <Link className="nav-links" to="/profile/housing">
+            Housing
+          </Link>
+        </li>
+        <li className="link2">
+          <Link className="nav-links" to="/profile/utilities">
+            Utilities
+          </Link>
+        </li>
+        <li className="link2">
+          <Link className="nav-links" to="/profile/food-drinks">
+            Food & Drink
+          </Link>
+        </li>
+        <li className="link2">
+          <Link className="nav-links" to="/profile/transportation">
+            Transportation
+          </Link>
+        </li>
+        <li className="link2">
+          <Link className="nav-links" to="/profile/entertainment">
+            Entertainment
+          </Link>
+        </li>
+        <li className="link2">
+          <Link className="nav-links" to="/profile/misc">
+            Miscellaneous
+          </Link>
+        </li>
+        <li className="link1">
+          <Link className="nav-links" to="/profile/compare">
+            Comparison
           </Link>
         </li>
         <li>
@@ -60,7 +60,6 @@ function UserNavigation(props) {
           </Link>
         </li>
       </ul>
-      <button onClick={props.handleLogout}>Logout</button>
       <BudgetsDisplay switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
     </div>
   );

@@ -16,10 +16,9 @@ function UserInfo(props) {
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
   console.log(props.budget)
   const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
-  // const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
-  const weeklyExpense = (monthlyExpense / 4).toFixed(2);
+  const monthlyExpenseNum = calcFunctions.calcExpenseTotals(props.budget);
   const monthlyIncome = calcFunctions.formatCurrency(subTotals.income);
-  const weeklyIncome = (monthlyIncome / 4).toFixed(2);
+  const monthlyIncomeNum = subTotals.income;
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
@@ -42,19 +41,24 @@ function UserInfo(props) {
   const userInfoButtons = () => {
     if (!userDeletePressed) {
       return (
-        <button onClick={() => setUserDeletePressed(true)}>
-          Delete User
-        </button>
+        <div className="div-user-delete">
+          <button className="button-small" onClick={() => setUserDeletePressed(true)}>
+            Delete Account
+          </button>
+        </div>
       )
     } else if (userDeletePressed) {
       return (
-        <div>
-          <button onClick={deleteUser}>
-            Yes, Delete
-          </button>
-          <button onClick={() => setUserDeletePressed(false)}>
-            No, Cancel
-          </button>
+        <div className="div-user-delete-confirm">
+          <p>Are you sure?</p>
+          <div>
+            <button className="button-small button-left" onClick={deleteUser}>
+              Delete
+            </button>
+            <button className="button-small" onClick={() => setUserDeletePressed(false)}>
+              Cancel
+            </button>
+          </div>
         </div>
       )
     }
@@ -119,31 +123,22 @@ function UserInfo(props) {
   });
 
   return (
-    <div className="div-profile-user-info">
-      <div>
-        <h2>User Info</h2>
-        <p>
-          <strong>Name:</strong> {props.name}
-        </p>
-        <div>{userInfoButtons()}</div>
-        <div className="helper">{infoOrForm()}</div>
+    <div className="div-user-info">
+      <div className="div-user-name">
+        <h4>{props.name}</h4>
+        <button className="button-small" onClick={props.handleLogout}>Log Out</button>
       </div>
 
-      <div>
-        <h2>Summary</h2>
-        <div className="div-profile-workspace">
-          <h2>Monthly</h2>
-          <h4>Expense: {monthlyExpense}</h4>
-          <h4>Income: {monthlyIncome}</h4>
-      
-          <h2>Weekly</h2>
-          <h4>Expense: {weeklyExpense}</h4>
-          <h4>Income: {weeklyIncome}</h4>
-          <h4>_______</h4>
-          <h4>Breakdown</h4>
-          <ul>{breakdown}</ul>
-          <UserInfoPieChart subTotals={subTotals} />
-        </div>
+      {userInfoButtons()}
+
+      <div className="div-budget-summary">
+        <h2>{props.budget.title}</h2>
+        <UserInfoPieChart subTotals={subTotals} />
+        <h4>Income: {monthlyIncome}</h4>
+        <h4>Total Expenses: {monthlyExpense}</h4>
+        <h3>${monthlyIncomeNum - monthlyExpenseNum}</h3>
+        <p>left over each month</p>
+        {infoOrForm()}
       </div>
     </div>
   );

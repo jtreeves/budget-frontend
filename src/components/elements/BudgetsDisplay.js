@@ -70,6 +70,7 @@ function BudgetsDisplay(props) {
           budgetName={budgetName}
           colorScheme={colorScheme}
           setFormDisplayed={setFormDisplayed}
+          handleSubmit={handleSubmit}
         />
       );
     } else {
@@ -77,11 +78,9 @@ function BudgetsDisplay(props) {
     }
   };
 
-  const budgetButtons = () => {
-    if (formDisplayed) {
-      return <button onClick={() => handleSubmit()}>Submit</button>;
-    } else {
-      return <button onClick={() => setFormDisplayed(true)}>New Budget</button>;
+  const newBudgetButton = () => {
+    if (!formDisplayed) {
+      return <button className="button-small subsection-buttons" onClick={() => setFormDisplayed(true)}>New</button>;
     }
   };
 
@@ -92,13 +91,13 @@ function BudgetsDisplay(props) {
   });
 
   return (
-    <div>
-      <p>Budgets</p>
+    <div className="div-budgets">
+      <h3>Budgets</h3>
       <ul>
         {budgets}
-        {budgetForm()}
       </ul>
-      {budgetButtons()}
+      {budgetForm()}
+      {newBudgetButton()}
     </div>
   );
 }
