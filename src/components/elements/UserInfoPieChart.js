@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import calcFunctions from "../../utilities/calcFunctions";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
             
 const COLORS = ['#c63b8d', '#eb0000', '#ffb703', '#5cbd3a', '#019be0', '#963899', '#CCC'];
@@ -45,7 +46,7 @@ class UserInfoPieChart extends Component{
           >
             {data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} />)}
           </Pie>
-          <Tooltip />
+          <Tooltip formatter={(value) => calcFunctions.formatCurrency(value)}/>
         </PieChart>
       </ResponsiveContainer>
     );

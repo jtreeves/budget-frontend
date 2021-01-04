@@ -12,13 +12,16 @@ function UserInfo(props) {
   const [budgetName, setBudgetName] = useState(props.budget.title);
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
   const [location, setLocation] = useState(props.budget.location);
+  const [income, setIncome] = useState(props.budget.income)
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
-  console.log(props.budget)
-  const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
+  // const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
+  const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
   const monthlyExpenseNum = calcFunctions.calcExpenseTotals(props.budget);
-  const monthlyIncome = calcFunctions.formatCurrency(subTotals.income);
+  // const monthlyIncome = calcFunctions.formatCurrency(subTotals.income);
+  const monthlyIncome = props.budget.income/12
   const monthlyIncomeNum = subTotals.income;
+  const budgetDifference = calcFunctions.formatCurrency(monthlyIncomeNum - monthlyExpenseNum);
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
@@ -32,7 +35,8 @@ function UserInfo(props) {
       title: budgetName,
       colorScheme: colorScheme,
       categories: props.budget.categories,
-      location: location
+      location: location,
+      income: income
     });
     setDisplayForm(false);
     props.reFetchBudgets(props.budget);
@@ -79,6 +83,8 @@ function UserInfo(props) {
         <EditBudgetForm
           location={location}
           setLocation={setLocation}
+          income={income}
+          setIncome={setIncome}
           setDisplayForm={setDisplayForm}
           handleSubmit={handleSubmit}
           setBudgetName={setBudgetName}
@@ -107,6 +113,7 @@ function UserInfo(props) {
           title={props.budget.title}
           colorScheme={props.budget.colorScheme}
           location={props.budget.location}
+          income={props.budget.income}
           _id={props.budget._id}
           setDeletePressed={setDeletePressed}
         />
@@ -156,7 +163,7 @@ function UserInfo(props) {
           <UserInfoPieChart subTotals={subTotals} />
           <h4>Income: {monthlyIncome}</h4>
           <h4>Total Expenses: {monthlyExpense}</h4>
-          <h3>${monthlyIncomeNum - monthlyExpenseNum}</h3>
+          <h3>{budgetDifference}</h3>
           <p>left over each month</p>
           {infoOrForm()}
         </div>

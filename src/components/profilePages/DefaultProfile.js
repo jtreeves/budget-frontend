@@ -4,14 +4,15 @@ import CompactTotal from "../elements/CompactTotal";
 
 function DefaultProfile(props) {
 
-  const { housing, utility, transportation, entertainment, food, misc, income } = props.budget.categories
+  const { housing, utility, transportation, entertainment, food, misc } = props.budget.categories
+  const income = props.budget.income
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget)
   const totalExpense = calcFunctions.calcExpenseTotals(props.budget)
   return (
     <div>
       <h2>Overview</h2>
-      <CompactDisplay compactContainerId="cc-income" title="Income" inputs={income.inputs} total={subTotals.income}/>
-      <CompactTotal totalExpense={totalExpense} totalIncome={subTotals.income} colorScheme={props.budget.colorScheme} />
+      {/* <CompactDisplay compactContainerId="cc-income" title="Income" inputs={income.inputs} total={subTotals.income}/> */}
+      <CompactTotal totalExpense={totalExpense} totalIncome={income} />
       <CompactDisplay compactContainerId="cc-housing" title="Housing" inputs={housing.inputs} total={subTotals.housing}/>
       <CompactDisplay compactContainerId="cc-utility" title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
       <CompactDisplay compactContainerId="cc-food" title="Food & Drink" inputs={food.inputs} total={subTotals.food}/>
