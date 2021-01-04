@@ -13,12 +13,12 @@ function UserInfo(props) {
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
-  const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
-  const weeklyExpense = (calcFunctions.formatCurrency(monthlyExpense / 4));
-  // const weeklyExpense = (monthlyExpense / 4).toFixed(2);
-  const monthlyIncome = subTotals.income;
-  const weeklyIncome = (calcFunctions.formatCurrency(monthlyIncome / 4));
-  // const weeklyIncome = (monthlyIncome / 4).toFixed(2);
+  console.log(props.budget)
+  const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
+  // const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
+  const weeklyExpense = (monthlyExpense / 4).toFixed(2);
+  const monthlyIncome = calcFunctions.formatCurrency(subTotals.income);
+  const weeklyIncome = (monthlyIncome / 4).toFixed(2);
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
@@ -128,8 +128,8 @@ function UserInfo(props) {
         <h2>Summary</h2>
         <div className="div-profile-workspace">
           <h2>Monthly</h2>
-          <h4>Expense: ${monthlyExpense}</h4>
-          <h4>Income: ${monthlyIncome}</h4>
+          <h4>Expense: {monthlyExpense}</h4>
+          <h4>Income: {monthlyIncome}</h4>
       
           <h2>Weekly</h2>
           <h4>Expense: {weeklyExpense}</h4>

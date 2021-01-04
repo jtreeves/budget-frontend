@@ -123,7 +123,6 @@ function calcExpenseTotals (budget) {
         }
     })
   })
- console.log(typeof parseFloat(formatCurrency(total)))
   return total;
   // return formatCurrency(total);
 }
