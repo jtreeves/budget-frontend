@@ -77,9 +77,17 @@ function Cities(props) {
     return <option key={idx} value={city}>{city}</option>
   })
 
+function dontShowLabel() {
+  if (props.dontShowLabel) {
+    return
+  } else {
+    return <label htmlFor="cities"><strong>Set Location:</strong> </label>
+  }
+}  
+
   return (
     <div>
-      <label htmlFor="cities"><strong>Set Location:</strong> </label>
+      {dontShowLabel()}
       <select value={props.location} onChange={(e) => props.setLocation(e.target.value)} name="cities" id="cities">
         {options}
       </select>

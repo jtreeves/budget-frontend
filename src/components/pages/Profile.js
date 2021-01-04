@@ -24,7 +24,7 @@ function Profile(props) {
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
 
-  // API crud
+  // Backend API crud
   useEffect(() => {
     if (firstTimeUser || firstTimeUser == null) {
       reFetchUser()
