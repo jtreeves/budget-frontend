@@ -28,6 +28,15 @@ function EditBudgetForm(props) {
       <p>
         <Cities location={props.location} setLocation={props.setLocation} />
       </p>
+
+      <p>
+        <strong>Income:</strong>
+        <input
+          type="number"
+          value={props.income}
+          onChange={(e) => props.setIncome(e.target.value)}
+        />
+      </p>
       <p>
         <strong>ID:</strong> {props._id}
       </p>

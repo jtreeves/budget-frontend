@@ -20,6 +20,7 @@ function NewBudgetForm(props) {
         {dataOptions}
       </select>
       <Cities setLocation={props.setLocation}/>
+      <input type="number" placeholder="Income" value={props.income} onChange={(e) => props.setIncome(e.target.value)}/>
       <button onClick={() => props.setFormDisplayed(false)}>Cancel</button>
     </div>
   );

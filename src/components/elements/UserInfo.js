@@ -12,12 +12,11 @@ function UserInfo(props) {
   const [budgetName, setBudgetName] = useState(props.budget.title);
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
   const [location, setLocation] = useState(props.budget.location);
+  const [income, setIncome] = useState(props.budget.income)
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
   const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
-  const weeklyExpense = (monthlyExpense / 4).toFixed(2);
-  const monthlyIncome = subTotals.income;
-  const weeklyIncome = (monthlyIncome / 4).toFixed(2);
+  const monthlyIncome = income
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
@@ -31,7 +30,8 @@ function UserInfo(props) {
       title: budgetName,
       colorScheme: colorScheme,
       categories: props.budget.categories,
-      location: location
+      location: location,
+      income: income
     });
     setDisplayForm(false);
     props.reFetchBudgets(props.budget);
@@ -73,6 +73,8 @@ function UserInfo(props) {
         <EditBudgetForm
           location={location}
           setLocation={setLocation}
+          income={income}
+          setIncome={setIncome}
           setDisplayForm={setDisplayForm}
           handleSubmit={handleSubmit}
           setBudgetName={setBudgetName}
@@ -101,6 +103,7 @@ function UserInfo(props) {
           title={props.budget.title}
           colorScheme={props.budget.colorScheme}
           location={props.budget.location}
+          income={props.budget.income}
           _id={props.budget._id}
           setDeletePressed={setDeletePressed}
         />
@@ -134,9 +137,7 @@ function UserInfo(props) {
           <h4>Expense: ${monthlyExpense}</h4>
           <h4>Income: ${monthlyIncome}</h4>
 
-          <h2>Weekly</h2>
-          <h4>Expense: ${weeklyExpense}</h4>
-          <h4>Income: ${weeklyIncome}</h4>
+          
           <h4>_______</h4>
           <h4>Breakdown</h4>
           <ul>{breakdown}</ul>

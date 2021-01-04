@@ -3,7 +3,6 @@ import DefaultProfile from '../profilePages/DefaultProfile'
 import Housing from '../profilePages/Housing'
 import Utilities from '../profilePages/Utilities'
 import Miscellaneous from '../profilePages/Miscellaneous'
-import Income from '../profilePages/Income'
 import Food from '../profilePages/Food'
 import Transportation from '../profilePages/Transportation'
 import Entertainment from '../profilePages/Entertainment'
@@ -14,7 +13,7 @@ import CompareLocations from '../profilePages/CompareLocations'
 function ProfileRoutes(props) {
   
   // Budget Categories
-  const { housing, utility, transportation, entertainment, food, misc, income } = props.budget.categories
+  const { housing, utility, transportation, entertainment, food, misc } = props.budget.categories
 
 
   return (
@@ -89,16 +88,7 @@ function ProfileRoutes(props) {
           deleteBudgetInput={props.deleteBudgetInput}
         />
 
-        <PrivateRoute
-          exact
-          path={"/profile/income"}
-          budget={props.budget}
-          component={Income}
-          user={props.currentUser}
-          inputs={income.inputs}
-          addBudgetInput={props.addBudgetInput}
-          deleteBudgetInput={props.deleteBudgetInput}
-        />
+        
 
         <PrivateRoute
           exact

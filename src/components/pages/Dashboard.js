@@ -10,6 +10,7 @@ function Dashboard(props) {
   const [budgetTitle, setBudgetTitle] = useState("");
   const [colorScheme, setColorScheme] = useState("Red");
   const [location, setLocation] = useState("Albany, NY");
+  const [income, setIncome] = useState("")
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const emptyCategories = {
     housing: {},
@@ -17,8 +18,7 @@ function Dashboard(props) {
     food: {},
     transportation: {},
     entertainment: {},
-    misc: {},
-    income: {},
+    misc: {}
   }
 
   const handleSubmit = async (e) => {
@@ -30,6 +30,7 @@ function Dashboard(props) {
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetTitle,
       location: location,
+      income: income,
       colorScheme: colorScheme,
       categories: emptyCategories
     });
@@ -56,6 +57,16 @@ function Dashboard(props) {
           value={budgetTitle}
           onChange={(e) => setBudgetTitle(e.target.value)}
         />
+
+        <input
+          placeholder="Income"
+          id="income"
+          name="income"
+          type="number"
+          value={income}
+          onChange={(e) => setIncome(e.target.value)}
+        />
+
         <Cities location={location} setLocation={setLocation}/>
 
         <div>

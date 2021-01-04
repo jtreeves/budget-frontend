@@ -6,11 +6,7 @@ function UserNavigation(props) {
     <div className="nav-user">
       <p>Kaleidoscope</p>
       <ul>
-        <li>
-          <Link className="nav-links" to="/profile/income">
-            Income
-          </Link>
-        </li>
+        
         <li>
           <Link className="nav-links" to="/profile/housing">
             Housing

@@ -14,6 +14,9 @@ function BudgetInfo(props) {
           <strong>Location:</strong> {props.location}
         </p>
         <p>
+          <strong>Income:</strong> {props.income}
+        </p>
+        <p>
           <strong>ID:</strong> {props._id}
         </p>
         <button onClick={() => props.setDisplayForm(true)}>Edit Budget</button>
@@ -32,6 +35,9 @@ function BudgetInfo(props) {
         </p>
         <p>
           <strong>Location:</strong> {props.location}
+        </p>
+        <p>
+          <strong>Income:</strong> {props.income}
         </p>
         <p>
           <strong>ID:</strong> {props._id}
