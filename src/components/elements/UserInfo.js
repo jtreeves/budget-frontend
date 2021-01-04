@@ -11,6 +11,7 @@ function UserInfo(props) {
   const [deletePressed, setDeletePressed] = useState(false);
   const [budgetName, setBudgetName] = useState(props.budget.title);
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
+  const [location, setLocation] = useState(props.budget.location);
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
   const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
@@ -30,6 +31,7 @@ function UserInfo(props) {
       title: budgetName,
       colorScheme: colorScheme,
       categories: props.budget.categories,
+      location: location
     });
     setDisplayForm(false);
     props.reFetchBudgets(props.budget);
@@ -74,6 +76,8 @@ function UserInfo(props) {
     if (displayForm && !deletePressed) {
       return (
         <EditBudgetForm
+          location={location}
+          setLocation={setLocation}
           setDisplayForm={setDisplayForm}
           handleSubmit={handleSubmit}
           setBudgetName={setBudgetName}
@@ -101,6 +105,7 @@ function UserInfo(props) {
           setDisplayForm={setDisplayForm}
           title={props.budget.title}
           colorScheme={props.budget.colorScheme}
+          location={props.budget.location}
           _id={props.budget._id}
           setDeletePressed={setDeletePressed}
         />

@@ -1,3 +1,5 @@
+import Cities from '../utilities/Cities'
+
 function NewBudgetForm(props) {
 
   const dataOptions = props.copyDataChoices.map((budget, idx) => {
@@ -20,6 +22,8 @@ function NewBudgetForm(props) {
       </select>
       <button className="button-small button-left" onClick={() => props.handleSubmit()}>Add</button>
       <button className="button-small" onClick={() => props.setFormDisplayed(false)}>Cancel</button>
+      <Cities setLocation={props.setLocation}/>
+      <button onClick={() => props.setFormDisplayed(false)}>Cancel</button>
     </form>
   );
 }

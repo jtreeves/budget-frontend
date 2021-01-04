@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart,
 } from 'recharts';
 
 const colorArray = ["red", "green", "blue", "orange", "purple"]
@@ -20,16 +20,17 @@ export default class AllBudgetsChartCategories extends PureComponent {
 
     return (
       <BarChart
-        width={700}
-        height={300}
+        layout="vertical"
+        width={600}
+        height={700}
         data={this.props.data}
         margin={{
-          top: 5, right: 30, left: 20, bottom: 5,
+          top: 0, right: 0, bottom: 0, left: 70,
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
+        <XAxis type="number" />
+        <YAxis dataKey="name" type="category"/>
         <Tooltip />
         <Legend />
         {bars}

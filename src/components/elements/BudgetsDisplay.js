@@ -7,6 +7,7 @@ function BudgetsDisplay(props) {
   const [budgetName, setBudgetName] = useState("");
   const [colorScheme, setColorScheme] = useState("Red");
   const [copyDataFrom, setCopyDataFrom] = useState("None")
+  const [location, setLocation] = useState("Albany, NY");
   const [copyDataChoices, setCopyDataChoices] = useState([])
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const emptyCategories = {
@@ -50,7 +51,8 @@ function BudgetsDisplay(props) {
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,
       colorScheme: colorScheme,
-      categories: inputs
+      categories: inputs,
+      location: location
     });
     setFormDisplayed(false);
     props.loadNewBudget();
@@ -60,6 +62,7 @@ function BudgetsDisplay(props) {
     if (formDisplayed) {
       return (
         <NewBudgetForm
+          setLocation={setLocation}
           setCopyDataFrom={setCopyDataFrom}
           copyDataChoices={copyDataChoices}
           setName={setBudgetName}

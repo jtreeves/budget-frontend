@@ -1,3 +1,5 @@
+import Cities from '../utilities/Cities'
+
 function EditBudgetForm(props) {
   return (
     <form className="form-small">
