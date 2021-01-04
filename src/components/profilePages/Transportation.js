@@ -4,7 +4,7 @@ function Transportation(props) {
 
   return (
     <div>
-      <h3>This is the Transportation page!!!!</h3>
+      <h2>Transportation</h2>
       <CategoryDisplay
         budget={props.budget}
         addBudgetInput={props.addBudgetInput}

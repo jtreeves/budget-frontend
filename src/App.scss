@@ -431,11 +431,11 @@ body {
             @include gradient(#c63b8d, #781b53);
           }
 
-          #cc-utilities {
+          #cc-utility {
             @include gradient(#eb0000, #aa0100);
           }
 
-          #cc-food-drink {
+          #cc-food {
             @include gradient(#ffb703, #f68200);
           }
 
@@ -447,7 +447,7 @@ body {
             @include gradient(#019be0, #116b90);
           }
 
-          #cc-miscellaneous {
+          #cc-misc {
             @include gradient(#963899, #5e235f);
           }
 
@@ -456,6 +456,7 @@ body {
             display: grid;
             grid-template-columns: 3fr 1fr;
             align-items: center;
+            column-gap: 10px;
 
             h3 {
               @include text-h3();
@@ -477,7 +478,7 @@ body {
         }
 
         .compact-container-total {
-          padding: 10px 0;
+          padding: 10px 20px;
           border-radius: $border-radius-small;
           margin-top: 10px;
           display: grid;
@@ -487,14 +488,37 @@ body {
 
           h3 {
             @include text-h3();
-            padding-left: 20px;
-            grid-column: 2 / span 1;
+            grid-column: 1 / span 2;
           }
 
           .currency {
             @include text-currency();
-            padding-right: 20px;
             text-align: center;
+          }
+        }
+
+        .category-container {
+          .compact-container-total {
+            border-radius: $border-radius-small $border-radius-small 0 0;
+          }
+          
+          form {
+            border-radius: 0 0 $border-radius-small $border-radius-small;
+            display: grid;
+            grid-template-columns: 3fr 2fr auto;
+            column-gap: 10px;
+            background-color: white;
+
+            input {
+              width: 100%;
+              margin-bottom: 0;
+              background-color: $color-light-gray;
+            }
+          }
+
+          .div-subcategory-name {
+            display: flex;
+            justify-content: space-between;
           }
         }
       }
@@ -529,6 +553,8 @@ body {
           align-items: center;
         }
 
+        // Current Budget Section ——————————
+
         .div-current-budget {
           @include box-subsection();
           padding: 0;
@@ -556,7 +582,7 @@ body {
             }
   
             h3 {
-              @include text-h2();
+              @include text-h3();
               margin-top: 10px;
               font-size: 30px;
               line-height: 1;

@@ -320,10 +320,10 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-housing {
   background-image: linear-gradient(to top, #c63b8d 0%, #781b53 100%);
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-utilities {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-utility {
   background-image: linear-gradient(to top, #eb0000 0%, #aa0100 100%);
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-food-drink {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-food {
   background-image: linear-gradient(to top, #ffb703 0%, #f68200 100%);
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-transportation {
@@ -332,7 +332,7 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-entertainment {
   background-image: linear-gradient(to top, #019be0 0%, #116b90 100%);
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-miscellaneous {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-misc {
   background-image: linear-gradient(to top, #963899 0%, #5e235f 100%);
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
@@ -340,6 +340,7 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   display: grid;
   grid-template-columns: 3fr 1fr;
   align-items: center;
+  column-gap: 10px;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
   color: #000;
@@ -368,7 +369,7 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   line-height: 1.6em;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total {
-  padding: 10px 0;
+  padding: 10px 20px;
   border-radius: 10px;
   margin-top: 10px;
   display: grid;
@@ -381,15 +382,32 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
-  padding-left: 20px;
-  grid-column: 2/span 1;
+  grid-column: 1/span 2;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
   color: #000;
   font-family: "PT Sans", sans-serif;
   font-size: 25px;
-  padding-right: 20px;
   text-align: center;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
+  border-radius: 10px 10px 0 0;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .category-container form {
+  border-radius: 0 0 10px 10px;
+  display: grid;
+  grid-template-columns: 3fr 2fr auto;
+  column-gap: 10px;
+  background-color: white;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .category-container form input {
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #edeef1;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .category-container .div-subcategory-name {
+  display: flex;
+  justify-content: space-between;
 }
 body .div-container-app .div-profile-page .div-user-info {
   width: 100%;
@@ -451,8 +469,9 @@ body .div-container-app .div-profile-page .div-user-info .div-current-budget .di
 }
 body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h3 {
   color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 40px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
   margin-top: 10px;
   font-size: 30px;
   line-height: 1;

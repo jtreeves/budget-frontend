@@ -13,11 +13,11 @@ function DefaultProfile(props) {
       <CompactDisplay compactContainerId="cc-income" title="Income" inputs={income.inputs} total={subTotals.income}/>
       <CompactTotal totalExpense={totalExpense} totalIncome={subTotals.income} colorScheme={props.budget.colorScheme} />
       <CompactDisplay compactContainerId="cc-housing" title="Housing" inputs={housing.inputs} total={subTotals.housing}/>
-      <CompactDisplay compactContainerId="cc-utilities" title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
-      <CompactDisplay compactContainerId="cc-food-drink" title="Food & Drink" inputs={food.inputs} total={subTotals.food}/>
+      <CompactDisplay compactContainerId="cc-utility" title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
+      <CompactDisplay compactContainerId="cc-food" title="Food & Drink" inputs={food.inputs} total={subTotals.food}/>
       <CompactDisplay compactContainerId="cc-transportation" title="Transportation" inputs={transportation.inputs} total={subTotals.transportation}/>
       <CompactDisplay compactContainerId="cc-entertainment" title="Entertainment" inputs={entertainment.inputs} total={subTotals.entertainment}/>
-      <CompactDisplay compactContainerId="cc-miscellaneous" title="Miscellaneous" inputs={misc.inputs} total={subTotals.misc}/>
+      <CompactDisplay compactContainerId="cc-misc" title="Miscellaneous" inputs={misc.inputs} total={subTotals.misc}/>
     </div>
   );
 }

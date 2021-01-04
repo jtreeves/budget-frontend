@@ -4,7 +4,7 @@ function Utilities(props) {
 
   return (
     <div>
-      <h3>This is the Utilities page!!!!</h3>
+      <h2>Utilities</h2>
       <CategoryDisplay
         budget={props.budget}
         addBudgetInput={props.addBudgetInput}

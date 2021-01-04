@@ -4,7 +4,7 @@ function Entertainment(props) {
 
   return (
     <div>
-      <h3>This is the Food and Drinnks page!!!!</h3>
+      <h2>Entertainment</h2>
       <CategoryDisplay
         budget={props.budget}
         addBudgetInput={props.addBudgetInput}

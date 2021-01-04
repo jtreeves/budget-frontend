@@ -3,7 +3,7 @@ import CategoryDisplay from "../elements/CategoryDisplay";
 function Housing(props) {
   return (
     <div>
-      <h3>This is the Housing page!!!!</h3>
+      <h2>Housing</h2>
       <CategoryDisplay
         budget={props.budget}
         addBudgetInput={props.addBudgetInput}
