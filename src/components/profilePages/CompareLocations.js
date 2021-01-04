@@ -8,7 +8,7 @@ function CompareLocations(props) {
   const [citiesToCompare, setCitiesToCompare] = useState([]);
   const [selectedCity, setSelectedCity] = useState("Albany, NY");
   const [budgetLocationCPI, setBudgetLocationCPI] = useState(null);
-  const [cityCPIS, setCityCPIS] = useState({})
+  const [cityCPIS, setCityCPIS] = useState({});
   const budgetTotals = calcFunctions.calcAllBudgetTotals([props.budget]);
   const NUMBEO_API_KEY = process.env.NUMBEO_API_KEY;
 
@@ -17,75 +17,73 @@ function CompareLocations(props) {
     const fetchCityIndices = () => {
       fetch(
         `https://www.numbeo.com/api/indices?api_key=qt1nz2cebg6wjk&query=${props.budget.location}`
-        )
+      )
         .then((res) => {
           return res.json();
         })
         .then((data) => {
-          let cityCpi = data.cpi_and_rent_index
-          setBudgetLocationCPI(cityCpi)
+          let cityCpi = data.cpi_and_rent_index;
+          setBudgetLocationCPI(cityCpi);
         });
-      };
-      fetchCityIndices()
-    }, []);
-  
+    };
+    fetchCityIndices();
+  }, []);
+
   // fetches indices for comparison locations
   useEffect(() => {
-      const fetchCityIndices = () => {
-
-        if (Object.keys(cityCPIS).length > citiesToCompare.length) {
-          removeCpiState()
-        } else {
-          addCpiState()
-        }
-
+    const fetchCityIndices = () => {
+      if (Object.keys(cityCPIS).length > citiesToCompare.length) {
+        removeCpiState();
+      } else {
+        addCpiState();
       }
-    fetchCityIndices()
+    };
+    fetchCityIndices();
   }, [citiesToCompare]);
 
   const addCpiState = async () => {
     await citiesToCompare.forEach((city) => {
-      let cityAlreadyLoaded = false
+      let cityAlreadyLoaded = false;
       Object.keys(cityCPIS).forEach((key) => {
         if (key === city) {
-          cityAlreadyLoaded = true
+          cityAlreadyLoaded = true;
         }
-      })
+      });
       if (!cityAlreadyLoaded) {
         console.log("fetching for " + city);
-        fetch(`https://www.numbeo.com/api/indices?api_key=qt1nz2cebg6wjk&query=${city}`)
-        .then((res) => {
-          return res.json()
-        })
-        .then((data) => {
-          let cityCpi = data.cpi_and_rent_index
-          let cpisCopy = JSON.parse(JSON.stringify(cityCPIS))
-          cpisCopy[city] = cityCpi
-          setCityCPIS(cpisCopy)
-        })
+        fetch(
+          `https://www.numbeo.com/api/indices?api_key=qt1nz2cebg6wjk&query=${city}`
+        )
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            let cityCpi = data.cpi_and_rent_index;
+            let cpisCopy = JSON.parse(JSON.stringify(cityCPIS));
+            cpisCopy[city] = cityCpi;
+            setCityCPIS(cpisCopy);
+          });
       }
-    })
-  }
+    });
+  };
 
   const removeCpiState = async () => {
-    console.log("removinngggggg");
     Object.keys(cityCPIS).forEach((key) => {
-      let keyFound = false
+      let keyFound = false;
       citiesToCompare.forEach((city) => {
         if (key === city) {
-          keyFound = true
+          keyFound = true;
         }
-      })
+      });
       if (keyFound) {
-        return
+        return;
       } else {
-        console.log(key);
-        let cpisCopy = JSON.parse(JSON.stringify(cityCPIS))
-        delete cpisCopy[key]
-        setCityCPIS(cpisCopy)
+        let cpisCopy = JSON.parse(JSON.stringify(cityCPIS));
+        delete cpisCopy[key];
+        setCityCPIS(cpisCopy);
       }
-    })
-  }
+    });
+  };
 
   const addCity = () => {
     let cityAlreadyAdded = false;
@@ -120,13 +118,18 @@ function CompareLocations(props) {
     );
   });
 
+  const comparisonCities = Object.keys(cityCPIS).map((city, idx) => {
+    return <li key={idx}>{city}: {cityCPIS[city]}</li>
+  })
+
   const showCpi = () => {
     if (budgetLocationCPI) {
-      return <h3>Numbeo Cpi: {budgetLocationCPI}</h3>
+      return <h3>Numbeo Cpi: {budgetLocationCPI}</h3>;
     } else {
-      return <h3>Numbeo Cpi: Loading...</h3>
+      return <h3>Numbeo Cpi: Loading...</h3>;
     }
-  }
+  };
+
 
   return (
     <div>
@@ -145,6 +148,9 @@ function CompareLocations(props) {
         />
         <button onClick={() => addCity()}>Add City</button>
         <div>{cities}</div>
+        <ul>
+          {comparisonCities}
+        </ul>
       </div>
     </div>
   );
