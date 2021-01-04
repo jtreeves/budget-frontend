@@ -36,7 +36,7 @@ class UserInfoPieChart extends Component{
     console.log(data);
 
   	return (
-      <ResponsiveContainer width={236} height={236}>
+      <ResponsiveContainer className="chart-budget-summary" width={236} height={236}>
         <PieChart onMouseEnter={this.onPieEnter}>
           <Pie className="Pie"
             data={data} 

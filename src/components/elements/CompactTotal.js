@@ -1,18 +1,8 @@
 function CompactTotal(props) {
   return (
-    <div className="compact-container total">
-      <div>
-        <h3>Total Expense</h3>
-      </div>
-      <div>
-        <h3 className="currency">${props.totalExpense}</h3>
-      </div>
-      <div>
-        <h3>Total Income</h3>
-      </div>
-      <div>
-        <h3 className="currency">${props.totalIncome}</h3>
-      </div>
+    <div className="compact-container-total">
+      <h3>Total Expenses</h3>
+      <p className="currency">${props.totalExpense}</p>
     </div>
   );
 }

@@ -10,6 +10,7 @@ $color-black: #000;
 $color-white: #fff;
 $color-light-gray: #edeef1;
 $color-medium-gray: #ccc;
+$color-dark-gray: #666666;
 $color-light-green: #d0e2c6;
 $color-medium-green: #6d9962;
 $gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
@@ -104,6 +105,10 @@ $box-shadow-small: 4px 4px 8px
   border-radius: $border-radius-small;
   margin-top: 30px;
   background-color: $color-light-gray;
+}
+
+@mixin gradient($color1, $color2) {
+  background-image: linear-gradient(to top, $color1 0%, $color2 100%);
 }
 
 // Global ——————————————————————————————
@@ -406,41 +411,92 @@ body {
         }
 
         .compact-container {
-          padding: 15px 20px;
           border-radius: $border-radius-small;
           margin-top: 10px;
           display: grid;
-          grid-template-columns: 3fr 1fr;
+          grid-template-columns: 4vw 1fr;
           align-items: center;
           background-color: $color-white;
 
-          h3 {
-            @include text-h3();
+          .div-color-bar {
+            width: 100%;
+            height: 100%;
+            border-radius: $border-radius-small 0 0 $border-radius-small;
+            background-color: red;
           }
 
-          li {
-            @include text-body-small();
+          #cc-income {
+            @include gradient($color-medium-gray, $color-dark-gray);
           }
 
-          .currency {
-            @include text-currency();
-            text-align: center;
+          #cc-housing {
+            @include gradient(#c63b8d, #781b53);
           }
 
-          .timeframe {
-            @include text-body-small();
+          #cc-utilities {
+            @include gradient(#eb0000, #aa0100);
+          }
+
+          #cc-transportation {
+            @include gradient(#ffb703, #f68200);
+          }
+
+          #cc-food-drink {
+            @include gradient(#5cbd3a, #367724);
+          }
+
+          #cc-entertainment {
+            @include gradient(#019be0, #116b90);
+          }
+
+          #cc-miscellaneous {
+            @include gradient(#963899, #5e235f);
+          }
+
+          .compact-container-text {
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            align-items: center;
+            
+            h3 {
+              @include text-h3();
+            }
+            
+            li {
+              @include text-body-small();
+            }
+            
+            .currency {
+              @include text-currency();
+              text-align: center;
+            }
+            
+            .timeframe {
+              @include text-body-small();
+            }
           }
         }
-
-        .total {
-          background-color: $color-medium-green;
+        
+        .compact-container-total {
+          padding: 10px 0;
+          border-radius: $border-radius-small;
+          margin-top: 10px;
+          display: grid;
+          grid-template-columns: 4vw 3fr 1fr;
+          align-items: center;
+          background-color: $color-medium-gray;
 
           h3 {
-            color: $color-white;
+            @include text-h3();
+            padding-left: 20px;
+            grid-column: 2 / span 1;
           }
-
+          
           .currency {
-            color: $color-white;
+            @include text-currency();
+            padding-right: 20px;
+            text-align: center;
           }
         }
       }
@@ -477,8 +533,27 @@ body {
 
         .div-budget-summary {
           @include box-subsection();
+
+          .chart-budget-summary {
+            margin: 20px 0;
+          }
+
+          h4 {
+            @include text-h4();
+          }
+
+          h3 {
+            @include text-h2();
+            margin-top: 10px;
+            font-size: 30px;
+            line-height: 1;
+          }
+
+          button {
+            margin-top: 30px;
+          }
         }
-        
+
         h2 {
           @include text-h3();
         }

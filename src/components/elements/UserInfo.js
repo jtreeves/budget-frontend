@@ -94,17 +94,17 @@ function UserInfo(props) {
           budget={props.budget}
         />
       );
-    // } else {
-    //   return (
-    //     <BudgetInfo
-    //       budgetArray={props.budgetArray}
-    //       setDisplayForm={setDisplayForm}
-    //       title={props.budget.title}
-    //       colorScheme={props.budget.colorScheme}
-    //       _id={props.budget._id}
-    //       setDeletePressed={setDeletePressed}
-    //     />
-    //   );
+    } else {
+      return (
+        <BudgetInfo
+          budgetArray={props.budgetArray}
+          setDisplayForm={setDisplayForm}
+          title={props.budget.title}
+          colorScheme={props.budget.colorScheme}
+          _id={props.budget._id}
+          setDeletePressed={setDeletePressed}
+        />
+      );
     }
   };
 
@@ -125,19 +125,16 @@ function UserInfo(props) {
 
       {userInfoButtons()}
 
-      <div>
-        <div className="helper">{infoOrForm()}</div>
-      </div>
-
       <div className="div-budget-summary">
         <h2>{props.budget.title}</h2>
         <UserInfoPieChart subTotals={subTotals} />
-        <h4>Expense: ${monthlyExpense}</h4>
         <h4>Income: ${monthlyIncome}</h4>
-
-        <h2>Weekly</h2>
-        <h4>Expense: ${weeklyExpense}</h4>
-        <h4>Income: ${weeklyIncome}</h4>
+        <h4>Total Expenses: ${monthlyExpense}</h4>
+        <h3>${monthlyIncome - monthlyExpense}</h3>
+        <p>left over each month</p>
+        <h3>${weeklyIncome - weeklyExpense}</h3>
+        <p>left over each week</p>
+        <div className="helper">{infoOrForm()}</div>
       </div>
     </div>
   );

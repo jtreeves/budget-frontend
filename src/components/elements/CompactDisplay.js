@@ -8,14 +8,18 @@ function CompactDisplay(props) {
 
   return (
     <div className="compact-container">
-      <div>
-        <h3>{props.title}</h3>
-        <ul>{inputs}</ul>
-      </div>
+      <div id={props.compactContainerId} className="div-color-bar"></div>
+      
+      <div className="compact-container-text">
+        <div>
+          <h3>{props.title}</h3>
+          <ul>{inputs}</ul>
+        </div>
 
-      <div>
-        <h3 className="currency">${props.total}</h3>
-        <h3 className="timeframe">Per Month</h3>
+        <div>
+          <p className="currency">${props.total}</p>
+          <p className="timeframe">Per Month</p>
+        </div>
       </div>
     </div>
   );

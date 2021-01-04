@@ -302,48 +302,95 @@ body .div-container-app .div-profile-page .div-profile-workspace h2 {
   margin-bottom: 20px;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
-  padding: 15px 20px;
   border-radius: 10px;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 4vw 1fr;
   align-items: center;
   background-color: #fff;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container h3 {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .div-color-bar {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background-color: red;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-income {
+  background-image: linear-gradient(to top, #ccc 0%, #666666 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-housing {
+  background-image: linear-gradient(to top, #c63b8d 0%, #781b53 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-utilities {
+  background-image: linear-gradient(to top, #eb0000 0%, #aa0100 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-transportation {
+  background-image: linear-gradient(to top, #ffb703 0%, #f68200 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-food-drink {
+  background-image: linear-gradient(to top, #5cbd3a 0%, #367724 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-entertainment {
+  background-image: linear-gradient(to top, #019be0 0%, #116b90 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-miscellaneous {
+  background-image: linear-gradient(to top, #963899 0%, #5e235f 100%);
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
+  padding: 15px 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container li {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text li {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6em;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .currency {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
   color: #000;
   font-family: "PT Sans", sans-serif;
   font-size: 25px;
   text-align: center;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .timeframe {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6em;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .total {
-  background-color: #6d9962;
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total {
+  padding: 10px 0;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 4vw 3fr 1fr;
+  align-items: center;
+  background-color: #ccc;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .total h3 {
-  color: #fff;
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total h3 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding-left: 20px;
+  grid-column: 2/span 1;
 }
-body .div-container-app .div-profile-page .div-profile-workspace .total .currency {
-  color: #fff;
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 25px;
+  padding-right: 20px;
+  text-align: center;
 }
 body .div-container-app .div-profile-page .div-user-info {
   width: 100%;
@@ -377,6 +424,26 @@ body .div-container-app .div-profile-page .div-user-info .div-budget-summary {
   border-radius: 10px;
   margin-top: 30px;
   background-color: #edeef1;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary .chart-budget-summary {
+  margin: 20px 0;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary h4 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary h3 {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 40px;
+  margin-top: 10px;
+  font-size: 30px;
+  line-height: 1;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary button {
+  margin-top: 30px;
 }
 body .div-container-app .div-profile-page .div-user-info h2 {
   color: #000;
