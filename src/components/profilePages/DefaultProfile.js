@@ -14,8 +14,8 @@ function DefaultProfile(props) {
       <CompactTotal totalExpense={totalExpense} totalIncome={subTotals.income} />
       <CompactDisplay compactContainerId="cc-housing" title="Housing" inputs={housing.inputs} total={subTotals.housing}/>
       <CompactDisplay compactContainerId="cc-utilities" title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
-      <CompactDisplay compactContainerId="cc-transportation" title="Transportation" inputs={transportation.inputs} total={subTotals.transportation}/>
       <CompactDisplay compactContainerId="cc-food-drink" title="Food & Drink" inputs={food.inputs} total={subTotals.food}/>
+      <CompactDisplay compactContainerId="cc-transportation" title="Transportation" inputs={transportation.inputs} total={subTotals.transportation}/>
       <CompactDisplay compactContainerId="cc-entertainment" title="Entertainment" inputs={entertainment.inputs} total={subTotals.entertainment}/>
       <CompactDisplay compactContainerId="cc-miscellaneous" title="Miscellaneous" inputs={misc.inputs} total={subTotals.misc}/>
     </div>

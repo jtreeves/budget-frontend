@@ -132,9 +132,7 @@ function UserInfo(props) {
         <h4>Total Expenses: ${monthlyExpense}</h4>
         <h3>${monthlyIncome - monthlyExpense}</h3>
         <p>left over each month</p>
-        <h3>${weeklyIncome - weeklyExpense}</h3>
-        <p>left over each week</p>
-        <div className="helper">{infoOrForm()}</div>
+        {infoOrForm()}
       </div>
     </div>
   );

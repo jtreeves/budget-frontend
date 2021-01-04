@@ -77,7 +77,7 @@ function BudgetsDisplay(props) {
 
   const newBudgetButton = () => {
     if (!formDisplayed) {
-      return <button className="button-small" onClick={() => setFormDisplayed(true)}>New</button>;
+      return <button className="button-small subsection-buttons" onClick={() => setFormDisplayed(true)}>New</button>;
     }
   };
 

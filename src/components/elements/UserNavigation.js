@@ -30,13 +30,13 @@ function UserNavigation(props) {
           </Link>
         </li>
         <li className="link2">
-          <Link className="nav-links" to="/profile/transportation">
-            Transportation
+          <Link className="nav-links" to="/profile/food-drinks">
+            Food & Drink
           </Link>
         </li>
         <li className="link2">
-          <Link className="nav-links" to="/profile/food-drinks">
-            Food & Drink
+          <Link className="nav-links" to="/profile/transportation">
+            Transportation
           </Link>
         </li>
         <li className="link2">

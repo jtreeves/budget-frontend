@@ -78,7 +78,9 @@ form select {
 }
 
 .form-small {
+  width: 100%;
   padding: 0;
+  margin-top: 30px;
 }
 .form-small label {
   padding-left: 0;
@@ -92,6 +94,9 @@ form select {
   border-radius: 5px;
   margin-bottom: 10px;
   font-size: 14px;
+}
+.form-small button {
+  margin-top: 10px;
 }
 
 .timeframe {
@@ -268,13 +273,7 @@ body .div-container-app .nav-user .div-budgets li a {
 body .div-container-app .nav-user .div-budgets li a:hover {
   text-decoration: underline;
 }
-body .div-container-app .nav-user .div-budgets form {
-  margin-top: 30px;
-}
-body .div-container-app .nav-user .div-budgets form button {
-  margin-top: 10px;
-}
-body .div-container-app .nav-user .div-budgets button {
+body .div-container-app .nav-user .div-budgets .subsection-buttons {
   margin-top: 30px;
 }
 body .div-container-app .div-profile-page {
@@ -324,10 +323,10 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-utilities {
   background-image: linear-gradient(to top, #eb0000 0%, #aa0100 100%);
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-transportation {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-food-drink {
   background-image: linear-gradient(to top, #ffb703 0%, #f68200 100%);
 }
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-food-drink {
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-transportation {
   background-image: linear-gradient(to top, #5cbd3a 0%, #367724 100%);
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-entertainment {
@@ -428,6 +427,12 @@ body .div-container-app .div-profile-page .div-user-info .div-budget-summary {
 body .div-container-app .div-profile-page .div-user-info .div-budget-summary .chart-budget-summary {
   margin: 20px 0;
 }
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary h2 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
 body .div-container-app .div-profile-page .div-user-info .div-budget-summary h4 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
@@ -442,14 +447,14 @@ body .div-container-app .div-profile-page .div-user-info .div-budget-summary h3 
   font-size: 30px;
   line-height: 1;
 }
-body .div-container-app .div-profile-page .div-user-info .div-budget-summary button {
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary .subsection-buttons {
   margin-top: 30px;
 }
-body .div-container-app .div-profile-page .div-user-info h2 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary .div-budget-delete-confirm {
+  margin-top: 30px;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary .div-budget-delete-confirm p {
+  margin-bottom: 8px;
 }
 body .div-container-app .div-profile-page .div-user-info p {
   color: #000;

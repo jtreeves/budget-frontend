@@ -6,19 +6,10 @@ function DeleteBudgetChoices(props) {
   }
 
   return (
-    <div>
-      <h2>Current Budget</h2>
-      <p>
-        <strong>Title:</strong> {props.title}
-      </p>
-      <p>
-        <strong>Color Scheme:</strong> {props.colorScheme}
-      </p>
-      <p>
-        <strong>ID:</strong> {props._id}
-      </p>
-      <button onClick={() => deleteConfirmed()}>Yes, Delete</button>
-      <button onClick={() => props.setDeletePressed(false)}>No, Cancel</button>
+    <div className="div-budget-delete-confirm">
+      <p>Are you sure?</p>
+      <button className="button-small button-left" onClick={() => deleteConfirmed()}>Delete</button>
+      <button className="button-small" onClick={() => props.setDeletePressed(false)}>Cancel</button>
     </div>
   );
 }

@@ -183,7 +183,9 @@ form {
 }
 
 .form-small {
+  width: 100%;
   padding: 0;
+  margin-top: 30px;
 
   label {
     padding-left: 0;
@@ -198,6 +200,10 @@ form {
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 14px;
+  }
+
+  button {
+    margin-top: 10px;
   }
 }
 
@@ -371,18 +377,10 @@ body {
           }
         }
 
-        form {
-          margin-top: 30px;
-
-          button {
-            margin-top: 10px;
-          }
-        }
-
-        button {
+        .subsection-buttons {
           margin-top: 30px;
         }
-      }
+    }
     }
 
     // User Pages ——————————————————————————————
@@ -437,11 +435,11 @@ body {
             @include gradient(#eb0000, #aa0100);
           }
 
-          #cc-transportation {
+          #cc-food-drink {
             @include gradient(#ffb703, #f68200);
           }
-
-          #cc-food-drink {
+          
+          #cc-transportation {
             @include gradient(#5cbd3a, #367724);
           }
 
@@ -538,6 +536,10 @@ body {
             margin: 20px 0;
           }
 
+          h2 {
+            @include text-h3();
+          }
+
           h4 {
             @include text-h4();
           }
@@ -549,13 +551,17 @@ body {
             line-height: 1;
           }
 
-          button {
+          .subsection-buttons {
             margin-top: 30px;
           }
-        }
 
-        h2 {
-          @include text-h3();
+          .div-budget-delete-confirm {
+            margin-top: 30px;
+
+            p {
+              margin-bottom: 8px;
+            }
+          }
         }
 
         p {
