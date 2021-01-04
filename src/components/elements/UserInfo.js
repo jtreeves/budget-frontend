@@ -14,9 +14,11 @@ function UserInfo(props) {
   const [location, setLocation] = useState(props.budget.location);
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
-  const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
+  console.log(props.budget)
+  const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
+  // const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
   const weeklyExpense = (monthlyExpense / 4).toFixed(2);
-  const monthlyIncome = subTotals.income;
+  const monthlyIncome = calcFunctions.formatCurrency(subTotals.income);
   const weeklyIncome = (monthlyIncome / 4).toFixed(2);
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
@@ -62,7 +64,7 @@ function UserInfo(props) {
       )
     }
   }
-  
+
   const deleteUser = async () => {
     try {
       props.handleLogout();
@@ -71,7 +73,7 @@ function UserInfo(props) {
       console.log(err);
     }
   }
-  
+
   const infoOrForm = () => {
     if (displayForm && !deletePressed) {
       return (
@@ -133,8 +135,8 @@ function UserInfo(props) {
       <div className="div-budget-summary">
         <h2>{props.budget.title}</h2>
         <UserInfoPieChart subTotals={subTotals} />
-        <h4>Income: ${monthlyIncome}</h4>
-        <h4>Total Expenses: ${monthlyExpense}</h4>
+        <h4>Income: {monthlyIncome}</h4>
+        <h4>Total Expenses: {monthlyExpense}</h4>
         <h3>${monthlyIncome - monthlyExpense}</h3>
         <p>left over each month</p>
         {infoOrForm()}

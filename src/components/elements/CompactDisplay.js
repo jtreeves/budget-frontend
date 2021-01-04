@@ -1,9 +1,10 @@
 // Create function
+import calcFunctions from "../../utilities/calcFunctions";
 function CompactDisplay(props) {
   
 
   const inputs = Object.keys(props.inputs).map((inputKey, idx) => {
-    return <li key={idx}>{inputKey}: ${props.inputs[inputKey]}</li>
+    return <li key={idx}>{inputKey}: {calcFunctions.formatCurrency(props.inputs[inputKey])}</li>
   })
 
   return (
@@ -17,7 +18,7 @@ function CompactDisplay(props) {
         </div>
 
         <div>
-          <p className="currency">${props.total}</p>
+          <p className="currency">{calcFunctions.formatCurrency(props.total)}</p>
           <p className="timeframe">Per Month</p>
         </div>
       </div>

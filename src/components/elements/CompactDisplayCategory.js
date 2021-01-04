@@ -1,4 +1,4 @@
-
+import calcFunctions from "../../utilities/calcFunctions";
 
 // Create function
 function CompactDisplayCategory(props) {
@@ -17,7 +17,7 @@ function CompactDisplayCategory(props) {
       </div>
 
       <div>
-        <h3>${props.inputValue}</h3>
+        <h3>{calcFunctions.formatCurrency(props.inputValue)}</h3>
         <h3>Per Month</h3>
       </div>
     </div>
