@@ -25,12 +25,43 @@ button {
   border-radius: 20px;
   background-color: #edeef1;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-  outline: none;
   font-weight: 700;
   cursor: pointer;
 }
 button:hover {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+form {
+  padding: 20px;
+  border-radius: 20px;
+  display: inline-block;
+  background-color: #edeef1;
+  text-align: left;
+}
+form label {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+  padding-left: 15px;
+  font-weight: 700;
+}
+form input {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+  width: 240px;
+  height: 40px;
+  padding: 0 15px;
+  margin-bottom: 20px;
+  border-width: 0;
+  border-radius: 20px;
+  display: block;
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .timeframe {
@@ -44,47 +75,51 @@ button:hover {
 
 body {
   height: 100%;
-  background-color: #d0e2c6;
+  background-color: #edeef1;
 }
 body .div-container-app {
-  height: 100vh;
+  height: 100%;
   max-width: 1920px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 4vw repeat(12, 1fr) 4vw;
   grid-template-rows: 40px 1fr 40px;
 }
-
 body .div-container-app .nav-public {
-  align-self: start;
   z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  grid-column: 2/span 12;
-  grid-row: 2;
-}
-
-body .div-container-app .nav-public a {
-  color: #fff;
-  font-family: "PT Sans", sans-serif;
-  font-size: 30px;
-}
-
-body .div-container-app .nav-public ul {
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  gap: 3vw;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  row-gap: 15px;
   justify-items: end;
   align-items: center;
+  grid-column: 2/span 12;
+  grid-row: 2;
+  align-self: start;
 }
-
+body .div-container-app .nav-public img {
+  width: 200px;
+}
+body .div-container-app .nav-public ul li {
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 4vw;
+  display: inline-block;
+  cursor: pointer;
+}
 body .div-container-app .nav-public ul a {
   color: #fff;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
-
+body .div-container-app .nav-public #div-login {
+  border-radius: 20px;
+  grid-column: 2;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
 body .div-container-app .nav-user {
   z-index: 2;
   padding: 30px 2vw;
@@ -142,47 +177,23 @@ body .div-container-app .div-public-page .div-public-header p {
   font-weight: 400;
   line-height: 2em;
 }
-body .div-container-app .div-public-page .div-public-header-02 {
-  height: 120px;
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+body .div-container-app .div-public-page .div-signup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
-body .div-container-app .div-public-page h1 {
+body .div-container-app .div-public-page .div-signup .div-signup-img {
+  background-image: url("https://res.cloudinary.com/alanavery/image/upload/v1609635077/kaleidoscope/abillion-0gVthlBI_Z4-unsplash_vmisaz.jpg");
+  background-position: center;
+  background-size: cover;
+}
+body .div-container-app .div-public-page .div-signup .div-signup-form {
+  padding: 40px 4vw;
+}
+body .div-container-app .div-public-page .div-signup .div-signup-form h2 {
   color: #000;
   font-family: "PT Sans", sans-serif;
-  font-size: 50px;
-  margin: 40px 0 20px 0;
-  text-align: center;
-}
-body .div-container-app .div-public-page form {
-  padding: 20px;
-  border-radius: 20px;
-  display: inline-block;
-  background-color: #edeef1;
-  text-align: left;
-}
-body .div-container-app .div-public-page form label {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  padding-left: 15px;
-  font-weight: 700;
-}
-body .div-container-app .div-public-page form input {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  width: 240px;
-  height: 40px;
-  padding: 0 15px;
-  margin-bottom: 20px;
-  border-width: 0;
-  border-radius: 20px;
-  display: block;
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  padding-bottom: 20px;
 }
 body .div-container-app .div-profile-page {
   overflow: hidden;
@@ -271,18 +282,22 @@ body .div-container-app .div-profile-page .div-profile-user-info p {
   line-height: 1.6em;
 }
 
-/* created by thomas */
-.chart-container {
-  padding: 30px;
-  background-color: whitesmoke;
-  margin: 0 auto;
+.fade-enter {
+  opacity: 0;
 }
 
-.budget-links:hover {
-  cursor: pointer;
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
 }
 
-.helper {
-  border: solid 2px tomato;
+.fade-exit {
+  opacity: 1;
 }
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
 /*# sourceMappingURL=App.css.map */

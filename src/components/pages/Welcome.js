@@ -1,5 +1,7 @@
+import Signup from './Signup';
+
 // Create function
-function Welcome() {
+function Welcome(props) {
   return (
     <div className="div-public-page">
       <div className="div-public-header">
@@ -10,6 +12,7 @@ function Welcome() {
           beatae qui dolorem tempora possimus accusantium, fugit eius quidem?
         </p>
       </div>
+      <Signup handleLoginAfterSignup={props.handleLoginAfterSignup} />
     </div>
   );
 }
