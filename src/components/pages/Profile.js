@@ -26,7 +26,7 @@ function Profile(props) {
 
   // API crud
   useEffect(() => {
-    if (firstTimeUser) {
+    if (firstTimeUser || firstTimeUser == null) {
       reFetchUser()
       return
     }
