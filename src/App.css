@@ -40,6 +40,10 @@ button:hover {
   font-size: 14px;
 }
 
+.button-left {
+  margin-right: 8px;
+}
+
 form {
   padding: 20px;
   border-radius: 20px;
@@ -56,7 +60,8 @@ form label {
   padding-left: 15px;
   font-weight: 700;
 }
-form input, form select {
+form input,
+form select {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
@@ -79,16 +84,14 @@ form input, form select {
   padding-left: 0;
   font-size: 14px;
 }
-.form-small input, .form-small select {
+.form-small input,
+.form-small select {
   width: 100%;
   height: 30px;
   padding: 0 10px;
   border-radius: 5px;
   margin-bottom: 10px;
   font-size: 14px;
-}
-.form-small .button-left {
-  margin-right: 8px;
 }
 
 .timeframe {
@@ -146,6 +149,52 @@ body .div-container-app .nav-public #div-login {
   border-radius: 20px;
   grid-column: 2/span 1;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+body .div-container-app .div-public-page {
+  grid-column: 1/span 5;
+  grid-row: 1/span 3;
+  background-color: #fff;
+  text-align: center;
+}
+body .div-container-app .div-public-page .div-public-header {
+  height: 800px;
+  padding: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+body .div-container-app .div-public-page .div-public-header h1 {
+  color: #fff;
+  font-family: "PT Sans", sans-serif;
+  font-size: 50px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+body .div-container-app .div-public-page .div-public-header p {
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2em;
+}
+body .div-container-app .div-public-page .div-signup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+body .div-container-app .div-public-page .div-signup .div-signup-img {
+  background-image: url("https://res.cloudinary.com/alanavery/image/upload/v1609635077/kaleidoscope/abillion-0gVthlBI_Z4-unsplash_vmisaz.jpg");
+  background-position: center;
+  background-size: cover;
+}
+body .div-container-app .div-public-page .div-signup .div-signup-form {
+  padding: 40px 4vw;
+}
+body .div-container-app .div-public-page .div-signup .div-signup-form h2 {
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 40px;
+  padding-bottom: 20px;
 }
 body .div-container-app .nav-user {
   z-index: 2;
@@ -225,54 +274,8 @@ body .div-container-app .nav-user .div-budgets form {
 body .div-container-app .nav-user .div-budgets form button {
   margin-top: 10px;
 }
-body .div-container-app .nav-user button {
+body .div-container-app .nav-user .div-budgets button {
   margin-top: 30px;
-}
-body .div-container-app .div-public-page {
-  grid-column: 1/span 5;
-  grid-row: 1/span 3;
-  background-color: #fff;
-  text-align: center;
-}
-body .div-container-app .div-public-page .div-public-header {
-  height: 800px;
-  padding: 0 10vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
-}
-body .div-container-app .div-public-page .div-public-header h1 {
-  color: #fff;
-  font-family: "PT Sans", sans-serif;
-  font-size: 50px;
-  padding-bottom: 20px;
-  text-align: center;
-}
-body .div-container-app .div-public-page .div-public-header p {
-  color: #fff;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 2em;
-}
-body .div-container-app .div-public-page .div-signup {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-body .div-container-app .div-public-page .div-signup .div-signup-img {
-  background-image: url("https://res.cloudinary.com/alanavery/image/upload/v1609635077/kaleidoscope/abillion-0gVthlBI_Z4-unsplash_vmisaz.jpg");
-  background-position: center;
-  background-size: cover;
-}
-body .div-container-app .div-public-page .div-signup .div-signup-form {
-  padding: 40px 4vw;
-}
-body .div-container-app .div-public-page .div-signup .div-signup-form h2 {
-  color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 40px;
-  padding-bottom: 20px;
 }
 body .div-container-app .div-profile-page {
   overflow: hidden;
@@ -342,18 +345,46 @@ body .div-container-app .div-profile-page .div-profile-workspace .total h3 {
 body .div-container-app .div-profile-page .div-profile-workspace .total .currency {
   color: #fff;
 }
-body .div-container-app .div-profile-page .div-profile-user-info {
-  padding: 30px 2vw;
+body .div-container-app .div-profile-page .div-user-info {
+  width: 100%;
+  padding: 30px 20px;
   grid-column: 3/span 1;
   grid-row: 1/span 1;
 }
-body .div-container-app .div-profile-page .div-profile-user-info h2 {
+body .div-container-app .div-profile-page .div-user-info .div-user-name {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-name h4 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  align-self: center;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-delete-confirm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .div-container-app .div-profile-page .div-user-info .div-budget-summary {
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: #edeef1;
+}
+body .div-container-app .div-profile-page .div-user-info h2 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
-body .div-container-app .div-profile-page .div-profile-user-info p {
+body .div-container-app .div-profile-page .div-user-info p {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;

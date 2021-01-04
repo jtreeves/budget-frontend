@@ -56,7 +56,6 @@ function UserNavigation(props) {
         </li>
       </ul>
       <BudgetsDisplay switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
-      <button className="button-small" onClick={props.handleLogout}>Log Out</button>
     </div>
   );
 }

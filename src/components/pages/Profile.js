@@ -162,7 +162,7 @@ function Profile(props) {
           id={id}
           reFetchBudgets={reFetchBudgets}
           budget={budget}
-          handleLogout={props.handleLogout}
+          handleLogout={handleLogout}
         />
 
         <div className="div-profile-workspace">

@@ -70,6 +70,13 @@ $box-shadow-small: 4px 4px 8px
   font-weight: 700;
 }
 
+@mixin text-h4($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 @mixin text-currency($color: $color-black) {
   color: $color;
   font-family: $font-family-secondary;
@@ -90,6 +97,13 @@ $box-shadow-small: 4px 4px 8px
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6em;
+}
+
+@mixin box-subsection {
+  padding: 12px;
+  border-radius: $border-radius-small;
+  margin-top: 30px;
+  background-color: $color-light-gray;
 }
 
 // Global ——————————————————————————————
@@ -132,6 +146,10 @@ button {
   font-size: 14px;
 }
 
+.button-left {
+  margin-right: 8px;
+}
+
 form {
   padding: 20px;
   border-radius: $border-radius-large;
@@ -145,7 +163,8 @@ form {
     font-weight: 700;
   }
 
-  input, select {
+  input,
+  select {
     @include text-body-small();
     width: 240px;
     height: 40px;
@@ -166,17 +185,14 @@ form {
     font-size: 14px;
   }
 
-  input, select {
+  input,
+  select {
     width: 100%;
     height: 30px;
     padding: 0 10px;
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 14px;
-  }
-
-  .button-left {
-    margin-right: 8px;
   }
 }
 
@@ -237,88 +253,6 @@ body {
       }
     }
 
-    // User Navigation ——————————————————————————————
-
-    .nav-user {
-      z-index: 2;
-      padding: 30px 20px;
-      grid-column: 2 / span 1;
-      grid-row: 2 / span 1;
-
-      img {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-
-      .link1 {
-        @include text-user-nav1();
-        padding-top: 5px;
-        border-top: $horizontal-rule;
-        margin-top: 20px;
-
-        a {
-          @include text-user-nav1();
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-      
-      .link2 {
-        margin-top: 15px;
-        
-        a {
-          @include text-user-nav2();
-          padding-left: 10px;
-          
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-      
-      .nonlink {
-        @include text-user-nav1();
-        margin-top: 20px;
-      }
-      
-      .div-budgets {
-        padding: 12px;
-        border-radius: $border-radius-small;
-        margin-top: 30px;
-        background-color: $color-light-gray;
-        
-        h3 {
-          @include text-h3();
-        }
-        
-        li {
-          margin-top: 10px;
-          
-          a {
-            @include text-user-nav2();
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-
-        form {
-          margin-top: 30px;
-
-          button {
-            margin-top: 10px;
-          }
-        }
-      }
-
-      button {
-        margin-top: 30px;
-      }
-    }
-
     // Public Pages ——————————————————————————————
 
     .div-public-page {
@@ -363,6 +297,85 @@ body {
             @include text-h2();
             padding-bottom: 20px;
           }
+        }
+      }
+    }
+
+    // User Navigation ——————————————————————————————
+
+    .nav-user {
+      z-index: 2;
+      padding: 30px 20px;
+      grid-column: 2 / span 1;
+      grid-row: 2 / span 1;
+
+      img {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .link1 {
+        @include text-user-nav1();
+        padding-top: 5px;
+        border-top: $horizontal-rule;
+        margin-top: 20px;
+
+        a {
+          @include text-user-nav1();
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .link2 {
+        margin-top: 15px;
+
+        a {
+          @include text-user-nav2();
+          padding-left: 10px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .nonlink {
+        @include text-user-nav1();
+        margin-top: 20px;
+      }
+
+      .div-budgets {
+        @include box-subsection();
+
+        h3 {
+          @include text-h3();
+        }
+
+        li {
+          margin-top: 10px;
+
+          a {
+            @include text-user-nav2();
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        form {
+          margin-top: 30px;
+
+          button {
+            margin-top: 10px;
+          }
+        }
+
+        button {
+          margin-top: 30px;
         }
       }
     }
@@ -432,11 +445,40 @@ body {
         }
       }
 
-      .div-profile-user-info {
-        padding: 30px 2vw;
+      // User Info Section ——————————————————————————————
+
+      .div-user-info {
+        width: 100%;
+        padding: 30px 20px;
         grid-column: 3 / span 1;
         grid-row: 1 / span 1;
 
+        .div-user-name {
+          margin-bottom: 8px;
+          display: flex;
+          justify-content: space-between;
+
+          h4 {
+            @include text-h4();
+            align-self: center;
+          }
+        }
+
+        .div-user-delete {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .div-user-delete-confirm {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .div-budget-summary {
+          @include box-subsection();
+        }
+        
         h2 {
           @include text-h3();
         }
