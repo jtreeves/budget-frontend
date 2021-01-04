@@ -1,3 +1,5 @@
+import calcFunctions from "../../utilities/calcFunctions";
+
 function CompactTotal(props) {
   return (
     <div className="compact-container total">
@@ -5,13 +7,13 @@ function CompactTotal(props) {
         <h3>Total Expense</h3>
       </div>
       <div>
-        <h3 className="currency">${props.totalExpense}</h3>
+        <h3 className="currency">{calcFunctions.formatCurrency(props.totalExpense)}</h3>
       </div>
       <div>
         <h3>Total Income</h3>
       </div>
       <div>
-        <h3 className="currency">${props.totalIncome}</h3>
+        <h3 className="currency">{calcFunctions.formatCurrency(props.totalIncome)}</h3>
       </div>
     </div>
   );

@@ -14,9 +14,11 @@ function UserInfo(props) {
   const [location, setLocation] = useState(props.budget.location);
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
-  const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
+  console.log(props.budget)
+  const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
+  // const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
   const weeklyExpense = (monthlyExpense / 4).toFixed(2);
-  const monthlyIncome = subTotals.income;
+  const monthlyIncome = calcFunctions.formatCurrency(subTotals.income);
   const weeklyIncome = (monthlyIncome / 4).toFixed(2);
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
@@ -57,7 +59,7 @@ function UserInfo(props) {
       )
     }
   }
-  
+
   const deleteUser = async () => {
     try {
       props.handleLogout();
@@ -66,7 +68,7 @@ function UserInfo(props) {
       console.log(err);
     }
   }
-  
+
   const infoOrForm = () => {
     if (displayForm && !deletePressed) {
       return (
@@ -131,12 +133,12 @@ function UserInfo(props) {
         <h2>Summary</h2>
         <div className="div-profile-workspace">
           <h2>Monthly</h2>
-          <h4>Expense: ${monthlyExpense}</h4>
-          <h4>Income: ${monthlyIncome}</h4>
-
+          <h4>Expense: {monthlyExpense}</h4>
+          <h4>Income: {monthlyIncome}</h4>
+      
           <h2>Weekly</h2>
-          <h4>Expense: ${weeklyExpense}</h4>
-          <h4>Income: ${weeklyIncome}</h4>
+          <h4>Expense: {weeklyExpense}</h4>
+          <h4>Income: {weeklyIncome}</h4>
           <h4>_______</h4>
           <h4>Breakdown</h4>
           <ul>{breakdown}</ul>
