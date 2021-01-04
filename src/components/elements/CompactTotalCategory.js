@@ -5,7 +5,7 @@ function CompactTotalCategory(props) {
         <h3>Total Expense</h3>
       </div>
       <div>
-        <h3 className="currency">${props.total}</h3>
+        <h3 className="currency">{props.total}</h3>
       </div>
     </div>
   );

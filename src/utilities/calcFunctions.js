@@ -89,6 +89,9 @@
 // }
 
 // let test = {salary: 1, investment: 2, trust: 3, lottery: 4}
+const formatCurrency = (num) => {
+  return new Intl.NumberFormat('us-US', { style: 'currency', currency: 'USD' }).format(num)
+}
 
 function calcBudgetSubTotals (budget) {
   let budgetTotals = {};
@@ -108,7 +111,7 @@ function calcCategoryTotal (inputs) {
   Object.values(inputs).forEach((value) => {
     total += parseFloat(value)
   })
-  return total;
+  return formatCurrency(total);
 }
 
 function calcExpenseTotals (budget) {
@@ -120,14 +123,17 @@ function calcExpenseTotals (budget) {
         }
     })
   })
-  return total
+ console.log(typeof parseFloat(formatCurrency(total)))
+  return total;
+  // return formatCurrency(total);
 }
 
 
 const calcFunctions = {
   calcExpenseTotals,
   calcCategoryTotal,
-  calcBudgetSubTotals
+  calcBudgetSubTotals,
+  formatCurrency
 }
 
 
