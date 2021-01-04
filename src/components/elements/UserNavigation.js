@@ -50,8 +50,13 @@ function UserNavigation(props) {
           <hr />
         </li>
         <li>
-          <Link className="nav-links" to="/profile/compare">
+          <Link className="nav-links" to="/profile/compare-budgets">
             Compare Budgets
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-links" to="/profile/compare-locations">
+            Compare Locations
           </Link>
         </li>
       </ul>

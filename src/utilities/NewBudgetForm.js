@@ -1,3 +1,5 @@
+import Cities from '../utilities/Cities'
+
 function NewBudgetForm(props) {
 
   const dataOptions = props.copyDataChoices.map((budget, idx) => {
@@ -17,6 +19,7 @@ function NewBudgetForm(props) {
         <option value="None">None</option>
         {dataOptions}
       </select>
+      <Cities setLocation={props.setLocation}/>
       <button onClick={() => props.setFormDisplayed(false)}>Cancel</button>
     </div>
   );

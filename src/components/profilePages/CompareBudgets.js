@@ -78,13 +78,6 @@ function Housing(props) {
     misc
   ]
 
-
-  let mockUp = [
-    {
-      name: Housing, "Budget 1": 200, "Budget 2": 21, "Budget 3": 500
-    }
-  ]
-
   return (
     <div>
       <h3>Totals</h3>

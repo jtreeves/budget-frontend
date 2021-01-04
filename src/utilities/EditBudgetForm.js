@@ -1,3 +1,5 @@
+import Cities from '../utilities/Cities'
+
 function EditBudgetForm(props) {
   return (
     <div>
@@ -22,6 +24,9 @@ function EditBudgetForm(props) {
           <option value="Blue">Blue</option>
           <option value="Green">Green</option>
         </select>
+      </p>
+      <p>
+        <Cities location={props.location} setLocation={props.setLocation} />
       </p>
       <p>
         <strong>ID:</strong> {props._id}

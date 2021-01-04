@@ -8,6 +8,7 @@ import Food from '../profilePages/Food'
 import Transportation from '../profilePages/Transportation'
 import Entertainment from '../profilePages/Entertainment'
 import CompareBudgets from '../profilePages/CompareBudgets'
+import CompareLocations from '../profilePages/CompareLocations'
 
 
 function ProfileRoutes(props) {
@@ -28,8 +29,17 @@ function ProfileRoutes(props) {
 
         <PrivateRoute
           exact
-          path={"/profile/compare"}
+          path={"/profile/compare-budgets"}
           component={CompareBudgets}
+          user={props.currentUser}
+          budget={props.budget}
+          budgetArray={props.budgetArray}
+        />
+
+        <PrivateRoute
+          exact
+          path={"/profile/compare-locations"}
+          component={CompareLocations}
           user={props.currentUser}
           budget={props.budget}
           budgetArray={props.budgetArray}
