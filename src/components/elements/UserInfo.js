@@ -16,7 +16,7 @@ function UserInfo(props) {
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
   const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
-  const monthlyIncome = income
+  const monthlyIncome = props.budget.income/12
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {

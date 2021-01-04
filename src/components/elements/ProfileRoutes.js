@@ -14,7 +14,8 @@ function ProfileRoutes(props) {
   
   // Budget Categories
   const { housing, utility, transportation, entertainment, food, misc } = props.budget.categories
-
+  const income =  props.budget.income
+    console.log(`BUDGET: ${props.budget}`)
 
   return (
     <div>

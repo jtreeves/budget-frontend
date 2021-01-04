@@ -11,7 +11,7 @@ function DefaultProfile(props) {
   return (
     <div>
       <h2>Budget Overview</h2>
-      <CompactDisplay title="Income" total={income}/>
+      {/* <CompactDisplay title="Income" total={income}/> */}
       <CompactTotal totalExpense={totalExpense} totalIncome={income} />
       <CompactDisplay title="Housing" inputs={housing.inputs} total={subTotals.housing}/>
       <CompactDisplay title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
