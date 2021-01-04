@@ -29,9 +29,29 @@ function CompareLocations(props) {
     }, []);
     
   useEffect(() => {
-      const fetchCityIndices = () => {
-        console.log(citiesToCompare);
+      const fetchCityIndices = async () => {
+        await citiesToCompare.forEach((city) => {
+          let cityAlreadyLoaded = false
+          Object.keys(cityCPIS).forEach((key) => {
+            if (key === city) {
+              cityAlreadyLoaded = true
+            }
+          })
+          if (!cityAlreadyLoaded) {
+            console.log("fetching for " + city);
+            fetch(`https://www.numbeo.com/api/indices?api_key=qt1nz2cebg6wjk&query=${city}`)
+            .then((res) => {
+              return res.json()
+            })
+            .then((data) => {
+              let cityCpi = data.cpi_and_rent_index
+              let cpisCopy = JSON.parse(JSON.stringify(cityCPIS))
+              cpisCopy[city] = cityCpi
+              setCityCPIS(cpisCopy)
+            })
           }
+        })
+      }
     fetchCityIndices()
   }, [citiesToCompare]);
 
