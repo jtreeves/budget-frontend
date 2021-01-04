@@ -16,10 +16,9 @@ function UserInfo(props) {
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
   console.log(props.budget)
   const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
-  // const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
-  const weeklyExpense = (monthlyExpense / 4).toFixed(2);
+  const monthlyExpenseNum = calcFunctions.calcExpenseTotals(props.budget);
   const monthlyIncome = calcFunctions.formatCurrency(subTotals.income);
-  const weeklyIncome = (monthlyIncome / 4).toFixed(2);
+  const monthlyIncomeNum = subTotals.income;
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
@@ -137,7 +136,7 @@ function UserInfo(props) {
         <UserInfoPieChart subTotals={subTotals} />
         <h4>Income: {monthlyIncome}</h4>
         <h4>Total Expenses: {monthlyExpense}</h4>
-        <h3>${monthlyIncome - monthlyExpense}</h3>
+        <h3>${monthlyIncomeNum - monthlyExpenseNum}</h3>
         <p>left over each month</p>
         {infoOrForm()}
       </div>
