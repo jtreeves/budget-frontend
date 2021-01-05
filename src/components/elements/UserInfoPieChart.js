@@ -54,6 +54,7 @@ class UserInfoPieChart extends Component{
       return null;
     }
 
+
     return (
       <PieChart className="chart-budget-summary" width={236} height={236} onMouseEnter={this.onPieEnter}>
         <Pie
@@ -66,6 +67,7 @@ class UserInfoPieChart extends Component{
         </Pie>
         <Tooltip content={<CustomTooltip />} />
       </PieChart>
+
     );
   }
 }

@@ -63,7 +63,8 @@ function BudgetsDisplay(props) {
     setCopyDataChoices(arrayCopy)
   }, [props.budgetArray])
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     let inputs = copyDataFilter()
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,

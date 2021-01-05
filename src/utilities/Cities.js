@@ -34,7 +34,6 @@ const cities = ["San Francisco, CA",
 "Dallas, TX",
 "Orlando, FL",
 "Olympia, WA",
-"Houston, TX",
 "Detroit, MI",
 "Colorado Springs, CO",
 "Birmingham, AL",
@@ -44,9 +43,7 @@ const cities = ["San Francisco, CA",
 "Las Vegas, NV",
 "Knoxville, TN",
 "Columbus, OH",
-"Jacksonville, FL",
 "Rochester, NY",
-"Madison, WI",
 "Spokane, WA",
 "Phoenix, AZ",
 "San Antonio, TX",
@@ -54,7 +51,6 @@ const cities = ["San Francisco, CA",
 "Eugene, OR",
 "Salt Lake City, UT",
 "Kansas City, MO",
-"Louisville, KY",
 "Kelowna, Canada",
 "Buffalo, NY",
 "Cincinnati, OH",
@@ -62,12 +58,9 @@ const cities = ["San Francisco, CA",
 "Des Moines, IA",
 "Boise, ID",
 "Fresno, CA",
-"Indianapolis, IN",
 "Tulsa, OK",
-"Little Rock, AR",
 "Huntsville, AL",
 "Albuquerque, NM",
-"Toledo, OH",
 "Memphis, TN",
 "Wichita, KS",
 "El Paso, TX"]
@@ -77,8 +70,17 @@ function Cities(props) {
     return <option key={idx} value={city}>{city}</option>
   })
 
+function dontShowLabel() {
+  if (props.dontShowLabel) {
+    return
+  } else {
+    return <label htmlFor="cities"><strong>Set Location:</strong> </label>
+  }
+}  
+
   return (
     <div>
+
       <label htmlFor="cities"><strong>Location</strong> </label>
       <select value={props.location} onChange={(e) => props.setLocation(e.target.value)} name="cities" id="cities">
         {options}

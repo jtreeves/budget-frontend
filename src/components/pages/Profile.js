@@ -24,7 +24,7 @@ function Profile(props) {
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
 
-  // API crud
+  // Backend API crud
   useEffect(() => {
     if (firstTimeUser || firstTimeUser == null) {
       reFetchUser()
@@ -118,7 +118,6 @@ function Profile(props) {
     budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
       newInput.inputValue;
     await setBudget(budgetCopy);
-    reFetchBudgets(budget)
   };
 
   const deleteBudgetInput = (budgetKey, inputKey) => {
@@ -127,7 +126,6 @@ function Profile(props) {
     // Now you can edit budgetCopy without changing budget
     delete budgetCopy.categories[budgetKey].inputs[inputKey];
     setBudget(budgetCopy);
-    reFetchBudgets(budget)
   };
 
   const switchBudgets = (budget) => {
