@@ -366,8 +366,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
   color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 25px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
   text-align: center;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
@@ -395,8 +396,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
   color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 25px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
   text-align: center;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
@@ -468,6 +470,11 @@ body .div-container-app .div-profile-page .div-user-info .div-current-budget .di
   padding: 20px 12px 12px 12px;
 }
 body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .chart-budget-summary {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
   margin-bottom: 20px;
 }
 body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h4 {
@@ -500,6 +507,25 @@ body .div-container-app .div-profile-page .div-user-info p {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6em;
+}
+
+.chart-category-summary {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
+
+.custom-tooltip {
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+.custom-tooltip .tooltip-label {
+  text-transform: capitalize;
 }
 
 .fade-enter {

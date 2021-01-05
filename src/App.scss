@@ -80,8 +80,9 @@ $box-shadow-small: 4px 4px 8px
 
 @mixin text-currency($color: $color-black) {
   color: $color;
-  font-family: $font-family-secondary;
-  font-size: 25px;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 @mixin text-body($color: $color-black) {
@@ -592,6 +593,7 @@ body {
             padding: 20px 12px 12px 12px;
 
             .chart-budget-summary {
+              @include text-body-small();
               margin-bottom: 20px;
             }
   
@@ -625,6 +627,24 @@ body {
         }
       }
     }
+  }
+}
+
+// Recharts ——————————————————————————————
+
+.chart-category-summary {
+  @include text-body-small($color-black);
+}
+
+.custom-tooltip {
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: $box-shadow-small;
+  background-color: rgba($color: $color-white, $alpha: 0.9);
+  text-align: center;
+
+  .tooltip-label {
+    text-transform: capitalize;
   }
 }
 

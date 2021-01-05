@@ -1,30 +1,48 @@
 import React, { PureComponent } from 'react';
 import calcFunctions from "../../utilities/calcFunctions";
 import {
-BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
-export default class Example extends PureComponent {
+const provideColorCode = (colorName) => {
+  switch (colorName) {
+    case 'housing':
+      return '#c63b8d';
+    case 'utility':
+      return '#eb0000';
+    case 'food':
+      return '#ffb703';
+    case 'transportation':
+      return '#5cbd3a';
+    case 'entertainment':
+      return '#019be0';
+    case 'misc':
+      return '#963899';
+  }
+}
 
-  
-  render() {
-    
+const CustomTooltip = ({ payload, active }) => {
+  if (active) {
     return (
-      <BarChart
-        width={500}
-        height={300}
-        data={this.props.data}
-        margin={{
-          top: 5, right: 30, left: 20, bottom: 5,
-        }}
-      >
+      <div className="custom-tooltip">
+        <p className="tooltip-amount">{calcFunctions.formatCurrency(payload[0].value)}</p>
+      </div>
+    );
+  }
+  return null;
+}
 
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip formatter={(value) => calcFunctions.formatCurrency(value)}/>
-        <Legend />
-        <Bar dataKey={this.props.title} fill={this.props.color} />
-      </BarChart>
+export default class Example extends PureComponent {
+  render() {
+    return (
+      <ResponsiveContainer className="chart-category-summary" width="100%" height={300}>
+        <BarChart data={this.props.data} maxBarSize={100}>
+          <XAxis dataKey="name" tickLine={false} />
+          <YAxis tickLine={false} />
+          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255, 255, 255, 0.4)' }} />
+          <Bar dataKey={this.props.title} fill={provideColorCode(this.props.budgetKey)} />
+        </BarChart>
+      </ResponsiveContainer>
     );
   }
 }
