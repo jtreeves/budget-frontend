@@ -6,7 +6,6 @@ import {
 export default class CompareLocationsChart extends PureComponent {
 
   render() {
-
     return (
       <BarChart
         layout="horizontal"

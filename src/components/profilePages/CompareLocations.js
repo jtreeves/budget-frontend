@@ -48,7 +48,7 @@ function CompareLocations(props) {
         });
     };
     fetchCityIndices();
-  }, []);
+  }, [props.budget]);
 
   // fetches indices for comparison locations
   useEffect(() => {
