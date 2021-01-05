@@ -21,18 +21,17 @@ function CompareLocations(props) {
   const budgetTotals = calcFunctions.calcAllBudgetTotals([props.budget]);
   const NUMBEO_API_KEY = process.env.REACT_APP_NUMBEO_API_KEY;
 
-
   // fetches indices for budget location
   useEffect(() => {
     const fetchCityIndices = () => {
       fetch(
-        `https://www.numbeo.com/api/indices?api_key=${NUMBEO_API_KEY}&query=${props.budget.location}`
+          'https://www.numbeo.com/api/indices?api_key=' + NUMBEO_API_KEY + '&query=' + props.budget.location
       )
         .then((res) => {
-          return res.json();
+            return res.json();
         })
         .then((data) => {
-          let cityCpi = data.cpi_and_rent_index;
+            let cityCpi = data.cpi_and_rent_index;
           setBudgetLocationCPI(cityCpi);
           if (data.groceries_index) {
             setBudgetLocationGroceries(data.groceries_index);

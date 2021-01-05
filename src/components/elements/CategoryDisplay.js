@@ -24,7 +24,14 @@ function CategoryDisplay(props) {
     />;
   })
 
-  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.addBudgetInput(props.budgetKey, newInput);
+    setNewInput({
+      inputName: "",
+      inputValue: ""
+    })
+  }
 
   return (
     <div className="category-container">
@@ -35,7 +42,7 @@ function CategoryDisplay(props) {
       <form noValidate>
           <input
             type="text"
-            value={newInput.type}
+            value={newInput.inputName}
             onChange={(e) => {
               setNewInput({
                 inputName: e.target.value,
@@ -47,7 +54,7 @@ function CategoryDisplay(props) {
 
           <input
             type="number"
-            value={newInput.price}
+            value={newInput.inputValue}
             onChange={(e) => {
               setNewInput({
                 inputName: newInput.inputName,
@@ -58,15 +65,11 @@ function CategoryDisplay(props) {
           />
 
         <button
-          onClick={(e) => {
-            e.preventDefault()
-            props.addBudgetInput(props.budgetKey, newInput);
-          }}
+          onClick={(e) => handleSubmit(e)}
         >
           Add
         </button>
       </form>
-
       {inputs}
     </div>
   );

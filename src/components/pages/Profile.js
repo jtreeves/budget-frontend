@@ -52,7 +52,7 @@ function Profile(props) {
       if (budgetsLoaded) {
         let apiRes = await axios.put(backendUrl + "/budgets/" + budget._id, {
           categories: budget.categories,
-        });
+        })
       }
     }
     try {
@@ -180,6 +180,7 @@ function Profile(props) {
         budgetArray={budgetArray}
         loadNewBudget={loadNewBudget}
         switchBudgets={switchBudgets}
+        reFetchBudgets={reFetchBudgets}
         />
       <div className="div-profile-page">
         <UserInfo
