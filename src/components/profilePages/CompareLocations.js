@@ -30,7 +30,7 @@ function CompareLocations(props) {
   useEffect(() => {
     const fetchCityIndices = () => {
       fetch(
-          'https://www.numbeo.com/api/indices?api_key=' + NUMBEO_API_KEY + '&query=${props.budget.location}'
+          'https://www.numbeo.com/api/indices?api_key=' + NUMBEO_API_KEY + '&query=' + props.budget.location
       )
         .then((res) => {
           console.log(res)
