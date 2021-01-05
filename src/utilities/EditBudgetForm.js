@@ -23,7 +23,7 @@ function EditBudgetForm(props) {
       <select
         value={props.colorScheme}
         name="colorScheme"
-        id="colorScheme"
+        id="edit-budget-color"
         onChange={(e) => props.setColorScheme(e.target.value)}
       >
         <option value="Magenta">Magenta</option>

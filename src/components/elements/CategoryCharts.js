@@ -22,7 +22,7 @@ function CategoryCharts(props) {
     } else {
       return (
         <div className="chart-container">
-          <CategoryChart title={props.title} color={props.color} data={newData}/>
+          <CategoryChart title={props.title} color={props.color} data={newData} budgetKey={props.budgetKey} />
         </div>
       )
     }
