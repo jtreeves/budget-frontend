@@ -7,9 +7,9 @@ function Welcome(props) {
       <div className="div-public-header">
         <h1>Welcome</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolorum excepturi,
-          pariatur dolore fuga perferendis mollitia deserunt a voluptas assumenda! Consequatur
-          beatae qui dolorem tempora possimus accusantium, fugit eius quidem?
+          Are you ready to see the possibilities in your budget? Kaleidoscope is ready to show you.
+          Big life decisions require big picture thinking. Kaleidoscope makes it easy to see how financial twists and turns
+          can change your life. Create and compare up to six budgets
         </p>
       </div>
       <Signup handleLoginAfterSignup={props.handleLoginAfterSignup} />

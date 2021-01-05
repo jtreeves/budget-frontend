@@ -118,7 +118,7 @@ function Profile(props) {
     budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
       newInput.inputValue;
     await setBudget(budgetCopy);
-    reFetchBudgets(budget)
+    // reFetchBudgets(budget)
   };
 
   const deleteBudgetInput = (budgetKey, inputKey) => {
@@ -127,7 +127,7 @@ function Profile(props) {
     // Now you can edit budgetCopy without changing budget
     delete budgetCopy.categories[budgetKey].inputs[inputKey];
     setBudget(budgetCopy);
-    reFetchBudgets(budget)
+    // reFetchBudgets(budget)
   };
 
   const switchBudgets = (budget) => {
