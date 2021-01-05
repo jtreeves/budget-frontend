@@ -31,7 +31,7 @@ function NewBudgetForm(props) {
         {dataOptions}
       </select>
 
-      <button className="button-small button-left" onClick={() => props.handleSubmit()}>Add</button>
+      <button className="button-small button-left" onClick={(e) => props.handleSubmit(e)}>Add</button>
       <button className="button-small" onClick={() => props.setFormDisplayed(false)}>Cancel</button>
     </form>
   );

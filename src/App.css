@@ -509,4 +509,8 @@ body .div-container-app .div-profile-page .div-user-info p {
   transition: opacity 200ms;
 }
 
+.helper {
+  border: solid red 2px;
+}
+
 /*# sourceMappingURL=App.css.map */

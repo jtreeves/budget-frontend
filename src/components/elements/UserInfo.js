@@ -30,7 +30,8 @@ function UserInfo(props) {
     setColorScheme(props.budget.colorScheme);
   }, [props.budget]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
       colorScheme: colorScheme,

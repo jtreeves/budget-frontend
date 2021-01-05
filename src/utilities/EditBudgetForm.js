@@ -34,7 +34,7 @@ function EditBudgetForm(props) {
         <option value="Purple">Purple</option>
       </select>
 
-      <button className="button-small button-left" onClick={() => props.handleSubmit()}>Update</button>
+      <button className="button-small button-left" onClick={(e) => props.handleSubmit(e)}>Update</button>
       <button className="button-small" onClick={() => props.setDisplayForm(false)}>Cancel</button>
     </form>
   );
