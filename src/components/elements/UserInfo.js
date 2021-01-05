@@ -14,7 +14,7 @@ function UserInfo(props) {
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
   const [location, setLocation] = useState(props.budget.location);
   const [income, setIncome] = useState(props.budget.income);
-  const [userName, setUserName] = useState(props.name)
+  const [userName, setUserName] = useState(props.userName)
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const [editNamePressed, setEditNamePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
@@ -51,9 +51,8 @@ function UserInfo(props) {
     let apiRes = await axios.put(backendUrl + "/users/" + props.id, {
       newName: userName
     });
-    console.log(apiRes)
     setEditNamePressed(false);
-    // reFetch User Name
+    props.reFetchUser()
   }
 
   const userInfoButtons = () => {
@@ -193,7 +192,7 @@ function UserInfo(props) {
   return (
     <div className="div-user-info">
       <div className="div-user-name">
-        <h4>{props.name}</h4>
+        <h4>{props.userName}</h4>
         <button className="button-small" onClick={props.handleLogout}>Log Out</button>
       </div>
 

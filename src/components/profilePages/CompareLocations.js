@@ -29,9 +29,11 @@ function CompareLocations(props) {
         `https://www.numbeo.com/api/indices?api_key=${NUMBEO_API_KEY}&query=${props.budget.location}`
       )
         .then((res) => {
+          console.log(res);
           return res.json();
         })
         .then((data) => {
+          console.log(data);
           let cityCpi = data.cpi_and_rent_index;
           setBudgetLocationCPI(cityCpi);
           if (data.groceries_index) {
