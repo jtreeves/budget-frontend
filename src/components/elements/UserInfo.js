@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import BudgetInfo from "./BudgetInfo";
 import DeleteBudgetChoices from "./DeleteBudgetChoices";
 import EditBudgetForm from "../../utilities/EditBudgetForm";
+import EditUserForm from "../../utilities/EditUserForm";
 import calcFunctions from "../../utilities/calcFunctions";
 import UserInfoPieChart from "./UserInfoPieChart";
 import axios from "axios";
@@ -12,7 +13,8 @@ function UserInfo(props) {
   const [budgetName, setBudgetName] = useState(props.budget.title);
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
   const [location, setLocation] = useState(props.budget.location);
-  const [income, setIncome] = useState(props.budget.income)
+  const [income, setIncome] = useState(props.budget.income);
+  const [userName, setUserName] = useState(props.name)
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const [editNamePressed, setEditNamePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
@@ -73,7 +75,7 @@ function UserInfo(props) {
   const userNameButtons = () => {
     if(!editNamePressed) {
       return(
-        <div className="">
+        <div className="div-user-delete">
           <button className="button-small" onClick={() => setEditNamePressed(true)}>
             Edit Name
           </button>
@@ -82,6 +84,10 @@ function UserInfo(props) {
     } else if (editNamePressed) {
       return (
         <div className="div-user-delete-confiirm">
+          <EditUserForm 
+          userName={userName}
+          setUserName={setUserName}
+          />
           <p>Are you sure?</p>
           <div>
             <button className="button-small button-left">
