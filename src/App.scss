@@ -4,17 +4,19 @@
 
 $app-max-width: 1920px;
 $public-padding: 0 4vw;
-$app-border-radius-large: 20px;
-$app-border-radius-small: 10px;
+$border-radius-large: 20px;
+$border-radius-small: 10px;
 $color-black: #000;
 $color-white: #fff;
 $color-light-gray: #edeef1;
 $color-medium-gray: #ccc;
+$color-dark-gray: #666666;
 $color-light-green: #d0e2c6;
 $color-medium-green: #6d9962;
 $gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 $font-family-primary: 'Nunito Sans', sans-serif;
 $font-family-secondary: 'PT Sans', sans-serif;
+$horizontal-rule: solid 2px $color-light-gray;
 $box-shadow-small: 4px 4px 8px
   rgba(
     $color: $color-black,
@@ -29,10 +31,24 @@ $box-shadow-small: 4px 4px 8px
   font-size: 30px;
 }
 
-@mixin text-nav($color: $color-black) {
+@mixin text-public-nav($color: $color-black) {
   color: $color;
   font-family: $font-family-primary;
   font-size: 20px;
+  font-weight: 600;
+}
+
+@mixin text-user-nav1($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@mixin text-user-nav2($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -45,13 +61,20 @@ $box-shadow-small: 4px 4px 8px
 @mixin text-h2($color: $color-black) {
   color: $color;
   font-family: $font-family-secondary;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 @mixin text-h3($color: $color-black) {
   color: $color;
   font-family: $font-family-primary;
   font-size: 20px;
+  font-weight: 700;
+}
+
+@mixin text-h4($color: $color-black) {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -77,6 +100,17 @@ $box-shadow-small: 4px 4px 8px
   line-height: 1.6em;
 }
 
+@mixin box-subsection {
+  padding: 12px;
+  border-radius: $border-radius-small;
+  margin-top: 30px;
+  background-color: $color-light-gray;
+}
+
+@mixin gradient($color1, $color2) {
+  background-image: linear-gradient(to top, $color1 0%, $color2 100%);
+}
+
 // Global ——————————————————————————————
 
 * {
@@ -91,6 +125,7 @@ li {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 button {
@@ -109,9 +144,20 @@ button {
   }
 }
 
+.button-small {
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.button-left {
+  margin-right: 8px;
+}
+
 form {
   padding: 20px;
-  border-radius: $app-border-radius-large;
+  border-radius: $border-radius-large;
   display: inline-block;
   background-color: $color-light-gray;
   text-align: left;
@@ -122,7 +168,8 @@ form {
     font-weight: 700;
   }
 
-  input {
+  input,
+  select {
     @include text-body-small();
     width: 240px;
     height: 40px;
@@ -132,6 +179,31 @@ form {
     border-radius: 20px;
     display: block;
     box-shadow: inset 2px 2px 4px rgba($color: $color-black, $alpha: 0.3);
+  }
+}
+
+.form-small {
+  width: 100%;
+  padding: 0;
+  margin-top: 30px;
+
+  label {
+    padding-left: 0;
+    font-size: 14px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    margin-top: 10px;
   }
 }
 
@@ -151,7 +223,7 @@ body {
     max-width: $app-max-width;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 4vw repeat(12, 1fr) 4vw;
+    grid-template-columns: 4vw 200px 1fr 300px 4vw;
     grid-template-rows: 40px 1fr 40px;
 
     // Public Navigation ——————————————————————————————
@@ -164,8 +236,8 @@ body {
       row-gap: 15px;
       justify-items: end;
       align-items: center;
-      grid-column: 2 / span 12;
-      grid-row: 2;
+      grid-column: 2 / span 3;
+      grid-row: 2 / span 1;
       align-self: start;
 
       img {
@@ -174,60 +246,28 @@ body {
 
       ul {
         li {
-          @include text-nav($color-white);
+          @include text-public-nav($color-white);
           margin-left: 4vw;
           display: inline-block;
           cursor: pointer;
         }
 
         a {
-          @include text-nav($color-white);
+          @include text-public-nav($color-white);
         }
       }
 
       #div-login {
-        border-radius: $app-border-radius-large;
-        grid-column: 2;
+        border-radius: $border-radius-large;
+        grid-column: 2 / span 1;
         box-shadow: $box-shadow-small;
-      }
-    }
-
-    // User Navigation ——————————————————————————————
-
-    .nav-user {
-      z-index: 2;
-      padding: 30px 2vw;
-      grid-column: 2 / span 2;
-      grid-row: 2 / span 2;
-
-      p {
-        @include text-title();
-        font-size: 20px;
-      }
-
-      li {
-        margin-top: 20px;
-
-        a {
-          @include text-nav();
-          font-size: 16px;
-
-          &:hover {
-            color: $color-medium-green;
-            font-weight: 700;
-          }
-        }
-      }
-
-      button {
-        margin-top: 20px;
       }
     }
 
     // Public Pages ——————————————————————————————
 
     .div-public-page {
-      grid-column: 1 / span 14;
+      grid-column: 1 / span 5;
       grid-row: 1 / span 3;
       background-color: $color-white;
       text-align: center;
@@ -251,11 +291,6 @@ body {
         }
       }
 
-      // .div-public-header-02 {
-      //   height: 120px;
-      //   background-image: $gradient;
-      // }
-
       .div-signup {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -275,22 +310,85 @@ body {
           }
         }
       }
+    }
 
-      // h1 {
-      //   @include text-h1();
-      //   margin: 40px 0 20px 0;
-      //   text-align: center;
-      // }
+    // User Navigation ——————————————————————————————
+
+    .nav-user {
+      z-index: 2;
+      padding: 30px 20px;
+      grid-column: 2 / span 1;
+      grid-row: 2 / span 1;
+
+      img {
+        width: 100%;
+      }
+
+      .link1 {
+        @include text-user-nav1();
+        padding-top: 5px;
+        border-top: $horizontal-rule;
+        margin-top: 30px;
+
+        a {
+          @include text-user-nav1();
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .link2 {
+        margin-top: 20px;
+
+        a {
+          @include text-user-nav1();
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .nonlink {
+        @include text-user-nav1();
+        margin-top: 20px;
+      }
+
+      .div-budgets {
+        @include box-subsection();
+
+        h3 {
+          @include text-h3();
+        }
+
+        li {
+          margin-top: 10px;
+
+          a {
+            @include text-user-nav2();
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        .subsection-buttons {
+          margin-top: 30px;
+        }
+      }
     }
 
     // User Pages ——————————————————————————————
 
     .div-profile-page {
       overflow: hidden;
-      border-radius: $app-border-radius-large;
+      border-radius: $border-radius-large;
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-column: 2 / span 12;
+      grid-template-columns: 200px 1fr 300px;
+      grid-column: 2 / span 3;
       grid-row: 2 / span 1;
       box-shadow: 15px 15px 30px rgba($color: $color-black, $alpha: 0.3);
       background-color: $color-white;
@@ -298,9 +396,9 @@ body {
       .div-profile-workspace {
         overflow: auto;
         padding: 20px 2vw;
-        border-radius: $app-border-radius-large;
+        border-radius: $border-radius-large;
         margin: 20px 0;
-        grid-column: 3 / span 7;
+        grid-column: 2 / span 1;
         background-color: $color-light-gray;
 
         h2 {
@@ -309,52 +407,197 @@ body {
         }
 
         .compact-container {
-          padding: 15px 20px;
-          border-radius: $app-border-radius-small;
+          border-radius: $border-radius-small;
           margin-top: 10px;
           display: grid;
-          grid-template-columns: 3fr 1fr;
+          grid-template-columns: 4vw 1fr;
           align-items: center;
           background-color: $color-white;
 
-          h3 {
-            @include text-h3();
+          .div-color-bar {
+            width: 100%;
+            height: 100%;
+            border-radius: $border-radius-small 0 0 $border-radius-small;
+            background-color: red;
           }
 
-          li {
-            @include text-body-small();
+          #cc-income {
+            @include gradient($color-medium-gray, $color-dark-gray);
+          }
+
+          #cc-housing {
+            @include gradient(#c63b8d, #781b53);
+          }
+
+          #cc-utility {
+            @include gradient(#eb0000, #aa0100);
+          }
+
+          #cc-food {
+            @include gradient(#ffb703, #f68200);
+          }
+
+          #cc-transportation {
+            @include gradient(#5cbd3a, #367724);
+          }
+
+          #cc-entertainment {
+            @include gradient(#019be0, #116b90);
+          }
+
+          #cc-misc {
+            @include gradient(#963899, #5e235f);
+          }
+
+          .compact-container-text {
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            align-items: center;
+            column-gap: 10px;
+
+            h3 {
+              @include text-h3();
+            }
+
+            li {
+              @include text-body-small();
+            }
+
+            .currency {
+              @include text-currency();
+              text-align: center;
+            }
+
+            .timeframe {
+              @include text-body-small();
+            }
+          }
+        }
+
+        .compact-container-total {
+          padding: 10px 20px;
+          border-radius: $border-radius-small;
+          margin-top: 10px;
+          display: grid;
+          grid-template-columns: 4vw 3fr 1fr;
+          align-items: center;
+          background-color: $color-medium-gray;
+
+          h3 {
+            @include text-h3();
+            grid-column: 1 / span 2;
           }
 
           .currency {
             @include text-currency();
             text-align: center;
           }
-
-          .timeframe {
-            @include text-body-small();
-          }
         }
 
-        .total {
-          background-color: $color-medium-green;
+        .category-container {
+          .compact-container-total {
+            border-radius: $border-radius-small $border-radius-small 0 0;
+          }
+          
+          form {
+            border-radius: 0 0 $border-radius-small $border-radius-small;
+            display: grid;
+            grid-template-columns: 3fr 2fr auto;
+            column-gap: 10px;
+            background-color: white;
 
-          h3 {
-            color: $color-white;
+            input {
+              width: 100%;
+              margin-bottom: 0;
+              background-color: $color-light-gray;
+            }
           }
 
-          .currency {
-            color: $color-white;
+          .div-subcategory-name {
+            display: flex;
+            justify-content: space-between;
           }
         }
       }
 
-      .div-profile-user-info {
-        padding: 30px 2vw;
-        grid-column: 10 / span 3;
+      // User Info Section ——————————————————————————————
+
+      .div-user-info {
+        width: 100%;
+        padding: 30px 20px;
+        grid-column: 3 / span 1;
         grid-row: 1 / span 1;
 
-        h2 {
-          @include text-h3();
+        .div-user-name {
+          margin-bottom: 8px;
+          display: flex;
+          justify-content: space-between;
+
+          h4 {
+            @include text-h4();
+            align-self: center;
+          }
+        }
+
+        .div-user-delete {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .div-user-delete-confirm {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        // Current Budget Section ——————————
+
+        .div-current-budget {
+          @include box-subsection();
+          padding: 0;
+
+          .div-budget-name {
+            padding: 8px 12px;
+            border-radius: $border-radius-small $border-radius-small 0 0;
+            background-color: $color-dark-gray;
+  
+            h2 {
+              @include text-h3($color-white);
+              font-size: 26px;
+            }
+          }
+
+          .div-budget-summary {
+            padding: 20px 12px 12px 12px;
+
+            .chart-budget-summary {
+              margin-bottom: 20px;
+            }
+  
+            h4 {
+              @include text-h4();
+            }
+  
+            h3 {
+              @include text-h3();
+              margin-top: 10px;
+              font-size: 30px;
+              line-height: 1;
+            }
+  
+            .subsection-buttons {
+              margin-top: 30px;
+            }
+  
+            .div-budget-delete-confirm {
+              margin-top: 30px;
+  
+              p {
+                margin-bottom: 8px;
+              }
+            }
+          }
         }
 
         p {

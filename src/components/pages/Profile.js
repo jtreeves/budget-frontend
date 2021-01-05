@@ -154,8 +154,23 @@ function Profile(props) {
     alert.show("Session has ended. Please log in.");
   }
 
+  const provideColorCode = (colorName, opacity) => {
+    switch (colorName) {
+      case 'Magenta':
+        return `rgba(159, 46, 113, ${opacity})`;
+      case 'Red':
+        return `rgba(158, 31, 20, ${opacity})`;
+      case 'Orange':
+        return `rgba(234, 135, 50, ${opacity})`;
+      case 'Green':
+        return `rgba(70, 117, 49, ${opacity})`;
+      case 'Blue':
+        return `rgba(43, 106, 140, ${opacity})`;
+      case 'Purple':
+        return `rgba(88, 41, 92, ${opacity})`;
+    }
+  }
 
-  
   // Success Display
   const userData = budgetsLoaded ? (
     <>
@@ -175,11 +190,11 @@ function Profile(props) {
           id={id}
           reFetchBudgets={reFetchBudgets}
           budget={budget}
-          handleLogout={props.handleLogout}
+          handleLogout={handleLogout}
         />
 
 
-        <div className="div-profile-workspace">
+        <div className="div-profile-workspace" style={{ backgroundColor: provideColorCode(budget.colorScheme, '0.2') }}>
           <ProfileRoutes
             budgetArray={budgetArray}
             deleteBudgetInput={deleteBudgetInput}

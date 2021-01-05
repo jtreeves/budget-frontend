@@ -8,6 +8,7 @@ function BudgetsDisplay(props) {
   const [colorScheme, setColorScheme] = useState("Red");
   const [copyDataFrom, setCopyDataFrom] = useState("None")
   const [location, setLocation] = useState("Albany, NY");
+  const [income, setIncome] = useState("")
   const [copyDataChoices, setCopyDataChoices] = useState([])
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const emptyCategories = {
@@ -16,8 +17,7 @@ function BudgetsDisplay(props) {
     food: {},
     transportation: {},
     entertainment: {},
-    misc: {},
-    income: {},
+    misc: {}
   }
   
   function copyDataFilter() {
@@ -46,13 +46,15 @@ function BudgetsDisplay(props) {
     setCopyDataChoices(arrayCopy)
   }, [props.budgetArray])
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     let inputs = copyDataFilter()
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,
       colorScheme: colorScheme,
       categories: inputs,
-      location: location
+      location: location,
+      income: income
     });
     setFormDisplayed(false);
     props.loadNewBudget();
@@ -63,6 +65,7 @@ function BudgetsDisplay(props) {
       return (
         <NewBudgetForm
           setLocation={setLocation}
+          setIncome={setIncome}
           setCopyDataFrom={setCopyDataFrom}
           copyDataChoices={copyDataChoices}
           setName={setBudgetName}
@@ -70,6 +73,7 @@ function BudgetsDisplay(props) {
           budgetName={budgetName}
           colorScheme={colorScheme}
           setFormDisplayed={setFormDisplayed}
+          handleSubmit={handleSubmit}
         />
       );
     } else {
@@ -77,11 +81,9 @@ function BudgetsDisplay(props) {
     }
   };
 
-  const budgetButtons = () => {
-    if (formDisplayed) {
-      return <button onClick={() => handleSubmit()}>Submit</button>;
-    } else {
-      return <button onClick={() => setFormDisplayed(true)}>New Budget</button>;
+  const newBudgetButton = () => {
+    if (!formDisplayed) {
+      return <button className="button-small subsection-buttons" onClick={() => setFormDisplayed(true)}>New</button>;
     }
   };
 
@@ -92,13 +94,13 @@ function BudgetsDisplay(props) {
   });
 
   return (
-    <div>
-      <p>Budgets</p>
+    <div className="div-budgets">
+      <h3>Budgets</h3>
       <ul>
         {budgets}
-        {budgetForm()}
       </ul>
-      {budgetButtons()}
+      {budgetForm()}
+      {newBudgetButton()}
     </div>
   );
 }

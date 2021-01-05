@@ -4,7 +4,7 @@ function Income(props) {
 
   return (
     <div>
-      <h3>This is the Income page!!!!</h3>
+      <h2>Income</h2>
       <CategoryDisplay
         budget={props.budget}
         addBudgetInput={props.addBudgetInput}

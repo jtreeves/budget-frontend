@@ -29,11 +29,10 @@ function CategoryDisplay(props) {
   return (
     <div className="category-container">
       <CategoryCharts title={props.budget.title} color={props.budget.colorScheme} inputs={props.inputs}/>
-      <CompactTotalCategory budgetKey={props.budgetKey} total={calcFunctions.calcCategoryTotal(props.inputs)} />
 
-      <div className="new-input">
-        <form noValidate>
-          <label htmlFor="expenseType">Type</label>
+      <CompactTotalCategory budgetKey={props.budgetKey} total={calcFunctions.calcCategoryTotal(props.inputs)} colorScheme={props.budget.colorScheme} />
+
+      <form noValidate>
           <input
             type="text"
             value={newInput.type}
@@ -43,8 +42,9 @@ function CategoryDisplay(props) {
                 inputValue: newInput.inputValue,
               });
             }}
+            placeholder="Expense Name (e.g. Rent)"
           />
-          <label htmlFor="expensePrice">Price</label>
+
           <input
             type="number"
             value={newInput.price}
@@ -54,17 +54,19 @@ function CategoryDisplay(props) {
                 inputValue: e.target.value,
               });
             }}
+            placeholder="Amount"
           />
-          <button
-            onClick={(e) => {
-              e.preventDefault()
-              props.addBudgetInput(props.budgetKey, newInput);
-            }}
-          >
-            Add Entry
-          </button>
-        </form>
-      </div>
+
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            props.addBudgetInput(props.budgetKey, newInput);
+          }}
+        >
+          Add
+        </button>
+      </form>
+
       {inputs}
     </div>
   );

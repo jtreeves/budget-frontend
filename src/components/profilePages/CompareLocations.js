@@ -17,6 +17,7 @@ function CompareLocations(props) {
   );
   const [budgetLocationRent, setBudgetLocationRent] = useState(null);
   const [cityCPIS, setCityCPIS] = useState({});
+  const income = parseFloat((props.budget.income / 12).toFixed(2))
   const budgetTotals = calcFunctions.calcAllBudgetTotals([props.budget]);
   const NUMBEO_API_KEY = process.env.REACT_APP_NUMBEO_API_KEY;
 
@@ -79,14 +80,14 @@ function CompareLocations(props) {
   };
 
   const formatSavings = (expense) => {
-    return parseFloat((budgetTotals[0].totalIncome - expense).toFixed(2));
+    return parseFloat((income - expense).toFixed(2));
   };
 
   const formatChartData = () => {
     const control = {
       name: props.budget.location,
       Expenses: budgetTotals[0].totalExpense,
-      Savings: budgetTotals[0].totalSavings,
+      Savings: income - budgetTotals[0].totalExpense,
     };
     let chartData = [control];
     Object.keys(cityCPIS).forEach((key) => {

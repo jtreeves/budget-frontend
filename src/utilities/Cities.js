@@ -80,7 +80,8 @@ function dontShowLabel() {
 
   return (
     <div>
-      {dontShowLabel()}
+
+      <label htmlFor="cities"><strong>Location</strong> </label>
       <select value={props.location} onChange={(e) => props.setLocation(e.target.value)} name="cities" id="cities">
         {options}
       </select>
