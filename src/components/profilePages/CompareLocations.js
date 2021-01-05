@@ -22,11 +22,15 @@ function CompareLocations(props) {
   const NUMBEO_API_KEY = process.env.REACT_APP_NUMBEO_API_KEY;
 
 
+// thing = `https://www.numbeo.com/api/indices?api_key=${NUMBEO_API_KEY}&query=`
+
+// thing.replace('%22', '')
+
   // fetches indices for budget location
   useEffect(() => {
     const fetchCityIndices = () => {
       fetch(
-        `https://www.numbeo.com/api/indices?api_key=${NUMBEO_API_KEY}&query=${props.budget.location}`
+          'https://www.numbeo.com/api/indices?api_key=' + NUMBEO_API_KEY + '&query=${props.budget.location}'
       )
         .then((res) => {
           console.log(res)
