@@ -1,6 +1,6 @@
 // Import external dependencies
 import { useEffect, useState } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
@@ -13,6 +13,7 @@ import Navigation from './components/elements/Navigation'
 import Welcome from './components/pages/Welcome'
 import About from './components/pages/About'
 import Profile from './components/pages/Profile'
+import NoMatch from './components/pages/NoMatch'
 
 // Import internal CSS
 import './App.css';
@@ -143,11 +144,14 @@ function App() {
   return (
     <div className="div-container-app">
       {handleNavBars()}
-      <Route exact path="/" render={() => {
-        return <Welcome handleLoginAfterSignup={handleLoginAfterSignup} />
-      }} />
-      <Route path="/about" component={About} />
-      <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} handleLogout={handleLogout} />
+      <Switch>
+        <Route exact path="/" render={() => {
+          return <Welcome handleLoginAfterSignup={handleLoginAfterSignup} />
+        }} />
+        <Route path="/about" component={About} />
+        <PrivateRoute path="/profile/:ext" component={Profile} user={currentUser} handleLogout={handleLogout} />
+        <Route component={NoMatch}/>
+      </Switch>
     </div>
   );
 
