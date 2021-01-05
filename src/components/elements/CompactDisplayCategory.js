@@ -2,7 +2,6 @@ import calcFunctions from "../../utilities/calcFunctions";
 
 // Create function
 function CompactDisplayCategory(props) {
-  console.log(props);
   
   return (
     <div className="compact-container">

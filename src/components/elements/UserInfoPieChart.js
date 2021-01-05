@@ -29,7 +29,6 @@ class UserInfoPieChart extends Component{
       data.push(chartInput);
     }
 
-    console.log(data);
 
   	return (
       <ResponsiveContainer className="chart-budget-summary" width={236} height={236}>

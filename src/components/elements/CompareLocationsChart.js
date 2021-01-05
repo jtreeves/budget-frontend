@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import calcFunctions from "../../utilities/calcFunctions";
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart,
 } from 'recharts';
@@ -19,7 +20,7 @@ export default class CompareLocationsChart extends PureComponent {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" type="category"/>
         <YAxis type="number"  />
-        <Tooltip />
+        <Tooltip formatter={(value) => calcFunctions.formatCurrency(value)}/>
         <Legend />
         <Bar dataKey="Expenses" fill="tomato" />
         <Bar dataKey="Savings" fill="dodgerblue" />
