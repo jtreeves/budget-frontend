@@ -14,6 +14,7 @@ function UserInfo(props) {
   const [location, setLocation] = useState(props.budget.location);
   const [income, setIncome] = useState(props.budget.income)
   const [userDeletePressed, setUserDeletePressed] = useState(false);
+  const [editNamePressed, setEditNamePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
   const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
   const monthlyExpenseNum = calcFunctions.calcExpenseTotals(props.budget);
@@ -61,6 +62,32 @@ function UserInfo(props) {
               Delete
             </button>
             <button className="button-small" onClick={() => setUserDeletePressed(false)}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )
+    }
+  }
+
+  const userNameButtons = () => {
+    if(!editNamePressed) {
+      return(
+        <div className="">
+          <button className="button-small" onClick={() => setEditNamePressed(true)}>
+            Edit Name
+          </button>
+        </div>
+      )
+    } else if (editNamePressed) {
+      return (
+        <div className="div-user-delete-confiirm">
+          <p>Are you sure?</p>
+          <div>
+            <button className="button-small button-left">
+              Edit
+            </button>
+            <button className="button-small" onClick={() => setEditNamePressed(false)}>
               Cancel
             </button>
           </div>
@@ -154,6 +181,7 @@ function UserInfo(props) {
         <button className="button-small" onClick={props.handleLogout}>Log Out</button>
       </div>
 
+      {userNameButtons()}
       {userInfoButtons()}
 
       <div className="div-current-budget">
