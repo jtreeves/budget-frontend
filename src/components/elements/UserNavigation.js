@@ -58,6 +58,11 @@ function UserNavigation(props) {
           <Link className="nav-links" to="/profile/compare-locations">
             Compare Locations
           </Link>
+          <li>
+          <Link className="nav-links" to="/oops">
+            Oops
+          </Link>
+        </li>
         </li>
       </ul>
       <BudgetsDisplay switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
