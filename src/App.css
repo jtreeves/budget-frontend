@@ -228,6 +228,9 @@ body .div-container-app .nav-user .link1 a {
 body .div-container-app .nav-user .link1 a:hover {
   text-decoration: underline;
 }
+body .div-container-app .nav-user .link1.link-compare a {
+  font-size: 16px;
+}
 body .div-container-app .nav-user .link2 {
   margin-top: 20px;
 }
@@ -240,12 +243,11 @@ body .div-container-app .nav-user .link2 a {
 body .div-container-app .nav-user .link2 a:hover {
   text-decoration: underline;
 }
-body .div-container-app .nav-user .nonlink {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 20px;
+body .div-container-app .nav-user .link2.link-compare {
+  margin-top: 10px;
+}
+body .div-container-app .nav-user .link2.link-compare a {
+  font-size: 16px;
 }
 body .div-container-app .nav-user .div-budgets {
   padding: 12px;
@@ -261,6 +263,15 @@ body .div-container-app .nav-user .div-budgets h3 {
 }
 body .div-container-app .nav-user .div-budgets li {
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+body .div-container-app .nav-user .div-budgets li div {
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  margin-right: 6px;
+  background-color: #ccc;
 }
 body .div-container-app .nav-user .div-budgets li a {
   color: #000;

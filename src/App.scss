@@ -337,6 +337,12 @@ body {
             text-decoration: underline;
           }
         }
+
+        &.link-compare {
+          a{
+            font-size: 16px;
+          }
+        }
       }
 
       .link2 {
@@ -349,12 +355,16 @@ body {
             text-decoration: underline;
           }
         }
+
+        &.link-compare {
+          margin-top: 10px;
+
+          a{
+            font-size: 16px;
+          }
+        }
       }
 
-      .nonlink {
-        @include text-user-nav1();
-        margin-top: 20px;
-      }
 
       .div-budgets {
         @include box-subsection();
@@ -365,6 +375,16 @@ body {
 
         li {
           margin-top: 10px;
+          display: flex;
+          align-items: center;
+
+          div {
+            width: 12px;
+            height: 12px;
+            border-radius: 100%;
+            margin-right: 6px;
+            background-color: $color-medium-gray;
+          }
 
           a {
             @include text-user-nav2();

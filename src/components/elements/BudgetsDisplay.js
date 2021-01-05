@@ -2,10 +2,27 @@ import { useEffect, useState } from "react";
 import NewBudgetForm from "../../utilities/NewBudgetForm";
 import axios from "axios";
 
+const provideColorCode = (colorName) => {
+  switch (colorName) {
+    case 'Magenta':
+      return '#9f2e71';
+    case 'Red':
+      return '#aa0100';
+    case 'Orange':
+      return '#f68200';
+    case 'Green':
+      return '#367724';
+    case 'Blue':
+      return '#116b90';
+    case 'Purple':
+      return '#5e235f';
+  }
+}
+
 function BudgetsDisplay(props) {
   const [formDisplayed, setFormDisplayed] = useState(false);
   const [budgetName, setBudgetName] = useState("");
-  const [colorScheme, setColorScheme] = useState("Red");
+  const [colorScheme, setColorScheme] = useState("Magenta");
   const [copyDataFrom, setCopyDataFrom] = useState("None")
   const [location, setLocation] = useState("Albany, NY");
   const [income, setIncome] = useState("")
@@ -87,9 +104,14 @@ function BudgetsDisplay(props) {
   };
 
   const budgets = props.budgetArray.map((budget, idx) => {
-    return <div key={idx}>
-      <li><a className="budget-links" onClick={() => props.switchBudgets(budget)}>{budget.title}</a></li>
-    </div>;
+    return (
+      <li key={idx}>
+        <div className="icon-budget-color" style={{ backgroundColor: provideColorCode(budget.colorScheme) }}></div>
+        <a className="budget-links" onClick={() => props.switchBudgets(budget)}>
+          {budget.title}
+        </a>
+      </li>
+    );
   });
 
   return (
