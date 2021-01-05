@@ -41,12 +41,12 @@ function UserNavigation(props) {
             Miscellaneous
           </Link>
         </li>
-        <li className="link1">
+        <li className="link1 link-compare">
           <Link className="nav-links" to="/profile/compare-budgets">
-            Comparison
+            Compare Budgets
           </Link>
         </li>
-        <li>
+        <li className="link2 link-compare">
           <Link className="nav-links" to="/profile/compare-locations">
             Compare Locations
           </Link>

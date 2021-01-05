@@ -30,7 +30,8 @@ function UserInfo(props) {
     setColorScheme(props.budget.colorScheme);
   }, [props.budget]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
       colorScheme: colorScheme,
@@ -161,7 +162,7 @@ function UserInfo(props) {
         </div>
         <div className="div-budget-summary">
           <UserInfoPieChart subTotals={subTotals} income={monthlyIncomeNum} />
-          <h4>Income: {monthlyIncome}</h4>
+          <h4>Monthly Income: {monthlyIncome}</h4>
           <h4>Total Expenses: {monthlyExpense}</h4>
           <h3>{budgetDifference}</h3>
           <p>left over each month</p>

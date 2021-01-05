@@ -23,7 +23,7 @@ function EditBudgetForm(props) {
       <select
         value={props.colorScheme}
         name="colorScheme"
-        id="colorScheme"
+        id="edit-budget-color"
         onChange={(e) => props.setColorScheme(e.target.value)}
       >
         <option value="Magenta">Magenta</option>
@@ -34,7 +34,7 @@ function EditBudgetForm(props) {
         <option value="Purple">Purple</option>
       </select>
 
-      <button className="button-small button-left" onClick={() => props.handleSubmit()}>Update</button>
+      <button className="button-small button-left" onClick={(e) => props.handleSubmit(e)}>Update</button>
       <button className="button-small" onClick={() => props.setDisplayForm(false)}>Cancel</button>
     </form>
   );

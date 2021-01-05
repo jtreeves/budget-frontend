@@ -41,7 +41,7 @@ function Signup(props) {
 
   // Submit form data
   const handleSubmit = async (e) => {
-    try {
+    // try {
       e.preventDefault();
       // Check that passwords match
       if (password === confirmPassword) {
@@ -61,12 +61,12 @@ function Signup(props) {
         // Alert user if passwords do not match
         alert.show('Passwords must match');
       }
-    } catch (error) {
+    // } catch (error) {
       // Alert user if email already in use
-      alert.show(`SIGNUP ERROR: ${error}`);
-      console.log(`SIGNUP ERROR: ${error}`);
-    }
-  };
+    //   alert.show(`SIGNUP ERROR: ${error}`);
+    //   console.log(`SIGNUP ERROR: ${error}`);
+    // }
+};
 
   return (
     <div className="div-signup">

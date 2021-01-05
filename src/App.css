@@ -199,6 +199,7 @@ body .div-container-app .div-public-page .div-signup .div-signup-form h2 {
   color: #000;
   font-family: "PT Sans", sans-serif;
   font-size: 30px;
+  font-size: 40px;
   padding-bottom: 20px;
 }
 body .div-container-app .nav-user {
@@ -228,6 +229,9 @@ body .div-container-app .nav-user .link1 a {
 body .div-container-app .nav-user .link1 a:hover {
   text-decoration: underline;
 }
+body .div-container-app .nav-user .link1.link-compare a {
+  font-size: 16px;
+}
 body .div-container-app .nav-user .link2 {
   margin-top: 20px;
 }
@@ -240,12 +244,11 @@ body .div-container-app .nav-user .link2 a {
 body .div-container-app .nav-user .link2 a:hover {
   text-decoration: underline;
 }
-body .div-container-app .nav-user .nonlink {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 20px;
+body .div-container-app .nav-user .link2.link-compare {
+  margin-top: 10px;
+}
+body .div-container-app .nav-user .link2.link-compare a {
+  font-size: 16px;
 }
 body .div-container-app .nav-user .div-budgets {
   padding: 12px;
@@ -261,6 +264,15 @@ body .div-container-app .nav-user .div-budgets h3 {
 }
 body .div-container-app .nav-user .div-budgets li {
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+body .div-container-app .nav-user .div-budgets li div {
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  margin-right: 6px;
+  background-color: #ccc;
 }
 body .div-container-app .nav-user .div-budgets li a {
   color: #000;
@@ -273,6 +285,49 @@ body .div-container-app .nav-user .div-budgets li a:hover {
 }
 body .div-container-app .nav-user .div-budgets .subsection-buttons {
   margin-top: 30px;
+}
+body .div-container-app .div-first-budget-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+body .div-container-app .div-first-budget-page .div-first-budget {
+  display: grid;
+  grid-template-columns: 200px auto 200px;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+}
+body .div-container-app .div-first-budget-page .div-first-budget h1 {
+  color: #fff;
+  font-family: "PT Sans", sans-serif;
+  font-size: 50px;
+  padding-bottom: 20px;
+  grid-column: 1/span 3;
+}
+body .div-container-app .div-first-budget-page .div-first-budget form {
+  grid-column: 2/span 1;
+  grid-row: 2/span 1;
+}
+body .div-container-app .div-first-budget-page .div-first-budget .div-instructions {
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+  padding: 45px 0 0 20px;
+  grid-column: 3/span 1;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+body .div-container-app .div-first-budget-page .div-first-budget .div-instructions div {
+  height: 85px;
 }
 body .div-container-app .div-profile-page {
   overflow: hidden;
@@ -355,8 +410,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
   color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 25px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
   text-align: center;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
@@ -384,8 +440,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
   color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 25px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
   text-align: center;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
@@ -457,6 +514,11 @@ body .div-container-app .div-profile-page .div-user-info .div-current-budget .di
   padding: 20px 12px 12px 12px;
 }
 body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .chart-budget-summary {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
   margin-bottom: 20px;
 }
 body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h4 {
@@ -491,6 +553,25 @@ body .div-container-app .div-profile-page .div-user-info p {
   line-height: 1.6em;
 }
 
+.chart-category-summary {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+}
+
+.custom-tooltip {
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+.custom-tooltip .tooltip-label {
+  text-transform: capitalize;
+}
+
 .fade-enter {
   opacity: 0;
 }
@@ -507,6 +588,10 @@ body .div-container-app .div-profile-page .div-user-info p {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 200ms;
+}
+
+.helper {
+  border: solid red 2px;
 }
 
 /*# sourceMappingURL=App.css.map */

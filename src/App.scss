@@ -80,8 +80,9 @@ $box-shadow-small: 4px 4px 8px
 
 @mixin text-currency($color: $color-black) {
   color: $color;
-  font-family: $font-family-secondary;
-  font-size: 25px;
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 @mixin text-body($color: $color-black) {
@@ -306,6 +307,7 @@ body {
 
           h2 {
             @include text-h2();
+            font-size: 40px;
             padding-bottom: 20px;
           }
         }
@@ -337,6 +339,12 @@ body {
             text-decoration: underline;
           }
         }
+
+        &.link-compare {
+          a{
+            font-size: 16px;
+          }
+        }
       }
 
       .link2 {
@@ -349,12 +357,16 @@ body {
             text-decoration: underline;
           }
         }
+
+        &.link-compare {
+          margin-top: 10px;
+
+          a{
+            font-size: 16px;
+          }
+        }
       }
 
-      .nonlink {
-        @include text-user-nav1();
-        margin-top: 20px;
-      }
 
       .div-budgets {
         @include box-subsection();
@@ -365,6 +377,16 @@ body {
 
         li {
           margin-top: 10px;
+          display: flex;
+          align-items: center;
+
+          div {
+            width: 12px;
+            height: 12px;
+            border-radius: 100%;
+            margin-right: 6px;
+            background-color: $color-medium-gray;
+          }
 
           a {
             @include text-user-nav2();
@@ -381,7 +403,52 @@ body {
       }
     }
 
-    // User Pages ——————————————————————————————
+    // Create First Budget Page ——————————————————————————————
+
+    .div-first-budget-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: $gradient;
+
+      .div-first-budget {
+        display: grid;
+        grid-template-columns: 200px auto 200px;
+        grid-template-rows: auto 1fr;
+        justify-items: center;
+
+        h1 {
+          @include text-h1($color-white);
+          padding-bottom: 20px;
+          grid-column: 1 / span 3;
+        }
+
+        form {
+          grid-column: 2 / span 1;
+          grid-row: 2 / span 1;
+        }
+
+        .div-instructions {
+          @include text-body-small($color-white);
+          padding: 45px 0 0 20px;
+          grid-column: 3 / span 1;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.5;
+
+          div {
+            height: 85px;
+          }
+        }
+      }
+    }
+
+    // User Dashboard ——————————————————————————————
 
     .div-profile-page {
       overflow: hidden;
@@ -521,7 +588,7 @@ body {
         }
       }
 
-      // User Info Section ——————————————————————————————
+      // User Info Section ——————————
 
       .div-user-info {
         width: 100%;
@@ -572,6 +639,7 @@ body {
             padding: 20px 12px 12px 12px;
 
             .chart-budget-summary {
+              @include text-body-small();
               margin-bottom: 20px;
             }
   
@@ -605,6 +673,24 @@ body {
         }
       }
     }
+  }
+}
+
+// Recharts ——————————————————————————————
+
+.chart-category-summary {
+  @include text-body-small($color-black);
+}
+
+.custom-tooltip {
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: $box-shadow-small;
+  background-color: rgba($color: $color-white, $alpha: 0.9);
+  text-align: center;
+
+  .tooltip-label {
+    text-transform: capitalize;
   }
 }
 
