@@ -307,6 +307,7 @@ body {
 
           h2 {
             @include text-h2();
+            font-size: 40px;
             padding-bottom: 20px;
           }
         }
@@ -402,7 +403,52 @@ body {
       }
     }
 
-    // User Pages ——————————————————————————————
+    // Create First Budget Page ——————————————————————————————
+
+    .div-first-budget-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: $gradient;
+
+      .div-first-budget {
+        display: grid;
+        grid-template-columns: 200px auto 200px;
+        grid-template-rows: auto 1fr;
+        justify-items: center;
+
+        h1 {
+          @include text-h1($color-white);
+          padding-bottom: 20px;
+          grid-column: 1 / span 3;
+        }
+
+        form {
+          grid-column: 2 / span 1;
+          grid-row: 2 / span 1;
+        }
+
+        .div-instructions {
+          @include text-body-small($color-white);
+          padding: 45px 0 0 20px;
+          grid-column: 3 / span 1;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.5;
+
+          div {
+            height: 85px;
+          }
+        }
+      }
+    }
+
+    // User Dashboard ——————————————————————————————
 
     .div-profile-page {
       overflow: hidden;
@@ -542,7 +588,7 @@ body {
         }
       }
 
-      // User Info Section ——————————————————————————————
+      // User Info Section ——————————
 
       .div-user-info {
         width: 100%;

@@ -47,46 +47,59 @@ function Dashboard(props) {
   }
 
   return (
-    <div className="div-public-page">
-      <div className="div-public-header-02"></div>
-      <h1 className="py-2">Create First Budget</h1>
-      <form>
-        <label htmlFor="title">Title:</label>
-        <input
-          placeholder="Budget Name"
-          id="title"
-          name="title"
-          type="text"
-          value={budgetTitle}
-          onChange={(e) => setBudgetTitle(e.target.value)}
-        />
-
-        <input
-          placeholder="Income"
-          id="income"
-          name="income"
-          type="number"
-          value={income}
-          onChange={(e) => setIncome(e.target.value)}
-        />
-
-        <Cities location={location} setLocation={setLocation}/>
-
-        <div>
-          <label htmlFor="colorScheme">Color Scheme:</label>
-          <select
-            name="colorScheme"
-            id="colorScheme"
-            onChange={(e) => setColorScheme(e.target.value)}
-          >
-            <option value="Red">Red</option>
-            <option value="Blue">Blue</option>
-            <option value="Green">Green</option>
-          </select>
+    <div className="div-first-budget-page">
+      <div className="div-first-budget">
+        <h1>Create your first budget</h1>
+        
+        <div className="div-instructions">
+          <div><p>What do you call a budget without a name? Budget. Get creative!</p></div>
+          <div><p>How much moolah do you earn in a year (after taxes, of course)?</p></div>
+          <div><p>Give your money some context. Pick a city to see how comfy you can live.</p></div>
+          <div><p>Make budget identification easy on your eyes and select a color.</p></div>
         </div>
 
-        <button onClick={handleSubmit} type="submit">Submit</button>
-      </form>
+        <form>
+          <label htmlFor="first-budget-title">Name</label>
+          <input
+            placeholder="My First Budget"
+            id="first-budget-title"
+            name="title"
+            type="text"
+            value={budgetTitle}
+            onChange={(e) => setBudgetTitle(e.target.value)}
+            />
+
+          <label htmlFor="first-budget-income">Income</label>
+          <input
+            placeholder="50000"
+            id="first-budget-income"
+            name="income"
+            type="number"
+            value={income}
+            onChange={(e) => setIncome(e.target.value)}
+          />
+
+          <Cities location={location} setLocation={setLocation}/>
+
+          <div>
+            <label htmlFor="first-budget-color">Color</label>
+            <select
+              name="colorScheme"
+              id="first-budget-color"
+              onChange={(e) => setColorScheme(e.target.value)}
+            >
+              <option value="Magenta">Magenta</option>
+              <option value="Red">Red</option>
+              <option value="Orange">Orange</option>
+              <option value="Green">Green</option>
+              <option value="Blue">Blue</option>
+              <option value="Purple">Purple</option>
+            </select>
+          </div>
+
+          <button onClick={handleSubmit} type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
