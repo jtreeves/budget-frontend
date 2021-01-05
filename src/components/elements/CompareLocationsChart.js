@@ -6,16 +6,6 @@ import {
 export default class CompareLocationsChart extends PureComponent {
 
   render() {
-    
-    // let color = 0;
-    // const bars = this.props.budgetArray.map((budget, idx) => {
-    //   if (color >= colorArray.length) {
-    //     color = 0;
-    //   } else {
-    //     color += 1;
-    //   }
-    //   return <Bar key={idx} dataKey={budget.title} fill={colorArray[color]} />
-    // })
 
     return (
       <BarChart
