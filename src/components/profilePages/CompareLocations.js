@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import calcFunctions from "../../utilities/calcFunctions";
 import Cities from "../../utilities/Cities";
-import axios from "axios";
-import AllBudgetsChartTotals from "../elements/AllBudgetsChartTotals";
+import CompareLocationsChart from "../elements/CompareLocationsChart";
 
 function CompareLocations(props) {
   const [citiesToCompare, setCitiesToCompare] = useState([]);
@@ -18,7 +17,7 @@ function CompareLocations(props) {
   const [budgetLocationRent, setBudgetLocationRent] = useState(null);
   const [cityCPIS, setCityCPIS] = useState({});
   const budgetTotals = calcFunctions.calcAllBudgetTotals([props.budget]);
-  const NUMBEO_API_KEY = process.env.NUMBEO_API_KEY;
+  // const NUMBEO_API_KEY = process.env.NUMBEO_API_KEY;
 
   // fetches indices for budget location
   useEffect(() => {
@@ -61,6 +60,44 @@ function CompareLocations(props) {
     fetchCityIndices();
   }, [citiesToCompare]);
 
+  const convertCpi = (cpi) => {
+    let difference = budgetLocationCPI - cpi;
+    let newExpense = 0;
+    if (difference < 0) {
+      let positive = difference * -1;
+      let multiple = positive / 100;
+      let sum = budgetTotals[0].totalExpense * multiple;
+      newExpense = budgetTotals[0].totalExpense + sum;
+    } else {
+      let multiple = difference / 100;
+      let sum = budgetTotals[0].totalExpense * multiple;
+      newExpense = budgetTotals[0].totalExpense - sum;
+    }
+    return parseFloat(newExpense.toFixed(2));
+  };
+
+  const formatSavings = (expense) => {
+    return parseFloat((budgetTotals[0].totalIncome - expense).toFixed(2));
+  };
+
+  const formatChartData = () => {
+    const control = {
+      name: props.budget.location,
+      Expenses: budgetTotals[0].totalExpense,
+      Savings: budgetTotals[0].totalSavings,
+    };
+    let chartData = [control];
+    Object.keys(cityCPIS).forEach((key) => {
+      let chartInput = {
+        name: key,
+        Expenses: convertCpi(cityCPIS[key]),
+        Savings: formatSavings(convertCpi(cityCPIS[key])),
+      };
+      chartData.push(chartInput);
+    });
+    return chartData;
+  };
+
   const addCpiState = async () => {
     await citiesToCompare.forEach((city) => {
       let cityAlreadyLoaded = false;
@@ -70,7 +107,6 @@ function CompareLocations(props) {
         }
       });
       if (!cityAlreadyLoaded) {
-        console.log("fetching for " + city);
         fetch(
           `https://www.numbeo.com/api/indices?api_key=qt1nz2cebg6wjk&query=${city}`
         )
@@ -224,6 +260,8 @@ function CompareLocations(props) {
     return i + "th";
   }
 
+
+
   return (
     <div>
       <h2>Compare Locations</h2>
@@ -245,6 +283,7 @@ function CompareLocations(props) {
         <button onClick={() => addCity()}>Add City</button>
         <div>{cities}</div>
         <ul>{comparisonCities}</ul>
+        <CompareLocationsChart data={formatChartData()} />
       </div>
     </div>
   );
