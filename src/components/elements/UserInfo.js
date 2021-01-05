@@ -46,6 +46,16 @@ function UserInfo(props) {
     props.reFetchBudgets(props.budget);
   };
 
+  const handleUserSubmit = async (e) => {
+    e.preventDefault()
+    let apiRes = await axios.put(backendUrl + "/users/" + props.id, {
+      newName: userName
+    });
+    console.log(apiRes)
+    setEditNamePressed(false);
+    // reFetch User Name
+  }
+
   const userInfoButtons = () => {
     if (!userDeletePressed) {
       return (
@@ -90,8 +100,8 @@ function UserInfo(props) {
           />
           <p>Are you sure?</p>
           <div>
-            <button className="button-small button-left">
-              Edit
+            <button className="button-small button-left" onClick={(e) => handleUserSubmit(e)}>
+              Yes
             </button>
             <button className="button-small" onClick={() => setEditNamePressed(false)}>
               Cancel
