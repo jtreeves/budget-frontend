@@ -42,7 +42,7 @@ $box-shadow-small: 4px 4px 8px
   color: $color;
   font-family: $font-family-primary;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 @mixin text-user-nav2($color: $color-black) {
@@ -61,7 +61,7 @@ $box-shadow-small: 4px 4px 8px
 @mixin text-h2($color: $color-black) {
   color: $color;
   font-family: $font-family-secondary;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 @mixin text-h3($color: $color-black) {
@@ -322,14 +322,13 @@ body {
 
       img {
         width: 100%;
-        margin-bottom: 10px;
       }
 
       .link1 {
         @include text-user-nav1();
         padding-top: 5px;
         border-top: $horizontal-rule;
-        margin-top: 20px;
+        margin-top: 30px;
 
         a {
           @include text-user-nav1();
@@ -341,11 +340,10 @@ body {
       }
 
       .link2 {
-        margin-top: 15px;
+        margin-top: 20px;
 
         a {
-          @include text-user-nav2();
-          padding-left: 10px;
+          @include text-user-nav1();
 
           &:hover {
             text-decoration: underline;

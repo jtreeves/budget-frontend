@@ -12,7 +12,7 @@ function DefaultProfile(props) {
     <div>
       <h2>Overview</h2>
       {/* <CompactDisplay compactContainerId="cc-income" title="Income" inputs={income.inputs} total={subTotals.income}/> */}
-      <CompactTotal totalExpense={totalExpense} totalIncome={income} />
+      <CompactTotal totalExpense={totalExpense} totalIncome={income} colorScheme={props.budget.colorScheme} />
       <CompactDisplay compactContainerId="cc-housing" title="Housing" inputs={housing.inputs} total={subTotals.housing}/>
       <CompactDisplay compactContainerId="cc-utility" title="Utilities" inputs={utility.inputs} total={subTotals.utility}/>
       <CompactDisplay compactContainerId="cc-food" title="Food & Drink" inputs={food.inputs} total={subTotals.food}/>

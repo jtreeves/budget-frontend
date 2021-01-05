@@ -198,7 +198,7 @@ body .div-container-app .div-public-page .div-signup .div-signup-form {
 body .div-container-app .div-public-page .div-signup .div-signup-form h2 {
   color: #000;
   font-family: "PT Sans", sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   padding-bottom: 20px;
 }
 body .div-container-app .nav-user {
@@ -209,35 +209,33 @@ body .div-container-app .nav-user {
 }
 body .div-container-app .nav-user img {
   width: 100%;
-  margin-bottom: 10px;
 }
 body .div-container-app .nav-user .link1 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   padding-top: 5px;
   border-top: solid 2px #edeef1;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 body .div-container-app .nav-user .link1 a {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
 }
 body .div-container-app .nav-user .link1 a:hover {
   text-decoration: underline;
 }
 body .div-container-app .nav-user .link2 {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 body .div-container-app .nav-user .link2 a {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
-  padding-left: 10px;
 }
 body .div-container-app .nav-user .link2 a:hover {
   text-decoration: underline;
@@ -246,7 +244,7 @@ body .div-container-app .nav-user .nonlink {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 20px;
 }
 body .div-container-app .nav-user .div-budgets {
@@ -297,7 +295,7 @@ body .div-container-app .div-profile-page .div-profile-workspace {
 body .div-container-app .div-profile-page .div-profile-workspace h2 {
   color: #000;
   font-family: "PT Sans", sans-serif;
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container {

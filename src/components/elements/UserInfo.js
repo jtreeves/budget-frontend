@@ -15,18 +15,18 @@ function UserInfo(props) {
   const [income, setIncome] = useState(props.budget.income)
   const [userDeletePressed, setUserDeletePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
-  // const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
-  const monthlyExpense = calcFunctions.calcExpenseTotals(props.budget);
+  const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
   const monthlyExpenseNum = calcFunctions.calcExpenseTotals(props.budget);
-  // const monthlyIncome = calcFunctions.formatCurrency(subTotals.income);
-  const monthlyIncome = props.budget.income/12
-  const monthlyIncomeNum = subTotals.income;
+  const monthlyIncome = calcFunctions.formatCurrency(props.budget.income / 12);
+  const monthlyIncomeNum = props.budget.income / 12;
   const budgetDifference = calcFunctions.formatCurrency(monthlyIncomeNum - monthlyExpenseNum);
   const backendUrl = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
     setDisplayForm(false);
     setBudgetName(props.budget.title);
+    setIncome(props.budget.income);
+    setLocation(props.budget.location);
     setColorScheme(props.budget.colorScheme);
   }, [props.budget]);
 
@@ -160,7 +160,7 @@ function UserInfo(props) {
           <h2>{props.budget.title}</h2>
         </div>
         <div className="div-budget-summary">
-          <UserInfoPieChart subTotals={subTotals} />
+          <UserInfoPieChart subTotals={subTotals} income={monthlyIncomeNum} />
           <h4>Income: {monthlyIncome}</h4>
           <h4>Total Expenses: {monthlyExpense}</h4>
           <h3>{budgetDifference}</h3>

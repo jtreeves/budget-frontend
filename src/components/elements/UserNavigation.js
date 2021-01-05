@@ -11,7 +11,7 @@ function UserNavigation(props) {
             Overview
           </Link>
         </li>
-        <li className="link2">
+        <li className="link1">
           <Link className="nav-links" to="/profile/housing">
             Housing
           </Link>
@@ -42,7 +42,7 @@ function UserNavigation(props) {
           </Link>
         </li>
         <li className="link1">
-          <Link className="nav-links" to="/profile/compare">
+          <Link className="nav-links" to="/profile/compare-budgets">
             Comparison
           </Link>
         </li>
