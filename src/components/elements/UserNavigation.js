@@ -42,7 +42,7 @@ function UserNavigation(props) {
           </Link>
         </li>
         <li className="link1 link-compare">
-          <Link className="nav-links" to="/profile/compare-budgets">
+          <Link onClick={props.reFetchBudgets} className="nav-links" to="/profile/compare-budgets">
             Compare Budgets
           </Link>
         </li>
@@ -52,7 +52,7 @@ function UserNavigation(props) {
           </Link>
         </li>
       </ul>
-      <BudgetsDisplay switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
+      <BudgetsDisplay reFetchBudgets={props.reFetchBudgets} switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
     </div>
   );
 }
