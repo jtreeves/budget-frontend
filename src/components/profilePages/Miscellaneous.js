@@ -4,7 +4,7 @@ function Miscellaneous(props) {
 
   return (
     <div>
-      <h3>This is the Miscellaneous page!!!!</h3>
+      <h2>Miscellaneous</h2>
       <CategoryDisplay
         budget={props.budget}
         addBudgetInput={props.addBudgetInput}
