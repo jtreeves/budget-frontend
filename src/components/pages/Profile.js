@@ -169,6 +169,16 @@ function Profile(props) {
     }
   }
 
+  const changeBkgColor = () => {
+    if (
+    window.location.pathname === '/profile/compare-budgets' ||
+    window.location.pathname === '/profile/compare-locations') {
+      return { backgroundColor: '#edeef1' };
+    } else {
+      return { backgroundColor: provideColorCode(budget.colorScheme, '0.2') };
+    }
+  }
+
   // Success Display
   const userData = budgetsLoaded ? (
     <>
@@ -192,7 +202,10 @@ function Profile(props) {
         />
 
 
-        <div className="div-profile-workspace" style={{ backgroundColor: provideColorCode(budget.colorScheme, '0.2') }}>
+        <div
+          className="div-profile-workspace"
+          style={changeBkgColor()}
+        >
           <ProfileRoutes
             budgetArray={budgetArray}
             deleteBudgetInput={deleteBudgetInput}
