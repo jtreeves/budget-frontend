@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
+import calcFunctions from "../../utilities/calcFunctions";
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
 export default class Example extends PureComponent {
@@ -20,7 +21,7 @@ export default class Example extends PureComponent {
 
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip />
+        <Tooltip formatter={(value) => calcFunctions.formatCurrency(value)}/>
         <Legend />
         <Bar dataKey={this.props.title} fill={this.props.color} />
       </BarChart>

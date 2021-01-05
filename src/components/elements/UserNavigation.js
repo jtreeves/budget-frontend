@@ -12,14 +12,6 @@ function UserNavigation(props) {
           </Link>
         </li>
         <li className="link1">
-          <Link className="nav-links" to="/profile/income">
-            Income
-          </Link>
-        </li>
-        <li className="link1">
-          Expenses
-        </li>
-        <li className="link2">
           <Link className="nav-links" to="/profile/housing">
             Housing
           </Link>
@@ -50,7 +42,7 @@ function UserNavigation(props) {
           </Link>
         </li>
         <li className="link1">
-          <Link className="nav-links" to="/profile/compare">
+          <Link className="nav-links" to="/profile/compare-budgets">
             Comparison
           </Link>
         </li>
@@ -58,11 +50,6 @@ function UserNavigation(props) {
           <Link className="nav-links" to="/profile/compare-locations">
             Compare Locations
           </Link>
-          <li>
-          <Link className="nav-links" to="/oops">
-            Oops
-          </Link>
-        </li>
         </li>
       </ul>
       <BudgetsDisplay switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>

@@ -42,7 +42,7 @@ $box-shadow-small: 4px 4px 8px
   color: $color;
   font-family: $font-family-primary;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 @mixin text-user-nav2($color: $color-black) {
@@ -61,7 +61,7 @@ $box-shadow-small: 4px 4px 8px
 @mixin text-h2($color: $color-black) {
   color: $color;
   font-family: $font-family-secondary;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 @mixin text-h3($color: $color-black) {
@@ -322,14 +322,13 @@ body {
 
       img {
         width: 100%;
-        margin-bottom: 10px;
       }
 
       .link1 {
         @include text-user-nav1();
         padding-top: 5px;
         border-top: $horizontal-rule;
-        margin-top: 20px;
+        margin-top: 30px;
 
         a {
           @include text-user-nav1();
@@ -341,11 +340,10 @@ body {
       }
 
       .link2 {
-        margin-top: 15px;
+        margin-top: 20px;
 
         a {
-          @include text-user-nav2();
-          padding-left: 10px;
+          @include text-user-nav1();
 
           &:hover {
             text-decoration: underline;
@@ -380,7 +378,7 @@ body {
         .subsection-buttons {
           margin-top: 30px;
         }
-    }
+      }
     }
 
     // User Pages ——————————————————————————————
@@ -431,14 +429,14 @@ body {
             @include gradient(#c63b8d, #781b53);
           }
 
-          #cc-utilities {
+          #cc-utility {
             @include gradient(#eb0000, #aa0100);
           }
 
-          #cc-food-drink {
+          #cc-food {
             @include gradient(#ffb703, #f68200);
           }
-          
+
           #cc-transportation {
             @include gradient(#5cbd3a, #367724);
           }
@@ -447,7 +445,7 @@ body {
             @include gradient(#019be0, #116b90);
           }
 
-          #cc-miscellaneous {
+          #cc-misc {
             @include gradient(#963899, #5e235f);
           }
 
@@ -456,28 +454,29 @@ body {
             display: grid;
             grid-template-columns: 3fr 1fr;
             align-items: center;
-            
+            column-gap: 10px;
+
             h3 {
               @include text-h3();
             }
-            
+
             li {
               @include text-body-small();
             }
-            
+
             .currency {
               @include text-currency();
               text-align: center;
             }
-            
+
             .timeframe {
               @include text-body-small();
             }
           }
         }
-        
+
         .compact-container-total {
-          padding: 10px 0;
+          padding: 10px 20px;
           border-radius: $border-radius-small;
           margin-top: 10px;
           display: grid;
@@ -487,14 +486,37 @@ body {
 
           h3 {
             @include text-h3();
-            padding-left: 20px;
-            grid-column: 2 / span 1;
+            grid-column: 1 / span 2;
           }
-          
+
           .currency {
             @include text-currency();
-            padding-right: 20px;
             text-align: center;
+          }
+        }
+
+        .category-container {
+          .compact-container-total {
+            border-radius: $border-radius-small $border-radius-small 0 0;
+          }
+          
+          form {
+            border-radius: 0 0 $border-radius-small $border-radius-small;
+            display: grid;
+            grid-template-columns: 3fr 2fr auto;
+            column-gap: 10px;
+            background-color: white;
+
+            input {
+              width: 100%;
+              margin-bottom: 0;
+              background-color: $color-light-gray;
+            }
+          }
+
+          .div-subcategory-name {
+            display: flex;
+            justify-content: space-between;
           }
         }
       }
@@ -529,37 +551,51 @@ body {
           align-items: center;
         }
 
-        .div-budget-summary {
+        // Current Budget Section ——————————
+
+        .div-current-budget {
           @include box-subsection();
+          padding: 0;
 
-          .chart-budget-summary {
-            margin: 20px 0;
+          .div-budget-name {
+            padding: 8px 12px;
+            border-radius: $border-radius-small $border-radius-small 0 0;
+            background-color: $color-dark-gray;
+  
+            h2 {
+              @include text-h3($color-white);
+              font-size: 26px;
+            }
           }
 
-          h2 {
-            @include text-h3();
-          }
+          .div-budget-summary {
+            padding: 20px 12px 12px 12px;
 
-          h4 {
-            @include text-h4();
-          }
-
-          h3 {
-            @include text-h2();
-            margin-top: 10px;
-            font-size: 30px;
-            line-height: 1;
-          }
-
-          .subsection-buttons {
-            margin-top: 30px;
-          }
-
-          .div-budget-delete-confirm {
-            margin-top: 30px;
-
-            p {
-              margin-bottom: 8px;
+            .chart-budget-summary {
+              margin-bottom: 20px;
+            }
+  
+            h4 {
+              @include text-h4();
+            }
+  
+            h3 {
+              @include text-h3();
+              margin-top: 10px;
+              font-size: 30px;
+              line-height: 1;
+            }
+  
+            .subsection-buttons {
+              margin-top: 30px;
+            }
+  
+            .div-budget-delete-confirm {
+              margin-top: 30px;
+  
+              p {
+                margin-bottom: 8px;
+              }
             }
           }
         }
