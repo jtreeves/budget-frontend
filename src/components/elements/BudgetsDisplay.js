@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAlert } from "react-alert";
 import NewBudgetForm from "../../utilities/NewBudgetForm";
 import axios from "axios";
 
@@ -6,20 +7,21 @@ const provideColorCode = (colorName) => {
   switch (colorName) {
     case 'Magenta':
       return '#9f2e71';
-    case 'Red':
-      return '#aa0100';
-    case 'Orange':
-      return '#f68200';
-    case 'Green':
-      return '#367724';
-    case 'Blue':
-      return '#116b90';
-    case 'Purple':
-      return '#5e235f';
-  }
-}
-
+      case 'Red':
+        return '#aa0100';
+        case 'Orange':
+          return '#f68200';
+          case 'Green':
+            return '#367724';
+            case 'Blue':
+              return '#116b90';
+              case 'Purple':
+                return '#5e235f';
+              }
+            }
+            
 function BudgetsDisplay(props) {
+  const alert = useAlert();
   const [formDisplayed, setFormDisplayed] = useState(false);
   const [budgetName, setBudgetName] = useState("");
   const [colorScheme, setColorScheme] = useState(props.colorsAvailable[0]);
@@ -63,6 +65,7 @@ function BudgetsDisplay(props) {
   }
 
   const newButtonClicked = () => {
+    props.setUpdateColorsFlag(!props.setUpdateColorsFlag)
     resetFormInputs()
     setFormDisplayed(true)
   }
@@ -81,6 +84,10 @@ function BudgetsDisplay(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (budgetName === "") {
+      alert.show("Budget must have a name")
+      return
+    }
     let inputs = await copyDataFilter()
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,

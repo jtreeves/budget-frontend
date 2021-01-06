@@ -21,8 +21,6 @@ function Dashboard(props) {
     misc: {}
   }
 
-  console.log(`BACKEND URL: ${backendUrl}`)
-
   const handleSubmit = async (e) => {
     console.log('IN HANDLE SUBMIT FUNCTION')
     e.preventDefault()
@@ -37,7 +35,7 @@ function Dashboard(props) {
       colorScheme: colorScheme,
       categories: emptyCategories
     });
-
+    console.log(apiRes);
     let apiRes2 = await axios.put(backendUrl + "/users/" + props.user.id, {
       firstTimeUser: false
     });
@@ -97,7 +95,7 @@ function Dashboard(props) {
             </select>
           </div>
 
-          <button onClick={handleSubmit} type="submit">Submit</button>
+          <button onClick={(e) => handleSubmit(e)} type="submit">Submit</button>
         </form>
       </div>
     </div>

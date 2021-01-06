@@ -17,14 +17,31 @@ function Profile(props) {
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
+  
+  const establishColors = () => {
+    const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
+    let budgetColorsInUse = []
+      budgetArray.forEach((budget) => {
+        budgetColorsInUse.push(budget.colorScheme)
+      })
 
+      let filteredColors = allColors.filter(
+        function(e) {
+          return this.indexOf(e) < 0;
+        },
+        budgetColorsInUse
+      );
+      return filteredColors
+  }
+  
   // State
   const [budget, setBudget] = useState({});
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
-  const [colorsAvailable, setColorsAvailable] = useState([])
+  const [colorsAvailable, setColorsAvailable] = useState(establishColors())
   const [userName, setUserName] = useState(name)
+  const [updateColorsFlag, setUpdateColorsFlag] = useState(false)
 
 
   // Backend API crud
@@ -83,7 +100,9 @@ function Profile(props) {
       setColorsAvailable(filteredColors)
 
     }
-  }, [budget, budgetArray])
+  }, [budget, budgetArray, updateColorsFlag])
+
+
 
   const reFetchUser = async () => {
     let apiRes = await axios.get(backendUrl + "/users/" + id);
@@ -215,6 +234,8 @@ function Profile(props) {
         switchBudgets={switchBudgets}
         reFetchBudgets={reFetchBudgets}
         colorsAvailable={colorsAvailable}
+        setUpdateColorsFlag={setUpdateColorsFlag}
+        updateColorsFlag={updateColorsFlag}
         />
       <div className="div-profile-page">
         <UserInfo
