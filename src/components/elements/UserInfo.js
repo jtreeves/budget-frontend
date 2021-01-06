@@ -195,9 +195,6 @@ function UserInfo(props) {
         <button className="button-small" onClick={props.handleLogout}>Log Out</button>
       </div>
 
-      {userNameButtons()}
-      {userInfoButtons()}
-
       <div className="div-current-budget">
         <div className="div-budget-name" style={{ backgroundColor: provideColorCode(props.budget.colorScheme) }}>
           <h2>{props.budget.title}</h2>
@@ -210,6 +207,12 @@ function UserInfo(props) {
           <p>left over each month</p>
           {infoOrForm()}
         </div>
+      </div>
+
+      <div className="div-account-settings">
+        <h4>Account Settings</h4>
+        {userNameButtons()}
+        {userInfoButtons()}
       </div>
     </div>
   );

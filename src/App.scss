@@ -708,38 +708,36 @@ body {
           }
         }
 
-        .div-user-edit {
-          margin-bottom: 8px;
-          display: flex;
-          justify-content: flex-end;
-        }
+        .div-account-settings {
+          @include box-subsection();
+          margin: 0;
 
-        .div-user-edit-confirm {
-          margin-bottom: 8px;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
+          h4 {
+            @include text-h4();
+            margin-bottom: 10px;
+          }
 
-          form {
-            padding: 0;
-            margin: 0;
-            background-color: $color-white;
-
-            input {
-              background-color: $color-light-gray;
+          .div-user-edit {
+            margin-bottom: 8px;
+          }
+  
+          .div-user-edit-confirm {
+            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+  
+            form {
+              padding: 0;
+              margin: 0;
             }
           }
-        }
-
-        .div-user-delete {
-          display: flex;
-          justify-content: flex-end;
-        }
-
-        .div-user-delete-confirm {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+  
+          .div-user-delete-confirm {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
         }
 
         // Current Budget Section ——————————
@@ -747,6 +745,7 @@ body {
         .div-current-budget {
           @include box-subsection();
           padding: 0;
+          margin: 20px 0;
 
           .div-budget-name {
             padding: 8px 12px;
@@ -841,10 +840,6 @@ body {
 /* Media Queries —————————————————————————————— */
 
 @media screen and (max-width: 1000px) {
-  button {
-    background-color: red;
-  }
-
   body {
     .div-container-app {
       .div-profile-page {
