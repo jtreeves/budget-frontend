@@ -1,7 +1,7 @@
 import BarChartExample from '../elements/BarChartExample'
 import AllBudgetsChartTotals from '../elements/AllBudgetsChartTotals'
 import calcFunctions from '../../utilities/calcFunctions'
-import AllBudgetsChartCategories from '../elements/AllBudgetsChartCategories';
+import AllBudgetsChartCategories from '../elements/AllBudgetsChartCategories'
 
 function Housing(props) {
 
@@ -15,7 +15,7 @@ function Housing(props) {
     {
       name: 'Page C', lv: 2000, pv: 9800, 
     },
-  ];
+  ]
 
 
   // Data for Totals Chart
@@ -90,8 +90,8 @@ function Housing(props) {
       <h3 className="compare-budgets-heading2">Monthly Expenses by Category</h3>
       <AllBudgetsChartCategories budgetArray={props.budgetArray} data={catagoriesData}/>
     </div>
-  );
+  )
 }
 
 // Export function
-export default Housing;
+export default Housing

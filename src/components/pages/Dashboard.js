@@ -1,17 +1,17 @@
 // Import external dependencies
-import { useState } from "react";
-import { useAlert } from "react-alert";
+import { useState } from "react"
+import { useAlert } from "react-alert"
 import axios from 'axios'
-import Cities from "../../utilities/Cities";
+import Cities from "../../utilities/Cities"
 
 // Create function
 function Dashboard(props) {
-  const alert = useAlert();
-  const [budgetTitle, setBudgetTitle] = useState("");
-  const [colorScheme, setColorScheme] = useState("Red");
-  const [location, setLocation] = useState("Albany, NY");
+  const alert = useAlert()
+  const [budgetTitle, setBudgetTitle] = useState("")
+  const [colorScheme, setColorScheme] = useState("Red")
+  const [location, setLocation] = useState("Albany, NY")
   const [income, setIncome] = useState("")
-  const backendUrl = process.env.REACT_APP_SERVER_URL;
+  const backendUrl = process.env.REACT_APP_SERVER_URL
   const emptyCategories = {
     housing: {},
     utility: {},
@@ -33,11 +33,11 @@ function Dashboard(props) {
       income: income,
       colorScheme: colorScheme,
       categories: emptyCategories
-    });
+    })
 
     let apiRes2 = await axios.put(backendUrl + "/users/" + props.user.id, {
       firstTimeUser: false
-    });
+    })
 
     props.reFetchUser()
 
@@ -98,8 +98,8 @@ function Dashboard(props) {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
 // Export function
-export default Dashboard;
+export default Dashboard

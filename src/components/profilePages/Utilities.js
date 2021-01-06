@@ -13,8 +13,8 @@ function Utilities(props) {
         inputs={props.inputs}
       />
     </div>
-  );
+  )
 }
 
 // Export function
-export default Utilities;
+export default Utilities

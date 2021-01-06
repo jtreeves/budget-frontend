@@ -1,33 +1,33 @@
-import { useEffect, useState } from "react";
-import NewBudgetForm from "../../utilities/NewBudgetForm";
-import axios from "axios";
+import { useEffect, useState } from "react"
+import NewBudgetForm from "../../utilities/NewBudgetForm"
+import axios from "axios"
 
 const provideColorCode = (colorName) => {
   switch (colorName) {
     case 'Magenta':
-      return '#9f2e71';
+      return '#9f2e71'
     case 'Red':
-      return '#aa0100';
+      return '#aa0100'
     case 'Orange':
-      return '#f68200';
+      return '#f68200'
     case 'Green':
-      return '#367724';
+      return '#367724'
     case 'Blue':
-      return '#116b90';
+      return '#116b90'
     case 'Purple':
-      return '#5e235f';
+      return '#5e235f'
   }
 }
 
 function BudgetsDisplay(props) {
-  const [formDisplayed, setFormDisplayed] = useState(false);
-  const [budgetName, setBudgetName] = useState("");
-  const [colorScheme, setColorScheme] = useState("Magenta");
+  const [formDisplayed, setFormDisplayed] = useState(false)
+  const [budgetName, setBudgetName] = useState("")
+  const [colorScheme, setColorScheme] = useState("Magenta")
   const [copyDataFrom, setCopyDataFrom] = useState("None")
-  const [location, setLocation] = useState("Albany, NY");
+  const [location, setLocation] = useState("Albany, NY")
   const [income, setIncome] = useState("")
   const [copyDataChoices, setCopyDataChoices] = useState([])
-  const backendUrl = process.env.REACT_APP_SERVER_URL;
+  const backendUrl = process.env.REACT_APP_SERVER_URL
   const emptyCategories = {
     housing: {},
     utility: {},
@@ -38,8 +38,8 @@ function BudgetsDisplay(props) {
   }
   
   async function copyDataFilter() {
-    let returnObj;
-    let getId;
+    let returnObj
+    let getId
     if (copyDataFrom === "None") {
       returnObj = emptyCategories
     } else {
@@ -48,7 +48,7 @@ function BudgetsDisplay(props) {
           getId = budget._id
         }
       })
-      let apiRes = await axios.get(backendUrl + "/budgets/" + getId);
+      let apiRes = await axios.get(backendUrl + "/budgets/" + getId)
       returnObj = apiRes.data.budget.categories
     }
     return returnObj
@@ -88,11 +88,11 @@ function BudgetsDisplay(props) {
       categories: inputs,
       location: location,
       income: income
-    });
-    setFormDisplayed(false);
+    })
+    setFormDisplayed(false)
     resetFormInputs()
-    props.loadNewBudget();
-  };
+    props.loadNewBudget()
+  }
 
   const budgetForm = () => {
     if (formDisplayed) {
@@ -110,17 +110,17 @@ function BudgetsDisplay(props) {
           setFormDisplayed={setFormDisplayed}
           handleSubmit={handleSubmit}
         />
-      );
+      )
     } else {
-      return;
+      return
     }
-  };
+  }
 
   const newBudgetButton = () => {
     if (!formDisplayed) {
-      return <button className="button-small subsection-buttons" onClick={() => newButtonClicked()}>New</button>;
+      return <button className="button-small subsection-buttons" onClick={() => newButtonClicked()}>New</button>
     }
-  };
+  }
 
   const budgets = props.budgetArray.map((budget, idx) => {
     return (
@@ -130,8 +130,8 @@ function BudgetsDisplay(props) {
           {budget.title}
         </a>
       </li>
-    );
-  });
+    )
+  })
 
   return (
     <div className="div-budgets">
@@ -142,7 +142,7 @@ function BudgetsDisplay(props) {
       {budgetForm()}
       {newBudgetButton()}
     </div>
-  );
+  )
 }
 
-export default BudgetsDisplay;
+export default BudgetsDisplay

@@ -13,8 +13,8 @@ function Miscellaneous(props) {
         inputs={props.inputs}
       />
     </div>
-  );
+  )
 }
 
 // Export function
-export default Miscellaneous;
+export default Miscellaneous

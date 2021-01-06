@@ -13,8 +13,8 @@ function Food(props) {
         inputs={props.inputs}
       />
     </div>
-  );
+  )
 }
 
 // Export function
-export default Food;
+export default Food

@@ -1,44 +1,42 @@
 import React, { Component } from 'react'
-import calcFunctions from "../../utilities/calcFunctions";
-import { PieChart, Pie, Cell, Tooltip } from 'recharts';
+import calcFunctions from "../../utilities/calcFunctions"
+import { PieChart, Pie, Cell, Tooltip } from 'recharts'
             
-const COLORS = ['#c63b8d', '#eb0000', '#ffb703', '#5cbd3a', '#019be0', '#963899', '#ccc'];
-
-// const RADIAN = Math.PI / 180;                    
+const COLORS = ['#c63b8d', '#eb0000', '#ffb703', '#5cbd3a', '#019be0', '#963899', '#ccc']               
 
 class UserInfoPieChart extends Component{
 
 	render () {
-    let data = [];
-    let totalExpenses = 0;
+    let data = []
+    let totalExpenses = 0
     
     Object.keys(this.props.subTotals).forEach((key) => {
       let chartInput = Object.create({ name: "", value: null })
-      chartInput.name = key;
-      chartInput.value = this.props.subTotals[key];
+      chartInput.name = key
+      chartInput.value = this.props.subTotals[key]
       totalExpenses += chartInput.value
-      data.push(chartInput);
+      data.push(chartInput)
     })
     
-    const amountLeftOver = this.props.income - totalExpenses;
+    const amountLeftOver = this.props.income - totalExpenses
     
     if (amountLeftOver > 0) {
       let chartInput = Object.create({ name: "", value: null })
-      chartInput.name = 'Left Over';
-      chartInput.value = amountLeftOver;
-      data.push(chartInput);
+      chartInput.name = 'Left Over'
+      chartInput.value = amountLeftOver
+      data.push(chartInput)
     }
     
     const provideLabel = (name) => {
       switch (name) {
         case 'utility':
-          return 'Utilities';
+          return 'Utilities'
         case 'food':
-          return 'Food & Drink';
+          return 'Food & Drink'
         case 'misc':
-          return 'Miscellaneous';
+          return 'Miscellaneous'
         default:
-          return name;
+          return name
       }
     }
     
@@ -49,9 +47,9 @@ class UserInfoPieChart extends Component{
             <p className="tooltip-label">{provideLabel(payload[0].name)}</p>
             <p className="tooltip-amount">{calcFunctions.formatCurrency(payload[0].value)}</p>
           </div>
-        );
+        )
       }
-      return null;
+      return null
     }
 
 
@@ -68,8 +66,8 @@ class UserInfoPieChart extends Component{
         <Tooltip content={<CustomTooltip />} />
       </PieChart>
 
-    );
+    )
   }
 }
 
-export default UserInfoPieChart;
+export default UserInfoPieChart

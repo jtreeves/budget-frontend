@@ -54,7 +54,7 @@ function UserNavigation(props) {
       </ul>
       <BudgetsDisplay reFetchBudgets={props.reFetchBudgets} switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
     </div>
-  );
+  )
 }
 
-export default UserNavigation;
+export default UserNavigation

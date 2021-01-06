@@ -1,4 +1,4 @@
-import CategoryDisplay from "../elements/CategoryDisplay";
+import CategoryDisplay from "../elements/CategoryDisplay"
 
 function Housing(props) {
   return (
@@ -12,8 +12,8 @@ function Housing(props) {
         inputs={props.inputs}
       />
     </div>
-  );
+  )
 }
 
 // Export function
-export default Housing;
+export default Housing

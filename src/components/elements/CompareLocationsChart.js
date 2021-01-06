@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
-import calcFunctions from "../../utilities/calcFunctions";
+import React, { PureComponent } from 'react'
+import calcFunctions from "../../utilities/calcFunctions"
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart, ResponsiveContainer
-} from 'recharts';
+} from 'recharts'
 
 const CustomTooltip = ({ payload, active }) => {
   if (active) {
@@ -11,9 +11,9 @@ const CustomTooltip = ({ payload, active }) => {
         <p className="tooltip-amount">Expenses: {calcFunctions.formatCurrency(payload[0].value)}</p>
         <p className="tooltip-amount">Savings: {calcFunctions.formatCurrency(payload[1].value)}</p>
       </div>
-    );
+    )
   }
-  return null;
+  return null
 }
 
 export default class CompareLocationsChart extends PureComponent {
@@ -42,6 +42,6 @@ export default class CompareLocationsChart extends PureComponent {
           <Bar dataKey="Savings" fill="#5cbd3a" />
         </BarChart>
       </ResponsiveContainer>
-    );
+    )
   }
 }

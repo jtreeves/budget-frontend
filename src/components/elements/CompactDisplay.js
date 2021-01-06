@@ -1,5 +1,5 @@
 // Create function
-import calcFunctions from "../../utilities/calcFunctions";
+import calcFunctions from "../../utilities/calcFunctions"
 function CompactDisplay(props) {
   
 
@@ -23,11 +23,11 @@ function CompactDisplay(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 // Export function
-export default CompactDisplay;
+export default CompactDisplay
 
 
 

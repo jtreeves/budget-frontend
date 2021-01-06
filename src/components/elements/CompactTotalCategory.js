@@ -1,17 +1,17 @@
 const provideColorCode = (colorName, opacity) => {
   switch (colorName) {
     case 'Magenta':
-      return `rgba(159, 46, 113, ${opacity})`;
+      return `rgba(159, 46, 113, ${opacity})`
     case 'Red':
-      return `rgba(158, 31, 20, ${opacity})`;
+      return `rgba(158, 31, 20, ${opacity})`
     case 'Orange':
-      return `rgba(234, 135, 50, ${opacity})`;
+      return `rgba(234, 135, 50, ${opacity})`
     case 'Green':
-      return `rgba(70, 117, 49, ${opacity})`;
+      return `rgba(70, 117, 49, ${opacity})`
     case 'Blue':
-      return `rgba(43, 106, 140, ${opacity})`;
+      return `rgba(43, 106, 140, ${opacity})`
     case 'Purple':
-      return `rgba(88, 41, 92, ${opacity})`;
+      return `rgba(88, 41, 92, ${opacity})`
   }
 }
 
@@ -30,8 +30,8 @@ function CompactTotalCategory(props) {
       {heading()}
       <p className="currency">{props.total}</p>
     </div>
-  );
+  )
 }
 
 // Export function
-export default CompactTotalCategory;
+export default CompactTotalCategory

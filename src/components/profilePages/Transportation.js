@@ -13,8 +13,8 @@ function Transportation(props) {
         inputs={props.inputs}
       />
     </div>
-  );
+  )
 }
 
 // Export function
-export default Transportation;
+export default Transportation

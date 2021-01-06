@@ -37,7 +37,7 @@ function EditBudgetForm(props) {
       <button className="button-small button-left" onClick={(e) => props.handleSubmit(e)}>Update</button>
       <button className="button-small" onClick={() => props.setDisplayForm(false)}>Cancel</button>
     </form>
-  );
+  )
 }
 
-export default EditBudgetForm;
+export default EditBudgetForm

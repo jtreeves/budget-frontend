@@ -11,8 +11,8 @@ function About() {
         </p>
       </div>
     </div>
-  );
+  )
 }
 
 // Export function
-export default About;
+export default About

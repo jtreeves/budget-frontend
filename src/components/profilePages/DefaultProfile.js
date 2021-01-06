@@ -1,6 +1,6 @@
 import calcFunctions from '../../utilities/calcFunctions'
-import CompactDisplay from "../elements/CompactDisplay";
-import CompactTotal from "../elements/CompactTotal";
+import CompactDisplay from "../elements/CompactDisplay"
+import CompactTotal from "../elements/CompactTotal"
 
 function DefaultProfile(props) {
 
@@ -20,9 +20,8 @@ function DefaultProfile(props) {
       <CompactDisplay compactContainerId="cc-entertainment" title="Entertainment" inputs={entertainment.inputs} total={subTotals.entertainment}/>
       <CompactDisplay compactContainerId="cc-misc" title="Miscellaneous" inputs={misc.inputs} total={subTotals.misc}/>
     </div>
-  );
+  )
 }
 
 // Export function
-export default DefaultProfile;
-
+export default DefaultProfile

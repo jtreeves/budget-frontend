@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
-import calcFunctions from "../../utilities/calcFunctions";
+import React, { PureComponent } from 'react'
+import calcFunctions from "../../utilities/calcFunctions"
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart, ResponsiveContainer
-} from 'recharts';
+} from 'recharts'
 
 const colorArray = ["red", "green", "blue", "orange", "purple"]
 
@@ -11,17 +11,17 @@ export default class AllBudgetsChartCategories extends PureComponent {
     const provideColorCode = (colorName) => {
       switch (colorName) {
         case 'Magenta':
-          return '#9f2e71';
+          return '#9f2e71'
         case 'Red':
-          return '#aa0100';
+          return '#aa0100'
         case 'Orange':
-          return '#f68200';
+          return '#f68200'
         case 'Green':
-          return '#367724';
+          return '#367724'
         case 'Blue':
-          return '#116b90';
+          return '#116b90'
         case 'Purple':
-          return '#5e235f';
+          return '#5e235f'
       }
     }
     
@@ -37,36 +37,36 @@ export default class AllBudgetsChartCategories extends PureComponent {
           <div className="custom-tooltip">
             {Budgets}
           </div>
-        );
+        )
       }
-      return null;
+      return null
     }
     
     const bars = this.props.budgetArray.map((budget, idx) => {
       return <Bar key={`bar-${idx}`} dataKey={budget.title} fill={provideColorCode(budget.colorScheme)} />
     })
 
-    const updatedData = this.props.data;
+    const updatedData = this.props.data
     
     updatedData.forEach((budget) => {
       switch (budget.name) {
         case 'Housing':
-          budget.name = 'House';
-          break;
+          budget.name = 'House'
+          break
         case 'Utilities':
-          budget.name = 'Util';
-          break;
+          budget.name = 'Util'
+          break
         case 'Transportation':
-          budget.name = 'Tran';
-          break;
+          budget.name = 'Tran'
+          break
         case 'Food & Drink':
-          budget.name = 'Food';
-          break;
+          budget.name = 'Food'
+          break
         case 'Entertainment':
-          budget.name = 'Ent';
-          break;
+          budget.name = 'Ent'
+          break
         default:
-          break;
+          break
       }
     })
     
@@ -97,6 +97,6 @@ export default class AllBudgetsChartCategories extends PureComponent {
           {bars}
         </BarChart>
       </ResponsiveContainer>
-    );
+    )
   }
 }

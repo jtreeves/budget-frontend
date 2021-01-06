@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
-import calcFunctions from "../../utilities/calcFunctions";
+import React, { PureComponent } from 'react'
+import calcFunctions from "../../utilities/calcFunctions"
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
-} from 'recharts';
+} from 'recharts'
 
 const CandyBar = (props) => {
   const {    
@@ -12,12 +12,12 @@ const CandyBar = (props) => {
     height: oHeight,
     value,
     fill
-  } = props;
+  } = props
   
-  let x = oX;
-  let y = oHeight < 0 ? oY + oHeight : oY;
-  let width = oWidth;
-  let height = Math.abs(oHeight);
+  let x = oX
+  let y = oHeight < 0 ? oY + oHeight : oY
+  let width = oWidth
+  let height = Math.abs(oHeight)
 
   return (
    <rect fill={fill}
@@ -26,23 +26,23 @@ const CandyBar = (props) => {
           y={y}
           width={width}
           height={height} />
-    );
-};
+    )
+}
 
 const provideColorCode = (colorName) => {
   switch (colorName) {
     case 'Magenta':
-      return '#9f2e71';
+      return '#9f2e71'
     case 'Red':
-      return '#aa0100';
+      return '#aa0100'
     case 'Orange':
-      return '#f68200';
+      return '#f68200'
     case 'Green':
-      return '#367724';
+      return '#367724'
     case 'Blue':
-      return '#116b90';
+      return '#116b90'
     case 'Purple':
-      return '#5e235f';
+      return '#5e235f'
   }
 }
 
@@ -53,9 +53,9 @@ const CustomTooltip = ({ payload, active }) => {
         <p className="tooltip-amount">Income: {calcFunctions.formatCurrency(payload[0].value)}</p>
         <p className="tooltip-amount">Expenses: {calcFunctions.formatCurrency(payload[1].value)}</p>
       </div>
-    );
+    )
   }
-  return null;
+  return null
 }
 
 export default class AllBudgetsChartTotals extends PureComponent {
@@ -114,7 +114,7 @@ export default class AllBudgetsChartTotals extends PureComponent {
                   key={`cell-${index}`}
                   fill={provideColorCode(budget.colorScheme)}
                 />
-              );
+              )
             })}
           </Bar>
           <Bar dataKey="Expense">
@@ -124,11 +124,11 @@ export default class AllBudgetsChartTotals extends PureComponent {
                   key={`cell-${index}`}
                   fill={provideColorCode(budget.colorScheme)}
                 />
-              );
+              )
             })}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-    );
+    )
   }
 }

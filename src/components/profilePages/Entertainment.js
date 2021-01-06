@@ -13,8 +13,8 @@ function Entertainment(props) {
         inputs={props.inputs}
       />
     </div>
-  );
+  )
 }
 
 // Export function
-export default Entertainment;
+export default Entertainment

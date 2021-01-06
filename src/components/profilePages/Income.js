@@ -13,8 +13,8 @@ function Income(props) {
         inputs={props.inputs}
       />
     </div>
-  );
+  )
 }
 
 // Export function
-export default Income;
+export default Income

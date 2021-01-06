@@ -28,4 +28,4 @@ function CategoryCharts(props) {
 }
 
 // Export function
-export default CategoryCharts;
+export default CategoryCharts

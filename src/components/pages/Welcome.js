@@ -1,4 +1,4 @@
-import Signup from './Signup';
+import Signup from './Signup'
 
 // Create function
 function Welcome(props) {
@@ -15,8 +15,8 @@ function Welcome(props) {
       </div>
       <Signup handleLoginAfterSignup={props.handleLoginAfterSignup} />
     </div>
-  );
+  )
 }
 
 // Export function
-export default Welcome;
+export default Welcome

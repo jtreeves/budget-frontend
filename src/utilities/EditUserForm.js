@@ -8,7 +8,7 @@ function EditUserForm(props) {
             onChange={(e) => props.setUserName(e.target.value)}
             />
         </form>
-    );
+    )
 }
 
-export default EditUserForm;
+export default EditUserForm

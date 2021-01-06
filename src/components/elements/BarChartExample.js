@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-} from 'recharts';
+} from 'recharts'
 
 
 export default class AllBudgetsChart extends PureComponent {
@@ -26,6 +26,6 @@ export default class AllBudgetsChart extends PureComponent {
         <Legend />
         <Bar dataKey="uv" fill="#82ca9d" />
       </BarChart>
-    );
+    )
   }
 }

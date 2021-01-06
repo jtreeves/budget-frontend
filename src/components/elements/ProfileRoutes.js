@@ -112,8 +112,8 @@ function ProfileRoutes(props) {
         />
 
     </div>
-  );
+  )
 }
 
 // Export function
-export default ProfileRoutes;
+export default ProfileRoutes

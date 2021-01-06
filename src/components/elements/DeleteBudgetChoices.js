@@ -11,7 +11,7 @@ function DeleteBudgetChoices(props) {
       <button className="button-small button-left" onClick={() => deleteConfirmed()}>Delete</button>
       <button className="button-small" onClick={() => props.setDeletePressed(false)}>Cancel</button>
     </div>
-  );
+  )
 }
 
-export default DeleteBudgetChoices;
+export default DeleteBudgetChoices

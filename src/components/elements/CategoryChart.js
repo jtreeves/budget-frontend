@@ -1,23 +1,23 @@
-import React, { PureComponent } from 'react';
-import calcFunctions from "../../utilities/calcFunctions";
+import React, { PureComponent } from 'react'
+import calcFunctions from "../../utilities/calcFunctions"
 import {
 BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
-} from 'recharts';
+} from 'recharts'
 
 const provideColorCode = (colorName) => {
   switch (colorName) {
     case 'housing':
-      return '#c63b8d';
+      return '#c63b8d'
     case 'utility':
-      return '#eb0000';
+      return '#eb0000'
     case 'food':
-      return '#ffb703';
+      return '#ffb703'
     case 'transportation':
-      return '#5cbd3a';
+      return '#5cbd3a'
     case 'entertainment':
-      return '#019be0';
+      return '#019be0'
     case 'misc':
-      return '#963899';
+      return '#963899'
   }
 }
 
@@ -27,9 +27,9 @@ const CustomTooltip = ({ payload, active }) => {
       <div className="custom-tooltip">
         <p className="tooltip-amount">{calcFunctions.formatCurrency(payload[0].value)}</p>
       </div>
-    );
+    )
   }
-  return null;
+  return null
 }
 
 export default class Example extends PureComponent {
@@ -59,7 +59,7 @@ export default class Example extends PureComponent {
           />
         </BarChart>
       </ResponsiveContainer>
-    );
+    )
   }
 }
 

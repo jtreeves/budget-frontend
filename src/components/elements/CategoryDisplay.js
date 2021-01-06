@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from "react"
 
-import CompactTotalCategory from "../elements/CompactTotalCategory";
-import CategoryCharts from "./CategoryCharts";
-import CompactDisplayCategory from "../elements/CompactDisplayCategory";
-import calcFunctions from "../../utilities/calcFunctions";
+import CompactTotalCategory from "../elements/CompactTotalCategory"
+import CategoryCharts from "./CategoryCharts"
+import CompactDisplayCategory from "../elements/CompactDisplayCategory"
+import calcFunctions from "../../utilities/calcFunctions"
 
 
 // Create function
@@ -12,7 +12,7 @@ function CategoryDisplay(props) {
   const [newInput, setNewInput] = useState({
     inputName: "",
     inputValue: "",
-  });
+  })
 
   const inputs = Object.keys(props.inputs).map((key, idx) => {
     return <CompactDisplayCategory 
@@ -21,12 +21,12 @@ function CategoryDisplay(props) {
     key={idx} 
     inputName={key}
     inputValue={props.inputs[key]}
-    />;
+    />
   })
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.addBudgetInput(props.budgetKey, newInput);
+    props.addBudgetInput(props.budgetKey, newInput)
     setNewInput({
       inputName: "",
       inputValue: ""
@@ -47,7 +47,7 @@ function CategoryDisplay(props) {
               setNewInput({
                 inputName: e.target.value,
                 inputValue: newInput.inputValue,
-              });
+              })
             }}
             placeholder="Expense Name (e.g. Rent)"
           />
@@ -59,7 +59,7 @@ function CategoryDisplay(props) {
               setNewInput({
                 inputName: newInput.inputName,
                 inputValue: e.target.value,
-              });
+              })
             }}
             placeholder="Amount"
           />
@@ -72,8 +72,8 @@ function CategoryDisplay(props) {
       </form>
       {inputs}
     </div>
-  );
+  )
 }
 
 // Export function
-export default CategoryDisplay;
+export default CategoryDisplay

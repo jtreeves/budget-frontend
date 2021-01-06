@@ -1,4 +1,4 @@
-import calcFunctions from "../../utilities/calcFunctions";
+import calcFunctions from "../../utilities/calcFunctions"
 
 // Create function
 function CompactDisplayCategory(props) {
@@ -26,8 +26,8 @@ function CompactDisplayCategory(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 // Export function
-export default CompactDisplayCategory;
+export default CompactDisplayCategory

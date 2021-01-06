@@ -1,37 +1,37 @@
-import { useState, useEffect } from "react";
-import BudgetInfo from "./BudgetInfo";
-import DeleteBudgetChoices from "./DeleteBudgetChoices";
-import EditBudgetForm from "../../utilities/EditBudgetForm";
-import EditUserForm from "../../utilities/EditUserForm";
-import calcFunctions from "../../utilities/calcFunctions";
-import UserInfoPieChart from "./UserInfoPieChart";
-import axios from "axios";
+import { useState, useEffect } from "react"
+import BudgetInfo from "./BudgetInfo"
+import DeleteBudgetChoices from "./DeleteBudgetChoices"
+import EditBudgetForm from "../../utilities/EditBudgetForm"
+import EditUserForm from "../../utilities/EditUserForm"
+import calcFunctions from "../../utilities/calcFunctions"
+import UserInfoPieChart from "./UserInfoPieChart"
+import axios from "axios"
 
 function UserInfo(props) {
-  const [displayForm, setDisplayForm] = useState(false);
-  const [deletePressed, setDeletePressed] = useState(false);
-  const [budgetName, setBudgetName] = useState(props.budget.title);
-  const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
-  const [location, setLocation] = useState(props.budget.location);
-  const [income, setIncome] = useState(props.budget.income);
+  const [displayForm, setDisplayForm] = useState(false)
+  const [deletePressed, setDeletePressed] = useState(false)
+  const [budgetName, setBudgetName] = useState(props.budget.title)
+  const [colorScheme, setColorScheme] = useState(props.budget.colorScheme)
+  const [location, setLocation] = useState(props.budget.location)
+  const [income, setIncome] = useState(props.budget.income)
   const [userName, setUserName] = useState(props.userName)
-  const [userDeletePressed, setUserDeletePressed] = useState(false);
-  const [editNamePressed, setEditNamePressed] = useState(false);
-  const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
-  const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
-  const monthlyExpenseNum = calcFunctions.calcExpenseTotals(props.budget);
-  const monthlyIncome = calcFunctions.formatCurrency(props.budget.income / 12);
-  const monthlyIncomeNum = props.budget.income / 12;
-  const budgetDifference = calcFunctions.formatCurrency(monthlyIncomeNum - monthlyExpenseNum);
-  const backendUrl = process.env.REACT_APP_SERVER_URL;
+  const [userDeletePressed, setUserDeletePressed] = useState(false)
+  const [editNamePressed, setEditNamePressed] = useState(false)
+  const subTotals = calcFunctions.calcBudgetSubTotals(props.budget)
+  const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget))
+  const monthlyExpenseNum = calcFunctions.calcExpenseTotals(props.budget)
+  const monthlyIncome = calcFunctions.formatCurrency(props.budget.income / 12)
+  const monthlyIncomeNum = props.budget.income / 12
+  const budgetDifference = calcFunctions.formatCurrency(monthlyIncomeNum - monthlyExpenseNum)
+  const backendUrl = process.env.REACT_APP_SERVER_URL
 
   useEffect(() => {
-    setDisplayForm(false);
-    setBudgetName(props.budget.title);
-    setIncome(props.budget.income);
-    setLocation(props.budget.location);
-    setColorScheme(props.budget.colorScheme);
-  }, [props.budget]);
+    setDisplayForm(false)
+    setBudgetName(props.budget.title)
+    setIncome(props.budget.income)
+    setLocation(props.budget.location)
+    setColorScheme(props.budget.colorScheme)
+  }, [props.budget])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -41,17 +41,17 @@ function UserInfo(props) {
       categories: props.budget.categories,
       location: location,
       income: income
-    });
-    setDisplayForm(false);
-    props.reFetchBudgets(props.budget);
-  };
+    })
+    setDisplayForm(false)
+    props.reFetchBudgets(props.budget)
+  }
 
   const handleUserSubmit = async (e) => {
     e.preventDefault()
     let apiRes = await axios.put(backendUrl + "/users/" + props.id, {
       newName: userName
-    });
-    setEditNamePressed(false);
+    })
+    setEditNamePressed(false)
     props.reFetchUser()
   }
 
@@ -113,10 +113,10 @@ function UserInfo(props) {
 
   const deleteUser = async () => {
     try {
-      props.handleLogout();
-      await axios.delete(backendUrl + "/users/" + props.id);
+      props.handleLogout()
+      await axios.delete(backendUrl + "/users/" + props.id)
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   }
 
@@ -136,7 +136,7 @@ function UserInfo(props) {
           budgetName={budgetName}
           _id={props.budget._id}
         />
-      );
+      )
     } else if (deletePressed) {
       return (
         <DeleteBudgetChoices
@@ -147,7 +147,7 @@ function UserInfo(props) {
           _id={props.budget._id}
           budget={props.budget}
         />
-      );
+      )
     } else {
       return (
         <BudgetInfo
@@ -160,32 +160,32 @@ function UserInfo(props) {
           _id={props.budget._id}
           setDeletePressed={setDeletePressed}
         />
-      );
+      )
     }
-  };
+  }
 
   const breakdown = Object.keys(subTotals).map((key, idx) => {
     return (
       <li key={idx}>
         {key}: ${subTotals[key]}
       </li>
-    );
-  });
+    )
+  })
 
   const provideColorCode = (colorName) => {
     switch (colorName) {
       case 'Magenta':
-        return '#9f2e71';
+        return '#9f2e71'
       case 'Red':
-        return '#aa0100';
+        return '#aa0100'
       case 'Orange':
-        return '#f68200';
+        return '#f68200'
       case 'Green':
-        return '#367724';
+        return '#367724'
       case 'Blue':
-        return '#116b90';
+        return '#116b90'
       case 'Purple':
-        return '#5e235f';
+        return '#5e235f'
     }
   }
 
@@ -213,8 +213,8 @@ function UserInfo(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 // Export function
-export default UserInfo;
+export default UserInfo

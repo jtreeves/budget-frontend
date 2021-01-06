@@ -1,14 +1,14 @@
 // Import external dependency
-import { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
+import { useState } from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 
-import Login from '../pages/Login';
+import Login from '../pages/Login'
 
 // Create function
 function Navigation(props) {
   // Set state
-  const [loginVisible, setLoginVisible] = useState(false);
+  const [loginVisible, setLoginVisible] = useState(false)
 
   // Toggle login form visibility
   document.onmousedown = (e) => {
@@ -62,8 +62,8 @@ function Navigation(props) {
         />
       </CSSTransition>
     </nav>
-  );
+  )
 }
 
 // Export function
-export default Navigation;
+export default Navigation

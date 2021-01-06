@@ -6,7 +6,7 @@ const formatCurrency = (num) => {
 
 
 function calcAllBudgetTotals (array) {
-  let budgetTotals = [];
+  let budgetTotals = []
   array.forEach((budget) => {
     let abbrevBudget = {
       title: budget.title,
@@ -39,24 +39,24 @@ function calcAllBudgetTotals (array) {
 }
 
 function calcBudgetSubTotals (budget) {
-  let budgetTotals = {};
+  let budgetTotals = {}
   
   Object.keys(budget.categories).forEach((category) => {
-    let sum = 0;
+    let sum = 0
     Object.values(budget.categories[category].inputs).forEach((value) => {
       sum += parseFloat(value)
     })
-    budgetTotals[category] = sum;
+    budgetTotals[category] = sum
   })
-  return budgetTotals;
+  return budgetTotals
 }
 
 function calcCategoryTotal (inputs) {
-  let total = 0;
+  let total = 0
   Object.values(inputs).forEach((value) => {
     total += parseFloat(value)
   })
-  return formatCurrency(total);
+  return formatCurrency(total)
 }
 
 function calcExpenseTotals (budget) {
@@ -68,8 +68,7 @@ function calcExpenseTotals (budget) {
         }
     })
   })
-  return total;
-  // return formatCurrency(total);
+  return total
 }
 
 const calcFunctions = {
@@ -81,5 +80,4 @@ const calcFunctions = {
 }
 
 
-export default calcFunctions;
-
+export default calcFunctions

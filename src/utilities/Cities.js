@@ -72,13 +72,13 @@ function Cities(props) {
 
   function dontShowLabel() {
     if (props.dontShowLabel) {
-      return;
+      return
     } else {
       return (
         <label htmlFor="cities">
           <strong>Location</strong>
         </label>
-      );
+      )
     }
   }  
 
@@ -92,4 +92,4 @@ function Cities(props) {
   )
 }
 
-export default Cities;
+export default Cities

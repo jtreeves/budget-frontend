@@ -1,5 +1,5 @@
 // Import internal component
-import FormGroup from '../elements/FormGroup';
+import FormGroup from '../elements/FormGroup'
 
 // Create function
 function Login(props) {
@@ -22,8 +22,8 @@ function Login(props) {
         />
         <button
           onClick={(e) => {
-            e.preventDefault();
-            props.handleLogin();
+            e.preventDefault()
+            props.handleLogin()
           }}
           type="submit"
         >
@@ -31,8 +31,8 @@ function Login(props) {
         </button>
       </form>
     </div>
-  );
+  )
 }
 
 // Export function
-export default Login;
+export default Login
