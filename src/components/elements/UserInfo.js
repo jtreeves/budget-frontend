@@ -6,8 +6,10 @@ import EditUserForm from "../../utilities/EditUserForm";
 import calcFunctions from "../../utilities/calcFunctions";
 import UserInfoPieChart from "./UserInfoPieChart";
 import axios from "axios";
+import { useAlert } from "react-alert";
 
 function UserInfo(props) {
+  const alert = useAlert();
   const [displayForm, setDisplayForm] = useState(false);
   const [deletePressed, setDeletePressed] = useState(false);
   const [budgetName, setBudgetName] = useState(props.budget.title);
@@ -35,6 +37,10 @@ function UserInfo(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (budgetName === "") {
+      alert.show("Budget must have a name")
+      return
+    }
     let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
       colorScheme: colorScheme,
@@ -119,10 +125,17 @@ function UserInfo(props) {
     }
   }
 
+  const resetInputFields = () => {
+    setColorScheme(props.budget.colorScheme)
+    setDisplayForm(true)
+  }
+
   const infoOrForm = () => {
     if (displayForm && !deletePressed) {
       return (
         <EditBudgetForm
+          currentColor={props.budget.colorScheme}
+          colorsAvailable={props.colorsAvailable}
           location={location}
           setLocation={setLocation}
           income={income}
@@ -150,6 +163,7 @@ function UserInfo(props) {
     } else {
       return (
         <BudgetInfo
+          resetInputFields={resetInputFields}
           budgetArray={props.budgetArray}
           setDisplayForm={setDisplayForm}
           title={props.budget.title}
@@ -170,6 +184,8 @@ function UserInfo(props) {
       </li>
     );
   });
+
+
 
   const provideColorCode = (colorName) => {
     switch (colorName) {
