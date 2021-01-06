@@ -608,7 +608,6 @@ body .div-container-app .div-profile-page .div-user-info .div-account-settings .
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
 }
 body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit-confirm form {
   padding: 0;
@@ -616,8 +615,10 @@ body .div-container-app .div-profile-page .div-user-info .div-account-settings .
 }
 body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-delete-confirm {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+}
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-delete-confirm p {
+  margin-bottom: 2px;
 }
 body .div-container-app .div-profile-page .div-user-info .div-current-budget {
   padding: 12px;
