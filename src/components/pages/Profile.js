@@ -17,23 +17,6 @@ function Profile(props) {
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
-  let colorFlagNum = 0;
-  
-  const establishColors = () => {
-    const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
-    let budgetColorsInUse = []
-      budgetArray.forEach((budget) => {
-        budgetColorsInUse.push(budget.colorScheme)
-      })
-
-      let filteredColors = allColors.filter(
-        function(e) {
-          return this.indexOf(e) < 0;
-        },
-        budgetColorsInUse
-      );
-      return filteredColors
-  }
   
   // State
   const [budget, setBudget] = useState({});

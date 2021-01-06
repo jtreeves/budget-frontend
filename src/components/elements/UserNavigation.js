@@ -52,7 +52,7 @@ function UserNavigation(props) {
           </Link>
         </li>
       </ul>
-      <BudgetsDisplay updateColorsFlag={props.updateColorsFlag} setUpdateColorsFlag={props.setUpdateColorsFlag} colorsAvailable={props.colorsAvailable} reFetchBudgets={props.reFetchBudgets} switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
+      <BudgetsDisplay colorsAvailable={props.colorsAvailable} reFetchBudgets={props.reFetchBudgets} switchBudgets={props.switchBudgets} loadNewBudget={props.loadNewBudget} user={props.user} budgetArray={props.budgetArray}/>
     </div>
   );
 }
