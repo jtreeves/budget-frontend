@@ -79,10 +79,15 @@ function Housing(props) {
   ]
 
   return (
-    <div>
-      <h3>Totals</h3>
-      <AllBudgetsChartTotals data={totalsData}/>
-      <h3>Across Categories</h3>
+    <div className="div-compare-budgets-page">
+      <h2>Compare Budgets</h2>
+      <h3>Monthly Income & Expenses</h3>
+      <AllBudgetsChartTotals
+        data={totalsData}
+        colorScheme={props.budget.colorScheme}
+        budgetArray={props.budgetArray}
+      />
+      <h3 className="compare-budgets-heading2">Monthly Expenses by Category</h3>
       <AllBudgetsChartCategories budgetArray={props.budgetArray} data={catagoriesData}/>
     </div>
   );

@@ -1,40 +1,102 @@
 import React, { PureComponent } from 'react';
+import calcFunctions from "../../utilities/calcFunctions";
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart,
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart, ResponsiveContainer
 } from 'recharts';
 
 const colorArray = ["red", "green", "blue", "orange", "purple"]
-export default class AllBudgetsChartCategories extends PureComponent {
 
+export default class AllBudgetsChartCategories extends PureComponent {
   render() {
-    
-    let color = 0;
-    const bars = this.props.budgetArray.map((budget, idx) => {
-      if (color >= colorArray.length) {
-        color = 0;
-      } else {
-        color += 1;
+    const provideColorCode = (colorName) => {
+      switch (colorName) {
+        case 'Magenta':
+          return '#9f2e71';
+        case 'Red':
+          return '#aa0100';
+        case 'Orange':
+          return '#f68200';
+        case 'Green':
+          return '#367724';
+        case 'Blue':
+          return '#116b90';
+        case 'Purple':
+          return '#5e235f';
       }
-      return <Bar key={idx} dataKey={budget.title} fill={colorArray[color]} />
+    }
+    
+    const CustomTooltip = ({ payload, active }) => {
+      const Budgets = payload.map((budget, idx) => {
+        return (
+          <p key={`budget-${idx}`}>{budget.name}: {calcFunctions.formatCurrency(budget.value)}</p>
+        )
+      })
+      
+      if (active) {
+        return (
+          <div className="custom-tooltip">
+            {Budgets}
+          </div>
+        );
+      }
+      return null;
+    }
+    
+    const bars = this.props.budgetArray.map((budget, idx) => {
+      return <Bar key={`bar-${idx}`} dataKey={budget.title} fill={provideColorCode(budget.colorScheme)} />
     })
 
+    const updatedData = this.props.data;
+    
+    updatedData.forEach((budget) => {
+      switch (budget.name) {
+        case 'Housing':
+          budget.name = 'House';
+          break;
+        case 'Utilities':
+          budget.name = 'Util';
+          break;
+        case 'Transportation':
+          budget.name = 'Tran';
+          break;
+        case 'Food & Drink':
+          budget.name = 'Food';
+          break;
+        case 'Entertainment':
+          budget.name = 'Ent';
+          break;
+        default:
+          break;
+      }
+    })
+    
     return (
-      <BarChart
-        layout="vertical"
-        width={600}
-        height={700}
-        data={this.props.data}
-        margin={{
-          top: 0, right: 0, bottom: 0, left: 70,
-        }}
+      <ResponsiveContainer
+      className="chart-category-summary"
+      width="100%"
+      height={600}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis type="number" />
-        <YAxis dataKey="name" type="category"/>
-        <Tooltip />
-        <Legend />
-        {bars}
-      </BarChart>
+        <BarChart
+          layout="vertical"
+          data={this.props.data}
+        >
+          <XAxis
+            type="number"
+            tickLine={false}
+          />
+          <YAxis
+            dataKey="name"
+            type="category"
+            tickLine={false}
+          />
+          <Tooltip
+            content={<CustomTooltip />}
+            cursor={{ fill: 'rgba(255, 255, 255, 0.5)' }}
+          />
+          <Legend />
+          {bars}
+        </BarChart>
+      </ResponsiveContainer>
     );
   }
 }

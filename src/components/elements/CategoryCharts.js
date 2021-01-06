@@ -13,10 +13,9 @@ function CategoryCharts(props) {
 
     if (newData.length === 0) {
       return (
-        <div>
-          <h2>No data to display</h2>
-          <h2>Enter data below</h2>
-          <h1> &darr; </h1>
+        <div className="div-no-data">
+          <p>Let's get started!</p>
+          <p>Add an expense below.</p>
         </div>
       )
     } else {

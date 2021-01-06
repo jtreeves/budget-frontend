@@ -24,6 +24,8 @@ function Profile(props) {
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
   const [colorsAvailable, setColorsAvailable] = useState([])
+  const [userName, setUserName] = useState(name)
+
 
   // Backend API crud
   useEffect(() => {
@@ -86,6 +88,7 @@ function Profile(props) {
   const reFetchUser = async () => {
     let apiRes = await axios.get(backendUrl + "/users/" + id);
     setFirstTimeUser(apiRes.data.user.firstTimeUser)
+    setUserName(apiRes.data.user.name)
   }
   
   const reFetchBudgets = async (budget) => {
@@ -191,6 +194,16 @@ function Profile(props) {
     }
   }
 
+  const changeBkgColor = () => {
+    if (
+    window.location.pathname === '/profile/compare-budgets' ||
+    window.location.pathname === '/profile/compare-locations') {
+      return { backgroundColor: '#edeef1' };
+    } else {
+      return { backgroundColor: provideColorCode(budget.colorScheme, '0.2') };
+    }
+  }
+
   // Success Display
   const userData = budgetsLoaded ? (
     <>
@@ -207,17 +220,22 @@ function Profile(props) {
         <UserInfo
           budgetArray={budgetArray}
           deleteBudget={deleteBudget}
+          userName={userName}
           name={name}
           email={email}
           id={id}
           reFetchBudgets={reFetchBudgets}
+          reFetchUser={reFetchUser}
           budget={budget}
           handleLogout={handleLogout}
           colorsAvailable={colorsAvailable}
         />
 
 
-        <div className="div-profile-workspace" style={{ backgroundColor: provideColorCode(budget.colorScheme, '0.2') }}>
+        <div
+          className="div-profile-workspace"
+          style={changeBkgColor()}
+        >
           <ProfileRoutes
             budgetArray={budgetArray}
             deleteBudgetInput={deleteBudgetInput}
