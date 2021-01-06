@@ -28,12 +28,11 @@ export default class AllBudgetsChartCategories extends PureComponent {
     const CustomTooltip = ({ payload, active }) => {
       const Budgets = payload.map((budget, idx) => {
         return (
-          <p>{budget.name}: {calcFunctions.formatCurrency(budget.value)}</p>
+          <p key={`budget-${idx}`}>{budget.name}: {calcFunctions.formatCurrency(budget.value)}</p>
         )
       })
       
       if (active) {
-        console.log(payload);
         return (
           <div className="custom-tooltip">
             {Budgets}
@@ -75,7 +74,7 @@ export default class AllBudgetsChartCategories extends PureComponent {
       <ResponsiveContainer
       className="chart-category-summary"
       width="100%"
-      height={700}
+      height={600}
       >
         <BarChart
           layout="vertical"

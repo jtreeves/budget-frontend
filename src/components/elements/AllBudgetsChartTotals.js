@@ -90,7 +90,7 @@ export default class AllBudgetsChartTotals extends PureComponent {
             content={<CustomTooltip />}
             cursor={{ fill: 'rgba(255, 255, 255, 0.5)' }}
           />
-          {/* <Legend 
+          <Legend 
             payload={
               [
                 {
@@ -103,7 +103,7 @@ export default class AllBudgetsChartTotals extends PureComponent {
                 }
               ]
             }
-          /> */}
+          />
           <Bar
             dataKey="Income"
             shape={<CandyBar />}

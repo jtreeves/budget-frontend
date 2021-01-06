@@ -174,35 +174,47 @@ function CompareLocations(props) {
 
   const cities = citiesToCompare.map((city, idx) => {
     return (
-      <button onClick={() => deleteCity({ city })} key={idx}>
-        {city}
+      <button className="button-small" onClick={() => deleteCity({ city })} key={idx}>
+        <span className="city-x">X</span>  {city}
       </button>
     );
   });
 
   return (
-    <div>
+    <div className="div-compare-locations-page">
       <h2>Compare Locations</h2>
-      <div>
-        <h3>Your Location: {props.budget.location}</h3>
-        <div className="helper">
-          <LocationIndices 
-          budgetLocationCPI={budgetLocationCPI}
-          budgetLocationHealthCare={budgetLocationHealthCare}
-          budgetLocationRent={budgetLocationRent}
-          budgetLocationGroceries={budgetLocationGroceries}
-          budgetLocationRestaurants={budgetLocationRestaurants}
-          />
-        </div>
-        <h3>Add city to compare</h3>
+
+      <form noValidate>
+        <p>Add a city to compare</p>
         <Cities
           setLocation={setSelectedCity}
           location={selectedCity}
           dontShowLabel={true}
         />
-        <button onClick={() => addCity()}>Add City</button>
-        <div>{cities}</div>
-        <CompareLocationsChart data={formatChartData()} />
+        <button onClick={(e) => {
+          e.preventDefault();
+          addCity();
+        }}>
+          Add
+        </button>
+      </form>
+
+      <CompareLocationsChart data={formatChartData()} />
+
+      <div className="div-compare-locations-footer">
+        <div className="div-location-info">
+          <p>Facts about your location</p>
+          <h3>{props.budget.location}</h3>
+          <LocationIndices 
+            budgetLocationCPI={budgetLocationCPI}
+            budgetLocationHealthCare={budgetLocationHealthCare}
+            budgetLocationRent={budgetLocationRent}
+            budgetLocationGroceries={budgetLocationGroceries}
+            budgetLocationRestaurants={budgetLocationRestaurants}
+          />
+        </div>
+
+        <div className="div-comparison-cities">{cities}</div>
       </div>
     </div>
   );
