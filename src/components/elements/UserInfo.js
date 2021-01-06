@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import BudgetInfo from "./BudgetInfo";
 import DeleteBudgetChoices from "./DeleteBudgetChoices";
 import EditBudgetForm from "../../utilities/EditBudgetForm";
+import EditUserForm from "../../utilities/EditUserForm";
 import calcFunctions from "../../utilities/calcFunctions";
 import UserInfoPieChart from "./UserInfoPieChart";
 import axios from "axios";
@@ -12,8 +13,10 @@ function UserInfo(props) {
   const [budgetName, setBudgetName] = useState(props.budget.title);
   const [colorScheme, setColorScheme] = useState(props.budget.colorScheme);
   const [location, setLocation] = useState(props.budget.location);
-  const [income, setIncome] = useState(props.budget.income)
+  const [income, setIncome] = useState(props.budget.income);
+  const [userName, setUserName] = useState(props.userName)
   const [userDeletePressed, setUserDeletePressed] = useState(false);
+  const [editNamePressed, setEditNamePressed] = useState(false);
   const subTotals = calcFunctions.calcBudgetSubTotals(props.budget);
   const monthlyExpense = calcFunctions.formatCurrency(calcFunctions.calcExpenseTotals(props.budget));
   const monthlyExpenseNum = calcFunctions.calcExpenseTotals(props.budget);
@@ -43,6 +46,15 @@ function UserInfo(props) {
     props.reFetchBudgets(props.budget);
   };
 
+  const handleUserSubmit = async (e) => {
+    e.preventDefault()
+    let apiRes = await axios.put(backendUrl + "/users/" + props.id, {
+      newName: userName
+    });
+    setEditNamePressed(false);
+    props.reFetchUser()
+  }
+
   const userInfoButtons = () => {
     if (!userDeletePressed) {
       return (
@@ -61,6 +73,36 @@ function UserInfo(props) {
               Delete
             </button>
             <button className="button-small" onClick={() => setUserDeletePressed(false)}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )
+    }
+  }
+
+  const userNameButtons = () => {
+    if(!editNamePressed) {
+      return(
+        <div className="div-user-delete">
+          <button className="button-small" onClick={() => setEditNamePressed(true)}>
+            Edit Name
+          </button>
+        </div>
+      )
+    } else if (editNamePressed) {
+      return (
+        <div className="div-user-delete-confiirm">
+          <EditUserForm 
+          userName={userName}
+          setUserName={setUserName}
+          />
+          <p>Are you sure?</p>
+          <div>
+            <button className="button-small button-left" onClick={(e) => handleUserSubmit(e)}>
+              Yes
+            </button>
+            <button className="button-small" onClick={() => setEditNamePressed(false)}>
               Cancel
             </button>
           </div>
@@ -150,10 +192,11 @@ function UserInfo(props) {
   return (
     <div className="div-user-info">
       <div className="div-user-name">
-        <h4>{props.name}</h4>
+        <h4>{props.userName}</h4>
         <button className="button-small" onClick={props.handleLogout}>Log Out</button>
       </div>
 
+      {userNameButtons()}
       {userInfoButtons()}
 
       <div className="div-current-budget">

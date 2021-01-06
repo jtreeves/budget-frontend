@@ -23,6 +23,7 @@ function Profile(props) {
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
+  const [userName, setUserName] = useState(name)
 
   // Backend API crud
   useEffect(() => {
@@ -64,6 +65,7 @@ function Profile(props) {
   const reFetchUser = async () => {
     let apiRes = await axios.get(backendUrl + "/users/" + id);
     setFirstTimeUser(apiRes.data.user.firstTimeUser)
+    setUserName(apiRes.data.user.name)
   }
   
   const reFetchBudgets = async (budget) => {
@@ -184,10 +186,12 @@ function Profile(props) {
         <UserInfo
           budgetArray={budgetArray}
           deleteBudget={deleteBudget}
+          userName={userName}
           name={name}
           email={email}
           id={id}
           reFetchBudgets={reFetchBudgets}
+          reFetchUser={reFetchUser}
           budget={budget}
           handleLogout={handleLogout}
         />
