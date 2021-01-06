@@ -12,10 +12,10 @@ function NewBudgetForm(props) {
   return (
     <form className="form-small">
       <label htmlFor="budgetName">Name</label>
-      <input id="budgetName" type="text" value={props.title} onChange={(e) => props.setName(e.target.value)}/>
+      <input placeholder="New Budget" id="budgetName" type="text" value={props.title} onChange={(e) => props.setName(e.target.value)}/>
       
       <label htmlFor="budgetIncome">Annual Income</label>
-      <input id="budgetIncome" type="number" value={props.income} onChange={(e) => props.setIncome(e.target.value)}/>
+      <input placeholder="50000" id="budgetIncome" type="number" value={props.income} onChange={(e) => props.setIncome(e.target.value)}/>
 
       <Cities setLocation={props.setLocation}/>
 

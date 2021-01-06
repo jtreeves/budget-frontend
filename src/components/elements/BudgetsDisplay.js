@@ -87,6 +87,10 @@ function BudgetsDisplay(props) {
       alert.show("Budget must have a name")
       return
     }
+    if (income === "") {
+      alert.show("Income must has a value")
+      return
+    }
     let inputs = await copyDataFilter()
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,
