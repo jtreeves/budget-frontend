@@ -10,7 +10,6 @@ const CandyBar = (props) => {
     y: oY,
     width: oWidth,
     height: oHeight,
-    value,
     fill
   } = props
   

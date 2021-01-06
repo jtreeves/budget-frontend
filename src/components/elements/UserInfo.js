@@ -35,7 +35,7 @@ function UserInfo(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
+    await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
       colorScheme: colorScheme,
       categories: props.budget.categories,
@@ -48,7 +48,7 @@ function UserInfo(props) {
 
   const handleUserSubmit = async (e) => {
     e.preventDefault()
-    let apiRes = await axios.put(backendUrl + "/users/" + props.id, {
+    await axios.put(backendUrl + "/users/" + props.id, {
       newName: userName
     })
     setEditNamePressed(false)
@@ -163,14 +163,6 @@ function UserInfo(props) {
       )
     }
   }
-
-  const breakdown = Object.keys(subTotals).map((key, idx) => {
-    return (
-      <li key={idx}>
-        {key}: ${subTotals[key]}
-      </li>
-    )
-  })
 
   const provideColorCode = (colorName) => {
     switch (colorName) {

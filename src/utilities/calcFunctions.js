@@ -12,7 +12,6 @@ function calcAllBudgetTotals (array) {
       totalIncome: parseFloat((budget.income / 12).toFixed(2)),
     }
     Object.keys(budget.categories).forEach((key) => {
-      let total = 0
       Object.values(budget.categories[key]).forEach((inputs) => {
         if (key === "income") {
           if (typeof inputs === "object") {          

@@ -50,7 +50,7 @@ function Profile(props) {
   useEffect(() => {
     async function autoSave() {
       if (budgetsLoaded) {
-        let apiRes = await axios.put(backendUrl + "/budgets/" + budget._id, {
+        await axios.put(backendUrl + "/budgets/" + budget._id, {
           categories: budget.categories,
         })
       }
@@ -99,9 +99,9 @@ function Profile(props) {
       budgetArrayCopy.splice(index, 1)
       await setBudgetArray(budgetArrayCopy)
       await setBudget(budgetArray[0])
-      let apiRes = await axios.delete(backendUrl + "/budgets/" + budgetId)
-      let apiRes2 = await axios.get(backendUrl + "/budgets/all/" + id)
-      let budgets = await apiRes2.data.budgets
+      await axios.delete(backendUrl + "/budgets/" + budgetId)
+      let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+      let budgets = await apiRes.data.budgets
       await setBudgetArray(budgets)
       await setBudget(budgets[0])
     }

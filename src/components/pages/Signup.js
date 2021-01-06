@@ -49,7 +49,7 @@ function Signup(props) {
         if (password.length >= 8) {
           // Create new user if both checks pass
           const newUser = { name, email, password }
-          const reqData = await axios.post(`${REACT_APP_SERVER_URL}/users/signup`, newUser)
+          await axios.post(`${REACT_APP_SERVER_URL}/users/signup`, newUser)
           // Automatically login new user
           props.handleLoginAfterSignup(email, password)
         } else {

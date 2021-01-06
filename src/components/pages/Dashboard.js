@@ -27,7 +27,7 @@ function Dashboard(props) {
       alert.show("Budget must have a name")
       return
     }
-    let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
+    await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetTitle,
       location: location,
       income: income,
@@ -35,7 +35,7 @@ function Dashboard(props) {
       categories: emptyCategories
     })
 
-    let apiRes2 = await axios.put(backendUrl + "/users/" + props.user.id, {
+    await axios.put(backendUrl + "/users/" + props.user.id, {
       firstTimeUser: false
     })
 

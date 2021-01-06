@@ -4,8 +4,6 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer
 } from 'recharts'
 
-const colorArray = ["red", "green", "blue", "orange", "purple"]
-
 export default class AllBudgetsChartCategories extends PureComponent {
   render() {
     const provideColorCode = (colorName) => {

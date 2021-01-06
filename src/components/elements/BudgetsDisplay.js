@@ -82,7 +82,7 @@ function BudgetsDisplay(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     let inputs = await copyDataFilter()
-    let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
+    await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,
       colorScheme: colorScheme,
       categories: inputs,
