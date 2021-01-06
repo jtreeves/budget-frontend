@@ -19,7 +19,6 @@ const options = {
     transition: transitions.SCALE
 }
 
-
 ReactDOM.render(
     <Router>
         <AlertProvider template={AlertTemplate} {...options}>

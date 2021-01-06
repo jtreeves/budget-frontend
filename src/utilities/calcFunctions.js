@@ -1,9 +1,6 @@
-
-
 const formatCurrency = (num) => {
   return new Intl.NumberFormat('us-US', { style: 'currency', currency: 'USD' }).format(num)
 }
-
 
 function calcAllBudgetTotals (array) {
   let budgetTotals = []
@@ -78,6 +75,5 @@ const calcFunctions = {
   formatCurrency,
   calcAllBudgetTotals
 }
-
 
 export default calcFunctions

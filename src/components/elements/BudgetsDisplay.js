@@ -96,7 +96,6 @@ function BudgetsDisplay(props) {
 
   const budgetForm = () => {
     if (formDisplayed) {
-      // props.reFetchBudgets()
       return (
         <NewBudgetForm
           setLocation={setLocation}

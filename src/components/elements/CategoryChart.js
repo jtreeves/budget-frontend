@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import calcFunctions from "../../utilities/calcFunctions"
 import {
-BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from 'recharts'
 
 const provideColorCode = (colorName) => {

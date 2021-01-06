@@ -1,4 +1,3 @@
-import BarChartExample from '../elements/BarChartExample'
 import AllBudgetsChartTotals from '../elements/AllBudgetsChartTotals'
 import calcFunctions from '../../utilities/calcFunctions'
 import AllBudgetsChartCategories from '../elements/AllBudgetsChartCategories'
