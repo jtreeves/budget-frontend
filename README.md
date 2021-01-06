@@ -40,7 +40,7 @@ Alternatively, you may use the live version of the [Kaleidoscope](https://kaleid
 
 ## Explanation
 
-We started b.
+We knew that we wanted to produce a budgeting app, but we were initially unsure of how to differentiate it from other apps in the market. We decided to focus on the big picture. Unlike other apps, which emphasize your day-to-day budget concerns, our app emphasizes how basic changes to your budget plan can result in dramatic changes overall. Instead of having the user only build one budget that they update regularly, we gave the user the option to build out multiple budgets and compare them. We also included the ability to compare your budget to different locations. Some places are more expensive to live than others, as noted by their different price indexes. We wanted to allow the user to specifically see how those price differences would affect their budget. For example, your expenses would go up if you moved from Atlanta to Los Angeles, and our app allows you to see just by how much. In order to provide the user with that functionality.
 
 ## User Stories
 
@@ -62,7 +62,8 @@ We started b.
 - Forms for signing up and logging in users
 - Forms for creating budgets and adding elements to budgets
 - Views for a homepage and about page
-- Views for a budg
+- Views for overview pages for separate budgets and category pages for separate sections within a specific budget
+- Views for comparing all budgets and comparing how one budget would be affected if the user moved to a different location
 
 ## Dependencies
 
