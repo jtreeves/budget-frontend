@@ -1,5 +1,3 @@
-
-
 function test() {
   let removeCities = []
   cities2.forEach((city) => {
@@ -19,5 +17,3 @@ function test() {
       })
   })
 }
-
-
