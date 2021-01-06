@@ -17,13 +17,16 @@ function Profile(props) {
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
-
+  
   // State
   const [budget, setBudget] = useState({});
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
+  const [colorsAvailable, setColorsAvailable] = useState([])
   const [userName, setUserName] = useState(name)
+
+
 
   // Backend API crud
   useEffect(() => {
@@ -61,6 +64,53 @@ function Profile(props) {
       console.log(error);
     }
   }, [budget]);
+
+  // Color filter
+  useEffect(() => {
+    const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
+    if (budgetsLoaded) {
+
+      let budgetColorsInUse = []
+      budgetArray.forEach((budget) => {
+        budgetColorsInUse.push(budget.colorScheme)
+      })
+
+      let filteredColors = allColors.filter(
+        function(e) {
+          return this.indexOf(e) < 0;
+        },
+        budgetColorsInUse
+      );
+      console.log(filteredColors);
+      setColorsAvailable(filteredColors)
+
+    }
+  }, [budget, budgetArray])
+
+  // On mount color filter
+  useEffect(() => {
+    const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
+    if (budgetsLoaded) {
+
+      let budgetColorsInUse = []
+      budgetArray.forEach((budget) => {
+        budgetColorsInUse.push(budget.colorScheme)
+      })
+
+      let filteredColors = allColors.filter(
+        function(e) {
+          return this.indexOf(e) < 0;
+        },
+        budgetColorsInUse
+      );
+      console.log(filteredColors);
+      setColorsAvailable(filteredColors)
+
+    }
+  }, [budgetsLoaded])
+  
+
+
 
   const reFetchUser = async () => {
     let apiRes = await axios.get(backendUrl + "/users/" + id);
@@ -191,6 +241,7 @@ function Profile(props) {
         loadNewBudget={loadNewBudget}
         switchBudgets={switchBudgets}
         reFetchBudgets={reFetchBudgets}
+        colorsAvailable={colorsAvailable}
         />
       <div className="div-profile-page">
         <UserInfo
@@ -204,6 +255,7 @@ function Profile(props) {
           reFetchUser={reFetchUser}
           budget={budget}
           handleLogout={handleLogout}
+          colorsAvailable={colorsAvailable}
         />
 
 
