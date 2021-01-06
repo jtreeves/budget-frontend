@@ -4,8 +4,16 @@ function CategoryCharts(props) {
 
   const newData = []
   Object.keys(props.inputs).forEach((key) => {
-    let chartInput = {
-      name: key,
+    let chartInput;
+    if (key.length > 8) {
+      let newKey = key.slice(0, 6) + "..."
+      chartInput = {
+        name: newKey,
+      }
+    } else {
+      chartInput = {
+        name: key,
+      }
     }
     chartInput[props.title] = props.inputs[key]
     newData.push(chartInput)

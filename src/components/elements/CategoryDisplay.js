@@ -5,10 +5,11 @@ import CategoryCharts from "./CategoryCharts";
 import CompactDisplayCategory from "../elements/CompactDisplayCategory";
 import calcFunctions from "../../utilities/calcFunctions";
 
+import { useAlert } from "react-alert";
 
 // Create function
 function CategoryDisplay(props) {
-  
+  const alert = useAlert();
   const [newInput, setNewInput] = useState({
     inputName: "",
     inputValue: "",
@@ -26,6 +27,13 @@ function CategoryDisplay(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (newInput.inputValue === "") {
+      alert.show("Input must have a value")
+      return
+    } else if (newInput.inputName === "") {
+      alert.show("Input must have a name")
+      return
+    }
     props.addBudgetInput(props.budgetKey, newInput);
     setNewInput({
       inputName: "",
