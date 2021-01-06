@@ -40,6 +40,10 @@ function UserInfo(props) {
     if (budgetName === "") {
       alert.show("Budget must have a name")
       return
+    }  
+    if (income === "") {
+      alert.show("Income must has a value")
+      return
     }
     let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
@@ -53,7 +57,11 @@ function UserInfo(props) {
   };
 
   const handleUserSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault()    
+    if (userName === "") {
+      alert.show("User must have a name")
+      return
+    }  
     let apiRes = await axios.put(backendUrl + "/users/" + props.id, {
       newName: userName
     });

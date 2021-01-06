@@ -22,10 +22,13 @@ function Dashboard(props) {
   }
 
   const handleSubmit = async (e) => {
-    console.log('IN HANDLE SUBMIT FUNCTION')
     e.preventDefault()
     if (budgetTitle === "") {
       alert.show("Budget must have a name")
+      return
+    }
+    if (income === "") {
+      alert.show("Income must have a value")
       return
     }
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
