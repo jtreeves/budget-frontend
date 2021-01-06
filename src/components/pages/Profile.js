@@ -81,7 +81,6 @@ function Profile(props) {
         },
         budgetColorsInUse
       );
-      console.log(filteredColors);
       setColorsAvailable(filteredColors)
 
     }
@@ -103,7 +102,6 @@ function Profile(props) {
         },
         budgetColorsInUse
       );
-      console.log(filteredColors);
       setColorsAvailable(filteredColors)
 
     }
