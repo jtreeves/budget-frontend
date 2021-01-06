@@ -42,7 +42,7 @@ function Profile(props) {
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
   const [colorsAvailable, setColorsAvailable] = useState([])
   const [userName, setUserName] = useState(name)
-  const [editFormClicked, setEditFormClicked] = useState(false)
+
 
 
   // Backend API crud
@@ -82,6 +82,7 @@ function Profile(props) {
     }
   }, [budget]);
 
+  // Color filter
   useEffect(() => {
     const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
     if (budgetsLoaded) {
@@ -102,6 +103,29 @@ function Profile(props) {
 
     }
   }, [budget, budgetArray, colorFlagNum])
+
+  // On mount color filter
+  useEffect(() => {
+    const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
+    if (budgetsLoaded) {
+
+      let budgetColorsInUse = []
+      budgetArray.forEach((budget) => {
+        budgetColorsInUse.push(budget.colorScheme)
+      })
+
+      let filteredColors = allColors.filter(
+        function(e) {
+          return this.indexOf(e) < 0;
+        },
+        budgetColorsInUse
+      );
+      console.log(filteredColors);
+      setColorsAvailable(filteredColors)
+
+    }
+  }, [budgetsLoaded])
+  
 
 
 

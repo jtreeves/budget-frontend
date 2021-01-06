@@ -8,7 +8,7 @@ import Cities from "../../utilities/Cities";
 function Dashboard(props) {
   const alert = useAlert();
   const [budgetTitle, setBudgetTitle] = useState("");
-  const [colorScheme, setColorScheme] = useState("Red");
+  const [colorScheme, setColorScheme] = useState("Magenta");
   const [location, setLocation] = useState("Albany, NY");
   const [income, setIncome] = useState("")
   const backendUrl = process.env.REACT_APP_SERVER_URL;
