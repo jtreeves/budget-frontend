@@ -23,7 +23,7 @@ function About() {
                 <img src="../../../images/app8.png" />
                 <h2>Compare Locations</h2>
                 <img src="../../../images/app9.png" />
-                <p>Created by Alan Avery, Thomas Gilbert, Jackson Reeves, and Jeremy Uriz.</p>
+                <p>Created by Alan Avery, Thomas Gilbert, Jackson Reeves, and Jeremy Uriz in January 2021. See the code behind this site on the app's <a target="_blank" href="https://github.com/jtreeves/budget-frontend">repository on GitHub</a>.</p>
             </div>
         </div>
     )
