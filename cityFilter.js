@@ -12,7 +12,6 @@ function test() {
       .then((data) => {
         let cityCpi = data.cpi_and_rent_index;
         if (cityCpi === undefined) {
-          console.log(city);
           removeCities.push(city)
         } else {
           return

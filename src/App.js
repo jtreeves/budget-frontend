@@ -75,7 +75,6 @@ function App() {
 
   // Log in user
   const handleLogin = async () => {
-    console.log("submitted login");
     try {
       const userData = {
         email: loginEmail,
@@ -100,7 +99,6 @@ function App() {
     } catch (error) {
       // Alert user of any errors logging in
       alert.show(`Incorrect email and/or password`);
-      console.log(`LOGIN ERROR: ${error}`);
     }
   };
 

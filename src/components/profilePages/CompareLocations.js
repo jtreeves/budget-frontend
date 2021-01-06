@@ -144,7 +144,6 @@ function CompareLocations(props) {
   };
 
   const addCity = () => {
-    console.log(selectedCity);
     let cityAlreadyAdded = false;
     let arrayCopy = citiesToCompare.slice();
     arrayCopy.forEach((city) => {

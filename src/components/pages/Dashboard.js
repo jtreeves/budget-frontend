@@ -21,10 +21,7 @@ function Dashboard(props) {
     misc: {}
   }
 
-  console.log(`BACKEND URL: ${backendUrl}`)
-
   const handleSubmit = async (e) => {
-    console.log('IN HANDLE SUBMIT FUNCTION')
     e.preventDefault()
     if (budgetTitle === "") {
       alert.show("Budget must have a name")
