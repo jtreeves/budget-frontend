@@ -85,7 +85,7 @@ function Profile(props) {
       setColorsAvailable(filteredColors)
 
     }
-  }, [budget, budgetArray, colorFlagNum])
+  }, [budget, budgetArray])
 
   // On mount color filter
   useEffect(() => {
