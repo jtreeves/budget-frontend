@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=PT+Sans:wght@700&display=swap");
 * {
   box-sizing: border-box;
@@ -444,8 +445,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   border-radius: 10px;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 4vw 3fr 1fr;
+  grid-template-columns: 3fr 1fr;
   align-items: center;
+  column-gap: 10px;
   background-color: #ccc;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total h3 {
@@ -453,7 +455,6 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
-  grid-column: 1/span 2;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
   color: #000;
@@ -575,6 +576,25 @@ body .div-container-app .div-profile-page .div-user-info .div-user-name h4 {
   font-weight: 700;
   align-self: center;
 }
+body .div-container-app .div-profile-page .div-user-info .div-user-edit {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-edit-confirm {
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-edit-confirm form {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+}
+body .div-container-app .div-profile-page .div-user-info .div-user-edit-confirm form input {
+  background-color: #edeef1;
+}
 body .div-container-app .div-profile-page .div-user-info .div-user-delete {
   display: flex;
   justify-content: flex-end;
@@ -681,6 +701,159 @@ body .div-container-app .div-profile-page .div-user-info p {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 200ms;
+}
+
+/* Media Queries —————————————————————————————— */
+@media screen and (max-width: 1000px) {
+  button {
+    background-color: red;
+  }
+
+  body .div-container-app .div-profile-page .div-profile-workspace .div-no-data {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-no-data p {
+    color: #666666;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+    border-radius: 10px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 2vw 1fr;
+    align-items: center;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
+    overflow: hidden;
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text li {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
+    text-align: left;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
+    text-align: left;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
+    border-radius: 10px 10px 0 0;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .category-container form {
+    border-radius: 0 0 10px 10px;
+    display: grid;
+    grid-template-columns: 3fr 2fr auto;
+    column-gap: 10px;
+    background-color: white;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .category-container form input {
+    width: 100%;
+    margin-bottom: 0;
+    background-color: #edeef1;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .category-container .div-subcategory-name {
+    display: flex;
+    justify-content: space-between;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page .compare-budgets-heading2 {
+    margin-top: 40px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page {
+    width: 100%;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form {
+    border-radius: 10px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 10px;
+    background-color: #fff;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form p {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    padding-right: 10px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form select {
+    background-color: #edeef1;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    column-gap: 20px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info {
+    padding: 12px 20px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info p {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities {
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ccc;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button {
+    width: 100%;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button .city-x {
+    color: #666666;
+    font-size: 12px;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

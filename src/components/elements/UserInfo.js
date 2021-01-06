@@ -84,7 +84,7 @@ function UserInfo(props) {
   const userNameButtons = () => {
     if(!editNamePressed) {
       return(
-        <div className="div-user-delete">
+        <div className="div-user-edit">
           <button className="button-small" onClick={() => setEditNamePressed(true)}>
             Edit Name
           </button>
@@ -92,15 +92,14 @@ function UserInfo(props) {
       )
     } else if (editNamePressed) {
       return (
-        <div className="div-user-delete-confiirm">
+        <div className="div-user-edit-confirm">
           <EditUserForm 
           userName={userName}
           setUserName={setUserName}
           />
-          <p>Are you sure?</p>
           <div>
             <button className="button-small button-left" onClick={(e) => handleUserSubmit(e)}>
-              Yes
+              Update
             </button>
             <button className="button-small" onClick={() => setEditNamePressed(false)}>
               Cancel
