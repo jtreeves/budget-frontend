@@ -199,7 +199,6 @@ function CompareLocations(props) {
           Add
         </button>
       </form>
-
       <CompareLocationsChart data={formatChartData()} />
 
       <div className="div-compare-locations-footer">

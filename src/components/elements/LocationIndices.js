@@ -4,7 +4,7 @@ function LocationIndices(props) {
     if (props.budgetLocationCPI) {
       return (
         <p><strong>
-          Overall:</strong> {ordinal_suffix_of(Math.round(props.budgetLocationCPI))} Percentile
+          Overall Cost of Living:</strong> {ordinal_suffix_of(Math.round(props.budgetLocationCPI))} Percentile
         </p>
       );
     } else {
