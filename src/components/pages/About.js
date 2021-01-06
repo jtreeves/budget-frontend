@@ -1,18 +1,16 @@
 // Create function
 function About() {
-  return (
-    <div className="div-public-page">
-      <div className="div-public-header">
-        <h1>About</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolorum excepturi,
-          pariatur dolore fuga perferendis mollitia deserunt a voluptas assumenda! Consequatur
-          beatae qui dolorem tempora possimus accusantium, fugit eius quidem?
-        </p>
-      </div>
-    </div>
-  );
+    return (
+        <div className="div-public-page">
+            <div className="div-public-header">
+                <h1>About</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore dolorum excepturi pariatur dolore fuga perferendis mollitia deserunt a voluptas assumenda! Consequatur beatae qui dolorem tempora possimus accusantium, fugit eius quidem?
+                </p>
+            </div>
+        </div>
+    )
 }
 
 // Export function
-export default About;
+export default About
