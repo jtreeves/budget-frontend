@@ -1,6 +1,6 @@
 # Kaleidoscope Frontend
 
-This is the frontend repository for the Kaleidoscope app. It contains the code necessary for the client to view the app. It was designed to work with the app's [backend repository](https://github.com/jtreeves/budget-backend). To use the entire app, visit the [Kaleidoscope](HEROKULINKTK) site.
+This is the frontend repository for the Kaleidoscope app. It contains the code necessary for the client to view the app. It was designed to work with the app's [backend repository](https://github.com/jtreeves/budget-backend). To use the entire app, visit the [Kaleidoscope](https://kaleidoscope-budget.herokuapp.com) site.
 
 **Contents**
 
