@@ -41,6 +41,7 @@ function Signup(props) {
 
   // Submit form data
   const handleSubmit = async (e) => {
+    console.log("hellooooo");
     // try {
       e.preventDefault();
       // Check that passwords match
@@ -50,7 +51,6 @@ function Signup(props) {
           // Create new user if both checks pass
           const newUser = { name, email, password };
           const reqData = await axios.post(`${REACT_APP_SERVER_URL}/users/signup`, newUser);
-          console.log(reqData);
           // Automatically login new user
           props.handleLoginAfterSignup(email, password);
         } else {

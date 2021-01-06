@@ -5,24 +5,23 @@ function NewBudgetForm(props) {
     return <option key={idx} value={budget._id}>{budget.title}</option>
   })
 
+  let colorOptions = props.colorsAvailable.map((color, idx) => {
+    return <option key={idx} value={color}>{color}</option>
+  })
+
   return (
     <form className="form-small">
       <label htmlFor="budgetName">Name</label>
-      <input id="budgetName" type="text" value={props.title} onChange={(e) => props.setName(e.target.value)}/>
+      <input placeholder="New Budget" id="budgetName" type="text" value={props.title} onChange={(e) => props.setName(e.target.value)}/>
       
       <label htmlFor="budgetIncome">Annual Income</label>
-      <input id="budgetIncome" type="number" value={props.income} onChange={(e) => props.setIncome(e.target.value)}/>
+      <input placeholder="50000" id="budgetIncome" type="number" value={props.income} onChange={(e) => props.setIncome(e.target.value)}/>
 
       <Cities setLocation={props.setLocation}/>
 
       <label htmlFor="colorScheme">Color</label>
       <select value={props.colorScheme} name="colorScheme" id="colorScheme" onChange={(e) => props.setColor(e.target.value)}>
-        <option value="Magenta">Magenta</option>
-        <option value="Red">Red</option>
-        <option value="Orange">Orange</option>
-        <option value="Green">Green</option>
-        <option value="Blue">Blue</option>
-        <option value="Purple">Purple</option>
+        {colorOptions}
       </select>
       
       <label htmlFor="copyDataFrom">Copy From</label>

@@ -8,7 +8,7 @@ import Cities from "../../utilities/Cities";
 function Dashboard(props) {
   const alert = useAlert();
   const [budgetTitle, setBudgetTitle] = useState("");
-  const [colorScheme, setColorScheme] = useState("Red");
+  const [colorScheme, setColorScheme] = useState("Magenta");
   const [location, setLocation] = useState("Albany, NY");
   const [income, setIncome] = useState("")
   const backendUrl = process.env.REACT_APP_SERVER_URL;
@@ -21,13 +21,14 @@ function Dashboard(props) {
     misc: {}
   }
 
-  console.log(`BACKEND URL: ${backendUrl}`)
-
   const handleSubmit = async (e) => {
-    console.log('IN HANDLE SUBMIT FUNCTION')
     e.preventDefault()
     if (budgetTitle === "") {
       alert.show("Budget must have a name")
+      return
+    }
+    if (income === "") {
+      alert.show("Income must have a value")
       return
     }
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
@@ -37,7 +38,7 @@ function Dashboard(props) {
       colorScheme: colorScheme,
       categories: emptyCategories
     });
-
+    console.log(apiRes);
     let apiRes2 = await axios.put(backendUrl + "/users/" + props.user.id, {
       firstTimeUser: false
     });
@@ -97,7 +98,7 @@ function Dashboard(props) {
             </select>
           </div>
 
-          <button onClick={handleSubmit} type="submit">Submit</button>
+          <button onClick={(e) => handleSubmit(e)} type="submit">Submit</button>
         </form>
       </div>
     </div>

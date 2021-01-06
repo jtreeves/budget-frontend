@@ -31,18 +31,22 @@ function CompareLocations(props) {
             return res.json();
         })
         .then((data) => {
-            let cityCpi = data.cpi_and_rent_index;
+          let cityCpi = data.cpi_and_rent_index;
+          if (cityCpi >= 100) cityCpi = 100;
           setBudgetLocationCPI(cityCpi);
           if (data.groceries_index) {
             setBudgetLocationGroceries(data.groceries_index);
           }
           if (data.restaurant_price_index) {
+            if (data.restaurant_price_index >= 100) data.restaurant_price_index = 100;
             setBudgetLocationRestaurants(data.restaurant_price_index);
           }
           if (data.health_care_index) {
+            if (data.health_care_index >= 100) data.health_care_index = 100;
             setBudgetLocationHealthCare(data.health_care_index);
           }
           if (data.rent_index) {
+            if (data.rent_index >= 100) data.rent_index = 100;
             setBudgetLocationRent(data.rent_index);
           }
         });
@@ -84,7 +88,7 @@ function CompareLocations(props) {
 
   const formatChartData = () => {
     const control = {
-      name: props.budget.location,
+      name: "Your Location",
       Expenses: budgetTotals[0].totalExpense,
       Savings: income - budgetTotals[0].totalExpense,
     };
@@ -195,7 +199,6 @@ function CompareLocations(props) {
           Add
         </button>
       </form>
-
       <CompareLocationsChart data={formatChartData()} />
 
       <div className="div-compare-locations-footer">

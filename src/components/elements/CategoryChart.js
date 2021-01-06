@@ -34,6 +34,10 @@ const CustomTooltip = ({ payload, active }) => {
 
 export default class Example extends PureComponent {
   render() {
+
+    let domainMax = this.props.domainMax
+    let newDomain = [0, domainMax]
+
     return (
       <ResponsiveContainer
         className="chart-category-summary"
@@ -48,7 +52,7 @@ export default class Example extends PureComponent {
             dataKey="name"
             tickLine={false}
           />
-          <YAxis tickLine={false} />
+          <YAxis tickLine={false} domain={newDomain}/>
           <Tooltip
             content={<CustomTooltip />}
             cursor={{ fill: 'rgba(255, 255, 255, 0.5)' }}
