@@ -40,7 +40,7 @@ Alternatively, you may use the live version of the [Kaleidoscope](https://kaleid
 
 ## Explanation
 
-Notes about general approach TK.
+We started b.
 
 ## User Stories
 
@@ -60,7 +60,9 @@ Notes about general approach TK.
 ## Features
 
 - Forms for signing up and logging in users
-- Views for separate parts of a user's budget
+- Forms for creating budgets and adding elements to budgets
+- Views for a homepage and about page
+- Views for a budg
 
 ## Dependencies
 

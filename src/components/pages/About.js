@@ -6,7 +6,7 @@ function About() {
                 <h1>About</h1>
                 <p>Kaleidoscope is the app that will revolultionize your financial life.</p>
                 <h2>Main Page</h2>
-                <img src="../../../images/app1.png" />
+                <img src="https://res.cloudinary.com/alanavery/image/upload/v1609955150/kaleidoscope/app1_tidbt5.png" />
                 <h2>Log In</h2>
                 <img src="../../../images/app2.png" />
                 <h2>Sign Up</h2>
