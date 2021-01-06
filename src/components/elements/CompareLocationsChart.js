@@ -1,30 +1,47 @@
 import React, { PureComponent } from 'react';
 import calcFunctions from "../../utilities/calcFunctions";
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart,
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart, ResponsiveContainer
 } from 'recharts';
 
-export default class CompareLocationsChart extends PureComponent {
+const CustomTooltip = ({ payload, active }) => {
+  if (active) {
+    return (
+      <div className="custom-tooltip">
+        <p className="tooltip-amount">Expenses: {calcFunctions.formatCurrency(payload[0].value)}</p>
+        <p className="tooltip-amount">Savings: {calcFunctions.formatCurrency(payload[1].value)}</p>
+      </div>
+    );
+  }
+  return null;
+}
 
+export default class CompareLocationsChart extends PureComponent {
   render() {
     return (
-      <BarChart
-        layout="horizontal"
-        width={600}
-        height={700}
-        data={this.props.data}
-        margin={{
-          top: 0, right: 200, bottom: 0, left: 0,
-        }}
+      <ResponsiveContainer
+        className="chart-category-summary"
+        width="100%"
+        height={300}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" type="category"/>
-        <YAxis type="number"  />
-        <Tooltip formatter={(value) => calcFunctions.formatCurrency(value)}/>
-        <Legend />
-        <Bar dataKey="Expenses" fill="tomato" />
-        <Bar dataKey="Savings" fill="dodgerblue" />
-      </BarChart>
+        <BarChart
+          data={this.props.data}
+          maxBarSize={100}
+        >
+          <XAxis
+            dataKey="name"
+            tickLine={false}
+          />
+          <YAxis tickLine={false} />
+          <Tooltip
+            content={<CustomTooltip />}
+            cursor={{ fill: 'rgba(255, 255, 255, 0.5)' }}
+          />
+          <Legend />
+          <Bar dataKey="Expenses" fill="#eb0000" />
+          <Bar dataKey="Savings" fill="#5cbd3a" />
+        </BarChart>
+      </ResponsiveContainer>
     );
   }
 }

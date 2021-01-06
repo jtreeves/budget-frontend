@@ -3,63 +3,63 @@ function LocationIndices(props) {
   const showOverall = () => {
     if (props.budgetLocationCPI) {
       return (
-        <h3>
-          Overall: {ordinal_suffix_of(Math.round(props.budgetLocationCPI))} Percentile
-        </h3>
+        <p><strong>
+          Overall:</strong> {ordinal_suffix_of(Math.round(props.budgetLocationCPI))} Percentile
+        </p>
       );
     } else {
-      return <h3>Overall: Loading...</h3>;
+      return <p><strong>Overall:</strong> Loading...</p>;
     }
   };
 
   const showRestaurants = () => {
     if (props.budgetLocationRestaurants) {
       return (
-        <h3>
-          Restaurants:{" "}
+        <p><strong>
+          Restaurants:</strong>{" "}
           {ordinal_suffix_of(Math.round(props.budgetLocationRestaurants))} Percentile
-        </h3>
+        </p>
       );
     } else {
-      return <h3>Restaurants: Loading...</h3>;
+      return <p><strong>Restaurants:</strong> Loading...</p>;
     }
   };
 
   const showGroceries = () => {
     if (props.budgetLocationGroceries) {
       return (
-        <h3>
-          Groceries: {ordinal_suffix_of(Math.round(props.budgetLocationGroceries))}{" "}
+        <p><strong>
+          Groceries:</strong> {ordinal_suffix_of(Math.round(props.budgetLocationGroceries))}{" "}
           Percentile
-        </h3>
+        </p>
       );
     } else {
-      return <h3>Groceries: Loading...</h3>;
+      return <p><strong>Groceries:</strong> Loading...</p>;
     }
   };
 
   const showHealth = () => {
     if (props.budgetLocationHealthCare) {
       return (
-        <h3>
-          HealthCare: {ordinal_suffix_of(Math.round(props.budgetLocationHealthCare))}{" "}
+        <p><strong>
+          HealthCare:</strong> {ordinal_suffix_of(Math.round(props.budgetLocationHealthCare))}{" "}
           Percentile
-        </h3>
+        </p>
       );
     } else {
-      return <h3>HealthCare: Loading...</h3>;
+      return <p><strong>HealthCare:</strong> Loading...</p>;
     }
   };
 
   const showRent = () => {
     if (props.budgetLocationRent) {
       return (
-        <h3>
-          Rent: {ordinal_suffix_of(Math.round(props.budgetLocationRent))} Percentile
-        </h3>
+        <p><strong>
+          Rent:</strong> {ordinal_suffix_of(Math.round(props.budgetLocationRent))} Percentile
+        </p>
       );
     } else {
-      return <h3>Rent: Loading...</h3>;
+      return <p><strong>Rent:</strong> Loading...</p>;
     }
   };
 

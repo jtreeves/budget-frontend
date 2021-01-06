@@ -35,12 +35,28 @@ const CustomTooltip = ({ payload, active }) => {
 export default class Example extends PureComponent {
   render() {
     return (
-      <ResponsiveContainer className="chart-category-summary" width="100%" height={300}>
-        <BarChart data={this.props.data} maxBarSize={100}>
-          <XAxis dataKey="name" tickLine={false} />
+      <ResponsiveContainer
+        className="chart-category-summary"
+        width="100%"
+        height={300}
+      >
+        <BarChart
+          data={this.props.data}
+          maxBarSize={100}
+        >
+          <XAxis
+            dataKey="name"
+            tickLine={false}
+          />
           <YAxis tickLine={false} />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(255, 255, 255, 0.4)' }} />
-          <Bar dataKey={this.props.title} fill={provideColorCode(this.props.budgetKey)} />
+          <Tooltip
+            content={<CustomTooltip />}
+            cursor={{ fill: 'rgba(255, 255, 255, 0.5)' }}
+          />
+          <Bar
+            dataKey={this.props.title}
+            fill={provideColorCode(this.props.budgetKey)}
+          />
         </BarChart>
       </ResponsiveContainer>
     );
