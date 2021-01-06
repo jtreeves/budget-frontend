@@ -101,7 +101,32 @@ Notes about general approach TK.
 
 ## Views
 
-Screenshots of the deployed website TK.
+**Main Page**
+![Main Page](/images/app1.png)
+
+**Log In**
+![Sign Up](/images/app2.png)
+
+**Sign Up**
+![Log In](/images/app3.png)
+
+**Create First Budget**
+![Create First Budget](/images/app4.png)
+
+**Budget Overview**
+![Budget Overview](/images/app5.png)
+
+**Overview for Separate Budget**
+![Overview for Separate Budget](/images/app6.png)
+
+**Category Breakdown**
+![Category Breakdown](/images/app7.png)
+
+**Compare Budgets**
+![Compare Budgets](/images/app8.png)
+
+**Compare Locations**
+![Compare Locations](/images/app9.png)
 
 ## Further Thoughts
 
