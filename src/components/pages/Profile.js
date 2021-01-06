@@ -23,6 +23,7 @@ function Profile(props) {
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
+  const [colorsAvailable, setColorsAvailable] = useState([])
 
   // Backend API crud
   useEffect(() => {
@@ -60,6 +61,27 @@ function Profile(props) {
       console.log(error);
     }
   }, [budget]);
+
+  useEffect(() => {
+    const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
+    if (budgetsLoaded) {
+
+      let budgetColorsInUse = []
+      budgetArray.forEach((budget) => {
+        budgetColorsInUse.push(budget.colorScheme)
+      })
+
+      let filteredColors = allColors.filter(
+        function(e) {
+          return this.indexOf(e) < 0;
+        },
+        budgetColorsInUse
+      );
+      console.log(filteredColors);
+      setColorsAvailable(filteredColors)
+
+    }
+  }, [budget, budgetArray])
 
   const reFetchUser = async () => {
     let apiRes = await axios.get(backendUrl + "/users/" + id);
@@ -179,6 +201,7 @@ function Profile(props) {
         loadNewBudget={loadNewBudget}
         switchBudgets={switchBudgets}
         reFetchBudgets={reFetchBudgets}
+        colorsAvailable={colorsAvailable}
         />
       <div className="div-profile-page">
         <UserInfo
@@ -190,6 +213,7 @@ function Profile(props) {
           reFetchBudgets={reFetchBudgets}
           budget={budget}
           handleLogout={handleLogout}
+          colorsAvailable={colorsAvailable}
         />
 
 

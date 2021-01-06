@@ -22,7 +22,7 @@ const provideColorCode = (colorName) => {
 function BudgetsDisplay(props) {
   const [formDisplayed, setFormDisplayed] = useState(false);
   const [budgetName, setBudgetName] = useState("");
-  const [colorScheme, setColorScheme] = useState("Magenta");
+  const [colorScheme, setColorScheme] = useState(props.colorsAvailable[0]);
   const [copyDataFrom, setCopyDataFrom] = useState("None")
   const [location, setLocation] = useState("Albany, NY");
   const [income, setIncome] = useState("")
@@ -56,7 +56,7 @@ function BudgetsDisplay(props) {
 
   const resetFormInputs = () => {
     setBudgetName("")
-    setColorScheme("Magenta")
+    setColorScheme(props.colorsAvailable[0])
     setCopyDataFrom("None")
     setLocation("Albany, NY")
     setIncome("")
@@ -99,6 +99,7 @@ function BudgetsDisplay(props) {
       // props.reFetchBudgets()
       return (
         <NewBudgetForm
+          colorsAvailable={props.colorsAvailable}
           setLocation={setLocation}
           setIncome={setIncome}
           setCopyDataFrom={setCopyDataFrom}
@@ -109,6 +110,7 @@ function BudgetsDisplay(props) {
           colorScheme={colorScheme}
           setFormDisplayed={setFormDisplayed}
           handleSubmit={handleSubmit}
+          budgetArray={props.budgetArray}
         />
       );
     } else {
@@ -117,9 +119,12 @@ function BudgetsDisplay(props) {
   };
 
   const newBudgetButton = () => {
+    if (props.budgetArray.length >= 6) {
+      return
+    }
     if (!formDisplayed) {
       return <button className="button-small subsection-buttons" onClick={() => newButtonClicked()}>New</button>;
-    }
+    } 
   };
 
   const budgets = props.budgetArray.map((budget, idx) => {

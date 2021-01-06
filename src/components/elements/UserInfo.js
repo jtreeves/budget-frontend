@@ -78,10 +78,17 @@ function UserInfo(props) {
     }
   }
 
+  const resetInputFields = () => {
+    setColorScheme(props.budget.colorScheme)
+    setDisplayForm(true)
+  }
+
   const infoOrForm = () => {
     if (displayForm && !deletePressed) {
       return (
         <EditBudgetForm
+          currentColor={props.budget.colorScheme}
+          colorsAvailable={props.colorsAvailable}
           location={location}
           setLocation={setLocation}
           income={income}
@@ -109,6 +116,7 @@ function UserInfo(props) {
     } else {
       return (
         <BudgetInfo
+          resetInputFields={resetInputFields}
           budgetArray={props.budgetArray}
           setDisplayForm={setDisplayForm}
           title={props.budget.title}
@@ -129,6 +137,8 @@ function UserInfo(props) {
       </li>
     );
   });
+
+
 
   const provideColorCode = (colorName) => {
     switch (colorName) {
