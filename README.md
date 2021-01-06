@@ -12,7 +12,8 @@ This is the frontend repository for the Kaleidoscope app. It contains the code n
 6. [Dependencies](https://github.com/jtreeves/budget-frontend#dependencies)
 7. [Designs](https://github.com/jtreeves/budget-frontend#designs)
 8. [Views](https://github.com/jtreeves/budget-frontend#views)
-9. [Stretch Goals](https://github.com/jtreeves/budget-frontend#stretch-goals)
+9. [Code Examples](https://github.com/jtreeves/budget-frontend#code-examples)
+10. [Stretch Goals](https://github.com/jtreeves/budget-frontend#stretch-goals)
 
 ## About
 
@@ -131,6 +132,83 @@ We knew that we wanted to produce a budgeting app, but we were initially unsure 
 
 **Compare Locations**
 ![Compare Locations](/images/app9.png)
+
+## Code Examples
+
+**Send data to the backend**
+```javascript
+const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (budgetTitle === "") {
+        alert.show("Budget must have a name")
+        return
+    }
+    let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
+        title: budgetTitle,
+        location: location,
+        income: income,
+        colorScheme: colorScheme,
+        categories: emptyCategories
+    })
+    let apiRes2 = await axios.put(backendUrl + "/users/" + props.user.id, {
+        firstTimeUser: false
+    })
+
+    props.reFetchUser()
+}
+```
+
+**Use the Numbeo API to compare locations**
+```javascript
+const fetchCityIndices = () => {
+    fetch(
+        'https://www.numbeo.com/api/indices?api_key=' + NUMBEO_API_KEY + '&query=' + props.budget.location
+    )
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+        let cityCpi = data.cpi_and_rent_index
+        if (cityCpi >= 100) cityCpi = 100
+        setBudgetLocationCPI(cityCpi)
+        if (data.groceries_index) {
+            setBudgetLocationGroceries(data.groceries_index)
+        }
+        if (data.restaurant_price_index) {
+            if (data.restaurant_price_index >= 100) data.restaurant_price_index = 100
+            setBudgetLocationRestaurants(data.restaurant_price_index)
+        }
+        if (data.health_care_index) {
+            if (data.health_care_index >= 100) data.health_care_index = 100
+            setBudgetLocationHealthCare(data.health_care_index)
+        }
+        if (data.rent_index) {
+            if (data.rent_index >= 100) data.rent_index = 100
+            setBudgetLocationRent(data.rent_index)
+        }
+        })
+}
+```
+
+**Use Sass for advanced styling functionality**
+```scss
+// Variables ——————————————————————————————
+
+$app-max-width: 1920px;
+$public-padding: 0 4vw;
+$border-radius-large: 20px;
+$border-radius-small: 10px;
+$color-black: #000;
+$color-white: #fff;
+$color-light-gray: #edeef1;
+$color-medium-gray: #ccc;
+$color-dark-gray: #666666;
+$color-light-green: #d0e2c6;
+$color-medium-green: #6d9962;
+$gradient: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+$font-family-primary: 'Nunito Sans', sans-serif;
+$font-family-secondary: 'PT Sans', sans-serif;
+```
 
 ## Stretch Goals
 
