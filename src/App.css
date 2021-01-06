@@ -352,11 +352,13 @@ body .div-container-app .div-profile-page .div-profile-workspace h2 {
   color: #000;
   font-family: "PT Sans", sans-serif;
   font-size: 30px;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .div-no-data {
   width: 100%;
   height: 300px;
+  overflow: hidden;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -372,6 +374,7 @@ body .div-container-app .div-profile-page .div-profile-workspace .div-no-data p 
   line-height: 1.6;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+  overflow: hidden;
   border-radius: 10px;
   margin-top: 10px;
   display: grid;
@@ -441,6 +444,7 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   line-height: 1.6em;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total {
+  overflow: hidden;
   padding: 10px 20px;
   border-radius: 10px;
   margin-top: 10px;
@@ -463,6 +467,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   font-weight: 700;
   text-align: center;
 }
+body .div-container-app .div-profile-page .div-profile-workspace .category-container {
+  overflow: hidden;
+}
 body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
   border-radius: 10px 10px 0 0;
 }
@@ -482,6 +489,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .category-conta
   display: flex;
   justify-content: space-between;
 }
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page {
+  overflow: hidden;
+}
 body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page h3 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
@@ -494,6 +504,7 @@ body .div-container-app .div-profile-page .div-profile-workspace .div-compare-bu
 }
 body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page {
   width: 100%;
+  overflow: hidden;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form {
   border-radius: 10px;
@@ -734,7 +745,6 @@ body .div-container-app .div-profile-page .div-user-info p {
     align-items: center;
   }
   body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
-    overflow: hidden;
     padding: 10px 20px;
     display: grid;
     grid-template-columns: 1fr;
