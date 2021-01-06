@@ -37,18 +37,34 @@ function BudgetsDisplay(props) {
     misc: {}
   }
   
-  function copyDataFilter() {
+  async function copyDataFilter() {
     let returnObj;
+    let getId;
     if (copyDataFrom === "None") {
       returnObj = emptyCategories
     } else {
       props.budgetArray.forEach((budget) => {
         if (budget._id === copyDataFrom) {
-          returnObj = budget.categories
+          getId = budget._id
         }
       })
+      let apiRes = await axios.get(backendUrl + "/budgets/" + getId);
+      returnObj = apiRes.data.budget.categories
     }
     return returnObj
+  }
+
+  const resetFormInputs = () => {
+    setBudgetName("")
+    setColorScheme("Magenta")
+    setCopyDataFrom("None")
+    setLocation("Albany, NY")
+    setIncome("")
+  }
+
+  const newButtonClicked = () => {
+    resetFormInputs()
+    setFormDisplayed(true)
   }
 
   useEffect(() => {
@@ -65,7 +81,7 @@ function BudgetsDisplay(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    let inputs = copyDataFilter()
+    let inputs = await copyDataFilter()
     let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,
       colorScheme: colorScheme,
@@ -74,11 +90,13 @@ function BudgetsDisplay(props) {
       income: income
     });
     setFormDisplayed(false);
+    resetFormInputs()
     props.loadNewBudget();
   };
 
   const budgetForm = () => {
     if (formDisplayed) {
+      // props.reFetchBudgets()
       return (
         <NewBudgetForm
           setLocation={setLocation}
@@ -100,7 +118,7 @@ function BudgetsDisplay(props) {
 
   const newBudgetButton = () => {
     if (!formDisplayed) {
-      return <button className="button-small subsection-buttons" onClick={() => setFormDisplayed(true)}>New</button>;
+      return <button className="button-small subsection-buttons" onClick={() => newButtonClicked()}>New</button>;
     }
   };
 
