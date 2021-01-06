@@ -65,7 +65,6 @@ function BudgetsDisplay(props) {
   }
 
   const newButtonClicked = () => {
-    props.setUpdateColorsFlag(!props.setUpdateColorsFlag)
     resetFormInputs()
     setFormDisplayed(true)
   }

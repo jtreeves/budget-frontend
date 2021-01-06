@@ -17,6 +17,7 @@ function Profile(props) {
   const backendUrl = process.env.REACT_APP_SERVER_URL;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
+  let colorFlagNum = 0;
   
   const establishColors = () => {
     const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
@@ -39,9 +40,9 @@ function Profile(props) {
   const [budgetArray, setBudgetArray] = useState([]);
   const [budgetsLoaded, setBudgetsLoaded] = useState(false);
   const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
-  const [colorsAvailable, setColorsAvailable] = useState(establishColors())
+  const [colorsAvailable, setColorsAvailable] = useState([])
   const [userName, setUserName] = useState(name)
-  const [updateColorsFlag, setUpdateColorsFlag] = useState(false)
+  const [editFormClicked, setEditFormClicked] = useState(false)
 
 
   // Backend API crud
@@ -100,7 +101,7 @@ function Profile(props) {
       setColorsAvailable(filteredColors)
 
     }
-  }, [budget, budgetArray, updateColorsFlag])
+  }, [budget, budgetArray, colorFlagNum])
 
 
 
@@ -234,8 +235,6 @@ function Profile(props) {
         switchBudgets={switchBudgets}
         reFetchBudgets={reFetchBudgets}
         colorsAvailable={colorsAvailable}
-        setUpdateColorsFlag={setUpdateColorsFlag}
-        updateColorsFlag={updateColorsFlag}
         />
       <div className="div-profile-page">
         <UserInfo
