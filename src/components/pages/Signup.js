@@ -41,7 +41,6 @@ function Signup(props) {
 
   // Submit form data
   const handleSubmit = async (e) => {
-    console.log("hellooooo");
     // try {
       e.preventDefault();
       // Check that passwords match
