@@ -1,22 +1,8 @@
-import BarChartExample from '../elements/BarChartExample'
 import AllBudgetsChartTotals from '../elements/AllBudgetsChartTotals'
 import calcFunctions from '../../utilities/calcFunctions'
 import AllBudgetsChartCategories from '../elements/AllBudgetsChartCategories';
 
 function Housing(props) {
-
-  const data = [
-    {
-      name: 'Page A', uv: 4000, pv: 2400, 
-    },
-    {
-      name: 'Page B', uv: 3000, pv: 1398, 
-    },
-    {
-      name: 'Page C', lv: 2000, pv: 9800, 
-    },
-  ];
-
 
   // Data for Totals Chart
   const totalsData = []

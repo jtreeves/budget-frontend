@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import calcFunctions from "../../utilities/calcFunctions";
 import {
-BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer
 } from 'recharts';
 
 const provideColorCode = (colorName) => {
@@ -18,6 +18,8 @@ const provideColorCode = (colorName) => {
       return '#019be0';
     case 'misc':
       return '#963899';
+    default: 
+      break;
   }
 }
 

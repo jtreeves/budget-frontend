@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import calcFunctions from "../../utilities/calcFunctions";
 import Cities from "../../utilities/Cities";
 import CompareLocationsChart from "../elements/CompareLocationsChart";
@@ -20,6 +20,11 @@ function CompareLocations(props) {
   const income = parseFloat((props.budget.income / 12).toFixed(2))
   const budgetTotals = calcFunctions.calcAllBudgetTotals([props.budget]);
   const NUMBEO_API_KEY = process.env.REACT_APP_NUMBEO_API_KEY;
+
+
+  // Refs for linting errors
+  const addCpiState = useRef(() => {})
+  const removeCpiState = useRef(() => {})
 
   // fetches indices for budget location
   useEffect(() => {
@@ -52,19 +57,19 @@ function CompareLocations(props) {
         });
     };
     fetchCityIndices();
-  }, [props.budget]);
+  }, [props.budget, NUMBEO_API_KEY]);
 
   // fetches indices for comparison locations
   useEffect(() => {
     const fetchCityIndices = () => {
       if (Object.keys(cityCPIS).length > citiesToCompare.length) {
-        removeCpiState();
+        removeCpiState.current();
       } else {
-        addCpiState();
+        addCpiState.current();
       }
     };
     fetchCityIndices();
-  }, [citiesToCompare]);
+  }, [citiesToCompare, cityCPIS]);
 
   const convertCpi = (cpi) => {
     let difference = budgetLocationCPI - cpi;
@@ -104,7 +109,7 @@ function CompareLocations(props) {
     return chartData;
   };
 
-  const addCpiState = async () => {
+  addCpiState.current = async () => {
     await citiesToCompare.forEach((city) => {
       let cityAlreadyLoaded = false;
       Object.keys(cityCPIS).forEach((key) => {
@@ -129,7 +134,7 @@ function CompareLocations(props) {
     });
   };
 
-  const removeCpiState = async () => {
+  removeCpiState.current = async () => {
     Object.keys(cityCPIS).forEach((key) => {
       let keyFound = false;
       citiesToCompare.forEach((city) => {

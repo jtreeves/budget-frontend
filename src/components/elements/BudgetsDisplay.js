@@ -17,6 +17,8 @@ const provideColorCode = (colorName) => {
               return '#116b90';
               case 'Purple':
                 return '#5e235f';
+                default: 
+                  break;
               }
             }
             
@@ -92,7 +94,7 @@ function BudgetsDisplay(props) {
       return
     }
     let inputs = await copyDataFilter()
-    let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
+    await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetName,
       colorScheme: colorScheme,
       categories: inputs,
@@ -141,7 +143,7 @@ function BudgetsDisplay(props) {
     return (
       <li key={idx}>
         <div className="icon-budget-color" style={{ backgroundColor: provideColorCode(budget.colorScheme) }}></div>
-        <a className="budget-links" onClick={() => props.switchBudgets(budget)}>
+        <a className="budget-links" href="#0" onClick={() => props.switchBudgets(budget)}>
           {budget.title}
         </a>
       </li>
