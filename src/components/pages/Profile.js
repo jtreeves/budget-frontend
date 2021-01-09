@@ -7,7 +7,7 @@ import UserInfo from "../elements/UserInfo";
 import UserNavigation from "../elements/UserNavigation";
 import ProfileRoutes from "../elements/ProfileRoutes";
 import Dashboard from "./Dashboard"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Profile(props) {
   // Variables and Props
@@ -26,12 +26,13 @@ function Profile(props) {
   const [colorsAvailable, setColorsAvailable] = useState([])
   const [userName, setUserName] = useState(name)
 
-
+  // Refs for linter
+  const reFetchUser = useRef(() => {})
 
   // Backend API crud
   useEffect(() => {
     if (firstTimeUser || firstTimeUser == null) {
-      reFetchUser()
+      reFetchUser.current()
       return
     }
     async function fetchBudgets() {
@@ -53,7 +54,7 @@ function Profile(props) {
   useEffect(() => {
     async function autoSave() {
       if (budgetsLoaded) {
-        let apiRes = await axios.put(backendUrl + "/budgets/" + budget._id, {
+        await axios.put(backendUrl + "/budgets/" + budget._id, {
           categories: budget.categories,
         })
       }
@@ -63,7 +64,7 @@ function Profile(props) {
     } catch (error) {
       console.log(error);
     }
-  }, [budget]);
+  }, [budget, backendUrl, budgetsLoaded]);
 
   // Color filter
   useEffect(() => {
@@ -84,33 +85,9 @@ function Profile(props) {
       setColorsAvailable(filteredColors)
 
     }
-  }, [budget, budgetArray])
+  }, [budget, budgetArray, budgetsLoaded])
 
-  // On mount color filter
-  useEffect(() => {
-    const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
-    if (budgetsLoaded) {
-
-      let budgetColorsInUse = []
-      budgetArray.forEach((budget) => {
-        budgetColorsInUse.push(budget.colorScheme)
-      })
-
-      let filteredColors = allColors.filter(
-        function(e) {
-          return this.indexOf(e) < 0;
-        },
-        budgetColorsInUse
-      );
-      setColorsAvailable(filteredColors)
-
-    }
-  }, [budgetsLoaded])
-  
-
-
-
-  const reFetchUser = async () => {
+  reFetchUser.current = async () => {
     let apiRes = await axios.get(backendUrl + "/users/" + id);
     setFirstTimeUser(apiRes.data.user.firstTimeUser)
     setUserName(apiRes.data.user.name)
@@ -147,7 +124,7 @@ function Profile(props) {
       budgetArrayCopy.splice(index, 1)
       await setBudgetArray(budgetArrayCopy)
       await setBudget(budgetArray[0]);
-      let apiRes = await axios.delete(backendUrl + "/budgets/" + budgetId);
+      await axios.delete(backendUrl + "/budgets/" + budgetId);
       let apiRes2 = await axios.get(backendUrl + "/budgets/all/" + id);
       let budgets = await apiRes2.data.budgets;
       await setBudgetArray(budgets)
@@ -216,6 +193,8 @@ function Profile(props) {
         return `rgba(43, 106, 140, ${opacity})`;
       case 'Purple':
         return `rgba(88, 41, 92, ${opacity})`;
+      default: 
+        break;
     }
   }
 
@@ -250,7 +229,7 @@ function Profile(props) {
           email={email}
           id={id}
           reFetchBudgets={reFetchBudgets}
-          reFetchUser={reFetchUser}
+          reFetchUser={reFetchUser.current}
           budget={budget}
           handleLogout={handleLogout}
           colorsAvailable={colorsAvailable}
@@ -292,7 +271,7 @@ function Profile(props) {
   const displayFilter = () => {
     if (props.user) {
       if (firstTimeUser) {
-        return <Dashboard reFetchUser={reFetchUser} user={props.user}/>
+        return <Dashboard reFetchUser={reFetchUser.current} user={props.user}/>
       } else {
         return userData
       }

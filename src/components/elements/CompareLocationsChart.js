@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import calcFunctions from "../../utilities/calcFunctions";
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ComposedChart, ResponsiveContainer
+  BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
 const CandyBar = (props) => {
@@ -10,7 +10,6 @@ const CandyBar = (props) => {
     y: oY,
     width: oWidth,
     height: oHeight,
-    value,
     fill
   } = props;
   
