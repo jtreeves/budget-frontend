@@ -38,7 +38,6 @@ function Dashboard(props) {
       colorScheme: colorScheme,
       categories: emptyCategories
     });
-    console.log(apiRes);
     let apiRes2 = await axios.put(backendUrl + "/users/" + props.user.id, {
       firstTimeUser: false
     });

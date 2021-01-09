@@ -75,7 +75,6 @@ function App() {
 
   // Log in user
   const handleLogin = async () => {
-    console.log("submitted login");
     try {
       const userData = {
         email: loginEmail,
