@@ -28,38 +28,30 @@ function Profile(props) {
     // Backend API crud
     useEffect(() => {
         if (firstTimeUser || firstTimeUser == null) {
-        reFetchUser()
-        return
+            reFetchUser()
+            return
         }
         async function fetchBudgets() {
-        if (props.user) {
-            let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
-            let budgets = await apiRes.data.budgets
-            await setBudget(budgets[0])
-            await setBudgetArray(budgets)
-            await setBudgetsLoaded(true)
+            if (props.user) {
+                let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+                let budgets = await apiRes.data.budgets
+                await setBudget(budgets[0])
+                await setBudgetArray(budgets)
+                await setBudgetsLoaded(true)
+            }
         }
-        }
-        try {
         fetchBudgets()
-        } catch (error) {
-        console.log(error)
-        }
     }, [backendUrl, id, props.user, firstTimeUser])
 
     useEffect(() => {
         async function autoSave() {
-        if (budgetsLoaded) {
-            await axios.put(backendUrl + "/budgets/" + budget._id, {
-            categories: budget.categories,
-            })
+            if (budgetsLoaded) {
+                await axios.put(backendUrl + "/budgets/" + budget._id, {
+                    categories: budget.categories,
+                })
+            }
         }
-        }
-        try {
         autoSave()
-        } catch (error) {
-        console.log(error)
-        }
     }, [budget])
 
     const reFetchUser = async () => {
@@ -70,46 +62,42 @@ function Profile(props) {
     
     const reFetchBudgets = async (budget) => {
         if (budgetsLoaded) {
-        let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
-        let budgets = await apiRes.data.budgets
-        await setBudgetArray(budgets)
-        await budgets.forEach((ele) => {
-            if (ele._id === budget._id) {
-            setBudget(ele)
-            }
-        })
+            let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+            let budgets = await apiRes.data.budgets
+            await setBudgetArray(budgets)
+            await budgets.forEach((ele) => {
+                if (ele._id === budget._id) {
+                    setBudget(ele)
+                }
+            })
         } else {
-        return
+            return
         }
     }
 
     const loadNewBudget = async () => {
         if (budgetsLoaded) {
-        let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
-        let budgets = await apiRes.data.budgets
-        await setBudgetArray(budgets)
-        await setBudget(budgets[budgets.length - 1])
+            let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+            let budgets = await apiRes.data.budgets
+            await setBudgetArray(budgets)
+            await setBudget(budgets[budgets.length - 1])
         }
     }
 
     const deleteBudget = async (budgetId) => {
         async function resetBudgets() {
-        let index = budgetArray.findIndex((ele) => ele._id === budgetId)
-        let budgetArrayCopy = budgetArray.slice()
-        budgetArrayCopy.splice(index, 1)
-        await setBudgetArray(budgetArrayCopy)
-        await setBudget(budgetArray[0])
-        await axios.delete(backendUrl + "/budgets/" + budgetId)
-        let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
-        let budgets = await apiRes.data.budgets
-        await setBudgetArray(budgets)
-        await setBudget(budgets[0])
+            let index = budgetArray.findIndex((ele) => ele._id === budgetId)
+            let budgetArrayCopy = budgetArray.slice()
+            budgetArrayCopy.splice(index, 1)
+            await setBudgetArray(budgetArrayCopy)
+            await setBudget(budgetArray[0])
+            await axios.delete(backendUrl + "/budgets/" + budgetId)
+            let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+            let budgets = await apiRes.data.budgets
+            await setBudgetArray(budgets)
+            await setBudget(budgets[0])
         }
-        try {
         resetBudgets()
-        } catch (error) {
-        console.log(error)
-        }
     }
 
     // State funcitons
@@ -117,8 +105,7 @@ function Profile(props) {
         // This makes a deep copy of the budget
         let budgetCopy = JSON.parse(JSON.stringify(budget))
         // Now you can edit budgetCopy without changing budget
-        budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
-        newInput.inputValue
+        budgetCopy.categories[budgetKey].inputs[newInput.inputName] = newInput.inputValue
         await setBudget(budgetCopy)
     }
 
@@ -132,18 +119,18 @@ function Profile(props) {
 
     const switchBudgets = (budget) => {
         async function fetchBudgets() {
-        if (props.user) {
-            let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
-            let budgets = await apiRes.data.budgets
-            await setBudgetArray(budgets)
-            budgetArray.forEach((ele) => {
-            if (ele._id === budget._id) {
-                setBudget(ele)
-            } else {
-                return
+            if (props.user) {
+                let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+                let budgets = await apiRes.data.budgets
+                await setBudgetArray(budgets)
+                budgetArray.forEach((ele) => {
+                    if (ele._id === budget._id) {
+                        setBudget(ele)
+                    } else {
+                        return
+                    }
+                })
             }
-            })
-        }
         }
         fetchBudgets()
     }
@@ -156,100 +143,107 @@ function Profile(props) {
 
     const provideColorCode = (colorName, opacity) => {
         switch (colorName) {
-        case 'Magenta':
-            return `rgba(159, 46, 113, ${opacity})`
-        case 'Red':
-            return `rgba(158, 31, 20, ${opacity})`
-        case 'Orange':
-            return `rgba(234, 135, 50, ${opacity})`
-        case 'Green':
-            return `rgba(70, 117, 49, ${opacity})`
-        case 'Blue':
-            return `rgba(43, 106, 140, ${opacity})`
-        case 'Purple':
-            return `rgba(88, 41, 92, ${opacity})`
+            case 'Magenta':
+                return `rgba(159, 46, 113, ${opacity})`
+            case 'Red':
+                return `rgba(158, 31, 20, ${opacity})`
+            case 'Orange':
+                return `rgba(234, 135, 50, ${opacity})`
+            case 'Green':
+                return `rgba(70, 117, 49, ${opacity})`
+            case 'Blue':
+                return `rgba(43, 106, 140, ${opacity})`
+            case 'Purple':
+                return `rgba(88, 41, 92, ${opacity})`
         }
     }
 
     const changeBkgColor = () => {
         if (
-        window.location.pathname === '/profile/compare-budgets' ||
-        window.location.pathname === '/profile/compare-locations') {
-        return { backgroundColor: '#edeef1' }
+            window.location.pathname === '/profile/compare-budgets' || 
+            window.location.pathname === '/profile/compare-locations'
+        ) {
+            return { backgroundColor: '#edeef1' }
         } else {
-        return { backgroundColor: provideColorCode(budget.colorScheme, '0.2') }
+            return {
+                backgroundColor: provideColorCode(budget.colorScheme, '0.2')
+            }
         }
     }
 
     // Success Display
     const userData = budgetsLoaded ? (
         <>
-        <UserNavigation
-            user={props.user}
-            handleLogout={handleLogout}
-            budgetArray={budgetArray}
-            loadNewBudget={loadNewBudget}
-            switchBudgets={switchBudgets}
-            reFetchBudgets={reFetchBudgets}
-            />
-        <div className="div-profile-page">
-            <UserInfo
-            budgetArray={budgetArray}
-            deleteBudget={deleteBudget}
-            userName={userName}
-            name={name}
-            email={email}
-            id={id}
-            reFetchBudgets={reFetchBudgets}
-            reFetchUser={reFetchUser}
-            budget={budget}
-            handleLogout={handleLogout}
-            />
-
-
-            <div
-            className="div-profile-workspace"
-            style={changeBkgColor()}
-            >
-            <ProfileRoutes
+            <UserNavigation
+                user={props.user}
+                handleLogout={handleLogout}
                 budgetArray={budgetArray}
-                deleteBudgetInput={deleteBudgetInput}
-                addBudgetInput={addBudgetInput}
-                budget={budget}
+                loadNewBudget={loadNewBudget}
+                switchBudgets={switchBudgets}
+                reFetchBudgets={reFetchBudgets}
+            />
+
+            <div className="div-profile-page">
+                <UserInfo
+                    budgetArray={budgetArray}
+                    deleteBudget={deleteBudget}
+                    userName={userName}
+                    name={name}
+                    email={email}
+                    id={id}
+                    reFetchBudgets={reFetchBudgets}
+                    reFetchUser={reFetchUser}
+                    budget={budget}
+                    handleLogout={handleLogout}
                 />
+
+                <div
+                    className="div-profile-workspace"
+                    style={changeBkgColor()}
+                >
+                    <ProfileRoutes
+                        budgetArray={budgetArray}
+                        deleteBudgetInput={deleteBudgetInput}
+                        addBudgetInput={addBudgetInput}
+                        budget={budget}
+                    />
+                </div>
             </div>
-        </div>
         </>
     ) : (
         <>
-        <h4>Loading...</h4>
-        <button onClick={handleLogout}>Logout</button>
+            <h4>Loading...</h4>
+            <button onClick={handleLogout}>Logout</button>
         </>
     )
     
     // Error Display
     const errorDiv = () => {
         return (
-        <div>
-            <h3>
-            Please <Link to="/">login</Link> to view this page
-            </h3>
-        </div>
+            <div>
+                <h3>
+                    Please <Link to="/">login</Link> to view this page
+                </h3>
+            </div>
         )
     }
     
     // Choose Display 
     const displayFilter = () => {
         if (props.user) {
-        if (firstTimeUser) {
-            return <Dashboard reFetchUser={reFetchUser} user={props.user}/>
+            if (firstTimeUser) {
+                return <Dashboard 
+                    reFetchUser={reFetchUser} 
+                    user={props.user}
+                />
+            } else {
+                return userData
+            }
         } else {
-            return userData
-        }
-        } else {
-        errorDiv()
+            errorDiv()
         }
     }
+    
     // Profile Return
     return <>{displayFilter()}</>
 }
