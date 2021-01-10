@@ -3,9 +3,9 @@ function EditUserForm(props) {
         <form className="form-small">
             <label>Edit Name</label>
             <input 
-            type="text"
-            value={props.userName}
-            onChange={(e) => props.setUserName(e.target.value)}
+                type="text"
+                value={props.userName}
+                onChange={(e) => props.setUserName(e.target.value)}
             />
         </form>
     )
