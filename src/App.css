@@ -172,7 +172,7 @@ body .div-container-app .div-public-page .div-public-header {
   padding: 240px 10vw 200px 10vw;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
 body .div-container-app .div-public-page .div-public-header h1 {
