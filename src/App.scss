@@ -270,29 +270,36 @@ body {
     .div-public-page {
       grid-column: 1 / span 5;
       grid-row: 1 / span 3;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      justify-items: center;
+      align-items: start;
       background-color: $color-white;
       text-align: center;
 
       .div-public-header {
-        height: 800px;
-        padding: 0 10vw;
+        padding: 240px 10vw 200px 10vw;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         background-image: $gradient;
-
+        
         h1 {
           @include text-h1($color-white);
           padding-bottom: 20px;
           text-align: center;
         }
-
+        
         p {
           @include text-body($color-white);
         }
       }
 
       .div-signup {
+        width: 100%;
+        height: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
 
@@ -309,6 +316,98 @@ body {
             @include text-h2();
             font-size: 40px;
             padding-bottom: 20px;
+          }
+        }
+      }
+    }
+
+    .about-page {
+      .div-public-header {
+        height: 100%;
+        padding-top: 240px;
+        padding-bottom: 80px;
+
+        p {
+          font-size: 24px;
+          font-weight: 600;
+        }
+
+        .div-screenshots {
+          max-width: 1600px;
+          padding: 40px 0;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 4vw 1fr 6vw 1fr 4vw;
+
+          h2 {
+            @include text-body($color-white);
+            padding: 50px 0 24px 0;
+            line-height: 1.4;
+          }
+          
+          img {
+            width: 100%;
+          }
+          
+          .div-screenshot1 {
+            grid-column: 2 / span 1;
+            
+            img {
+              box-shadow: -12px 20px 40px rgba($color: $color-black, $alpha: 0.4);
+              -webkit-transform: perspective(800) rotateY(6deg);
+            }
+          }
+          
+          .div-screenshot2 {
+            grid-column: 4/ span 1;
+            padding-top: 80px;
+            
+            img {
+              box-shadow: 12px 20px 40px rgba($color: $color-black, $alpha: 0.4);
+              -webkit-transform: perspective(800) rotateY(-6deg);
+            }
+          }
+        }
+      }
+
+      .div-created-by {
+        width: 100%;
+        max-width: 1600px;
+        padding: 80px 4vw;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2vw;
+
+        h2 {
+          grid-column: 1 / span 4;
+          @include text-h2();
+          font-size: 40px;
+          padding-bottom: 60px;
+        }
+
+        h3 {
+          @include text-h3();
+          padding-bottom: 10px;
+          font-size: 24px;
+        }
+
+        img {
+          width: 30px;
+        }
+
+        p {
+          grid-column: 1 / span 4;
+          @include text-body();
+          padding-top: 60px;
+          line-height: 1.4;
+
+          a {
+            color: #116b90;
+            font-weight: 700;
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }
