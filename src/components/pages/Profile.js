@@ -33,7 +33,9 @@ function Profile(props) {
         }
         async function fetchBudgets() {
             if (props.user) {
-                let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+                let apiRes = await axios.get(
+                    backendUrl + "/budgets/all/" + id
+                )
                 let budgets = await apiRes.data.budgets
                 await setBudget(budgets[0])
                 await setBudgetArray(budgets)
@@ -62,7 +64,9 @@ function Profile(props) {
     
     const reFetchBudgets = async (budget) => {
         if (budgetsLoaded) {
-            let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+            let apiRes = await axios.get(
+                backendUrl + "/budgets/all/" + id
+            )
             let budgets = await apiRes.data.budgets
             await setBudgetArray(budgets)
             await budgets.forEach((ele) => {
@@ -77,7 +81,9 @@ function Profile(props) {
 
     const loadNewBudget = async () => {
         if (budgetsLoaded) {
-            let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+            let apiRes = await axios.get(
+                backendUrl + "/budgets/all/" + id
+            )
             let budgets = await apiRes.data.budgets
             await setBudgetArray(budgets)
             await setBudget(budgets[budgets.length - 1])
@@ -86,13 +92,17 @@ function Profile(props) {
 
     const deleteBudget = async (budgetId) => {
         async function resetBudgets() {
-            let index = budgetArray.findIndex((ele) => ele._id === budgetId)
+            let index = budgetArray.findIndex(
+                (ele) => ele._id === budgetId
+            )
             let budgetArrayCopy = budgetArray.slice()
             budgetArrayCopy.splice(index, 1)
             await setBudgetArray(budgetArrayCopy)
             await setBudget(budgetArray[0])
             await axios.delete(backendUrl + "/budgets/" + budgetId)
-            let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+            let apiRes = await axios.get(
+                backendUrl + "/budgets/all/" + id
+            )
             let budgets = await apiRes.data.budgets
             await setBudgetArray(budgets)
             await setBudget(budgets[0])
@@ -105,7 +115,8 @@ function Profile(props) {
         // This makes a deep copy of the budget
         let budgetCopy = JSON.parse(JSON.stringify(budget))
         // Now you can edit budgetCopy without changing budget
-        budgetCopy.categories[budgetKey].inputs[newInput.inputName] = newInput.inputValue
+        budgetCopy.categories[budgetKey].inputs[newInput.inputName] = 
+        newInput.inputValue
         await setBudget(budgetCopy)
     }
 
@@ -120,7 +131,9 @@ function Profile(props) {
     const switchBudgets = (budget) => {
         async function fetchBudgets() {
             if (props.user) {
-                let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
+                let apiRes = await axios.get(
+                    backendUrl + "/budgets/all/" + id
+                )
                 let budgets = await apiRes.data.budgets
                 await setBudgetArray(budgets)
                 budgetArray.forEach((ele) => {
@@ -166,7 +179,9 @@ function Profile(props) {
             return { backgroundColor: '#edeef1' }
         } else {
             return {
-                backgroundColor: provideColorCode(budget.colorScheme, '0.2')
+                backgroundColor: provideColorCode(
+                    budget.colorScheme, '0.2'
+                )
             }
         }
     }
@@ -243,7 +258,7 @@ function Profile(props) {
             errorDiv()
         }
     }
-    
+
     // Profile Return
     return <>{displayFilter()}</>
 }
