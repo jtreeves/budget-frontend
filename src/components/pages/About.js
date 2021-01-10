@@ -32,21 +32,21 @@ function About() {
                 <h2>Created By</h2>
                 <div>
                     <h3>Alan Avery</h3>
-                    <a href="https://github.com/alanavery" target="_blank"><img src="https://res.cloudinary.com/alanavery/image/upload/v1610239772/kaleidoscope/about/GitHub-Mark-120px-plus_aqsr4h.png" alt="GitHub logo"/></a>
+                    <a href="https://github.com/alanavery" target="_blank" rel="noreferrer"><img src="https://res.cloudinary.com/alanavery/image/upload/v1610239772/kaleidoscope/about/GitHub-Mark-120px-plus_aqsr4h.png" alt="GitHub logo"/></a>
                 </div>
                 <div>
                     <h3>Thomas Gilbert</h3>
-                    <a href="https://github.com/tcgilbert" target="_blank"><img src="https://res.cloudinary.com/alanavery/image/upload/v1610239772/kaleidoscope/about/GitHub-Mark-120px-plus_aqsr4h.png" alt="GitHub logo"/></a>
+                    <a href="https://github.com/tcgilbert" target="_blank" rel="noreferrer"><img src="https://res.cloudinary.com/alanavery/image/upload/v1610239772/kaleidoscope/about/GitHub-Mark-120px-plus_aqsr4h.png" alt="GitHub logo"/></a>
                 </div>
                 <div>
                     <h3>Jackson Reeves</h3>
-                    <a href="https://github.com/jtreeves" target="_blank"><img src="https://res.cloudinary.com/alanavery/image/upload/v1610239772/kaleidoscope/about/GitHub-Mark-120px-plus_aqsr4h.png" alt="GitHub logo"/></a>
+                    <a href="https://github.com/jtreeves" target="_blank" rel="noreferrer"><img src="https://res.cloudinary.com/alanavery/image/upload/v1610239772/kaleidoscope/about/GitHub-Mark-120px-plus_aqsr4h.png" alt="GitHub logo"/></a>
                 </div>
                 <div>
                     <h3>Jeremy Uriz</h3>
-                    <a href="https://github.com/JJURIZ" target="_blank"><img src="https://res.cloudinary.com/alanavery/image/upload/v1610239772/kaleidoscope/about/GitHub-Mark-120px-plus_aqsr4h.png" alt="GitHub logo"/></a>
+                    <a href="https://github.com/JJURIZ" target="_blank" rel="noreferrer"><img src="https://res.cloudinary.com/alanavery/image/upload/v1610239772/kaleidoscope/about/GitHub-Mark-120px-plus_aqsr4h.png" alt="GitHub logo"/></a>
                 </div>
-                <p>Developed January 2021. See the code behind this site on the app's <a target="_blank" href="https://github.com/jtreeves/budget-frontend">repository on GitHub</a>.</p>
+                <p>Developed January 2021. See the code behind this site on the app's <a target="_blank" rel="noreferrer" href="https://github.com/jtreeves/budget-frontend">repository on GitHub</a>.</p>
             </div>
         </div>
     )
