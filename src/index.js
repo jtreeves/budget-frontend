@@ -9,16 +9,12 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
-// Import internal CSS
-import './index.css'
-
 const options = {
     position: positions.BOTTOM_CENTER,
     timeout: 5000,
     offset: '30px',
     transition: transitions.SCALE
 }
-
 
 ReactDOM.render(
     <Router>
