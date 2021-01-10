@@ -31,14 +31,14 @@ function Dashboard(props) {
       alert.show("Income must have a value")
       return
     }
-    let apiRes = await axios.post(backendUrl + "/budgets/" + props.user.id, {
+    await axios.post(backendUrl + "/budgets/" + props.user.id, {
       title: budgetTitle,
       location: location,
       income: income,
       colorScheme: colorScheme,
       categories: emptyCategories
     });
-    let apiRes2 = await axios.put(backendUrl + "/users/" + props.user.id, {
+    await axios.put(backendUrl + "/users/" + props.user.id, {
       firstTimeUser: false
     });
 

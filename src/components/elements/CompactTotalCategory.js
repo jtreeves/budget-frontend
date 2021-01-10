@@ -12,6 +12,8 @@ const provideColorCode = (colorName, opacity) => {
       return `rgba(43, 106, 140, ${opacity})`;
     case 'Purple':
       return `rgba(88, 41, 92, ${opacity})`;
+    default: 
+      break;
   }
 }
 

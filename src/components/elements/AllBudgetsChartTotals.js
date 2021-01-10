@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import calcFunctions from "../../utilities/calcFunctions";
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
+  BarChart, Bar, Cell, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
 const CandyBar = (props) => {
@@ -10,7 +10,6 @@ const CandyBar = (props) => {
     y: oY,
     width: oWidth,
     height: oHeight,
-    value,
     fill
   } = props;
   
@@ -43,6 +42,8 @@ const provideColorCode = (colorName) => {
       return '#116b90';
     case 'Purple':
       return '#5e235f';
+    default: 
+      break;
   }
 }
 

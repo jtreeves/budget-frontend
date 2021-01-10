@@ -45,7 +45,7 @@ function UserInfo(props) {
       alert.show("Income must has a value")
       return
     }
-    let apiRes = await axios.put(backendUrl + "/budgets/" + props.budget._id, {
+    await axios.put(backendUrl + "/budgets/" + props.budget._id, {
       title: budgetName,
       colorScheme: colorScheme,
       categories: props.budget.categories,
@@ -62,7 +62,7 @@ function UserInfo(props) {
       alert.show("User must have a name")
       return
     }  
-    let apiRes = await axios.put(backendUrl + "/users/" + props.id, {
+    await axios.put(backendUrl + "/users/" + props.id, {
       newName: userName
     });
     setEditNamePressed(false);
@@ -185,16 +185,6 @@ function UserInfo(props) {
     }
   };
 
-  const breakdown = Object.keys(subTotals).map((key, idx) => {
-    return (
-      <li key={idx}>
-        {key}: ${subTotals[key]}
-      </li>
-    );
-  });
-
-
-
   const provideColorCode = (colorName) => {
     switch (colorName) {
       case 'Magenta':
@@ -209,6 +199,8 @@ function UserInfo(props) {
         return '#116b90';
       case 'Purple':
         return '#5e235f';
+      default: 
+        break;
     }
   }
 

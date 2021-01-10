@@ -49,9 +49,13 @@ function Signup(props) {
         if (password.length >= 8) {
           // Create new user if both checks pass
           const newUser = { name, email, password };
-          const reqData = await axios.post(`${REACT_APP_SERVER_URL}/users/signup`, newUser);
+          try {
+            await axios.post(`${REACT_APP_SERVER_URL}/users/signup`, newUser);
+            props.handleLoginAfterSignup(email, password);
+          } catch (error) {
+            alert.show(`Email already used`);
+          }
           // Automatically login new user
-          props.handleLoginAfterSignup(email, password);
         } else {
           // Alert user if password too short
           alert.show('Password must be at least 8 characters long');
@@ -60,11 +64,6 @@ function Signup(props) {
         // Alert user if passwords do not match
         alert.show('Passwords must match');
       }
-    // } catch (error) {
-      // Alert user if email already in use
-    //   alert.show(`SIGNUP ERROR: ${error}`);
-    //   console.log(`SIGNUP ERROR: ${error}`);
-    // }
 };
 
   return (
