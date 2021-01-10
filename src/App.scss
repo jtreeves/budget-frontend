@@ -270,29 +270,36 @@ body {
     .div-public-page {
       grid-column: 1 / span 5;
       grid-row: 1 / span 3;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      justify-items: center;
+      align-items: start;
       background-color: $color-white;
       text-align: center;
 
       .div-public-header {
-        height: 800px;
-        padding: 0 10vw;
+        padding: 240px 10vw 200px 10vw;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         background-image: $gradient;
-
+        
         h1 {
           @include text-h1($color-white);
           padding-bottom: 20px;
           text-align: center;
         }
-
+        
         p {
           @include text-body($color-white);
         }
       }
 
       .div-signup {
+        width: 100%;
+        height: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
 
@@ -309,6 +316,98 @@ body {
             @include text-h2();
             font-size: 40px;
             padding-bottom: 20px;
+          }
+        }
+      }
+    }
+
+    .about-page {
+      .div-public-header {
+        height: 100%;
+        padding-top: 240px;
+        padding-bottom: 80px;
+
+        p {
+          font-size: 24px;
+          font-weight: 600;
+        }
+
+        .div-screenshots {
+          max-width: 1600px;
+          padding: 40px 0;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 4vw 1fr 6vw 1fr 4vw;
+
+          h2 {
+            @include text-body($color-white);
+            padding: 50px 0 24px 0;
+            line-height: 1.4;
+          }
+          
+          img {
+            width: 100%;
+          }
+          
+          .div-screenshot1 {
+            grid-column: 2 / span 1;
+            
+            img {
+              box-shadow: -12px 20px 40px rgba($color: $color-black, $alpha: 0.4);
+              -webkit-transform: perspective(800) rotateY(6deg);
+            }
+          }
+          
+          .div-screenshot2 {
+            grid-column: 4/ span 1;
+            padding-top: 80px;
+            
+            img {
+              box-shadow: 12px 20px 40px rgba($color: $color-black, $alpha: 0.4);
+              -webkit-transform: perspective(800) rotateY(-6deg);
+            }
+          }
+        }
+      }
+
+      .div-created-by {
+        width: 100%;
+        max-width: 1600px;
+        padding: 80px 4vw;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2vw;
+
+        h2 {
+          grid-column: 1 / span 4;
+          @include text-h2();
+          font-size: 40px;
+          padding-bottom: 60px;
+        }
+
+        h3 {
+          @include text-h3();
+          padding-bottom: 10px;
+          font-size: 24px;
+        }
+
+        img {
+          width: 30px;
+        }
+
+        p {
+          grid-column: 1 / span 4;
+          @include text-body();
+          padding-top: 60px;
+          line-height: 1.4;
+
+          a {
+            color: #116b90;
+            font-weight: 700;
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -341,7 +440,7 @@ body {
         }
 
         &.link-compare {
-          a{
+          a {
             font-size: 16px;
           }
         }
@@ -361,12 +460,11 @@ body {
         &.link-compare {
           margin-top: 10px;
 
-          a{
+          a {
             font-size: 16px;
           }
         }
       }
-
 
       .div-budgets {
         @include box-subsection();
@@ -470,26 +568,29 @@ body {
 
         h2 {
           @include text-h2();
+          overflow: hidden;
           margin-bottom: 20px;
         }
 
         .div-no-data {
           width: 100%;
           height: 300px;
+          overflow: hidden;
           border-radius: $border-radius-small;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           background-color: rgba($color: $color-white, $alpha: 0.5);
-          
+
           p {
             @include text-h3($color-dark-gray);
             line-height: 1.6;
           }
         }
-        
+
         .compact-container {
+          overflow: hidden;
           border-radius: $border-radius-small;
           margin-top: 10px;
           display: grid;
@@ -559,17 +660,18 @@ body {
         }
 
         .compact-container-total {
+          overflow: hidden;
           padding: 10px 20px;
           border-radius: $border-radius-small;
           margin-top: 10px;
           display: grid;
-          grid-template-columns: 4vw 3fr 1fr;
+          grid-template-columns: 3fr 1fr;
           align-items: center;
+          column-gap: 10px;
           background-color: $color-medium-gray;
 
           h3 {
             @include text-h3();
-            grid-column: 1 / span 2;
           }
 
           .currency {
@@ -579,10 +681,12 @@ body {
         }
 
         .category-container {
+          overflow: hidden;
+
           .compact-container-total {
             border-radius: $border-radius-small $border-radius-small 0 0;
           }
-          
+
           form {
             border-radius: 0 0 $border-radius-small $border-radius-small;
             display: grid;
@@ -604,6 +708,8 @@ body {
         }
 
         .div-compare-budgets-page {
+          overflow: hidden;
+
           h3 {
             @include text-h3();
             margin-bottom: 14px;
@@ -616,6 +722,7 @@ body {
 
         .div-compare-locations-page {
           width: 100%;
+          overflow: hidden;
 
           form {
             border-radius: $border-radius-small;
@@ -700,15 +807,38 @@ body {
           }
         }
 
-        .div-user-delete {
-          display: flex;
-          justify-content: flex-end;
-        }
+        .div-account-settings {
+          @include box-subsection();
+          margin: 0;
 
-        .div-user-delete-confirm {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+          h4 {
+            @include text-h4();
+            margin-bottom: 10px;
+          }
+
+          .div-user-edit {
+            margin-bottom: 8px;
+          }
+  
+          .div-user-edit-confirm {
+            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+  
+            form {
+              padding: 0;
+              margin: 0;
+            }
+          }
+  
+          .div-user-delete-confirm {
+            display: flex;
+            flex-direction: column;
+
+            p {
+              margin-bottom: 2px
+            }
+          }
         }
 
         // Current Budget Section ——————————
@@ -716,12 +846,13 @@ body {
         .div-current-budget {
           @include box-subsection();
           padding: 0;
+          margin: 20px 0;
 
           .div-budget-name {
             padding: 8px 12px;
             border-radius: $border-radius-small $border-radius-small 0 0;
             background-color: $color-dark-gray;
-  
+
             h2 {
               @include text-h3($color-white);
               font-size: 26px;
@@ -735,25 +866,25 @@ body {
               @include text-body-small();
               margin-bottom: 20px;
             }
-  
+
             h4 {
               @include text-h4();
             }
-  
+
             h3 {
               @include text-h3();
               margin-top: 10px;
               font-size: 30px;
               line-height: 1;
             }
-  
+
             .subsection-buttons {
               margin-top: 30px;
             }
-  
+
             .div-budget-delete-confirm {
               margin-top: 30px;
-  
+
               p {
                 margin-bottom: 8px;
               }
@@ -805,4 +936,166 @@ body {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 200ms;
+}
+
+/* Media Queries —————————————————————————————— */
+
+@media screen and (max-width: 1000px) {
+  body {
+    .div-container-app {
+      .div-profile-page {
+        .div-profile-workspace {
+          
+          .div-no-data {
+            width: 100%;
+            height: 300px;
+            border-radius: $border-radius-small;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba($color: $color-white, $alpha: 0.5);
+
+            p {
+              @include text-h3($color-dark-gray);
+              line-height: 1.6;
+            }
+          }
+
+          .compact-container {
+            border-radius: $border-radius-small;
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 2vw 1fr;
+            align-items: center;
+
+            .compact-container-text {
+              padding: 10px 20px;
+              display: grid;
+              grid-template-columns: 1fr;
+              row-gap: 10px;
+
+              h3 {
+                @include text-h3();
+              }
+
+              li {
+                @include text-body-small();
+              }
+
+              .currency {
+                text-align: left;
+              }
+
+              .timeframe {
+                text-align: left;
+              }
+            }
+          }
+
+          .category-container {
+            .compact-container-total {
+              border-radius: $border-radius-small $border-radius-small 0 0;
+            }
+
+            form {
+              border-radius: 0 0 $border-radius-small $border-radius-small;
+              display: grid;
+              grid-template-columns: 3fr 2fr auto;
+              column-gap: 10px;
+              background-color: white;
+
+              input {
+                width: 100%;
+                margin-bottom: 0;
+                background-color: $color-light-gray;
+              }
+            }
+
+            .div-subcategory-name {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+
+          .div-compare-budgets-page {
+            h3 {
+              @include text-h3();
+              margin-bottom: 14px;
+            }
+
+            .compare-budgets-heading2 {
+              margin-top: 40px;
+            }
+          }
+
+          .div-compare-locations-page {
+            width: 100%;
+
+            form {
+              border-radius: $border-radius-small;
+              margin-bottom: 40px;
+              display: grid;
+              grid-template-columns: auto 1fr auto;
+              align-items: center;
+              column-gap: 10px;
+              background-color: $color-white;
+
+              p {
+                @include text-body-small();
+                padding-right: 10px;
+              }
+
+              select {
+                background-color: $color-light-gray;
+                width: 100%;
+                margin-bottom: 0;
+              }
+            }
+
+            .div-compare-locations-footer {
+              margin-top: 40px;
+              display: grid;
+              grid-template-columns: 1fr 200px;
+              column-gap: 20px;
+
+              .div-location-info {
+                padding: 12px 20px;
+                border-radius: $border-radius-small;
+                background-color: $color-white;
+
+                p {
+                  @include text-body-small();
+                }
+
+                h3 {
+                  @include text-h3();
+                  margin-bottom: 10px;
+                }
+              }
+
+              .div-comparison-cities {
+                overflow: hidden;
+                padding: 10px;
+                border-radius: $border-radius-small;
+                background-color: $color-medium-gray;
+
+                button {
+                  width: 100%;
+                  margin-bottom: 10px;
+                  display: block;
+                  text-align: left;
+
+                  .city-x {
+                    color: $color-dark-gray;
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

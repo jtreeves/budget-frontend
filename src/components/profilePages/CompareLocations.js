@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import calcFunctions from "../../utilities/calcFunctions"
 import Cities from "../../utilities/Cities"
 import CompareLocationsChart from "../elements/CompareLocationsChart"
@@ -17,6 +17,10 @@ function CompareLocations(props) {
     const budgetTotals = calcFunctions.calcAllBudgetTotals([props.budget])
     const NUMBEO_API_KEY = process.env.REACT_APP_NUMBEO_API_KEY
 
+    // Refs for linting errors
+    const addCpiState = useRef(() => {})
+    const removeCpiState = useRef(() => {})
+
     // fetches indices for budget location
     useEffect(() => {
         const fetchCityIndices = () => {
@@ -28,35 +32,39 @@ function CompareLocations(props) {
             })
             .then((data) => {
                 let cityCpi = data.cpi_and_rent_index
+                if (cityCpi >= 100) cityCpi = 100
                 setBudgetLocationCPI(cityCpi)
                 if (data.groceries_index) {
                     setBudgetLocationGroceries(data.groceries_index)
                 }
                 if (data.restaurant_price_index) {
+                    if (data.restaurant_price_index >= 100) data.restaurant_price_index = 100
                     setBudgetLocationRestaurants(data.restaurant_price_index)
                 }
                 if (data.health_care_index) {
+                    if (data.health_care_index >= 100) data.health_care_index = 100
                     setBudgetLocationHealthCare(data.health_care_index)
                 }
                 if (data.rent_index) {
+                    if (data.rent_index >= 100) data.rent_index = 100
                     setBudgetLocationRent(data.rent_index)
                 }
             })
         }
         fetchCityIndices()
-    }, [props.budget])
+    }, [props.budget, NUMBEO_API_KEY])
 
     // fetches indices for comparison locations
     useEffect(() => {
         const fetchCityIndices = () => {
             if (Object.keys(cityCPIS).length > citiesToCompare.length) {
-                removeCpiState()
+                removeCpiState.current()
             } else {
-                addCpiState()
+                addCpiState.current()
             }
         }
         fetchCityIndices()
-    }, [citiesToCompare])
+    }, [citiesToCompare, cityCPIS])
 
     const convertCpi = (cpi) => {
         let difference = budgetLocationCPI - cpi
@@ -80,7 +88,7 @@ function CompareLocations(props) {
 
     const formatChartData = () => {
         const control = {
-            name: props.budget.location,
+            name: "Your Location",
             Expenses: budgetTotals[0].totalExpense,
             Savings: income - budgetTotals[0].totalExpense
         }
@@ -89,14 +97,14 @@ function CompareLocations(props) {
             let chartInput = {
                 name: key,
                 Expenses: convertCpi(cityCPIS[key]),
-                Savings: formatSavings(convertCpi(cityCPIS[key]))
+                Savings: formatSavings(convertCpi(cityCPIS[key])),
             }
             chartData.push(chartInput)
         })
         return chartData
     }
 
-    const addCpiState = async () => {
+    addCpiState.current = async () => {
         await citiesToCompare.forEach((city) => {
             let cityAlreadyLoaded = false
             Object.keys(cityCPIS).forEach((key) => {
@@ -121,7 +129,7 @@ function CompareLocations(props) {
         })
     }
 
-    const removeCpiState = async () => {
+    removeCpiState.current = async () => {
         Object.keys(cityCPIS).forEach((key) => {
             let keyFound = false
             citiesToCompare.forEach((city) => {
@@ -182,15 +190,19 @@ function CompareLocations(props) {
 
             <form noValidate>
                 <p>Add a city to compare</p>
+
                 <Cities
                     setLocation={setSelectedCity}
                     location={selectedCity}
                     dontShowLabel={true}
                 />
-                <button onClick={(e) => {
-                    e.preventDefault()
-                    addCity()
-                }}>
+
+                <button 
+                    onClick={(e) => {
+                        e.preventDefault()
+                        addCity()
+                    }}
+                >
                     Add
                 </button>
             </form>

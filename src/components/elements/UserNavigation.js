@@ -4,8 +4,11 @@ import BudgetsDisplay from '../elements/BudgetsDisplay'
 function UserNavigation(props) {
     return (
         <div className="nav-user">
-            <img src="https://res.cloudinary.com/alanavery/image/upload/v1609718928/kaleidoscope/kaleidoscope-logo-primary-black_lphgwi.png" alt="Kaleidoscope logo"/>
-            
+            <img 
+                src="https://res.cloudinary.com/alanavery/image/upload/v1609718928/kaleidoscope/kaleidoscope-logo-primary-black_lphgwi.png" 
+                alt="Kaleidoscope logo"
+            />
+
             <ul>
                 <li className="link1">
                     <Link 
@@ -15,6 +18,7 @@ function UserNavigation(props) {
                         Overview
                     </Link>
                 </li>
+
                 <li className="link1">
                     <Link 
                         className="nav-links" 
@@ -23,6 +27,7 @@ function UserNavigation(props) {
                         Housing
                     </Link>
                 </li>
+
                 <li className="link2">
                     <Link 
                         className="nav-links" 
@@ -31,6 +36,7 @@ function UserNavigation(props) {
                         Utilities
                     </Link>
                 </li>
+
                 <li className="link2">
                     <Link 
                         className="nav-links" 
@@ -39,6 +45,7 @@ function UserNavigation(props) {
                         Food & Drink
                     </Link>
                 </li>
+
                 <li className="link2">
                     <Link 
                         className="nav-links" 
@@ -47,6 +54,7 @@ function UserNavigation(props) {
                         Transportation
                     </Link>
                 </li>
+
                 <li className="link2">
                     <Link 
                         className="nav-links" 
@@ -55,6 +63,7 @@ function UserNavigation(props) {
                         Entertainment
                     </Link>
                 </li>
+
                 <li className="link2">
                     <Link 
                         className="nav-links" 
@@ -63,6 +72,7 @@ function UserNavigation(props) {
                         Miscellaneous
                     </Link>
                 </li>
+
                 <li className="link1 link-compare">
                     <Link 
                         onClick={props.reFetchBudgets} 
@@ -72,6 +82,7 @@ function UserNavigation(props) {
                         Compare Budgets
                     </Link>
                 </li>
+
                 <li className="link2 link-compare">
                     <Link 
                         className="nav-links" 
@@ -81,8 +92,9 @@ function UserNavigation(props) {
                     </Link>
                 </li>
             </ul>
-            
+
             <BudgetsDisplay 
+                colorsAvailable={props.colorsAvailable} 
                 reFetchBudgets={props.reFetchBudgets} 
                 switchBudgets={props.switchBudgets} 
                 loadNewBudget={props.loadNewBudget} 

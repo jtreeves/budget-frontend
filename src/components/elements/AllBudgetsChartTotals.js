@@ -44,6 +44,8 @@ const provideColorCode = (colorName) => {
             return '#116b90'
         case 'Purple':
             return '#5e235f'
+        default:
+            break
     }
 }
 

@@ -1,6 +1,25 @@
 import Cities from '../utilities/Cities'
 
 function EditBudgetForm(props) {
+    const colorOptions = props.colorsAvailable.map((color, idx) => {
+        return (
+            <option 
+                key={idx} 
+                value={color}
+            >
+                {color}
+            </option>
+        )
+    })
+
+    const currentColorOption = () => {
+        return (
+            <option value={props.currentColor}>
+                {props.currentColor}
+            </option>
+        )
+    }
+
     return (
         <form className="form-small">
             <label>Name</label>
@@ -17,7 +36,10 @@ function EditBudgetForm(props) {
                 onChange={(e) => props.setIncome(e.target.value)}
             />
 
-            <Cities location={props.location} setLocation={props.setLocation} />
+            <Cities 
+                location={props.location} 
+                setLocation={props.setLocation} 
+            />
 
             <label>Color</label>
             <select
@@ -26,12 +48,8 @@ function EditBudgetForm(props) {
                 id="edit-budget-color"
                 onChange={(e) => props.setColorScheme(e.target.value)}
             >
-                <option value="Magenta">Magenta</option>
-                <option value="Red">Red</option>
-                <option value="Orange">Orange</option>
-                <option value="Green">Green</option>
-                <option value="Blue">Blue</option>
-                <option value="Purple">Purple</option>
+                {currentColorOption()}
+                {colorOptions}
             </select>
 
             <button 
@@ -40,6 +58,7 @@ function EditBudgetForm(props) {
             >
                 Update
             </button>
+            
             <button 
                 className="button-small" 
                 onClick={() => props.setDisplayForm(false)}

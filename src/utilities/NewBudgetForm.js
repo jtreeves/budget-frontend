@@ -2,18 +2,29 @@ import Cities from '../utilities/Cities'
 
 function NewBudgetForm(props) {
     const dataOptions = props.copyDataChoices.map((budget, idx) => {
-        return <option 
-            key={idx} 
-            value={budget._id}
-        >
-            {budget.title}
-        </option>
+        return (
+            <option 
+                key={idx} 
+                value={budget._id}
+            >
+                {budget.title}
+            </option>
+        )
+    })
+
+    let colorOptions = props.colorsAvailable.map((color, idx) => {
+        return (
+            <option key={idx} value={color}>
+                {color}
+            </option>
+        )
     })
 
     return (
         <form className="form-small">
             <label htmlFor="budgetName">Name</label>
             <input 
+                placeholder="New Budget" 
                 id="budgetName" 
                 type="text" 
                 value={props.title} 
@@ -22,13 +33,14 @@ function NewBudgetForm(props) {
             
             <label htmlFor="budgetIncome">Annual Income</label>
             <input 
+                placeholder="50000" 
                 id="budgetIncome" 
                 type="number" 
                 value={props.income} 
                 onChange={(e) => props.setIncome(e.target.value)}
             />
 
-            <Cities setLocation={props.setLocation}/>
+            <Cities setLocation={props.setLocation} />
 
             <label htmlFor="colorScheme">Color</label>
             <select 
@@ -37,12 +49,7 @@ function NewBudgetForm(props) {
                 id="colorScheme" 
                 onChange={(e) => props.setColor(e.target.value)}
             >
-                <option value="Magenta">Magenta</option>
-                <option value="Red">Red</option>
-                <option value="Orange">Orange</option>
-                <option value="Green">Green</option>
-                <option value="Blue">Blue</option>
-                <option value="Purple">Purple</option>
+                {colorOptions}
             </select>
             
             <label htmlFor="copyDataFrom">Copy From</label>
@@ -62,6 +69,7 @@ function NewBudgetForm(props) {
             >
                 Add
             </button>
+            
             <button 
                 className="button-small" 
                 onClick={() => props.setFormDisplayed(false)}

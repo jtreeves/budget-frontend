@@ -41,34 +41,36 @@ function Signup(props) {
 
     // Submit form data
     const handleSubmit = async (e) => {
-        try {
-            e.preventDefault()
-            // Check that passwords match
-            if (password === confirmPassword) {
-                // Check password length
-                if (password.length >= 8) {
-                    // Create new user if both checks pass
-                    const newUser = { name, email, password }
-                    await axios.post(`${REACT_APP_SERVER_URL}/users/signup`, newUser)
+        e.preventDefault()
+        // Check that passwords match
+        if (password === confirmPassword) {
+            // Check password length
+            if (password.length >= 8) {
+                // Create new user if both checks pass
+                const newUser = { name, email, password }
+                try {
+                    await axios.post(
+                        `${REACT_APP_SERVER_URL}/users/signup`, newUser
+                    )
                     // Automatically login new user
                     props.handleLoginAfterSignup(email, password)
-                } else {
-                    // Alert user if password too short
-                    alert.show('Password must be at least 8 characters long')
+                } catch (error) {
+                    alert.show(`Email already in use`)
                 }
             } else {
-                // Alert user if passwords do not match
-                alert.show('Passwords must match')
+                // Alert user if password too short
+                alert.show('Password must be at least 8 characters long')
             }
-        } catch (error) {
-        // Alert user if email already in use
-        alert.show(`SIGNUP ERROR: ${error}`)
+        } else {
+            // Alert user if passwords do not match
+            alert.show('Passwords must match')
         }
     }
 
     return (
         <div className="div-signup">
             <div className="div-signup-img"></div>
+
             <div className="div-signup-form">
                 <h2>Sign Up</h2>
                 <form onSubmit={handleSubmit}>

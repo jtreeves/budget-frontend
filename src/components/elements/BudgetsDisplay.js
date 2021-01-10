@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useAlert } from "react-alert"
 import NewBudgetForm from "../../utilities/NewBudgetForm"
 import axios from "axios"
 
@@ -16,13 +17,16 @@ const provideColorCode = (colorName) => {
             return '#116b90'
         case 'Purple':
             return '#5e235f'
+        default: 
+            break
     }
 }
-
+            
 function BudgetsDisplay(props) {
+    const alert = useAlert()
     const [formDisplayed, setFormDisplayed] = useState(false)
     const [budgetName, setBudgetName] = useState("")
-    const [colorScheme, setColorScheme] = useState("Magenta")
+    const [colorScheme, setColorScheme] = useState(props.colorsAvailable[0])
     const [copyDataFrom, setCopyDataFrom] = useState("None")
     const [location, setLocation] = useState("Albany, NY")
     const [income, setIncome] = useState("")
@@ -56,7 +60,7 @@ function BudgetsDisplay(props) {
 
     const resetFormInputs = () => {
         setBudgetName("")
-        setColorScheme("Magenta")
+        setColorScheme(props.colorsAvailable[0])
         setCopyDataFrom("None")
         setLocation("Albany, NY")
         setIncome("")
@@ -81,6 +85,14 @@ function BudgetsDisplay(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (budgetName === "") {
+            alert.show("Budget must have a name")
+            return
+        }
+        if (income === "") {
+            alert.show("Income must has a value")
+            return
+        }
         let inputs = await copyDataFilter()
         await axios.post(backendUrl + "/budgets/" + props.user.id, {
             title: budgetName,
@@ -98,6 +110,7 @@ function BudgetsDisplay(props) {
         if (formDisplayed) {
             return (
                 <NewBudgetForm
+                    colorsAvailable={props.colorsAvailable}
                     setLocation={setLocation}
                     setIncome={setIncome}
                     setCopyDataFrom={setCopyDataFrom}
@@ -108,6 +121,7 @@ function BudgetsDisplay(props) {
                     colorScheme={colorScheme}
                     setFormDisplayed={setFormDisplayed}
                     handleSubmit={handleSubmit}
+                    budgetArray={props.budgetArray}
                 />
             )
         } else {
@@ -116,26 +130,32 @@ function BudgetsDisplay(props) {
     }
 
     const newBudgetButton = () => {
-        if (!formDisplayed) {
-            return <button
-                className="button-small subsection-buttons"
-                onClick={() => newButtonClicked()}
-            >
-                New
-            </button>
+        if (props.budgetArray.length >= 6) {
+            return
         }
+        if (!formDisplayed) {
+            return (
+                <button 
+                    className="button-small subsection-buttons" 
+                    onClick={() => newButtonClicked()}
+                >
+                    New
+                </button>
+            )
+        } 
     }
 
     const budgets = props.budgetArray.map((budget, idx) => {
         return (
             <li key={idx}>
-                <div
-                    className="icon-budget-color"
+                <div 
+                    className="icon-budget-color" 
                     style={{ backgroundColor: provideColorCode(budget.colorScheme) }}
                 >
                 </div>
-                <a
-                    className="budget-links"
+                <a 
+                    className="budget-links" 
+                    href="#0" 
                     onClick={() => props.switchBudgets(budget)}
                 >
                     {budget.title}
@@ -147,9 +167,7 @@ function BudgetsDisplay(props) {
     return (
         <div className="div-budgets">
             <h3>Budgets</h3>
-            <ul>
-                {budgets}
-            </ul>
+            <ul>{budgets}</ul>
             {budgetForm()}
             {newBudgetButton()}
         </div>

@@ -1,5 +1,5 @@
 // Import external dependencies
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { Route, Redirect } from "react-router-dom"
 import { useAlert } from "react-alert"
 import axios from "axios"
@@ -44,6 +44,8 @@ function App() {
     const [loginPassword, setLoginPassword] = useState("")
     const [newUser, setNewUser] = useState(false)
 
+    const handleLogin = useRef(() => {})
+
     // Implement useEffect
     useEffect(() => {
         let token
@@ -55,6 +57,7 @@ function App() {
             setCurrentUser(token)
         }
     }, [])
+    
 
     // Establish current user
     const nowCurrentUser = (userData) => {
@@ -73,7 +76,7 @@ function App() {
     }
 
     // Log in user
-    const handleLogin = async () => {
+    handleLogin.current = async () => {
         try {
             const userData = {
                 email: loginEmail,
@@ -110,10 +113,10 @@ function App() {
 
     useEffect(() => {
         if (newUser) {
-            handleLogin()
+            handleLogin.current()
             setNewUser(false)
         }
-    })
+    }, [newUser])
 
     // Log out user
     const handleLogout = () => {
@@ -134,7 +137,7 @@ function App() {
                 <Navigation
                     handleLogout={handleLogout}
                     isAuth={isAuthenticated}
-                    handleLogin={handleLogin}
+                    handleLogin={handleLogin.current}
                     handleLoginEmail={handleLoginEmail}
                     handleLoginPassword={handleLoginPassword}
                     loginEmail={loginEmail}
@@ -147,14 +150,20 @@ function App() {
     return (
         <div className="div-container-app">
             {handleNavBars()}
+
             <Route
                 exact
                 path="/"
                 render={() => {
-                    return <Welcome handleLoginAfterSignup={handleLoginAfterSignup} />
+                return <Welcome handleLoginAfterSignup={handleLoginAfterSignup} />
                 }}
             />
-            <Route path="/about" component={About} />
+
+            <Route 
+                path="/about" 
+                component={About}
+            />
+            
             <PrivateRoute
                 path="/profile/:ext"
                 component={Profile}

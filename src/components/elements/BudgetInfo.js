@@ -21,7 +21,7 @@ function BudgetInfo(props) {
             <div className="subsection-buttons">
                 <button
                     className="button-small"
-                    onClick={() => props.setDisplayForm(true)}
+                    onClick={() => props.resetInputFields()}
                 >
                     Edit
                 </button>

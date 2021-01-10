@@ -17,12 +17,24 @@ function Housing(props) {
     
     // data for categories chart
     const dataReformat = []
-    const housing = {name: "Housing"}
-    const utility = {name: "Utilities"}
-    const transportation = {name: "Transportation"}
-    const food = {name: "Food & Drink"}
-    const entertainment = {name: "Entertainment"}
-    const misc = {name: "Misc"}
+    const housing = {
+        name: "Housing"
+    }
+    const utility = {
+        name: "Utilities"
+    }
+    const transportation = {
+        name: "Transportation"
+    }
+    const food = {
+        name: "Food & Drink"
+    }
+    const entertainment = {
+        name: "Entertainment"
+    }
+    const misc = {
+        name: "Misc"
+    }
 
     props.budgetArray.forEach((budget) => {
         let budgetSubtotals = {
@@ -53,12 +65,14 @@ function Housing(props) {
     return (
         <div className="div-compare-budgets-page">
             <h2>Compare Budgets</h2>
+
             <h3>Monthly Income & Expenses</h3>
             <AllBudgetsChartTotals
                 data={totalsData}
                 colorScheme={props.budget.colorScheme}
                 budgetArray={props.budgetArray}
             />
+            
             <h3 className="compare-budgets-heading2">
                 Monthly Expenses by Category
             </h3>

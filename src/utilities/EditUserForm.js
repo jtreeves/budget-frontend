@@ -1,7 +1,6 @@
 function EditUserForm(props) {
-    return(
+    return (
         <form className="form-small">
-            <label>Edit Name</label>
             <input 
                 type="text"
                 value={props.userName}

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=PT+Sans:wght@700&display=swap");
 * {
   box-sizing: border-box;
@@ -158,15 +159,20 @@ body .div-container-app .nav-public #div-login {
 body .div-container-app .div-public-page {
   grid-column: 1/span 5;
   grid-row: 1/span 3;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  align-items: start;
   background-color: #fff;
   text-align: center;
 }
 body .div-container-app .div-public-page .div-public-header {
-  height: 800px;
-  padding: 0 10vw;
+  padding: 240px 10vw 200px 10vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
 body .div-container-app .div-public-page .div-public-header h1 {
@@ -184,6 +190,8 @@ body .div-container-app .div-public-page .div-public-header p {
   line-height: 2em;
 }
 body .div-container-app .div-public-page .div-signup {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -201,6 +209,93 @@ body .div-container-app .div-public-page .div-signup .div-signup-form h2 {
   font-size: 30px;
   font-size: 40px;
   padding-bottom: 20px;
+}
+body .div-container-app .about-page .div-public-header {
+  height: 100%;
+  padding-top: 240px;
+  padding-bottom: 80px;
+}
+body .div-container-app .about-page .div-public-header p {
+  font-size: 24px;
+  font-weight: 600;
+}
+body .div-container-app .about-page .div-public-header .div-screenshots {
+  max-width: 1600px;
+  padding: 40px 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 4vw 1fr 6vw 1fr 4vw;
+}
+body .div-container-app .about-page .div-public-header .div-screenshots h2 {
+  color: #fff;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2em;
+  padding: 50px 0 24px 0;
+  line-height: 1.4;
+}
+body .div-container-app .about-page .div-public-header .div-screenshots img {
+  width: 100%;
+}
+body .div-container-app .about-page .div-public-header .div-screenshots .div-screenshot1 {
+  grid-column: 2/span 1;
+}
+body .div-container-app .about-page .div-public-header .div-screenshots .div-screenshot1 img {
+  box-shadow: -12px 20px 40px rgba(0, 0, 0, 0.4);
+  -webkit-transform: perspective(800) rotateY(6deg);
+}
+body .div-container-app .about-page .div-public-header .div-screenshots .div-screenshot2 {
+  grid-column: 4/span 1;
+  padding-top: 80px;
+}
+body .div-container-app .about-page .div-public-header .div-screenshots .div-screenshot2 img {
+  box-shadow: 12px 20px 40px rgba(0, 0, 0, 0.4);
+  -webkit-transform: perspective(800) rotateY(-6deg);
+}
+body .div-container-app .about-page .div-created-by {
+  width: 100%;
+  max-width: 1600px;
+  padding: 80px 4vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2vw;
+}
+body .div-container-app .about-page .div-created-by h2 {
+  grid-column: 1/span 4;
+  color: #000;
+  font-family: "PT Sans", sans-serif;
+  font-size: 30px;
+  font-size: 40px;
+  padding-bottom: 60px;
+}
+body .div-container-app .about-page .div-created-by h3 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  font-size: 24px;
+}
+body .div-container-app .about-page .div-created-by img {
+  width: 30px;
+}
+body .div-container-app .about-page .div-created-by p {
+  grid-column: 1/span 4;
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 2em;
+  padding-top: 60px;
+  line-height: 1.4;
+}
+body .div-container-app .about-page .div-created-by p a {
+  color: #116b90;
+  font-weight: 700;
+}
+body .div-container-app .about-page .div-created-by p a:hover {
+  text-decoration: underline;
 }
 body .div-container-app .nav-user {
   z-index: 2;
@@ -351,11 +446,13 @@ body .div-container-app .div-profile-page .div-profile-workspace h2 {
   color: #000;
   font-family: "PT Sans", sans-serif;
   font-size: 30px;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .div-no-data {
   width: 100%;
   height: 300px;
+  overflow: hidden;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -371,6 +468,7 @@ body .div-container-app .div-profile-page .div-profile-workspace .div-no-data p 
   line-height: 1.6;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+  overflow: hidden;
   border-radius: 10px;
   margin-top: 10px;
   display: grid;
@@ -440,12 +538,14 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   line-height: 1.6em;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total {
+  overflow: hidden;
   padding: 10px 20px;
   border-radius: 10px;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 4vw 3fr 1fr;
+  grid-template-columns: 3fr 1fr;
   align-items: center;
+  column-gap: 10px;
   background-color: #ccc;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total h3 {
@@ -453,7 +553,6 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   font-family: "Nunito Sans", sans-serif;
   font-size: 20px;
   font-weight: 700;
-  grid-column: 1/span 2;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
   color: #000;
@@ -461,6 +560,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .compact-contai
   font-size: 20px;
   font-weight: 700;
   text-align: center;
+}
+body .div-container-app .div-profile-page .div-profile-workspace .category-container {
+  overflow: hidden;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
   border-radius: 10px 10px 0 0;
@@ -481,6 +583,9 @@ body .div-container-app .div-profile-page .div-profile-workspace .category-conta
   display: flex;
   justify-content: space-between;
 }
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page {
+  overflow: hidden;
+}
 body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page h3 {
   color: #000;
   font-family: "Nunito Sans", sans-serif;
@@ -493,6 +598,7 @@ body .div-container-app .div-profile-page .div-profile-workspace .div-compare-bu
 }
 body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page {
   width: 100%;
+  overflow: hidden;
 }
 body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form {
   border-radius: 10px;
@@ -575,14 +681,38 @@ body .div-container-app .div-profile-page .div-user-info .div-user-name h4 {
   font-weight: 700;
   align-self: center;
 }
-body .div-container-app .div-profile-page .div-user-info .div-user-delete {
-  display: flex;
-  justify-content: flex-end;
+body .div-container-app .div-profile-page .div-user-info .div-account-settings {
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: #edeef1;
+  margin: 0;
 }
-body .div-container-app .div-profile-page .div-user-info .div-user-delete-confirm {
+body .div-container-app .div-profile-page .div-user-info .div-account-settings h4 {
+  color: #000;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit {
+  margin-bottom: 8px;
+}
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit-confirm {
+  margin-bottom: 8px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+}
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit-confirm form {
+  padding: 0;
+  margin: 0;
+}
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-delete-confirm {
+  display: flex;
+  flex-direction: column;
+}
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-delete-confirm p {
+  margin-bottom: 2px;
 }
 body .div-container-app .div-profile-page .div-user-info .div-current-budget {
   padding: 12px;
@@ -590,6 +720,7 @@ body .div-container-app .div-profile-page .div-user-info .div-current-budget {
   margin-top: 30px;
   background-color: #edeef1;
   padding: 0;
+  margin: 20px 0;
 }
 body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-name {
   padding: 8px 12px;
@@ -681,4 +812,152 @@ body .div-container-app .div-profile-page .div-user-info p {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 200ms;
+}
+
+/* Media Queries —————————————————————————————— */
+@media screen and (max-width: 1000px) {
+  body .div-container-app .div-profile-page .div-profile-workspace .div-no-data {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-no-data p {
+    color: #666666;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+    border-radius: 10px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 2vw 1fr;
+    align-items: center;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text li {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
+    text-align: left;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
+    text-align: left;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
+    border-radius: 10px 10px 0 0;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .category-container form {
+    border-radius: 0 0 10px 10px;
+    display: grid;
+    grid-template-columns: 3fr 2fr auto;
+    column-gap: 10px;
+    background-color: white;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .category-container form input {
+    width: 100%;
+    margin-bottom: 0;
+    background-color: #edeef1;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .category-container .div-subcategory-name {
+    display: flex;
+    justify-content: space-between;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page .compare-budgets-heading2 {
+    margin-top: 40px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page {
+    width: 100%;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form {
+    border-radius: 10px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 10px;
+    background-color: #fff;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form p {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    padding-right: 10px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form select {
+    background-color: #edeef1;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    column-gap: 20px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info {
+    padding: 12px 20px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info p {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities {
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ccc;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button {
+    width: 100%;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+  }
+  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button .city-x {
+    color: #666666;
+    font-size: 12px;
+  }
 }

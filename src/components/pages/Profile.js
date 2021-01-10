@@ -7,7 +7,7 @@ import UserInfo from "../elements/UserInfo"
 import UserNavigation from "../elements/UserNavigation"
 import ProfileRoutes from "../elements/ProfileRoutes"
 import Dashboard from "./Dashboard"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 function Profile(props) {
     // Variables and Props
@@ -17,25 +17,27 @@ function Profile(props) {
     const backendUrl = process.env.REACT_APP_SERVER_URL
     const expirationTime = new Date(exp * 1000)
     let currentTime = Date.now()
-
+    
     // State
     const [budget, setBudget] = useState({})
     const [budgetArray, setBudgetArray] = useState([])
     const [budgetsLoaded, setBudgetsLoaded] = useState(false)
     const [firstTimeUser, setFirstTimeUser] = useState(props.user.firstTimeUser)
+    const [colorsAvailable, setColorsAvailable] = useState([])
     const [userName, setUserName] = useState(name)
+
+    // Refs for linter
+    const reFetchUser = useRef(() => {})
 
     // Backend API crud
     useEffect(() => {
         if (firstTimeUser || firstTimeUser == null) {
-            reFetchUser()
+            reFetchUser.current()
             return
         }
         async function fetchBudgets() {
             if (props.user) {
-                let apiRes = await axios.get(
-                    backendUrl + "/budgets/all/" + id
-                )
+                let apiRes = await axios.get(backendUrl + "/budgets/all/" + id)
                 let budgets = await apiRes.data.budgets
                 await setBudget(budgets[0])
                 await setBudgetArray(budgets)
@@ -49,14 +51,32 @@ function Profile(props) {
         async function autoSave() {
             if (budgetsLoaded) {
                 await axios.put(backendUrl + "/budgets/" + budget._id, {
-                    categories: budget.categories,
+                categories: budget.categories,
                 })
             }
         }
         autoSave()
-    }, [budget])
+    }, [budget, backendUrl, budgetsLoaded])
 
-    const reFetchUser = async () => {
+    // Color filter
+    useEffect(() => {
+        const allColors = ["Magenta", "Red", "Orange", "Green", "Blue", "Purple"]
+        if (budgetsLoaded) {
+            let budgetColorsInUse = []
+            budgetArray.forEach((budget) => {
+                budgetColorsInUse.push(budget.colorScheme)
+            })
+            let filteredColors = allColors.filter(
+                function(e) {
+                    return this.indexOf(e) < 0
+                },
+                budgetColorsInUse
+            )
+            setColorsAvailable(filteredColors)
+        }
+    }, [budget, budgetArray, budgetsLoaded])
+
+    reFetchUser.current = async () => {
         let apiRes = await axios.get(backendUrl + "/users/" + id)
         setFirstTimeUser(apiRes.data.user.firstTimeUser)
         setUserName(apiRes.data.user.name)
@@ -92,18 +112,16 @@ function Profile(props) {
 
     const deleteBudget = async (budgetId) => {
         async function resetBudgets() {
-            let index = budgetArray.findIndex(
-                (ele) => ele._id === budgetId
-            )
+            let index = budgetArray.findIndex((ele) => ele._id === budgetId)
             let budgetArrayCopy = budgetArray.slice()
             budgetArrayCopy.splice(index, 1)
             await setBudgetArray(budgetArrayCopy)
             await setBudget(budgetArray[0])
             await axios.delete(backendUrl + "/budgets/" + budgetId)
-            let apiRes = await axios.get(
+            let apiRes2 = await axios.get(
                 backendUrl + "/budgets/all/" + id
             )
-            let budgets = await apiRes.data.budgets
+            let budgets = await apiRes2.data.budgets
             await setBudgetArray(budgets)
             await setBudget(budgets[0])
         }
@@ -115,7 +133,7 @@ function Profile(props) {
         // This makes a deep copy of the budget
         let budgetCopy = JSON.parse(JSON.stringify(budget))
         // Now you can edit budgetCopy without changing budget
-        budgetCopy.categories[budgetKey].inputs[newInput.inputName] = 
+        budgetCopy.categories[budgetKey].inputs[newInput.inputName] =
         newInput.inputValue
         await setBudget(budgetCopy)
     }
@@ -168,21 +186,19 @@ function Profile(props) {
                 return `rgba(43, 106, 140, ${opacity})`
             case 'Purple':
                 return `rgba(88, 41, 92, ${opacity})`
+            default: 
+                break
         }
     }
 
     const changeBkgColor = () => {
         if (
-            window.location.pathname === '/profile/compare-budgets' || 
+            window.location.pathname === '/profile/compare-budgets' ||
             window.location.pathname === '/profile/compare-locations'
         ) {
             return { backgroundColor: '#edeef1' }
         } else {
-            return {
-                backgroundColor: provideColorCode(
-                    budget.colorScheme, '0.2'
-                )
-            }
+            return { backgroundColor: provideColorCode(budget.colorScheme, '0.2') }
         }
     }
 
@@ -196,6 +212,7 @@ function Profile(props) {
                 loadNewBudget={loadNewBudget}
                 switchBudgets={switchBudgets}
                 reFetchBudgets={reFetchBudgets}
+                colorsAvailable={colorsAvailable}
             />
 
             <div className="div-profile-page">
@@ -207,9 +224,10 @@ function Profile(props) {
                     email={email}
                     id={id}
                     reFetchBudgets={reFetchBudgets}
-                    reFetchUser={reFetchUser}
+                    reFetchUser={reFetchUser.current}
                     budget={budget}
                     handleLogout={handleLogout}
+                    colorsAvailable={colorsAvailable}
                 />
 
                 <div
@@ -247,10 +265,12 @@ function Profile(props) {
     const displayFilter = () => {
         if (props.user) {
             if (firstTimeUser) {
-                return <Dashboard 
-                    reFetchUser={reFetchUser} 
-                    user={props.user}
-                />
+                return (
+                    <Dashboard
+                        reFetchUser={reFetchUser.current} 
+                        user={props.user}
+                    />
+                )
             } else {
                 return userData
             }

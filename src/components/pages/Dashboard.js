@@ -8,7 +8,7 @@ import Cities from "../../utilities/Cities"
 function Dashboard(props) {
     const alert = useAlert()
     const [budgetTitle, setBudgetTitle] = useState("")
-    const [colorScheme, setColorScheme] = useState("Red")
+    const [colorScheme, setColorScheme] = useState("Magenta")
     const [location, setLocation] = useState("Albany, NY")
     const [income, setIncome] = useState("")
     const backendUrl = process.env.REACT_APP_SERVER_URL
@@ -25,6 +25,10 @@ function Dashboard(props) {
         e.preventDefault()
         if (budgetTitle === "") {
             alert.show("Budget must have a name")
+            return
+        }
+        if (income === "") {
+            alert.show("Income must have a value")
             return
         }
         await axios.post(backendUrl + "/budgets/" + props.user.id, {
@@ -63,9 +67,7 @@ function Dashboard(props) {
                         onChange={(e) => setBudgetTitle(e.target.value)}
                     />
 
-                    <label htmlFor="first-budget-income">
-                        Income
-                    </label>
+                    <label htmlFor="first-budget-income">Income</label>
                     <input
                         placeholder="50000"
                         id="first-budget-income"
@@ -81,9 +83,7 @@ function Dashboard(props) {
                     />
 
                     <div>
-                        <label htmlFor="first-budget-color">
-                            Color
-                        </label>
+                        <label htmlFor="first-budget-color">Color</label>
                         <select
                             name="colorScheme"
                             id="first-budget-color"
@@ -98,7 +98,10 @@ function Dashboard(props) {
                         </select>
                     </div>
 
-                    <button onClick={handleSubmit} type="submit">
+                    <button 
+                        onClick={(e) => handleSubmit(e)} 
+                        type="submit"
+                    >
                         Submit
                     </button>
                 </form>

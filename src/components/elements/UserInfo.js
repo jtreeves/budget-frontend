@@ -6,8 +6,10 @@ import EditUserForm from "../../utilities/EditUserForm"
 import calcFunctions from "../../utilities/calcFunctions"
 import UserInfoPieChart from "./UserInfoPieChart"
 import axios from "axios"
+import { useAlert } from "react-alert"
 
 function UserInfo(props) {
+    const alert = useAlert()
     const [displayForm, setDisplayForm] = useState(false)
     const [deletePressed, setDeletePressed] = useState(false)
     const [budgetName, setBudgetName] = useState(props.budget.title)
@@ -35,6 +37,14 @@ function UserInfo(props) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (budgetName === "") {
+            alert.show("Budget must have a name")
+            return
+        }  
+        if (income === "") {
+            alert.show("Income must has a value")
+            return
+        }
         await axios.put(backendUrl + "/budgets/" + props.budget._id, {
             title: budgetName,
             colorScheme: colorScheme,
@@ -47,7 +57,11 @@ function UserInfo(props) {
     }
 
     const handleUserSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault()    
+        if (userName === "") {
+            alert.show("User must have a name")
+            return
+        }  
         await axios.put(backendUrl + "/users/" + props.id, {
             newName: userName
         })
@@ -91,9 +105,9 @@ function UserInfo(props) {
     }
 
     const userNameButtons = () => {
-        if (!editNamePressed) {
+        if(!editNamePressed) {
             return(
-                <div className="div-user-delete">
+                <div className="div-user-edit">
                     <button 
                         className="button-small" 
                         onClick={() => setEditNamePressed(true)}
@@ -104,18 +118,17 @@ function UserInfo(props) {
             )
         } else if (editNamePressed) {
             return (
-                <div className="div-user-delete-confiirm">
+                <div className="div-user-edit-confirm">
                     <EditUserForm 
                         userName={userName}
                         setUserName={setUserName}
                     />
-                    <p>Are you sure?</p>
                     <div>
                         <button 
                             className="button-small button-left" 
                             onClick={(e) => handleUserSubmit(e)}
                         >
-                            Yes
+                            Update
                         </button>
                         <button 
                             className="button-small" 
@@ -138,10 +151,17 @@ function UserInfo(props) {
         }
     }
 
+    const resetInputFields = () => {
+        setColorScheme(props.budget.colorScheme)
+        setDisplayForm(true)
+    }
+
     const infoOrForm = () => {
         if (displayForm && !deletePressed) {
             return (
                 <EditBudgetForm
+                    currentColor={props.budget.colorScheme}
+                    colorsAvailable={props.colorsAvailable}
                     location={location}
                     setLocation={setLocation}
                     income={income}
@@ -169,6 +189,7 @@ function UserInfo(props) {
         } else {
             return (
                 <BudgetInfo
+                    resetInputFields={resetInputFields}
                     budgetArray={props.budgetArray}
                     setDisplayForm={setDisplayForm}
                     title={props.budget.title}
@@ -196,6 +217,8 @@ function UserInfo(props) {
                 return '#116b90'
             case 'Purple':
                 return '#5e235f'
+            default: 
+                break
         }
     }
 
@@ -211,9 +234,6 @@ function UserInfo(props) {
                 </button>
             </div>
 
-            {userNameButtons()}
-            {userInfoButtons()}
-
             <div className="div-current-budget">
                 <div 
                     className="div-budget-name" 
@@ -221,7 +241,6 @@ function UserInfo(props) {
                 >
                     <h2>{props.budget.title}</h2>
                 </div>
-                
                 <div className="div-budget-summary">
                     <UserInfoPieChart 
                         subTotals={subTotals} 
@@ -233,6 +252,12 @@ function UserInfo(props) {
                     <p>left over each month</p>
                     {infoOrForm()}
                 </div>
+            </div>
+
+            <div className="div-account-settings">
+                <h4>Account Settings</h4>
+                {userNameButtons()}
+                {userInfoButtons()}
             </div>
         </div>
     )

@@ -20,6 +20,8 @@ export default class AllBudgetsChartCategories extends PureComponent {
                     return '#116b90'
                 case 'Purple':
                     return '#5e235f'
+                default:
+                    break
             }
         }
         
@@ -74,7 +76,6 @@ export default class AllBudgetsChartCategories extends PureComponent {
                     break
             }
         })
-        
         return (
             <ResponsiveContainer
                 className="chart-category-summary"
