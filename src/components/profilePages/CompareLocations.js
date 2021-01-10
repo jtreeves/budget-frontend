@@ -20,9 +20,9 @@ function CompareLocations(props) {
     // fetches indices for budget location
     useEffect(() => {
         const fetchCityIndices = () => {
-        fetch(
-            'https://www.numbeo.com/api/indices?api_key=' + NUMBEO_API_KEY + '&query=' + props.budget.location
-        )
+            fetch(
+                'https://www.numbeo.com/api/indices?api_key=' + NUMBEO_API_KEY + '&query=' + props.budget.location
+            )
             .then((res) => {
                 return res.json()
             })
@@ -86,12 +86,12 @@ function CompareLocations(props) {
         }
         let chartData = [control]
         Object.keys(cityCPIS).forEach((key) => {
-        let chartInput = {
-            name: key,
-            Expenses: convertCpi(cityCPIS[key]),
-            Savings: formatSavings(convertCpi(cityCPIS[key]))
-        }
-        chartData.push(chartInput)
+            let chartInput = {
+                name: key,
+                Expenses: convertCpi(cityCPIS[key]),
+                Savings: formatSavings(convertCpi(cityCPIS[key]))
+            }
+            chartData.push(chartInput)
         })
         return chartData
     }
@@ -143,15 +143,15 @@ function CompareLocations(props) {
         let cityAlreadyAdded = false
         let arrayCopy = citiesToCompare.slice()
         arrayCopy.forEach((city) => {
-        if (city === selectedCity) {
-            cityAlreadyAdded = true
-        }
+            if (city === selectedCity) {
+                cityAlreadyAdded = true
+            }
         })
         if (cityAlreadyAdded || selectedCity === props.budget.location) {
-        return
+            return
         } else {
-        arrayCopy.push(selectedCity)
-        setCitiesToCompare(arrayCopy)
+            arrayCopy.push(selectedCity)
+            setCitiesToCompare(arrayCopy)
         }
     }
 
@@ -159,7 +159,7 @@ function CompareLocations(props) {
         let arrayCopy = citiesToCompare.slice()
         let index = arrayCopy.indexOf(cityObj.city)
         if (index !== -1) {
-        arrayCopy.splice(index, 1)
+            arrayCopy.splice(index, 1)
         }
         setCitiesToCompare(arrayCopy)
     }
@@ -199,15 +199,15 @@ function CompareLocations(props) {
 
             <div className="div-compare-locations-footer">
                 <div className="div-location-info">
-                <p>Facts about your location</p>
-                <h3>{props.budget.location}</h3>
-                <LocationIndices 
-                    budgetLocationCPI={budgetLocationCPI}
-                    budgetLocationHealthCare={budgetLocationHealthCare}
-                    budgetLocationRent={budgetLocationRent}
-                    budgetLocationGroceries={budgetLocationGroceries}
-                    budgetLocationRestaurants={budgetLocationRestaurants}
-                />
+                    <p>Facts about your location</p>
+                    <h3>{props.budget.location}</h3>
+                    <LocationIndices 
+                        budgetLocationCPI={budgetLocationCPI}
+                        budgetLocationHealthCare={budgetLocationHealthCare}
+                        budgetLocationRent={budgetLocationRent}
+                        budgetLocationGroceries={budgetLocationGroceries}
+                        budgetLocationRestaurants={budgetLocationRestaurants}
+                    />
                 </div>
 
                 <div className="div-comparison-cities">
