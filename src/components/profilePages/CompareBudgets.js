@@ -32,7 +32,6 @@ function Housing(props) {
         dataReformat.push(budgetSubtotals)
     })
 
-
     dataReformat.forEach((obj) => {
         housing[obj.title] = obj.subTotals.housing
         utility[obj.title] = obj.subTotals.utility
