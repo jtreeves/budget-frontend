@@ -143,12 +143,8 @@ function UserInfo(props) {
     }
 
     const deleteUser = async () => {
-        try {
-            props.handleLogout()
-            await axios.delete(backendUrl + "/users/" + props.id)
-        } catch (err) {
-            console.log(err)
-        }
+        props.handleLogout()
+        await axios.delete(backendUrl + "/users/" + props.id)
     }
 
     const resetInputFields = () => {
