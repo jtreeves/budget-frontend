@@ -25,7 +25,7 @@ Kaleidoscope is an app for seeing how simple life changes can result in dramatic
 
 1. Fork and clone this repository and the corresponding [backend repository](https://github.com/jtreeves/budget-backend) to your local computer (we recommend storing both directories in a common Kaleidoscope folder)
 2. Run `npm i` to install all necessary dependencies
-3. Set up a `.env` file to hold the `REACT_APP_SERVER_URL` variable (set it to `http://localhost:8000`)
+3. Set up a `.env` file to hold the `REACT_APP_SERVER_URL` and `REACT_APP_NUMBEO_API_KEY` variables (set the former to `http://localhost:8000`, while the latter will require getting a paid key from [Numbeo](https://www.numbeo.com/cost-of-living/))
 
 ### Set Up Local Database
 
