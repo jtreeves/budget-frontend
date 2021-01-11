@@ -1,809 +1,699 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=PT+Sans:wght@700&display=swap");
+
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 a {
-  text-decoration: none;
-  cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 button {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  height: 40px;
-  padding: 6px 20px;
-  border-width: 3px;
-  border-radius: 20px;
-  background-color: #edeef1;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-  font-weight: 700;
-  cursor: pointer;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    height: 40px;
+    padding: 6px 20px;
+    border-width: 3px;
+    border-radius: 20px;
+    background-color: #edeef1;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    cursor: pointer;
 }
+
 button:hover {
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .button-small {
-  height: 30px;
-  padding: 0 10px;
-  border-radius: 15px;
-  font-size: 14px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 15px;
+    font-size: 14px;
 }
 
 .button-left {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 form {
-  padding: 20px;
-  border-radius: 20px;
-  display: inline-block;
-  background-color: #edeef1;
-  text-align: left;
+    padding: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    background-color: #edeef1;
+    text-align: left;
 }
+
 form label {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  padding-left: 15px;
-  font-weight: 700;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    padding-left: 15px;
+    font-weight: 700;
 }
+
 form input,
 form select {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  width: 240px;
-  height: 40px;
-  padding: 0 15px;
-  margin-bottom: 20px;
-  border-width: 0;
-  border-radius: 20px;
-  display: block;
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    width: 240px;
+    height: 40px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    border-width: 0;
+    border-radius: 20px;
+    display: block;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .form-small {
-  width: 100%;
-  padding: 0;
-  margin-top: 30px;
+    width: 100%;
+    padding: 0;
+    margin-top: 30px;
 }
+
 .form-small label {
-  padding-left: 0;
-  font-size: 14px;
+    padding-left: 0;
+    font-size: 14px;
 }
+
 .form-small input,
 .form-small select {
-  width: 100%;
-  height: 30px;
-  padding: 0 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-size: 14px;
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
+
 .form-small button {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .timeframe {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  text-align: center;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    text-align: center;
 }
 
 body {
-  height: 100%;
-  background-color: #edeef1;
+    height: 100%;
+    background-color: #edeef1;
 }
+
 body .div-container-app {
-  height: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 4vw 200px 1fr 300px 4vw;
-  grid-template-rows: 40px 1fr 40px;
+    height: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 4vw 200px 1fr 300px 4vw;
+    grid-template-rows: 40px 1fr 40px;
 }
+
 body .div-container-app .nav-public {
-  z-index: 1;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
-  row-gap: 15px;
-  justify-items: end;
-  align-items: center;
-  grid-column: 2/span 3;
-  grid-row: 2/span 1;
-  align-self: start;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 15px;
+    justify-items: end;
+    align-items: center;
+    grid-column: 2/span 3;
+    grid-row: 2/span 1;
+    align-self: start;
 }
+
 body .div-container-app .nav-public img {
-  width: 200px;
+    width: 200px;
 }
+
 body .div-container-app .nav-public ul li {
-  color: #fff;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  margin-left: 4vw;
-  display: inline-block;
-  cursor: pointer;
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 4vw;
+    display: inline-block;
+    cursor: pointer;
 }
+
 body .div-container-app .nav-public ul a {
-  color: #fff;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
 }
+
 body .div-container-app .nav-public #div-login {
-  border-radius: 20px;
-  grid-column: 2/span 1;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    grid-column: 2/span 1;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
+
 body .div-container-app .div-public-page {
-  grid-column: 1/span 5;
-  grid-row: 1/span 3;
-  background-color: #fff;
-  text-align: center;
+    grid-column: 1/span 5;
+    grid-row: 1/span 3;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+    align-items: start;
+    background-color: #fff;
+    text-align: center;
 }
+
 body .div-container-app .div-public-page .div-public-header {
-  height: 800px;
-  padding: 0 10vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    padding: 240px 10vw 200px 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
+
 body .div-container-app .div-public-page .div-public-header h1 {
-  color: #fff;
-  font-family: "PT Sans", sans-serif;
-  font-size: 50px;
-  padding-bottom: 20px;
-  text-align: center;
+    color: #fff;
+    font-family: "PT Sans", sans-serif;
+    font-size: 50px;
+    padding-bottom: 20px;
+    text-align: center;
 }
+
 body .div-container-app .div-public-page .div-public-header p {
-  color: #fff;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 2em;
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2em;
 }
+
 body .div-container-app .div-public-page .div-signup {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
+
 body .div-container-app .div-public-page .div-signup .div-signup-img {
-  background-image: url("https://res.cloudinary.com/alanavery/image/upload/v1609635077/kaleidoscope/abillion-0gVthlBI_Z4-unsplash_vmisaz.jpg");
-  background-position: center;
-  background-size: cover;
+    background-image: url("https://res.cloudinary.com/alanavery/image/upload/v1609635077/kaleidoscope/abillion-0gVthlBI_Z4-unsplash_vmisaz.jpg");
+    background-position: center;
+    background-size: cover;
 }
+
 body .div-container-app .div-public-page .div-signup .div-signup-form {
-  padding: 40px 4vw;
+    padding: 40px 4vw;
 }
+
 body .div-container-app .div-public-page .div-signup .div-signup-form h2 {
-  color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 30px;
-  font-size: 40px;
-  padding-bottom: 20px;
+    color: #000;
+    font-family: "PT Sans", sans-serif;
+    font-size: 30px;
+    font-size: 40px;
+    padding-bottom: 20px;
 }
+
+body .div-container-app .about-page .div-public-header {
+    height: 100%;
+    padding-top: 240px;
+    padding-bottom: 80px;
+}
+
+body .div-container-app .about-page .div-public-header p {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+body .div-container-app .about-page .div-public-header .div-screenshots {
+    max-width: 1600px;
+    padding: 40px 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 4vw 1fr 6vw 1fr 4vw;
+}
+
+body .div-container-app .about-page .div-public-header .div-screenshots h2 {
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2em;
+    padding: 50px 0 24px 0;
+    line-height: 1.4;
+}
+
+body .div-container-app .about-page .div-public-header .div-screenshots img {
+    width: 100%;
+}
+
+body .div-container-app .about-page .div-public-header .div-screenshots .div-screenshot1 {
+    grid-column: 2/span 1;
+}
+
+body .div-container-app .about-page .div-public-header .div-screenshots .div-screenshot1 img {
+    box-shadow: -12px 20px 40px rgba(0, 0, 0, 0.4);
+    -webkit-transform: perspective(800) rotateY(6deg);
+}
+
+body .div-container-app .about-page .div-public-header .div-screenshots .div-screenshot2 {
+    grid-column: 4/span 1;
+    padding-top: 80px;
+}
+
+body .div-container-app .about-page .div-public-header .div-screenshots .div-screenshot2 img {
+    box-shadow: 12px 20px 40px rgba(0, 0, 0, 0.4);
+    -webkit-transform: perspective(800) rotateY(-6deg);
+}
+
+body .div-container-app .about-page .div-created-by {
+    width: 100%;
+    max-width: 1600px;
+    padding: 80px 4vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2vw;
+}
+
+body .div-container-app .about-page .div-created-by h2 {
+    grid-column: 1/span 4;
+    color: #000;
+    font-family: "PT Sans", sans-serif;
+    font-size: 30px;
+    font-size: 40px;
+    padding-bottom: 60px;
+}
+
+body .div-container-app .about-page .div-created-by h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    font-size: 24px;
+}
+
+body .div-container-app .about-page .div-created-by img {
+    width: 30px;
+}
+
+body .div-container-app .about-page .div-created-by p {
+    grid-column: 1/span 4;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2em;
+    padding-top: 60px;
+    line-height: 1.4;
+}
+
+body .div-container-app .about-page .div-created-by p a {
+    color: #116b90;
+    font-weight: 700;
+}
+
+body .div-container-app .about-page .div-created-by p a:hover {
+    text-decoration: underline;
+}
+
 body .div-container-app .nav-user {
-  z-index: 2;
-  padding: 30px 20px;
-  grid-column: 2/span 1;
-  grid-row: 2/span 1;
+    z-index: 2;
+    padding: 30px 20px;
+    grid-column: 2/span 1;
+    grid-row: 2/span 1;
 }
+
 body .div-container-app .nav-user img {
-  width: 100%;
+    width: 100%;
 }
+
 body .div-container-app .nav-user .link1 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  padding-top: 5px;
-  border-top: solid 2px #edeef1;
-  margin-top: 30px;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 5px;
+    border-top: solid 2px #edeef1;
+    margin-top: 30px;
 }
+
 body .div-container-app .nav-user .link1 a {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
 }
+
 body .div-container-app .nav-user .link1 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
+
 body .div-container-app .nav-user .link1.link-compare a {
-  font-size: 16px;
+    font-size: 16px;
 }
+
 body .div-container-app .nav-user .link2 {
-  margin-top: 20px;
+    margin-top: 20px;
 }
+
 body .div-container-app .nav-user .link2 a {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
 }
+
 body .div-container-app .nav-user .link2 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
+
 body .div-container-app .nav-user .link2.link-compare {
-  margin-top: 10px;
+    margin-top: 10px;
 }
+
 body .div-container-app .nav-user .link2.link-compare a {
-  font-size: 16px;
+    font-size: 16px;
 }
+
 body .div-container-app .nav-user .div-budgets {
-  padding: 12px;
-  border-radius: 10px;
-  margin-top: 30px;
-  background-color: #edeef1;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: #edeef1;
 }
+
 body .div-container-app .nav-user .div-budgets h3 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
 }
+
 body .div-container-app .nav-user .div-budgets li {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
 }
+
 body .div-container-app .nav-user .div-budgets li div {
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
-  margin-right: 6px;
-  background-color: #ccc;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    margin-right: 6px;
+    background-color: #ccc;
 }
+
 body .div-container-app .nav-user .div-budgets li a {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
 }
+
 body .div-container-app .nav-user .div-budgets li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
+
 body .div-container-app .nav-user .div-budgets .subsection-buttons {
-  margin-top: 30px;
+    margin-top: 30px;
 }
+
 body .div-container-app .div-first-budget-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 }
+
 body .div-container-app .div-first-budget-page .div-first-budget {
-  display: grid;
-  grid-template-columns: 200px auto 200px;
-  grid-template-rows: auto 1fr;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
 }
+
 body .div-container-app .div-first-budget-page .div-first-budget h1 {
-  color: #fff;
-  font-family: "PT Sans", sans-serif;
-  font-size: 50px;
-  padding-bottom: 20px;
-  grid-column: 1/span 3;
+    color: #fff;
+    font-family: "PT Sans", sans-serif;
+    font-size: 50px;
+    padding-bottom: 20px;
+    grid-column: 1/span 3;
 }
+
 body .div-container-app .div-first-budget-page .div-first-budget form {
-  grid-column: 2/span 1;
-  grid-row: 2/span 1;
+    grid-column: 2/span 1;
+    grid-row: 2/span 1;
 }
+
 body .div-container-app .div-first-budget-page .div-first-budget .div-instructions {
-  color: #fff;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  padding: 45px 0 0 20px;
-  grid-column: 3/span 1;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.5;
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    padding: 45px 0 0 20px;
+    grid-column: 3/span 1;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
 }
+
 body .div-container-app .div-first-budget-page .div-first-budget .div-instructions div {
-  height: 85px;
+    height: 85px;
 }
+
 body .div-container-app .div-profile-page {
-  overflow: hidden;
-  border-radius: 20px;
-  display: grid;
-  grid-template-columns: 200px 1fr 300px;
-  grid-column: 2/span 3;
-  grid-row: 2/span 1;
-  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.3);
-  background-color: #fff;
+    overflow: hidden;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 200px 1fr 300px;
+    grid-column: 2/span 3;
+    grid-row: 2/span 1;
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
 }
+
 body .div-container-app .div-profile-page .div-profile-workspace {
-  overflow: auto;
-  padding: 20px 2vw;
-  border-radius: 20px;
-  margin: 20px 0;
-  grid-column: 2/span 1;
-  background-color: #edeef1;
+    overflow: auto;
+    padding: 20px 2vw;
+    border-radius: 20px;
+    margin: 20px 0;
+    grid-column: 2/span 1;
+    background-color: #edeef1;
 }
+
 body .div-container-app .div-profile-page .div-profile-workspace h2 {
-  color: #000;
-  font-family: "PT Sans", sans-serif;
-  font-size: 30px;
-  overflow: hidden;
-  margin-bottom: 20px;
+    color: #000;
+    font-family: "PT Sans", sans-serif;
+    font-size: 30px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
+
 body .div-container-app .div-profile-page .div-profile-workspace .div-no-data {
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-no-data p {
-  color: #666666;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.6;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
-  overflow: hidden;
-  border-radius: 10px;
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: 4vw 1fr;
-  align-items: center;
-  background-color: #fff;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .div-color-bar {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px 0 0 10px;
-  background-color: red;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-income {
-  background-image: linear-gradient(to top, #ccc 0%, #666666 100%);
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-housing {
-  background-image: linear-gradient(to top, #c63b8d 0%, #781b53 100%);
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-utility {
-  background-image: linear-gradient(to top, #eb0000 0%, #aa0100 100%);
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-food {
-  background-image: linear-gradient(to top, #ffb703 0%, #f68200 100%);
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-transportation {
-  background-image: linear-gradient(to top, #5cbd3a 0%, #367724 100%);
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-entertainment {
-  background-image: linear-gradient(to top, #019be0 0%, #116b90 100%);
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-misc {
-  background-image: linear-gradient(to top, #963899 0%, #5e235f 100%);
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
-  padding: 15px 20px;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  align-items: center;
-  column-gap: 10px;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text li {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total {
-  overflow: hidden;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  align-items: center;
-  column-gap: 10px;
-  background-color: #ccc;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total h3 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .category-container {
-  overflow: hidden;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
-  border-radius: 10px 10px 0 0;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .category-container form {
-  border-radius: 0 0 10px 10px;
-  display: grid;
-  grid-template-columns: 3fr 2fr auto;
-  column-gap: 10px;
-  background-color: white;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .category-container form input {
-  width: 100%;
-  margin-bottom: 0;
-  background-color: #edeef1;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .category-container .div-subcategory-name {
-  display: flex;
-  justify-content: space-between;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page {
-  overflow: hidden;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page h3 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 14px;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page .compare-budgets-heading2 {
-  margin-top: 40px;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page {
-  width: 100%;
-  overflow: hidden;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form {
-  border-radius: 10px;
-  margin-bottom: 40px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  column-gap: 10px;
-  background-color: #fff;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form p {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  padding-right: 10px;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form select {
-  background-color: #edeef1;
-  width: 100%;
-  margin-bottom: 0;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 200px;
-  column-gap: 20px;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info {
-  padding: 12px 20px;
-  border-radius: 10px;
-  background-color: #fff;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info p {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info h3 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities {
-  overflow: hidden;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #ccc;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button {
-  width: 100%;
-  margin-bottom: 10px;
-  display: block;
-  text-align: left;
-}
-body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button .city-x {
-  color: #666666;
-  font-size: 12px;
-}
-body .div-container-app .div-profile-page .div-user-info {
-  width: 100%;
-  padding: 30px 20px;
-  grid-column: 3/span 1;
-  grid-row: 1/span 1;
-}
-body .div-container-app .div-profile-page .div-user-info .div-user-name {
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
-}
-body .div-container-app .div-profile-page .div-user-info .div-user-name h4 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  align-self: center;
-}
-body .div-container-app .div-profile-page .div-user-info .div-account-settings {
-  padding: 12px;
-  border-radius: 10px;
-  margin-top: 30px;
-  background-color: #edeef1;
-  margin: 0;
-}
-body .div-container-app .div-profile-page .div-user-info .div-account-settings h4 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit {
-  margin-bottom: 8px;
-}
-body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit-confirm {
-  margin-bottom: 8px;
-  display: flex;
-  flex-direction: column;
-}
-body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit-confirm form {
-  padding: 0;
-  margin: 0;
-}
-body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-delete-confirm {
-  display: flex;
-  flex-direction: column;
-}
-body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-delete-confirm p {
-  margin-bottom: 2px;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget {
-  padding: 12px;
-  border-radius: 10px;
-  margin-top: 30px;
-  background-color: #edeef1;
-  padding: 0;
-  margin: 20px 0;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-name {
-  padding: 8px 12px;
-  border-radius: 10px 10px 0 0;
-  background-color: #666666;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-name h2 {
-  color: #fff;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  font-size: 26px;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary {
-  padding: 20px 12px 12px 12px;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .chart-budget-summary {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-  margin-bottom: 20px;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h4 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h3 {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 10px;
-  font-size: 30px;
-  line-height: 1;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .subsection-buttons {
-  margin-top: 30px;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .div-budget-delete-confirm {
-  margin-top: 30px;
-}
-body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .div-budget-delete-confirm p {
-  margin-bottom: 8px;
-}
-body .div-container-app .div-profile-page .div-user-info p {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-}
-
-.chart-category-summary {
-  color: #000;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
-}
-
-.custom-tooltip {
-  padding: 6px 10px;
-  border-radius: 6px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-  background-color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-}
-.custom-tooltip .tooltip-label {
-  text-transform: capitalize;
-}
-
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
-}
-
-/* Media Queries —————————————————————————————— */
-@media screen and (max-width: 1000px) {
-  body .div-container-app .div-profile-page .div-profile-workspace .div-no-data {
     width: 100%;
     height: 300px;
+    overflow: hidden;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.5);
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-no-data p {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-no-data p {
     color: #666666;
     font-family: "Nunito Sans", sans-serif;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.6;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+    overflow: hidden;
     border-radius: 10px;
     margin-top: 10px;
     display: grid;
-    grid-template-columns: 2vw 1fr;
+    grid-template-columns: 4vw 1fr;
     align-items: center;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
-    padding: 10px 20px;
+    background-color: #fff;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .div-color-bar {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+    background-color: red;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-income {
+    background-image: linear-gradient(to top, #ccc 0%, #666666 100%);
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-housing {
+    background-image: linear-gradient(to top, #c63b8d 0%, #781b53 100%);
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-utility {
+    background-image: linear-gradient(to top, #eb0000 0%, #aa0100 100%);
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-food {
+    background-image: linear-gradient(to top, #ffb703 0%, #f68200 100%);
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-transportation {
+    background-image: linear-gradient(to top, #5cbd3a 0%, #367724 100%);
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-entertainment {
+    background-image: linear-gradient(to top, #019be0 0%, #116b90 100%);
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container #cc-misc {
+    background-image: linear-gradient(to top, #963899 0%, #5e235f 100%);
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
+    padding: 15px 20px;
     display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 10px;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    column-gap: 10px;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
     color: #000;
     font-family: "Nunito Sans", sans-serif;
     font-size: 20px;
     font-weight: 700;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text li {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text li {
     color: #000;
     font-family: "Nunito Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6em;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
-    text-align: left;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
-    text-align: left;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total {
+    overflow: hidden;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    column-gap: 10px;
+    background-color: #ccc;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .compact-container-total .currency {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .category-container {
+    overflow: hidden;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
     border-radius: 10px 10px 0 0;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .category-container form {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .category-container form {
     border-radius: 0 0 10px 10px;
     display: grid;
     grid-template-columns: 3fr 2fr auto;
     column-gap: 10px;
     background-color: white;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .category-container form input {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .category-container form input {
     width: 100%;
     margin-bottom: 0;
     background-color: #edeef1;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .category-container .div-subcategory-name {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .category-container .div-subcategory-name {
     display: flex;
     justify-content: space-between;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page h3 {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page {
+    overflow: hidden;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page h3 {
     color: #000;
     font-family: "Nunito Sans", sans-serif;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 14px;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page .compare-budgets-heading2 {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page .compare-budgets-heading2 {
     margin-top: 40px;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page {
     width: 100%;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form {
+    overflow: hidden;
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form {
     border-radius: 10px;
     margin-bottom: 40px;
     display: grid;
@@ -811,61 +701,410 @@ body .div-container-app .div-profile-page .div-user-info p {
     align-items: center;
     column-gap: 10px;
     background-color: #fff;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form p {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form p {
     color: #000;
     font-family: "Nunito Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6em;
     padding-right: 10px;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form select {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form select {
     background-color: #edeef1;
     width: 100%;
     margin-bottom: 0;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer {
     margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 200px;
     column-gap: 20px;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info {
     padding: 12px 20px;
     border-radius: 10px;
     background-color: #fff;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info p {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info p {
     color: #000;
     font-family: "Nunito Sans", sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6em;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info h3 {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info h3 {
     color: #000;
     font-family: "Nunito Sans", sans-serif;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities {
     overflow: hidden;
     padding: 10px;
     border-radius: 10px;
     background-color: #ccc;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button {
+}
+
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button {
     width: 100%;
     margin-bottom: 10px;
     display: block;
     text-align: left;
-  }
-  body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button .city-x {
-    color: #666666;
-    font-size: 12px;
-  }
 }
 
-/*# sourceMappingURL=App.css.map */
+body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button .city-x {
+    color: #666666;
+    font-size: 12px;
+}
+
+body .div-container-app .div-profile-page .div-user-info {
+    width: 100%;
+    padding: 30px 20px;
+    grid-column: 3/span 1;
+    grid-row: 1/span 1;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-user-name {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-user-name h4 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    align-self: center;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-account-settings {
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: #edeef1;
+    margin: 0;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-account-settings h4 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit {
+    margin-bottom: 8px;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit-confirm {
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-edit-confirm form {
+    padding: 0;
+    margin: 0;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-delete-confirm {
+    display: flex;
+    flex-direction: column;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-account-settings .div-user-delete-confirm p {
+    margin-bottom: 2px;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget {
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: #edeef1;
+    padding: 0;
+    margin: 20px 0;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-name {
+    padding: 8px 12px;
+    border-radius: 10px 10px 0 0;
+    background-color: #666666;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-name h2 {
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary {
+    padding: 20px 12px 12px 12px;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .chart-budget-summary {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    margin-bottom: 20px;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h4 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary h3 {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 30px;
+    line-height: 1;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .subsection-buttons {
+    margin-top: 30px;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .div-budget-delete-confirm {
+    margin-top: 30px;
+}
+
+body .div-container-app .div-profile-page .div-user-info .div-current-budget .div-budget-summary .div-budget-delete-confirm p {
+    margin-bottom: 8px;
+}
+
+body .div-container-app .div-profile-page .div-user-info p {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+}
+
+.chart-category-summary {
+    color: #000;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+}
+
+.custom-tooltip {
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+.custom-tooltip .tooltip-label {
+    text-transform: capitalize;
+}
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+/* Media Queries —————————————————————————————— */
+@media screen and (max-width: 1000px) {
+    body .div-container-app .div-profile-page .div-profile-workspace .div-no-data {
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-no-data p {
+        color: #666666;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.6;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .compact-container {
+        border-radius: 10px;
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 2vw 1fr;
+        align-items: center;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text {
+        padding: 10px 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text h3 {
+        color: #000;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text li {
+        color: #000;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6em;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .currency {
+        text-align: left;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .compact-container .compact-container-text .timeframe {
+        text-align: left;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .category-container .compact-container-total {
+        border-radius: 10px 10px 0 0;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .category-container form {
+        border-radius: 0 0 10px 10px;
+        display: grid;
+        grid-template-columns: 3fr 2fr auto;
+        column-gap: 10px;
+        background-color: white;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .category-container form input {
+        width: 100%;
+        margin-bottom: 0;
+        background-color: #edeef1;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .category-container .div-subcategory-name {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page h3 {
+        color: #000;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 14px;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-budgets-page .compare-budgets-heading2 {
+        margin-top: 40px;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page {
+        width: 100%;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form {
+        border-radius: 10px;
+        margin-bottom: 40px;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        column-gap: 10px;
+        background-color: #fff;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form p {
+        color: #000;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6em;
+        padding-right: 10px;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page form select {
+        background-color: #edeef1;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        column-gap: 20px;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info {
+        padding: 12px 20px;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info p {
+        color: #000;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6em;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-location-info h3 {
+        color: #000;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities {
+        overflow: hidden;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #ccc;
+    }
+
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button {
+        width: 100%;
+        margin-bottom: 10px;
+        display: block;
+        text-align: left;
+    }
+    
+    body .div-container-app .div-profile-page .div-profile-workspace .div-compare-locations-page .div-compare-locations-footer .div-comparison-cities button .city-x {
+        color: #666666;
+        font-size: 12px;
+    }
+}

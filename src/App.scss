@@ -18,985 +18,1083 @@ $font-family-primary: 'Nunito Sans', sans-serif;
 $font-family-secondary: 'PT Sans', sans-serif;
 $horizontal-rule: solid 2px $color-light-gray;
 $box-shadow-small: 4px 4px 8px
-  rgba(
-    $color: $color-black,
-    $alpha: 0.3
-  );
+    rgba(
+        $color: $color-black,
+        $alpha: 0.3
+    );
 
 // Mixins ——————————————————————————————
 
 @mixin text-title($color: $color-black) {
-  color: $color;
-  font-family: $font-family-secondary;
-  font-size: 30px;
+    color: $color;
+    font-family: $font-family-secondary;
+    font-size: 30px;
 }
 
 @mixin text-public-nav($color: $color-black) {
-  color: $color;
-  font-family: $font-family-primary;
-  font-size: 20px;
-  font-weight: 600;
+    color: $color;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 @mixin text-user-nav1($color: $color-black) {
-  color: $color;
-  font-family: $font-family-primary;
-  font-size: 20px;
-  font-weight: 600;
+    color: $color;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 @mixin text-user-nav2($color: $color-black) {
-  color: $color;
-  font-family: $font-family-primary;
-  font-size: 16px;
-  font-weight: 600;
+    color: $color;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 @mixin text-h1($color: $color-black) {
-  color: $color;
-  font-family: $font-family-secondary;
-  font-size: 50px;
+    color: $color;
+    font-family: $font-family-secondary;
+    font-size: 50px;
 }
 
 @mixin text-h2($color: $color-black) {
-  color: $color;
-  font-family: $font-family-secondary;
-  font-size: 30px;
+    color: $color;
+    font-family: $font-family-secondary;
+    font-size: 30px;
 }
 
 @mixin text-h3($color: $color-black) {
-  color: $color;
-  font-family: $font-family-primary;
-  font-size: 20px;
-  font-weight: 700;
+    color: $color;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 @mixin text-h4($color: $color-black) {
-  color: $color;
-  font-family: $font-family-primary;
-  font-size: 16px;
-  font-weight: 700;
+    color: $color;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 @mixin text-currency($color: $color-black) {
-  color: $color;
-  font-family: $font-family-primary;
-  font-size: 20px;
-  font-weight: 700;
+    color: $color;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 @mixin text-body($color: $color-black) {
-  color: $color;
-  font-family: $font-family-primary;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 2em;
+    color: $color;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2em;
 }
 
 @mixin text-body-small($color: $color-black) {
-  color: $color;
-  font-family: $font-family-primary;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6em;
+    color: $color;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
 }
 
 @mixin box-subsection {
-  padding: 12px;
-  border-radius: $border-radius-small;
-  margin-top: 30px;
-  background-color: $color-light-gray;
+    padding: 12px;
+    border-radius: $border-radius-small;
+    margin-top: 30px;
+    background-color: $color-light-gray;
 }
 
 @mixin gradient($color1, $color2) {
-  background-image: linear-gradient(to top, $color1 0%, $color2 100%);
+    background-image: linear-gradient(to top, $color1 0%, $color2 100%);
 }
 
 // Global ——————————————————————————————
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 li {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 a {
-  text-decoration: none;
-  cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 button {
-  @include text-body-small();
-  height: 40px;
-  padding: 6px 20px;
-  border-width: 3px;
-  border-radius: 20px;
-  background-color: $color-light-gray;
-  box-shadow: 4px 4px 8px rgba($color: $color-black, $alpha: 0.3);
-  font-weight: 700;
-  cursor: pointer;
+    @include text-body-small();
+    height: 40px;
+    padding: 6px 20px;
+    border-width: 3px;
+    border-radius: 20px;
+    background-color: $color-light-gray;
+    box-shadow: 4px 4px 8px rgba($color: $color-black, $alpha: 0.3);
+    font-weight: 700;
+    cursor: pointer;
 
-  &:hover {
-    box-shadow: 2px 2px 4px rgba($color: $color-black, $alpha: 0.6);
-  }
+    &:hover {
+        box-shadow: 2px 2px 4px rgba($color: $color-black, $alpha: 0.6);
+    }
 }
 
 .button-small {
-  height: 30px;
-  padding: 0 10px;
-  border-radius: 15px;
-  font-size: 14px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 15px;
+    font-size: 14px;
 }
 
 .button-left {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 form {
-  padding: 20px;
-  border-radius: $border-radius-large;
-  display: inline-block;
-  background-color: $color-light-gray;
-  text-align: left;
+    padding: 20px;
+    border-radius: $border-radius-large;
+    display: inline-block;
+    background-color: $color-light-gray;
+    text-align: left;
 
-  label {
-    @include text-body-small();
-    padding-left: 15px;
-    font-weight: 700;
-  }
+    label {
+        @include text-body-small();
+        padding-left: 15px;
+        font-weight: 700;
+    }
 
-  input,
-  select {
-    @include text-body-small();
-    width: 240px;
-    height: 40px;
-    padding: 0 15px;
-    margin-bottom: 20px;
-    border-width: 0;
-    border-radius: 20px;
-    display: block;
-    box-shadow: inset 2px 2px 4px rgba($color: $color-black, $alpha: 0.3);
-  }
+    input,
+    select {
+        @include text-body-small();
+        width: 240px;
+        height: 40px;
+        padding: 0 15px;
+        margin-bottom: 20px;
+        border-width: 0;
+        border-radius: 20px;
+        display: block;
+        box-shadow: inset 2px 2px 4px rgba($color: $color-black, $alpha: 0.3);
+    }
 }
 
 .form-small {
-  width: 100%;
-  padding: 0;
-  margin-top: 30px;
-
-  label {
-    padding-left: 0;
-    font-size: 14px;
-  }
-
-  input,
-  select {
     width: 100%;
-    height: 30px;
-    padding: 0 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
+    padding: 0;
+    margin-top: 30px;
 
-  button {
-    margin-top: 10px;
-  }
+    label {
+        padding-left: 0;
+        font-size: 14px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        height: 30px;
+        padding: 0 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
 }
 
 .timeframe {
-  @include text-body-small();
-  text-align: center;
+    @include text-body-small();
+    text-align: center;
 }
 
 // Nested selectors ——————————————————————————————
 
 body {
-  height: 100%;
-  background-color: $color-light-gray;
-
-  .div-container-app {
     height: 100%;
-    max-width: $app-max-width;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 4vw 200px 1fr 300px 4vw;
-    grid-template-rows: 40px 1fr 40px;
+    background-color: $color-light-gray;
 
-    // Public Navigation ——————————————————————————————
-
-    .nav-public {
-      z-index: 1;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: auto 1fr;
-      row-gap: 15px;
-      justify-items: end;
-      align-items: center;
-      grid-column: 2 / span 3;
-      grid-row: 2 / span 1;
-      align-self: start;
-
-      img {
-        width: 200px;
-      }
-
-      ul {
-        li {
-          @include text-public-nav($color-white);
-          margin-left: 4vw;
-          display: inline-block;
-          cursor: pointer;
-        }
-
-        a {
-          @include text-public-nav($color-white);
-        }
-      }
-
-      #div-login {
-        border-radius: $border-radius-large;
-        grid-column: 2 / span 1;
-        box-shadow: $box-shadow-small;
-      }
-    }
-
-    // Public Pages ——————————————————————————————
-
-    .div-public-page {
-      grid-column: 1 / span 5;
-      grid-row: 1 / span 3;
-      background-color: $color-white;
-      text-align: center;
-
-      .div-public-header {
-        height: 800px;
-        padding: 0 10vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-image: $gradient;
-
-        h1 {
-          @include text-h1($color-white);
-          padding-bottom: 20px;
-          text-align: center;
-        }
-
-        p {
-          @include text-body($color-white);
-        }
-      }
-
-      .div-signup {
+    .div-container-app {
+        height: 100%;
+        max-width: $app-max-width;
+        margin: 0 auto;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 4vw 200px 1fr 300px 4vw;
+        grid-template-rows: 40px 1fr 40px;
 
-        .div-signup-img {
-          background-image: url('https://res.cloudinary.com/alanavery/image/upload/v1609635077/kaleidoscope/abillion-0gVthlBI_Z4-unsplash_vmisaz.jpg');
-          background-position: center;
-          background-size: cover;
-        }
+        // Public Navigation ——————————————————————————————
 
-        .div-signup-form {
-          padding: 40px 4vw;
+        .nav-public {
+            z-index: 1;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto 1fr;
+            row-gap: 15px;
+            justify-items: end;
+            align-items: center;
+            grid-column: 2 / span 3;
+            grid-row: 2 / span 1;
+            align-self: start;
 
-          h2 {
-            @include text-h2();
-            font-size: 40px;
-            padding-bottom: 20px;
-          }
-        }
-      }
-    }
-
-    // User Navigation ——————————————————————————————
-
-    .nav-user {
-      z-index: 2;
-      padding: 30px 20px;
-      grid-column: 2 / span 1;
-      grid-row: 2 / span 1;
-
-      img {
-        width: 100%;
-      }
-
-      .link1 {
-        @include text-user-nav1();
-        padding-top: 5px;
-        border-top: $horizontal-rule;
-        margin-top: 30px;
-
-        a {
-          @include text-user-nav1();
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-
-        &.link-compare {
-          a {
-            font-size: 16px;
-          }
-        }
-      }
-
-      .link2 {
-        margin-top: 20px;
-
-        a {
-          @include text-user-nav1();
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-
-        &.link-compare {
-          margin-top: 10px;
-
-          a {
-            font-size: 16px;
-          }
-        }
-      }
-
-      .div-budgets {
-        @include box-subsection();
-
-        h3 {
-          @include text-h3();
-        }
-
-        li {
-          margin-top: 10px;
-          display: flex;
-          align-items: center;
-
-          div {
-            width: 12px;
-            height: 12px;
-            border-radius: 100%;
-            margin-right: 6px;
-            background-color: $color-medium-gray;
-          }
-
-          a {
-            @include text-user-nav2();
-
-            &:hover {
-              text-decoration: underline;
+            img {
+                width: 200px;
             }
-          }
+
+            ul {
+                li {
+                @include text-public-nav($color-white);
+                margin-left: 4vw;
+                display: inline-block;
+                cursor: pointer;
+                }
+
+                a {
+                @include text-public-nav($color-white);
+                }
+            }
+
+            #div-login {
+                border-radius: $border-radius-large;
+                grid-column: 2 / span 1;
+                box-shadow: $box-shadow-small;
+            }
         }
 
-        .subsection-buttons {
-          margin-top: 30px;
-        }
-      }
-    }
+        // Public Pages ——————————————————————————————
 
-    // Create First Budget Page ——————————————————————————————
+        .div-public-page {
+            grid-column: 1 / span 5;
+            grid-row: 1 / span 3;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            justify-items: center;
+            align-items: start;
+            background-color: $color-white;
+            text-align: center;
 
-    .div-first-budget-page {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-image: $gradient;
+            .div-public-header {
+                padding: 240px 10vw 200px 10vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                background-image: $gradient;
+                
+                h1 {
+                    @include text-h1($color-white);
+                    padding-bottom: 20px;
+                    text-align: center;
+                }
+                
+                p {
+                    @include text-body($color-white);
+                }
+            }
 
-      .div-first-budget {
-        display: grid;
-        grid-template-columns: 200px auto 200px;
-        grid-template-rows: auto 1fr;
-        justify-items: center;
+            .div-signup {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
 
-        h1 {
-          @include text-h1($color-white);
-          padding-bottom: 20px;
-          grid-column: 1 / span 3;
-        }
+                .div-signup-img {
+                    background-image: url('https://res.cloudinary.com/alanavery/image/upload/v1609635077/kaleidoscope/abillion-0gVthlBI_Z4-unsplash_vmisaz.jpg');
+                    background-position: center;
+                    background-size: cover;
+                }
 
-        form {
-          grid-column: 2 / span 1;
-          grid-row: 2 / span 1;
-        }
+                .div-signup-form {
+                    padding: 40px 4vw;
 
-        .div-instructions {
-          @include text-body-small($color-white);
-          padding: 45px 0 0 20px;
-          grid-column: 3 / span 1;
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 1.5;
-
-          div {
-            height: 85px;
-          }
-        }
-      }
-    }
-
-    // User Dashboard ——————————————————————————————
-
-    .div-profile-page {
-      overflow: hidden;
-      border-radius: $border-radius-large;
-      display: grid;
-      grid-template-columns: 200px 1fr 300px;
-      grid-column: 2 / span 3;
-      grid-row: 2 / span 1;
-      box-shadow: 15px 15px 30px rgba($color: $color-black, $alpha: 0.3);
-      background-color: $color-white;
-
-      .div-profile-workspace {
-        overflow: auto;
-        padding: 20px 2vw;
-        border-radius: $border-radius-large;
-        margin: 20px 0;
-        grid-column: 2 / span 1;
-        background-color: $color-light-gray;
-
-        h2 {
-          @include text-h2();
-          overflow: hidden;
-          margin-bottom: 20px;
+                    h2 {
+                        @include text-h2();
+                        font-size: 40px;
+                        padding-bottom: 20px;
+                    }
+                }
+            }
         }
 
-        .div-no-data {
-          width: 100%;
-          height: 300px;
-          overflow: hidden;
-          border-radius: $border-radius-small;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          background-color: rgba($color: $color-white, $alpha: 0.5);
+        .about-page {
+            .div-public-header {
+                height: 100%;
+                padding-top: 240px;
+                padding-bottom: 80px;
 
-          p {
-            @include text-h3($color-dark-gray);
-            line-height: 1.6;
-          }
+                p {
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+
+                .div-screenshots {
+                    max-width: 1600px;
+                    padding: 40px 0;
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: 4vw 1fr 6vw 1fr 4vw;
+
+                    h2 {
+                        @include text-body($color-white);
+                        padding: 50px 0 24px 0;
+                        line-height: 1.4;
+                    }
+                    
+                    img {
+                        width: 100%;
+                    }
+                
+                    .div-screenshot1 {
+                        grid-column: 2 / span 1;
+                        
+                        img {
+                            box-shadow: -12px 20px 40px rgba($color: $color-black, $alpha: 0.4);
+                            -webkit-transform: perspective(800) rotateY(6deg);
+                        }
+                    }
+                
+                    .div-screenshot2 {
+                        grid-column: 4/ span 1;
+                        padding-top: 80px;
+                        
+                        img {
+                            box-shadow: 12px 20px 40px rgba($color: $color-black, $alpha: 0.4);
+                            -webkit-transform: perspective(800) rotateY(-6deg);
+                        }
+                    }
+                }
+            }
+
+            .div-created-by {
+                width: 100%;
+                max-width: 1600px;
+                padding: 80px 4vw;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                column-gap: 2vw;
+
+                h2 {
+                    grid-column: 1 / span 4;
+                    @include text-h2();
+                    font-size: 40px;
+                    padding-bottom: 60px;
+                }
+
+                h3 {
+                    @include text-h3();
+                    padding-bottom: 10px;
+                    font-size: 24px;
+                }
+
+                img {
+                    width: 30px;
+                }
+
+                p {
+                    grid-column: 1 / span 4;
+                    @include text-body();
+                    padding-top: 60px;
+                    line-height: 1.4;
+
+                    a {
+                        color: #116b90;
+                        font-weight: 700;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
         }
 
-        .compact-container {
-          overflow: hidden;
-          border-radius: $border-radius-small;
-          margin-top: 10px;
-          display: grid;
-          grid-template-columns: 4vw 1fr;
-          align-items: center;
-          background-color: $color-white;
+        // User Navigation ——————————————————————————————
 
-          .div-color-bar {
+        .nav-user {
+            z-index: 2;
+            padding: 30px 20px;
+            grid-column: 2 / span 1;
+            grid-row: 2 / span 1;
+
+            img {
+                width: 100%;
+            }
+
+            .link1 {
+                @include text-user-nav1();
+                padding-top: 5px;
+                border-top: $horizontal-rule;
+                margin-top: 30px;
+
+                a {
+                    @include text-user-nav1();
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                &.link-compare {
+                    a {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .link2 {
+                margin-top: 20px;
+
+                a {
+                    @include text-user-nav1();
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                &.link-compare {
+                    margin-top: 10px;
+
+                    a {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .div-budgets {
+                @include box-subsection();
+
+                h3 {
+                    @include text-h3();
+                }
+
+                li {
+                    margin-top: 10px;
+                    display: flex;
+                    align-items: center;
+
+                    div {
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 100%;
+                        margin-right: 6px;
+                        background-color: $color-medium-gray;
+                    }
+
+                    a {
+                        @include text-user-nav2();
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .subsection-buttons {
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        // Create First Budget Page ——————————————————————————————
+
+        .div-first-budget-page {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            border-radius: $border-radius-small 0 0 $border-radius-small;
-            background-color: red;
-          }
-
-          #cc-income {
-            @include gradient($color-medium-gray, $color-dark-gray);
-          }
-
-          #cc-housing {
-            @include gradient(#c63b8d, #781b53);
-          }
-
-          #cc-utility {
-            @include gradient(#eb0000, #aa0100);
-          }
-
-          #cc-food {
-            @include gradient(#ffb703, #f68200);
-          }
-
-          #cc-transportation {
-            @include gradient(#5cbd3a, #367724);
-          }
-
-          #cc-entertainment {
-            @include gradient(#019be0, #116b90);
-          }
-
-          #cc-misc {
-            @include gradient(#963899, #5e235f);
-          }
-
-          .compact-container-text {
-            padding: 15px 20px;
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            align-items: center;
-            column-gap: 10px;
-
-            h3 {
-              @include text-h3();
-            }
-
-            li {
-              @include text-body-small();
-            }
-
-            .currency {
-              @include text-currency();
-              text-align: center;
-            }
-
-            .timeframe {
-              @include text-body-small();
-            }
-          }
-        }
-
-        .compact-container-total {
-          overflow: hidden;
-          padding: 10px 20px;
-          border-radius: $border-radius-small;
-          margin-top: 10px;
-          display: grid;
-          grid-template-columns: 3fr 1fr;
-          align-items: center;
-          column-gap: 10px;
-          background-color: $color-medium-gray;
-
-          h3 {
-            @include text-h3();
-          }
-
-          .currency {
-            @include text-currency();
-            text-align: center;
-          }
-        }
-
-        .category-container {
-          overflow: hidden;
-
-          .compact-container-total {
-            border-radius: $border-radius-small $border-radius-small 0 0;
-          }
-
-          form {
-            border-radius: 0 0 $border-radius-small $border-radius-small;
-            display: grid;
-            grid-template-columns: 3fr 2fr auto;
-            column-gap: 10px;
-            background-color: white;
-
-            input {
-              width: 100%;
-              margin-bottom: 0;
-              background-color: $color-light-gray;
-            }
-          }
-
-          .div-subcategory-name {
             display: flex;
-            justify-content: space-between;
-          }
-        }
-
-        .div-compare-budgets-page {
-          overflow: hidden;
-
-          h3 {
-            @include text-h3();
-            margin-bottom: 14px;
-          }
-
-          .compare-budgets-heading2 {
-            margin-top: 40px;
-          }
-        }
-
-        .div-compare-locations-page {
-          width: 100%;
-          overflow: hidden;
-
-          form {
-            border-radius: $border-radius-small;
-            margin-bottom: 40px;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
+            justify-content: center;
             align-items: center;
-            column-gap: 10px;
+            background-image: $gradient;
+
+            .div-first-budget {
+                display: grid;
+                grid-template-columns: 200px auto 200px;
+                grid-template-rows: auto 1fr;
+                justify-items: center;
+
+                    h1 {
+                        @include text-h1($color-white);
+                        padding-bottom: 20px;
+                        grid-column: 1 / span 3;
+                    }
+
+                    form {
+                        grid-column: 2 / span 1;
+                        grid-row: 2 / span 1;
+                    }
+
+                .div-instructions {
+                    @include text-body-small($color-white);
+                    padding: 45px 0 0 20px;
+                    grid-column: 3 / span 1;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 1.5;
+
+                    div {
+                        height: 85px;
+                    }
+                }
+            }
+        }
+
+        // User Dashboard ——————————————————————————————
+
+        .div-profile-page {
+            overflow: hidden;
+            border-radius: $border-radius-large;
+            display: grid;
+            grid-template-columns: 200px 1fr 300px;
+            grid-column: 2 / span 3;
+            grid-row: 2 / span 1;
+            box-shadow: 15px 15px 30px rgba($color: $color-black, $alpha: 0.3);
             background-color: $color-white;
 
-            p {
-              @include text-body-small();
-              padding-right: 10px;
-            }
+            .div-profile-workspace {
+                overflow: auto;
+                padding: 20px 2vw;
+                border-radius: $border-radius-large;
+                margin: 20px 0;
+                grid-column: 2 / span 1;
+                background-color: $color-light-gray;
 
-            select {
-              background-color: $color-light-gray;
-              width: 100%;
-              margin-bottom: 0;
-            }
-          }
-
-          .div-compare-locations-footer {
-            margin-top: 40px;
-            display: grid;
-            grid-template-columns: 1fr 200px;
-            column-gap: 20px;
-
-            .div-location-info {
-              padding: 12px 20px;
-              border-radius: $border-radius-small;
-              background-color: $color-white;
-
-              p {
-                @include text-body-small();
-              }
-
-              h3 {
-                @include text-h3();
-                margin-bottom: 10px;
-              }
-            }
-
-            .div-comparison-cities {
-              overflow: hidden;
-              padding: 10px;
-              border-radius: $border-radius-small;
-              background-color: $color-medium-gray;
-
-              button {
-                width: 100%;
-                margin-bottom: 10px;
-                display: block;
-                text-align: left;
-
-                .city-x {
-                  color: $color-dark-gray;
-                  font-size: 12px;
+                h2 {
+                    @include text-h2();
+                    overflow: hidden;
+                    margin-bottom: 20px;
                 }
-              }
+
+                .div-no-data {
+                    width: 100%;
+                    height: 300px;
+                    overflow: hidden;
+                    border-radius: $border-radius-small;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgba($color: $color-white, $alpha: 0.5);
+
+                    p {
+                        @include text-h3($color-dark-gray);
+                        line-height: 1.6;
+                    }
+                }
+
+                .compact-container {
+                    overflow: hidden;
+                    border-radius: $border-radius-small;
+                    margin-top: 10px;
+                    display: grid;
+                    grid-template-columns: 4vw 1fr;
+                    align-items: center;
+                    background-color: $color-white;
+
+                    .div-color-bar {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: $border-radius-small 0 0 $border-radius-small;
+                        background-color: red;
+                    }
+
+                    #cc-income {
+                        @include gradient($color-medium-gray, $color-dark-gray);
+                    }
+
+                    #cc-housing {
+                        @include gradient(#c63b8d, #781b53);
+                    }
+
+                    #cc-utility {
+                        @include gradient(#eb0000, #aa0100);
+                    }
+
+                    #cc-food {
+                        @include gradient(#ffb703, #f68200);
+                    }
+
+                    #cc-transportation {
+                        @include gradient(#5cbd3a, #367724);
+                    }
+
+                    #cc-entertainment {
+                        @include gradient(#019be0, #116b90);
+                    }
+
+                    #cc-misc {
+                        @include gradient(#963899, #5e235f);
+                    }
+
+                    .compact-container-text {
+                        padding: 15px 20px;
+                        display: grid;
+                        grid-template-columns: 3fr 1fr;
+                        align-items: center;
+                        column-gap: 10px;
+
+                        h3 {
+                            @include text-h3();
+                        }
+
+                        li {
+                            @include text-body-small();
+                        }
+
+                        .currency {
+                            @include text-currency();
+                            text-align: center;
+                        }
+
+                        .timeframe {
+                            @include text-body-small();
+                        }
+                    }
+                }
+
+                .compact-container-total {
+                    overflow: hidden;
+                    padding: 10px 20px;
+                    border-radius: $border-radius-small;
+                    margin-top: 10px;
+                    display: grid;
+                    grid-template-columns: 3fr 1fr;
+                    align-items: center;
+                    column-gap: 10px;
+                    background-color: $color-medium-gray;
+
+                    h3 {
+                        @include text-h3();
+                    }
+
+                    .currency {
+                        @include text-currency();
+                        text-align: center;
+                    }
+                }
+
+                .category-container {
+                    overflow: hidden;
+
+                    .compact-container-total {
+                        border-radius: $border-radius-small $border-radius-small 0 0;
+                    }
+
+                    form {
+                        border-radius: 0 0 $border-radius-small $border-radius-small;
+                        display: grid;
+                        grid-template-columns: 3fr 2fr auto;
+                        column-gap: 10px;
+                        background-color: white;
+
+                        input {
+                            width: 100%;
+                            margin-bottom: 0;
+                            background-color: $color-light-gray;
+                        }
+                    }
+
+                    .div-subcategory-name {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+
+                .div-compare-budgets-page {
+                    overflow: hidden;
+
+                    h3 {
+                        @include text-h3();
+                        margin-bottom: 14px;
+                    }
+
+                    .compare-budgets-heading2 {
+                        margin-top: 40px;
+                    }
+                }
+
+                .div-compare-locations-page {
+                    width: 100%;
+                    overflow: hidden;
+
+                    form {
+                        border-radius: $border-radius-small;
+                        margin-bottom: 40px;
+                        display: grid;
+                        grid-template-columns: auto 1fr auto;
+                        align-items: center;
+                        column-gap: 10px;
+                        background-color: $color-white;
+
+                        p {
+                            @include text-body-small();
+                            padding-right: 10px;
+                        }
+
+                        select {
+                            background-color: $color-light-gray;
+                            width: 100%;
+                            margin-bottom: 0;
+                        }
+                    }
+
+                .div-compare-locations-footer {
+                    margin-top: 40px;
+                    display: grid;
+                    grid-template-columns: 1fr 200px;
+                    column-gap: 20px;
+
+                    .div-location-info {
+                        padding: 12px 20px;
+                        border-radius: $border-radius-small;
+                        background-color: $color-white;
+
+                        p {
+                            @include text-body-small();
+                        }
+
+                        h3 {
+                            @include text-h3();
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    .div-comparison-cities {
+                        overflow: hidden;
+                        padding: 10px;
+                        border-radius: $border-radius-small;
+                        background-color: $color-medium-gray;
+
+                        button {
+                            width: 100%;
+                            margin-bottom: 10px;
+                            display: block;
+                            text-align: left;
+
+                            .city-x {
+                            color: $color-dark-gray;
+                            font-size: 12px;
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
 
-      // User Info Section ——————————
+        // User Info Section ——————————
 
-      .div-user-info {
-        width: 100%;
-        padding: 30px 20px;
-        grid-column: 3 / span 1;
-        grid-row: 1 / span 1;
+        .div-user-info {
+            width: 100%;
+            padding: 30px 20px;
+            grid-column: 3 / span 1;
+            grid-row: 1 / span 1;
 
-        .div-user-name {
-          margin-bottom: 8px;
-          display: flex;
-          justify-content: space-between;
-
-          h4 {
-            @include text-h4();
-            align-self: center;
-          }
-        }
-
-        .div-account-settings {
-          @include box-subsection();
-          margin: 0;
-
-          h4 {
-            @include text-h4();
-            margin-bottom: 10px;
-          }
-
-          .div-user-edit {
-            margin-bottom: 8px;
-          }
-  
-          .div-user-edit-confirm {
-            margin-bottom: 8px;
-            display: flex;
-            flex-direction: column;
-  
-            form {
-              padding: 0;
-              margin: 0;
-            }
-          }
-  
-          .div-user-delete-confirm {
-            display: flex;
-            flex-direction: column;
-
-            p {
-              margin-bottom: 2px
-            }
-          }
-        }
-
-        // Current Budget Section ——————————
-
-        .div-current-budget {
-          @include box-subsection();
-          padding: 0;
-          margin: 20px 0;
-
-          .div-budget-name {
-            padding: 8px 12px;
-            border-radius: $border-radius-small $border-radius-small 0 0;
-            background-color: $color-dark-gray;
-
-            h2 {
-              @include text-h3($color-white);
-              font-size: 26px;
-            }
-          }
-
-          .div-budget-summary {
-            padding: 20px 12px 12px 12px;
-
-            .chart-budget-summary {
-              @include text-body-small();
-              margin-bottom: 20px;
-            }
-
-            h4 {
-              @include text-h4();
-            }
-
-            h3 {
-              @include text-h3();
-              margin-top: 10px;
-              font-size: 30px;
-              line-height: 1;
-            }
-
-            .subsection-buttons {
-              margin-top: 30px;
-            }
-
-            .div-budget-delete-confirm {
-              margin-top: 30px;
-
-              p {
+            .div-user-name {
                 margin-bottom: 8px;
-              }
-            }
-          }
-        }
+                display: flex;
+                justify-content: space-between;
 
-        p {
-          @include text-body-small();
+                h4 {
+                    @include text-h4();
+                    align-self: center;
+                }
+            }
+
+            .div-account-settings {
+                @include box-subsection();
+                margin: 0;
+
+                h4 {
+                    @include text-h4();
+                    margin-bottom: 10px;
+                }
+
+                .div-user-edit {
+                    margin-bottom: 8px;
+                }
+        
+                .div-user-edit-confirm {
+                    margin-bottom: 8px;
+                    display: flex;
+                    flex-direction: column;
+        
+                    form {
+                    padding: 0;
+                    margin: 0;
+                    }
+                }
+        
+                .div-user-delete-confirm {
+                    display: flex;
+                    flex-direction: column;
+
+                    p {
+                    margin-bottom: 2px
+                    }
+                }
+            }
+
+            // Current Budget Section ——————————
+
+            .div-current-budget {
+                @include box-subsection();
+                padding: 0;
+                margin: 20px 0;
+
+                .div-budget-name {
+                    padding: 8px 12px;
+                    border-radius: $border-radius-small $border-radius-small 0 0;
+                    background-color: $color-dark-gray;
+
+                    h2 {
+                    @include text-h3($color-white);
+                    font-size: 26px;
+                    }
+                }
+
+                .div-budget-summary {
+                    padding: 20px 12px 12px 12px;
+
+                    .chart-budget-summary {
+                        @include text-body-small();
+                        margin-bottom: 20px;
+                    }
+
+                    h4 {
+                        @include text-h4();
+                    }
+
+                    h3 {
+                        @include text-h3();
+                        margin-top: 10px;
+                        font-size: 30px;
+                        line-height: 1;
+                    }
+
+                    .subsection-buttons {
+                        margin-top: 30px;
+                    }
+
+                    .div-budget-delete-confirm {
+                        margin-top: 30px;
+
+                        p {
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
+            }
+
+                p {
+                    @include text-body-small();
+                }
+            }
         }
-      }
     }
-  }
 }
 
 // Recharts ——————————————————————————————
 
 .chart-category-summary {
-  @include text-body-small($color-black);
+    @include text-body-small($color-black);
 }
 
 .custom-tooltip {
-  padding: 6px 10px;
-  border-radius: 6px;
-  box-shadow: $box-shadow-small;
-  background-color: rgba($color: $color-white, $alpha: 0.9);
-  text-align: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: $box-shadow-small;
+    background-color: rgba($color: $color-white, $alpha: 0.9);
+    text-align: center;
 
-  .tooltip-label {
-    text-transform: capitalize;
-  }
+    .tooltip-label {
+        text-transform: capitalize;
+    }
 }
 
 // Transitions ——————————————————————————————
 
 .fade-enter {
-  opacity: 0;
+    opacity: 0;
 }
 
 .fade-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
+    opacity: 1;
+    transition: opacity 200ms;
 }
 
 .fade-exit {
-  opacity: 1;
+    opacity: 1;
 }
 
 .fade-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
+    opacity: 0;
+    transition: opacity 200ms;
 }
 
 /* Media Queries —————————————————————————————— */
 
 @media screen and (max-width: 1000px) {
-  body {
-    .div-container-app {
-      .div-profile-page {
-        .div-profile-workspace {
-          
-          .div-no-data {
-            width: 100%;
-            height: 300px;
-            border-radius: $border-radius-small;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba($color: $color-white, $alpha: 0.5);
+    body {
+        .div-container-app {
+            .div-profile-page {
+                .div-profile-workspace {
+                    .div-no-data {
+                        width: 100%;
+                        height: 300px;
+                        border-radius: $border-radius-small;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: rgba($color: $color-white, $alpha: 0.5);
 
-            p {
-              @include text-h3($color-dark-gray);
-              line-height: 1.6;
-            }
-          }
+                        p {
+                            @include text-h3($color-dark-gray);
+                            line-height: 1.6;
+                        }
+                    }
 
-          .compact-container {
-            border-radius: $border-radius-small;
-            margin-top: 10px;
-            display: grid;
-            grid-template-columns: 2vw 1fr;
-            align-items: center;
+                    .compact-container {
+                        border-radius: $border-radius-small;
+                        margin-top: 10px;
+                        display: grid;
+                        grid-template-columns: 2vw 1fr;
+                        align-items: center;
 
-            .compact-container-text {
-              padding: 10px 20px;
-              display: grid;
-              grid-template-columns: 1fr;
-              row-gap: 10px;
+                        .compact-container-text {
+                            padding: 10px 20px;
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            row-gap: 10px;
 
-              h3 {
-                @include text-h3();
-              }
+                            h3 {
+                                @include text-h3();
+                            }
 
-              li {
-                @include text-body-small();
-              }
+                            li {
+                                @include text-body-small();
+                            }
 
-              .currency {
-                text-align: left;
-              }
+                            .currency {
+                                text-align: left;
+                            }
 
-              .timeframe {
-                text-align: left;
-              }
-            }
-          }
+                            .timeframe {
+                                text-align: left;
+                            }
+                        }
+                    }
 
-          .category-container {
-            .compact-container-total {
-              border-radius: $border-radius-small $border-radius-small 0 0;
-            }
+                    .category-container {
+                        .compact-container-total {
+                            border-radius: $border-radius-small $border-radius-small 0 0;
+                        }
 
-            form {
-              border-radius: 0 0 $border-radius-small $border-radius-small;
-              display: grid;
-              grid-template-columns: 3fr 2fr auto;
-              column-gap: 10px;
-              background-color: white;
+                        form {
+                            border-radius: 0 0 $border-radius-small $border-radius-small;
+                            display: grid;
+                            grid-template-columns: 3fr 2fr auto;
+                            column-gap: 10px;
+                            background-color: white;
 
-              input {
-                width: 100%;
-                margin-bottom: 0;
-                background-color: $color-light-gray;
-              }
-            }
+                            input {
+                                width: 100%;
+                                margin-bottom: 0;
+                                background-color: $color-light-gray;
+                            }
+                        }
 
-            .div-subcategory-name {
-              display: flex;
-              justify-content: space-between;
-            }
-          }
+                        .div-subcategory-name {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
 
-          .div-compare-budgets-page {
-            h3 {
-              @include text-h3();
-              margin-bottom: 14px;
-            }
+                    .div-compare-budgets-page {
+                        h3 {
+                            @include text-h3();
+                            margin-bottom: 14px;
+                        }
 
-            .compare-budgets-heading2 {
-              margin-top: 40px;
-            }
-          }
+                        .compare-budgets-heading2 {
+                            margin-top: 40px;
+                        }
+                    }
 
-          .div-compare-locations-page {
-            width: 100%;
+                    .div-compare-locations-page {
+                        width: 100%;
 
-            form {
-              border-radius: $border-radius-small;
-              margin-bottom: 40px;
-              display: grid;
-              grid-template-columns: auto 1fr auto;
-              align-items: center;
-              column-gap: 10px;
-              background-color: $color-white;
+                        form {
+                            border-radius: $border-radius-small;
+                            margin-bottom: 40px;
+                            display: grid;
+                            grid-template-columns: auto 1fr auto;
+                            align-items: center;
+                            column-gap: 10px;
+                            background-color: $color-white;
 
-              p {
-                @include text-body-small();
-                padding-right: 10px;
-              }
+                            p {
+                                @include text-body-small();
+                                padding-right: 10px;
+                            }
 
-              select {
-                background-color: $color-light-gray;
-                width: 100%;
-                margin-bottom: 0;
-              }
-            }
+                            select {
+                                background-color: $color-light-gray;
+                                width: 100%;
+                                margin-bottom: 0;
+                            }
+                        }
 
-            .div-compare-locations-footer {
-              margin-top: 40px;
-              display: grid;
-              grid-template-columns: 1fr 200px;
-              column-gap: 20px;
+                        .div-compare-locations-footer {
+                            margin-top: 40px;
+                            display: grid;
+                            grid-template-columns: 1fr 200px;
+                            column-gap: 20px;
 
-              .div-location-info {
-                padding: 12px 20px;
-                border-radius: $border-radius-small;
-                background-color: $color-white;
+                            .div-location-info {
+                                padding: 12px 20px;
+                                border-radius: $border-radius-small;
+                                background-color: $color-white;
 
-                p {
-                  @include text-body-small();
+                                p {
+                                    @include text-body-small();
+                                }
+
+                                h3 {
+                                    @include text-h3();
+                                    margin-bottom: 10px;
+                                }
+                            }
+
+                            .div-comparison-cities {
+                                overflow: hidden;
+                                padding: 10px;
+                                border-radius: $border-radius-small;
+                                background-color: $color-medium-gray;
+
+                                button {
+                                    width: 100%;
+                                    margin-bottom: 10px;
+                                    display: block;
+                                    text-align: left;
+
+                                    .city-x {
+                                        color: $color-dark-gray;
+                                        font-size: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-
-                h3 {
-                  @include text-h3();
-                  margin-bottom: 10px;
-                }
-              }
-
-              .div-comparison-cities {
-                overflow: hidden;
-                padding: 10px;
-                border-radius: $border-radius-small;
-                background-color: $color-medium-gray;
-
-                button {
-                  width: 100%;
-                  margin-bottom: 10px;
-                  display: block;
-                  text-align: left;
-
-                  .city-x {
-                    color: $color-dark-gray;
-                    font-size: 12px;
-                  }
-                }
-              }
             }
-          }
         }
-      }
     }
-  }
 }
